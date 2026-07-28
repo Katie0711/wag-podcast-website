@@ -1,0 +1,127 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EqBars from "../../../components/EqBars.astro";
+import Breadcrumb from "../../../components/Breadcrumb.astro";
+import { insiderHref } from "../../../lib/insiderLink";
+
+const videoId = "IJu1eGaUSqA";
+const episodeUrl = "https://wildadventuregirls.com/podcast/episodes/guess-the-imposter-party-game-iju1egausqa";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is the Guess the Imposter game?",
+      acceptedAnswer: { "@type": "Answer", text: "A party game where everyone gets a secret role except one imposter who's faking it — the group asks questions and tries to catch the imposter before the reveal, similar to games like Among Us." },
+    },
+    {
+      "@type": "Question",
+      name: "Is Guess the Imposter boys vs. girls in this episode?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes — this episode's version splits into boys vs. girls as they try to catch the imposter before time runs out." },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Guess the Imposter — WAG Podcast Games"
+  description="How to play Guess the Imposter, the party game WAG Podcast plays boys vs. girls — real rules, plus the real episode where they played it."
+  ogImage="/images/studio/wag-studio-466.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="game-hero">
+    <div class="container hero-inner" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Games", href: "/games/" }, { label: "Guess the Imposter", href: "/games/guess-the-imposter/" }]} />
+      <p class="eyebrow"><EqBars size="sm" /> WAG Podcast Games</p>
+      <h1>Guess the <span class="text-accent">Imposter.</span></h1>
+      <p class="lede">Boys vs. girls. Someone in the group is faking their role — everyone else has to catch them before time runs out.</p>
+    </div>
+  </section>
+
+  <section class="how-to-play">
+    <div class="container" data-reveal>
+      <p class="eyebrow">How to Play</p>
+      <p>Everyone in the group gets a secret role — except one person, the imposter, who's faking it. The group asks questions and tries to catch the imposter based on their answers, before a final reveal. It's the same core idea as games like Among Us, played out loud in person. In WAG's version, it splits into boys vs. girls, racing to catch the other side's imposter first.</p>
+    </div>
+  </section>
+
+  <section class="game-video">
+    <div class="container" data-reveal>
+      <p class="eyebrow">Watch It Happen</p>
+      <div class="embed-wrap">
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title="Guess The Imposter (Boys vs Girls)"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="video-caption">Watch the full episode on <a href={episodeUrl}>the main WAG site →</a></p>
+    </div>
+  </section>
+
+  <section class="more-games">
+    <div class="container" data-reveal>
+      <p>More WAG Podcast games: <a href="/games/whos-most-likely-to/">Who's Most Likely To →</a> · <a href="/games/heads-up/">Heads Up →</a></p>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("games-imposter")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .game-hero{ padding: 40px 0 8px; }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .game-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; margin:.3em 0; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .how-to-play{ padding: 24px 0 40px; }
+  .how-to-play .eyebrow{ margin-bottom:12px; }
+  .how-to-play p{ font-size:1.05rem; max-width:70ch; color: var(--ink-soft); }
+
+  .game-video{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }
+  .game-video .eyebrow{ margin-bottom:16px; }
+  .embed-wrap{
+    position:relative; width:100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow:hidden;
+    border: 2px solid transparent;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  }
+  .embed-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .video-caption{ margin-top:16px; font-size:.94rem; }
+  .video-caption a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .more-games{ padding: 8px 0 8px; }
+  .more-games p{ font-size:1rem; margin:0; }
+  .more-games a{ color: var(--wag-green); font-weight:600; }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+</style>

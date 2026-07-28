@@ -1,0 +1,222 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { insiderHref } from "../../lib/insiderLink";
+
+// One real episode, built into one exceptional resource rather than
+// split into a thin "transcript" page and a separate "topic" page. All
+// facts below are sourced from the real, already-published episode
+// content on wildadventuregirls.com -- nothing invented. A full
+// verbatim transcript isn't included yet (a live fetch of YouTube's
+// own auto-captions was attempted and failed on a signed-URL/session
+// restriction) -- flagged honestly below rather than faked.
+const videoId = "LjuXuymi-LY";
+const episodeUrl = "https://wildadventuregirls.com/podcast/episodes/teens-answer-mental-health-questions-ljuxuymi-ly";
+
+const topics = [
+  "Burnout",
+  "School stress",
+  "Social media's impact",
+  "What actually helps when things feel heavy",
+];
+
+const questions = [
+  {
+    q: "What do teens actually say about mental health in this episode?",
+    a: "A group of teens gives unfiltered answers about burnout, school stress, social media's impact, and what actually helps when things feel heavy — not scripted talking points.",
+  },
+  {
+    q: "Is this episode just WAG talking, or real teens?",
+    a: "WAG sat down with a group of teens specifically for this episode to get outside perspectives, not just their own — this isn't the three hosts talking among themselves.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: questions.map((q) => ({
+    "@type": "Question",
+    name: q.q,
+    acceptedAnswer: { "@type": "Answer", text: q.a },
+  })),
+};
+
+const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Teens Answer Mental Health Questions...",
+  description: "WAG sat down with a group of teens to get unfiltered answers about burnout, school stress, social media's impact, and what actually helps when things feel heavy.",
+  embedUrl: `https://www.youtube.com/embed/${videoId}`,
+  thumbnailUrl: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+};
+---
+
+<BaseLayout
+  title="Teen Mental Health, Real Talk — WAG Podcast"
+  description="WAG Podcast sat down with a group of teens to talk honestly about burnout, school stress, social media, and what actually helps — unfiltered, not scripted."
+  ogImage="/images/studio/wag-studio-440.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
+
+  <section class="mh-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-440.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-440.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> Real Talk</p>
+      <h1>Teen mental health, <span class="text-accent">unfiltered.</span></h1>
+      <p class="lede">WAG sat down with a group of real teens — not just the three hosts — to talk honestly about the one thing no one wants to bring up.</p>
+    </div>
+  </section>
+
+  <section class="mh-intro">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Teen Mental Health, Real Talk", href: "/mental-health/" }]} />
+    </div>
+  </section>
+
+  <section class="mh-video">
+    <div class="container" data-reveal>
+      <div class="embed-wrap">
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title="Teens Answer Mental Health Questions..."
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="mh-covers">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> What This Episode Covers</p>
+      <div class="topics-grid">
+        {topics.map((t) => <div class="topic-chip">{t}</div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="mh-questions">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow">Key Questions</p>
+      <div class="questions-list">
+        {questions.map((q) => (
+          <div class="question-item">
+            <h2>{q.q}</h2>
+            <p>{q.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="mh-transcript">
+    <div class="container" data-reveal>
+      <p class="eyebrow">Full Transcript</p>
+      <p class="transcript-note">A full transcript of this conversation isn't published yet — check back, or watch the real episode above in the meantime.</p>
+    </div>
+  </section>
+
+  <section class="mh-related">
+    <div class="container" data-reveal>
+      <p class="eyebrow">Related</p>
+      <ul class="related-list">
+        <li><a href="/topics/growing-up/">More real stories about actually being a teenager →</a></li>
+        <li><a href="/guys-answer-questions/">Guys Answer Questions — another real, unfiltered format →</a></li>
+        <li><a href={episodeUrl}>Watch the full episode on the main WAG site →</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="mh-resources">
+    <div class="container">
+      <p>If you or someone you know is struggling, the <a href="https://988lifeline.org/" target="_blank" rel="noopener">988 Suicide & Crisis Lifeline</a> is free, confidential, and available 24/7 by call or text.</p>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("mental-health")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .mh-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:24px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .mh-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .mh-intro{ padding: 0 0 8px; }
+
+  .mh-video{ padding: 8px 0 40px; }
+  .embed-wrap{
+    position:relative; width:100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow:hidden;
+    border: 2px solid transparent;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  }
+  .embed-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+  .mh-covers{ padding: 8px 0 40px; }
+  .mh-covers .eyebrow{ margin-bottom:16px; }
+  .topics-grid{ display:flex; flex-wrap:wrap; gap:10px; }
+  .topic-chip{
+    padding:.6em 1.3em; border-radius:999px; border:1px solid var(--line); background: var(--bg-alt);
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em; font-weight:600; font-size:.85rem;
+  }
+
+  .mh-questions{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }
+  .mh-questions .eyebrow{ margin-bottom:16px; }
+  .questions-list{ display:flex; flex-direction:column; }
+  .question-item{ padding:20px 0; border-bottom:1px solid var(--line); max-width:70ch; }
+  .question-item:first-child{ padding-top:0; }
+  .question-item h2{ font-size:1.08rem; margin-bottom:.5em; }
+  .question-item p{ font-size:.96rem; color: var(--ink-soft); margin:0; }
+
+  .mh-transcript{ padding: 32px 0 24px; }
+  .mh-transcript .eyebrow{ margin-bottom:12px; }
+  .transcript-note{ font-size:.96rem; color: var(--ink-muted); font-style:italic; max-width:60ch; }
+
+  .mh-related{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:32px; }
+  .mh-related .eyebrow{ margin-bottom:14px; }
+  .related-list{ list-style:none; padding:0; display:flex; flex-direction:column; gap:.6em; }
+  .related-list a{ color: var(--wag-green); font-weight:600; font-size:.98rem; }
+
+  .mh-resources{ padding: 16px 0 8px; }
+  .mh-resources p{ font-size:.9rem; color: var(--ink-muted); max-width:64ch; }
+  .mh-resources a{ color: var(--ink-muted); text-decoration:underline; }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+</style>

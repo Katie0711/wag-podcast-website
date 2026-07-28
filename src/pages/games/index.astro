@@ -1,0 +1,151 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { insiderHref } from "../../lib/insiderLink";
+
+// Real WAG Podcast IP -- three real party games the hosts have actually
+// played on camera, each with real, already-documented rules. Built as
+// its own property (not one article) since each game can compound with
+// future installments the same way Guys Answer Questions does.
+const games = [
+  {
+    slug: "guess-the-imposter",
+    name: "Guess the Imposter",
+    videoId: "IJu1eGaUSqA",
+    tagline: "Boys vs. girls. Someone's faking it.",
+  },
+  {
+    slug: "whos-most-likely-to",
+    name: "Who's Most Likely To",
+    videoId: "cmLI8UF39qQ",
+    tagline: "The votes always turn into real stories.",
+  },
+  {
+    slug: "heads-up",
+    name: "Heads Up (Cancelled Celebs)",
+    videoId: "_aaWeNHkN4M",
+    tagline: "Guess who's on your own forehead.",
+  },
+];
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Games — WAG Podcast",
+  url: "https://thewagpodcast.com/games/",
+  hasPart: {
+    "@type": "ItemList",
+    itemListElement: games.map((g, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: g.name,
+      url: `https://thewagpodcast.com/games/${g.slug}/`,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title="Games — WAG Podcast"
+  description="The real party games WAG Podcast actually plays on camera — how each one works, and the episode where they played it."
+  ogImage="/images/studio/wag-studio-466.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
+  <section class="games-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-466.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-466.jpg" alt="Angelina, Scarlett, and Annabella playing a game on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> WAG Podcast Games</p>
+      <h1>The games they <span class="text-accent">actually play.</span></h1>
+      <p class="lede">Real party games, played on camera, every time an episode calls for it. How each one works — and where to watch it happen.</p>
+    </div>
+  </section>
+
+  <section class="games-intro">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Games", href: "/games/" }]} />
+    </div>
+  </section>
+
+  <section class="games-list">
+    <div class="container" data-reveal="stagger">
+      <div class="games-grid">
+        {games.map((g) => (
+          <a class="game-card" href={`/games/${g.slug}/`}>
+            <div class="game-thumb">
+              <img src={`https://img.youtube.com/vi/${g.videoId}/mqdefault.jpg`} alt={g.name} loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h2>{g.name}</h2>
+              <p>{g.tagline}</p>
+              <span class="game-link">How to play →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("games")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .games-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .games-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .games-intro{ padding: 0 0 16px; }
+
+  .games-list{ padding: 0 0 24px; }
+  .games-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; }
+  .game-card{
+    display:block; border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--line);
+    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .game-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(165,235,14,.16); border-color: var(--wag-green); }
+  .game-thumb{ aspect-ratio: 16/9; overflow:hidden; }
+  .game-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .game-body{ padding:18px 20px 22px; }
+  .game-body h2{ font-size:1.1rem; margin-bottom:.5em; }
+  .game-body p{ font-size:.9rem; color: var(--ink-soft); margin-bottom:1em; }
+  .game-link{ font-weight:600; font-size:.86rem; color: var(--wag-green); }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 800px){
+    .games-grid{ grid-template-columns: 1fr; }
+  }
+</style>

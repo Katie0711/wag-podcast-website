@@ -1,0 +1,216 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { insiderHref } from "../../lib/insiderLink";
+
+// Real, recurring WAG Podcast format -- not an invented SEO concept.
+// Two real episodes exist so far, each with a real guy answering real
+// questions on camera. Built as a format hub, not an article, so it
+// compounds: each new installment gets added here as WAG keeps doing
+// this bit. Q&A content below is sourced directly from the real,
+// already-published FAQ facts on each episode's own page on
+// wildadventuregirls.com -- nothing invented, no new claims.
+const installments = [
+  {
+    number: 1,
+    title: "Guys Answer Questions Every Girl Secretly Wants to Ask...",
+    guest: "Ryan",
+    videoId: "UlOMu3Aql3Y",
+    url: "https://wildadventuregirls.com/podcast/episodes/questions-girls-want-to-ask-guys-ulomu3aql3y",
+    blurb: "The first installment — Ryan answers the questions every girl secretly wants to ask, on camera, unscripted.",
+  },
+  {
+    number: 2,
+    title: "Guys Answer Questions Girls are Too Afraid to Ask",
+    guest: "a second real guy",
+    videoId: "7ajsKON59TA",
+    url: "https://wildadventuregirls.com/podcast/episodes/questions-girls-are-too-afraid-to-ask-guys-7ajskon59ta",
+    blurb: "A different guy, a different round of questions — what compliments guys actually want, texting overthinking, and their biggest \"icks.\"",
+  },
+];
+
+const questions = [
+  { q: "Do guys overthink texting as much as girls do?", a: "According to the guy WAG interviewed for installment 2, yes — the episode has a full segment on how much guys actually overanalyze texts and reads from their crush." },
+  { q: "What makes a girl attractive to guys?", a: "Installment 2 covers this directly, along with guys' biggest \"icks\" and what actually makes them catch feelings — not just looks." },
+  { q: "What kind of questions do girls actually want to ask guys?", a: "Everything from dating and texting habits to the awkward, embarrassing, and random things girls wonder about but rarely ask directly — WAG put those exact questions to Ryan on camera in installment 1." },
+];
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Guys Answer Questions — WAG Podcast",
+  url: "https://thewagpodcast.com/guys-answer-questions/",
+  hasPart: {
+    "@type": "ItemList",
+    itemListElement: installments.map((ep) => ({
+      "@type": "ListItem",
+      position: ep.number,
+      name: ep.title,
+      url: ep.url,
+    })),
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: questions.map((q) => ({
+    "@type": "Question",
+    name: q.q,
+    acceptedAnswer: { "@type": "Answer", text: q.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Guys Answer Questions — WAG Podcast"
+  description="The real WAG Podcast format where a real guy answers the questions girls actually want asked — every installment, guest, and best question so far."
+  ogImage="/images/studio/wag-studio-301.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="gaq-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-301.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-301.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> A WAG Podcast Format</p>
+      <h1>Guys Answer <span class="text-accent">Questions.</span></h1>
+      <p class="lede">A real guy. Real questions girls actually want answered. No script, no filter. Here's every installment so far.</p>
+    </div>
+  </section>
+
+  <section class="gaq-intro">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Guys Answer Questions", href: "/guys-answer-questions/" }]} />
+      <p>Twice now, WAG has sat a real guy down and asked him the questions girls actually want answered — dating, texting, red flags, what guys really think. Each installment is a different guy, a different round of questions, same real format.</p>
+    </div>
+  </section>
+
+  <section class="installments">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow">The Installments</p>
+      <div class="installments-grid">
+        {installments.map((ep) => (
+          <a class="installment-card" href={ep.url}>
+            <div class="installment-thumb">
+              <img src={`https://img.youtube.com/vi/${ep.videoId}/mqdefault.jpg`} alt={ep.title} loading="lazy" />
+              <span class="installment-number">Installment {ep.number}</span>
+            </div>
+            <div class="installment-body">
+              <span class="installment-guest">Guest: {ep.guest}</span>
+              <h2>{ep.title}</h2>
+              <p>{ep.blurb}</p>
+              <span class="installment-link">Watch the episode →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <p class="more-note">New installments join this page every time WAG does this bit again.</p>
+    </div>
+  </section>
+
+  <section class="best-questions">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> Best Questions So Far</p>
+      <div class="questions-list">
+        {questions.map((q) => (
+          <div class="question-item">
+            <h3>{q.q}</h3>
+            <p>{q.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="gaq-cta">
+    <div class="container">
+      <p>Want to see the real reactions? <a href="/watch/">Watch WAG Podcast →</a> Or catch the recurring bits like this one on the <a href="/segments/">Segments page →</a></p>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("guys-answer-questions")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .gaq-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .gaq-hero h1{ font-size: clamp(2rem, 4.2vw, 3.2rem); max-width:20ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .gaq-intro{ padding: 0 0 32px; }
+  .gaq-intro p{ font-size:1.02rem; max-width:66ch; }
+
+  .installments{ padding: 0 0 12px; }
+  .installments .eyebrow{ margin-bottom:16px; }
+  .installments-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
+  .installment-card{
+    display:block; border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--line);
+    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .installment-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(255,22,200,.16); border-color: var(--wag-pink); }
+  .installment-thumb{ position:relative; aspect-ratio: 16/9; overflow:hidden; }
+  .installment-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .installment-number{
+    position:absolute; top:12px; left:12px; padding:.35em .9em; border-radius:999px;
+    background: rgba(11,11,12,.75); color:#fff; font-family: var(--font-display);
+    text-transform:uppercase; letter-spacing:.04em; font-size:.72rem; font-weight:700;
+  }
+  .installment-body{ padding:20px 22px 24px; }
+  .installment-guest{ font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em; font-size:.72rem; color: var(--wag-green); }
+  .installment-body h2{ font-size:1.05rem; margin:.5em 0; line-height:1.35; }
+  .installment-body p{ font-size:.9rem; color: var(--ink-soft); margin-bottom:1em; }
+  .installment-link{ font-weight:600; font-size:.86rem; color: var(--wag-green); }
+
+  .more-note{ margin-top:20px; font-size:.9rem; color: var(--ink-muted); font-style:italic; }
+
+  .best-questions{ padding: 40px 0 24px; border-top:1px solid var(--line); margin-top:32px; padding-top:40px; }
+  .best-questions .eyebrow{ margin-bottom:20px; }
+  .questions-list{ display:flex; flex-direction:column; gap:0; }
+  .question-item{ padding:22px 0; border-bottom:1px solid var(--line); max-width:70ch; }
+  .question-item:first-child{ padding-top:0; }
+  .question-item h3{ font-size:1.08rem; margin-bottom:.5em; }
+  .question-item p{ font-size:.96rem; color: var(--ink-soft); margin:0; }
+
+  .gaq-cta{ padding: 8px 0 8px; }
+  .gaq-cta p{ font-size:1rem; margin:0; }
+  .gaq-cta a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 700px){
+    .installments-grid{ grid-template-columns: 1fr; }
+  }
+</style>
