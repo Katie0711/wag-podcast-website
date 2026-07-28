@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Sponsor WAG Podcast"
+  description="Advertise or partner with WAG Podcast, a weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts."
+>
+  <div class="register-light sponsor-page">
+    <section class="sponsor-hero">
+      <div class="container">
+        <p class="eyebrow">Sponsor / Advertise</p>
+        <h1>Advertise with WAG Podcast.</h1>
+        <p class="lede">A weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts — hosted by three real teen girls with an established audience from The Wild Adventure Girls.</p>
+      </div>
+    </section>
+
+    <section class="sponsor-body">
+      <div class="container" data-reveal="stagger">
+        <div class="sponsor-block">
+          <h2>The audience</h2>
+          <p>WAG Podcast reaches the same core teen and tween audience that follows The Wild Adventure Girls — a brand with a real, established YouTube presence built over more than a decade. The podcast is the newest format in that ecosystem, released weekly on video and audio.</p>
+        </div>
+        <div class="sponsor-block">
+          <h2>Why brands work with WAG</h2>
+          <p>The Wild Adventure Girls has a documented track record of family-friendly, advertiser-safe content and real brand partnerships. For the full case studies, audience data, and past campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a> — the podcast is part of that same brand relationship, not a separate, unproven channel.</p>
+        </div>
+        <div class="sponsor-block">
+          <h2>Get in touch</h2>
+          <p>For podcast-specific sponsorship, ad placements, or partnership questions, reach out directly — pricing and inventory are discussed one-to-one, not published here.</p>
+          <a class="btn btn-primary" href="mailto:thewildadventuregirls@gmail.com?subject=WAG%20Podcast%20Sponsorship">Email thewildadventuregirls@gmail.com →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .sponsor-page{ background: var(--bg); }
+  .sponsor-hero{ padding: 64px 0 32px; border-bottom:1px solid var(--line); }
+  .sponsor-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .sponsor-body{ padding: 48px 0 72px; }
+  .sponsor-block{ max-width:70ch; margin-bottom:36px; }
+  .sponsor-block h2{ font-size:1.25rem; margin-bottom:.5em; }
+  .sponsor-block p{ font-size:1rem; margin-bottom:1em; }
+  .sponsor-block a:not(.btn){ color: var(--wag-pink-dark); font-weight:600; text-decoration:underline; }
+</style>

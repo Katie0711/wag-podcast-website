@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const platforms = [
+  { name: "Spotify", href: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb", note: "Full episodes, audio-only, new one every week." },
+  { name: "Apple Podcasts", href: "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489", note: "Same weekly episodes, audio-only." },
+  { name: "YouTube", href: "https://www.youtube.com/@WAGPodcast", note: "The original video-first version, if audio ever leaves you wanting the reactions too." },
+];
+---
+
+<BaseLayout
+  title="Listen — WAG Podcast"
+  description="Where to listen to WAG Podcast: Spotify and Apple Podcasts for audio-only episodes, released weekly."
+>
+  <section class="listen-hero">
+    <div class="container">
+      <p class="eyebrow">Listen</p>
+      <h1>Prefer audio? It's here too.</h1>
+      <p class="lede">WAG Podcast is filmed for video first, but every episode also goes up as audio-only on Spotify and Apple Podcasts — same conversation, no screen required.</p>
+    </div>
+  </section>
+
+  <section class="platforms">
+    <div class="container" data-reveal="stagger">
+      {platforms.map((p) => (
+        <a class="platform-card" href={p.href} target="_blank" rel="noopener">
+          <h2>{p.name}</h2>
+          <p>{p.note}</p>
+          <span class="platform-cta">Open {p.name} →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="spotify-embed">
+    <div class="container" data-reveal>
+      <iframe
+        src="https://open.spotify.com/embed/show/3tl7szlcJ5eFDqS7cbw6Kb"
+        title="WAG Podcast on Spotify"
+        width="100%"
+        height="232"
+        loading="lazy"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      ></iframe>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .listen-hero{ padding: 64px 0 32px; border-bottom:1px solid var(--line); }
+  .listen-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .lede{ font-size:1.1rem; max-width:60ch; }
+
+  .platforms{ padding: 48px 0 24px; }
+  .platforms .container{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+  .platform-card{
+    display:block; padding:24px 26px; border-radius: var(--radius); border:1px solid var(--line);
+    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .15s ease;
+  }
+  .platform-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--wag-green); }
+  .platform-card h2{ font-size:1.2rem; margin-bottom:.4em; }
+  .platform-card p{ font-size:.9rem; margin-bottom:1em; }
+  .platform-cta{ font-weight:600; font-size:.88rem; color: var(--wag-green); }
+
+  .spotify-embed{ padding: 24px 0 72px; }
+  .spotify-embed iframe{ border-radius: var(--radius); border:1px solid var(--line); display:block; }
+
+  @media (max-width: 760px){
+    .platforms .container{ grid-template-columns:1fr; }
+  }
+</style>

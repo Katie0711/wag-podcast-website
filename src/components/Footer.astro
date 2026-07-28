@@ -1,0 +1,88 @@
+---
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  { href: "/about/", label: "About" },
+  { href: "/hosts/", label: "Hosts" },
+  { href: "/watch/", label: "Watch" },
+  { href: "/listen/", label: "Listen" },
+  { href: "/sponsor/", label: "Sponsor" },
+];
+
+const listenLinks = [
+  { href: "https://www.youtube.com/@WAGPodcast", label: "YouTube" },
+  { href: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb", label: "Spotify" },
+  { href: "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489", label: "Apple Podcasts" },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-brand">
+          <img src="/images/logo.png" alt="WAG Podcast" class="footer-logo" />
+        </a>
+        <p class="footer-tagline">WAG Podcast, from <a href="https://wildadventuregirls.com/">The Wild Adventure Girls</a> — a weekly video podcast hosted by Angelina, Scarlett, and Annabella.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          {footerLinks.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <ul class="footer-social">
+        {listenLinks.map((s) => (
+          <li><a href={s.href} target="_blank" rel="noopener">{s.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} The Wild Adventure Girls, Inc. All rights reserved. WAG PODCAST&trade; is a trademark (registration pending) of The Wild Adventure Girls, Inc.</p>
+      <p class="footer-legal-links"><a href="https://wildadventuregirls.com/privacy/">Privacy Policy</a> &middot; <a href="https://wildadventuregirls.com/terms/">Terms of Service</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer{
+    background: var(--wag-black);
+    color: #fff;
+    padding: 56px 0 28px;
+  }
+  .footer-top{
+    display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:space-between;
+    gap:32px; padding-bottom:32px; border-bottom:1px solid #2A2A2E;
+  }
+  .footer-logo{ height:44px; }
+  .footer-brand-col{ max-width:300px; display:flex; flex-direction:column; gap:14px; }
+  .footer-tagline{ color:#8A8A94; font-size:.85rem; line-height:1.5; margin:0; }
+  .footer-tagline a{ color:#B4B4C4; text-decoration:underline; }
+  .footer-tagline a:hover{ color:#fff; }
+  .footer-nav ul{ display:flex; flex-wrap:wrap; gap:20px 28px; }
+  .footer-nav a{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em;
+    font-weight:600; font-size:.9rem; color:#fff;
+  }
+  .footer-nav a:hover{ color: var(--wag-green); }
+  .footer-social{ display:flex; gap:20px; }
+  .footer-social a{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em;
+    font-weight:600; font-size:.9rem; color:#fff;
+  }
+  .footer-social a:hover{ color: var(--wag-pink); }
+
+  .footer-bottom{ padding-top:24px; }
+  .footer-bottom p{ color:#8A8A94; font-size:.8rem; margin:0; line-height:1.6; }
+  .footer-legal-links{ margin-top:.6em !important; }
+  .footer-legal-links a{ color:#8A8A94; }
+  .footer-legal-links a:hover{ color:#fff; }
+
+  @media (max-width: 640px){
+    .footer-top{ flex-direction:column; }
+  }
+</style>

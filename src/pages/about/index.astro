@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="About WAG Podcast"
+  description="What WAG Podcast actually is: a weekly, video-first talk show hosted by three teen girls, its format, its topics, and how it fits into The Wild Adventure Girls."
+>
+  <section class="about-hero">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h1>What WAG Podcast actually is.</h1>
+      <p class="lede">The show, the format, and how it fits into the wider Wild Adventure Girls world.</p>
+    </div>
+  </section>
+
+  <section class="about-body">
+    <div class="container" data-reveal="stagger">
+      <div class="about-block">
+        <h2>A weekly, unscripted talk show</h2>
+        <p>WAG Podcast is a weekly video podcast hosted by Angelina, Scarlett, and Annabella. Every episode is filmed in their own studio — no writers' room, no script. It's the same real dynamic the three of them have off camera, just with a mic on: trending topics, viral dares, fan questions, and the kind of behind-the-scenes stories that don't make it into a normal video.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>Video-first, not audio-only</h2>
+        <p>Most podcasts are built for audio and treat video as an afterthought. WAG Podcast is the opposite — full episodes are shot for YouTube first, then released as audio-only versions on Spotify and Apple Podcasts for anyone who'd rather just listen. If you've never watched a podcast before, this is built to be watched.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>What topics come up</h2>
+        <p>There's no fixed theme episode to episode — that's on purpose, since real conversations don't work that way. Recurring territory includes trending topics and pop culture, friendship and relationship questions, real talk about tough stuff, party games and challenges, and behind-the-scenes stories from filming Wild Adventure Girls content.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>How it relates to The Wild Adventure Girls</h2>
+        <p>WAG Podcast is published by <a href="https://wildadventuregirls.com/">The Wild Adventure Girls</a> — the teen entertainment brand Angelina, Scarlett, and Annabella built on YouTube making adventure, mystery-investigation, and challenge content. The podcast is a separate show with its own format and its own weekly release, not a repackaged version of that content. Full episode-by-episode coverage — every episode's own page, topic hubs, and companion articles — lives on the main WAG site; this site is the show's own home.</p>
+      </div>
+
+      <div class="about-block">
+        <h2>Who's behind it</h2>
+        <p>Angelina, Scarlett, and Annabella are real sisters and a cousin, not a cast brought together for a show. <a href="/hosts/">Meet the hosts →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-cta">
+    <div class="container">
+      <a class="btn btn-accent" href="/watch/">Watch an Episode →</a>
+      <a class="btn btn-outline" href="/listen/">Listen Now →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero{ padding: 64px 0 32px; border-bottom:1px solid var(--line); }
+  .about-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .lede{ font-size:1.1rem; max-width:60ch; }
+
+  .about-body{ padding: 48px 0; }
+  .about-block{ max-width:70ch; margin-bottom:40px; }
+  .about-block h2{ font-size:1.3rem; margin-bottom:.5em; }
+  .about-block p{ font-size:1rem; }
+  .about-block a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .about-cta{ padding: 8px 0 72px; display:flex; gap:16px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:40px; }
+  .btn-outline{ border-color: var(--ink); }
+  .btn-outline:hover{ background: var(--ink); color: var(--bg); }
+</style>

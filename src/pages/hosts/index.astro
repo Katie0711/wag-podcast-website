@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Podcast-specific: their on-show roles and dynamic, not a rewrite of
+// their full WAG bios (those stay authoritative at
+// wildadventuregirls.com/girls/[name] -- linked below, not duplicated).
+const hosts = [
+  {
+    name: "Annabella",
+    role: "The Wild Card",
+    photo: "/images/annabella-thumb.jpg",
+    photoWebp: "/images/annabella-thumb.webp",
+    bio: "Her reactions are the moments that get clipped and turned into memes. Annabella's the one who says the thing everyone's thinking before anyone else does.",
+    profileUrl: "https://wildadventuregirls.com/girls/annabella/",
+  },
+  {
+    name: "Scarlett",
+    role: "The Quick-Witted Instigator",
+    photo: "/images/scarlett-thumb.jpg",
+    photoWebp: "/images/scarlett-thumb.webp",
+    bio: "Her one-liners become the soundbites everyone quotes. Scarlett's the one who asks the question that actually gets an honest answer.",
+    profileUrl: "https://wildadventuregirls.com/girls/scarlett/",
+  },
+  {
+    name: "Angelina",
+    role: "The Voice of Reason",
+    photo: "/images/angelina-thumb.jpg",
+    photoWebp: "/images/angelina-thumb.webp",
+    bio: "She's the one who keeps the conversation actually going somewhere. Angelina makes every episode relatable instead of chaotic for its own sake.",
+    profileUrl: "https://wildadventuregirls.com/girls/angelina/",
+  },
+];
+---
+
+<BaseLayout
+  title="Hosts — WAG Podcast"
+  description="Meet the three hosts of WAG Podcast: Angelina, Scarlett, and Annabella — real sisters and a cousin, not a cast."
+>
+  <section class="hosts-hero">
+    <div class="container">
+      <p class="eyebrow">Hosts</p>
+      <h1>Three personalities. Zero filter.</h1>
+      <p class="lede">Angelina, Scarlett, and Annabella — real sisters and a cousin, so the dynamic on screen is a real family relationship, not a cast assembled for a show.</p>
+    </div>
+  </section>
+
+  <section class="hosts-list">
+    <div class="container" data-reveal="stagger">
+      {hosts.map((h) => (
+        <div class="host-row">
+          <picture>
+            <source srcset={h.photoWebp} type="image/webp" />
+            <img src={h.photo} alt={h.name} loading="lazy" />
+          </picture>
+          <div class="host-row-body">
+            <span class="host-role">{h.role}</span>
+            <h2>{h.name}</h2>
+            <p>{h.bio}</p>
+            <a class="host-profile-link" href={h.profileUrl}>Full profile on Wild Adventure Girls →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="hosts-cta">
+    <div class="container">
+      <p>See them in action. <a href="/watch/">Watch an episode →</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hosts-hero{ padding: 64px 0 32px; border-bottom:1px solid var(--line); }
+  .hosts-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .lede{ font-size:1.1rem; max-width:60ch; }
+
+  .hosts-list{ padding: 48px 0; display:flex; flex-direction:column; gap:36px; }
+  .host-row{ display:grid; grid-template-columns: 220px 1fr; gap:32px; align-items:center; }
+  .host-row picture{ display:block; border-radius: var(--radius-lg); overflow:hidden; aspect-ratio: 4/5; }
+  .host-row img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
+  .host-role{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em;
+    font-size:.78rem; font-weight:700; color: var(--wag-green);
+  }
+  .host-row h2{ font-size:1.8rem; margin:.15em 0 .4em; }
+  .host-row p{ font-size:1rem; max-width:56ch; margin-bottom:.8em; }
+  .host-profile-link{ color: var(--wag-pink); font-weight:600; font-size:.92rem; }
+
+  .hosts-cta{ padding: 8px 0 72px; border-top:1px solid var(--line); padding-top:32px; }
+  .hosts-cta p{ font-size:1rem; margin:0; }
+  .hosts-cta a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  @media (max-width: 640px){
+    .host-row{ grid-template-columns:1fr; }
+    .host-row picture{ max-width:220px; }
+  }
+</style>

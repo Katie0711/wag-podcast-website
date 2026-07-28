@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Deliberately one representative embed, not an episode archive -- every
+// episode already has its own page on wildadventuregirls.com and stays
+// authoritative there. This page answers "where/how do I watch," not
+// "show me every episode."
+---
+
+<BaseLayout
+  title="Watch — WAG Podcast"
+  description="WAG Podcast is filmed weekly and posted to YouTube first. Here's where to watch, and a real episode to start with."
+>
+  <section class="watch-hero">
+    <div class="container">
+      <p class="eyebrow">Watch</p>
+      <h1>Video-first. That's the whole point.</h1>
+      <p class="lede">Full episodes are filmed in the girls' own studio every week and posted to YouTube before anywhere else — you see the reactions, not just hear them.</p>
+      <a class="btn btn-accent" href="https://www.youtube.com/@WAGPodcast" target="_blank" rel="noopener">Subscribe on YouTube →</a>
+    </div>
+  </section>
+
+  <section class="watch-embed">
+    <div class="container" data-reveal>
+      <p class="eyebrow">Start Here</p>
+      <div class="embed-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/IJu1eGaUSqA"
+          title="WAG Podcast episode"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="embed-caption">Want the full archive? Every WAG Podcast episode has its own page on <a href="https://wildadventuregirls.com/podcast/">the main WAG site →</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .watch-hero{ padding: 64px 0 32px; border-bottom:1px solid var(--line); }
+  .watch-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; margin-bottom:.3em; }
+  .lede{ font-size:1.1rem; max-width:60ch; margin-bottom:1.4em; }
+
+  .watch-embed{ padding: 48px 0 72px; }
+  .embed-wrap{ position:relative; width:100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow:hidden; border:1px solid var(--line); }
+  .embed-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .embed-caption{ margin-top:20px; font-size:.96rem; }
+  .embed-caption a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+</style>

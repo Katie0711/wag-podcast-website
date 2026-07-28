@@ -1,0 +1,155 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage = "/images/podcast-hero.jpg" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://thewagpodcast.com");
+// "WAG Podcast" is the show/brand name -- the domain contains "the" but
+// the entity name does not. Never let that suffix drift into "The WAG
+// Podcast" anywhere in generated titles/schema.
+const fullTitle = title.includes("WAG Podcast") || title.length > 45 ? title : `${title} | WAG Podcast`;
+
+// Same deferred-activation pattern as wildadventuregirls.com: defaults to
+// noindex so this never competes with (or gets indexed ahead of) the real
+// domain while still on Netlify's *.netlify.app staging URL. Flip
+// ALLOW_INDEXING=true as a site env var at go-live.
+const allowIndexing = process.env.ALLOW_INDEXING === "true";
+
+// Explicit entity relationship: WAG Podcast is published by The Wild
+// Adventure Girls (same @id the main site's own Organization schema
+// uses), not a separate, unrelated brand. This is the machine-readable
+// answer to "how is WAG Podcast related to Wild Adventure Girls."
+const podcastSchema = {
+  "@context": "https://schema.org",
+  "@type": "PodcastSeries",
+  "@id": "https://thewagpodcast.com/#podcast",
+  name: "WAG Podcast",
+  url: "https://thewagpodcast.com",
+  description: "A weekly video podcast hosted by Angelina, Scarlett, and Annabella of The Wild Adventure Girls — trending topics, real conversations, and unfiltered teen talk, filmed in their own studio.",
+  inLanguage: "en-US",
+  image: "https://thewagpodcast.com/images/podcast-hero.jpg",
+  webFeed: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb",
+  publisher: {
+    "@type": "Organization",
+    "@id": "https://wildadventuregirls.com/#organization",
+    name: "The Wild Adventure Girls",
+    url: "https://wildadventuregirls.com",
+  },
+  // Each host's `url` is their authoritative WAG profile page -- that's
+  // the correct schema.org property for "this entity's own page," not
+  // sameAs (reserved for genuine external identity references, e.g. a
+  // personal social account, not another page on a WAG-controlled
+  // domain). Deliberately no bio/jobTitle duplication here; the Hosts
+  // page covers that.
+  actor: [
+    { "@type": "Person", name: "Angelina", url: "https://wildadventuregirls.com/girls/angelina/" },
+    { "@type": "Person", name: "Scarlett", url: "https://wildadventuregirls.com/girls/scarlett/" },
+    { "@type": "Person", name: "Annabella", url: "https://wildadventuregirls.com/girls/annabella/" },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {!allowIndexing && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site ?? "https://thewagpodcast.com")} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="WAG Podcast" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site ?? "https://thewagpodcast.com")} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Khand:wght@400;500;600;700&family=Concert+One&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Khand:wght@400;500;600;700&family=Concert+One&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Khand:wght@400;500;600;700&family=Concert+One&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <script type="application/ld+json" set:html={JSON.stringify(podcastSchema)} />
+
+    <!--
+      Analytics deliberately not wired yet. Per the Phase 1 plan: this
+      needs to be ONE GA4 property with TWO data streams (this domain +
+      wildadventuregirls.com) and cross-domain measurement configured
+      between them, not a separate, unlinked property -- otherwise
+      traffic between the two sites shows up as unrelated referral
+      sessions instead of one continuous session. Waiting on Katie to
+      confirm before creating anything in the Google account.
+    -->
+
+    <ClientRouter />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      function initReveal() {
+        const els = document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-revealed)");
+        if (!els.length) return;
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          els.forEach((el) => el.classList.add("is-revealed"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-revealed");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+        );
+        els.forEach((el) => observer.observe(el));
+      }
+
+      initReveal();
+      document.addEventListener("astro:page-load", initReveal);
+    </script>
+  </body>
+</html>
