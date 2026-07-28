@@ -39,7 +39,7 @@ const segments = [
 
 <BaseLayout
   title="WAG Podcast — A Weekly Video Podcast Hosted by Three Teen Girls"
-  description="WAG Podcast is a weekly video podcast from The Wild Adventure Girls — Angelina, Scarlett, and Annabella, unfiltered and unscripted, filmed in their own studio."
+  description="WAG Podcast is one of the teen podcasts actually made by teens — a weekly video show from The Wild Adventure Girls, unfiltered and unscripted, filmed in their own studio."
 >
   <!-- What it is -->
   <section class="hero">
@@ -67,7 +67,7 @@ const segments = [
   <!-- Who it's for -->
   <section class="who-for">
     <div class="container" data-reveal>
-      <p class="who-for-text">Made for a teen audience, by teens — not a general talk show with a teen panel bolted on. If your group chat is funnier than most podcasts, this is the show that sounds like it.</p>
+      <p class="who-for-text">Made for a teen audience, by teens — not a general talk show with a teen panel bolted on. Most podcasts for teens are adults talking about teens; this is one of the few actually run by them.</p>
     </div>
   </section>
 
@@ -144,6 +144,39 @@ const segments = [
             <a href={p.href} target="_blank" rel="noopener">{p.name}</a>
           ))}
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore -->
+  <section class="explore">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> Explore WAG Podcast</p>
+      <div class="explore-grid">
+        <a class="explore-card" href="/topics/growing-up/">
+          <h3>Growing Up Stories</h3>
+          <p>The real, chaotic coming-of-age episodes — grounded, suspended, prom disasters.</p>
+        </a>
+        <a class="explore-card" href="/teen-comedy-podcast/">
+          <h3>Teen Comedy Podcast</h3>
+          <p>Dares, roasts, and hot takes — the comedy built into every episode.</p>
+        </a>
+        <a class="explore-card" href="/video-podcasts-for-teens/">
+          <h3>Why Video-First</h3>
+          <p>Filmed for YouTube first, not an audio show with a camera added later.</p>
+        </a>
+        <a class="explore-card" href="/segments/">
+          <h3>Recurring Segments</h3>
+          <p>What Squad Dares, Tell Me the Truth, and the 3-Second Roast actually are.</p>
+        </a>
+        <a class="explore-card" href="/faq/">
+          <h3>FAQ</h3>
+          <p>Quick answers — who hosts it, where to watch, how it fits into WAG.</p>
+        </a>
+        <a class="explore-card" href="/wag-predicted-it/">
+          <h3>WAG Predicted It</h3>
+          <p>The real, on-camera predictions the hosts have made — go see if they called it.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -249,6 +282,17 @@ const segments = [
   }
   .follow-links a:hover::after{ right:0; }
 
+  .explore{ padding: 24px 0 8px; border-top:1px solid var(--line); padding-top:48px; }
+  .explore .eyebrow{ margin-bottom:20px; }
+  .explore-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; }
+  .explore-card{
+    display:block; padding:22px 24px; border-radius: var(--radius); border:1px solid var(--line);
+    background: var(--bg-alt); transition: border-color .2s ease, transform .2s ease;
+  }
+  .explore-card:hover{ border-color: var(--wag-pink); transform: translateY(-3px); }
+  .explore-card h3{ font-size:1.05rem; margin-bottom:.4em; }
+  .explore-card p{ font-size:.86rem; color: var(--ink-muted); margin:0; }
+
   .join{ padding: 8px 0 56px; }
   .join-inner{
     padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
@@ -268,10 +312,12 @@ const segments = [
 
   @media (max-width: 900px){
     .segments-grid{ grid-template-columns: 1fr 1fr; }
+    .explore-grid{ grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 760px){
     .hosts-grid{ grid-template-columns:1fr; max-width:340px; margin:20px auto; }
     .why-different .container{ grid-template-columns:1fr; }
     .segments-grid{ grid-template-columns:1fr; }
+    .explore-grid{ grid-template-columns:1fr; }
   }
 </style>

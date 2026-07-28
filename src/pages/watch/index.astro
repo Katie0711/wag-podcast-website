@@ -1,17 +1,33 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
+import { getPodcastEpisodes, getPodcastClips } from "../../lib/youtube";
 import { insiderHref } from "../../lib/insiderLink";
 
-// Deliberately one representative embed, not an episode archive -- every
-// episode already has its own page on wildadventuregirls.com and stays
-// authoritative there. This page answers "where/how do I watch," not
-// "show me every episode."
+// Real, live data straight from the WAG Podcast YouTube channel feed --
+// re-fetched on every build, never hand-maintained. This is the site's
+// video-first flagship page, so it earns the most real content of any
+// page here: featured episode -> recent episodes -> moments/clips ->
+// recurring formats -> YouTube CTA. Full episode archive still stays
+// canonical on wildadventuregirls.com; this sends viewers straight to
+// YouTube rather than guessing at main-site episode-page slugs.
+const episodes = await getPodcastEpisodes(6);
+const [featured, ...rest] = episodes;
+const recentEpisodes = rest.slice(0, 3);
+const clips = await getPodcastClips(6);
+
+const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+function truncate(text: string, max = 160) {
+  const clean = text.replace(/\s+/g, " ").trim();
+  return clean.length > max ? clean.slice(0, max).replace(/\s+\S*$/, "").trim() + "…" : clean;
+}
 ---
 
 <BaseLayout
   title="Watch — WAG Podcast"
-  description="WAG Podcast is filmed weekly and posted to YouTube first. Here's where to watch, and a real episode to start with."
+  description="WAG Podcast is filmed weekly and posted to YouTube first. Watch the newest episode, catch up on recent ones, and see real moments from the show."
+  ogImage="/images/studio/wag-studio-111.jpg"
 >
   <section class="watch-hero">
     <div class="hero-photo">
@@ -29,19 +45,81 @@ import { insiderHref } from "../../lib/insiderLink";
     </div>
   </section>
 
-  <section class="watch-embed">
-    <div class="container" data-reveal>
-      <p class="eyebrow">Start Here</p>
-      <div class="embed-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/IJu1eGaUSqA"
-          title="WAG Podcast episode"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+  {featured && (
+    <section class="featured-section">
+      <div class="container" data-reveal>
+        <p class="eyebrow"><EqBars size="sm" /> Newest Episode</p>
+        <div class="embed-wrap">
+          <iframe
+            src={`https://www.youtube.com/embed/${featured.videoId}`}
+            title={featured.title}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <h2 class="featured-title">{featured.title}</h2>
+        <p class="featured-date">{dateFmt.format(new Date(featured.publishedAt))}</p>
       </div>
-      <p class="embed-caption">Want the full archive? Every WAG Podcast episode has its own page on <a href="https://wildadventuregirls.com/podcast/">the main WAG site →</a></p>
+    </section>
+  )}
+
+  {recentEpisodes.length > 0 && (
+    <section class="recent-section">
+      <div class="container" data-reveal="stagger">
+        <p class="eyebrow">Catch Up</p>
+        <h2>Recent episodes.</h2>
+        <div class="recent-grid">
+          {recentEpisodes.map((ep) => (
+            <a class="recent-card" href={`https://www.youtube.com/watch?v=${ep.videoId}`} target="_blank" rel="noopener">
+              <div class="recent-thumb">
+                <img src={ep.thumbnailUrl} alt={ep.title} loading="lazy" />
+                <span class="play-icon" aria-hidden="true">▶</span>
+              </div>
+              <div class="recent-body">
+                <span class="recent-date">{dateFmt.format(new Date(ep.publishedAt))}</span>
+                <h3>{ep.title}</h3>
+                <p>{truncate(ep.description)}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {clips.length > 0 && (
+    <section class="clips-section">
+      <div class="container" data-reveal="stagger">
+        <p class="eyebrow">Real Moments</p>
+        <h2>Quick hits from the show.</h2>
+        <div class="clips-grid">
+          {clips.map((c) => (
+            <a class="clip-card" href={c.shortUrl} target="_blank" rel="noopener">
+              <img src={c.thumbnailUrl} alt={c.title} loading="lazy" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="formats-section">
+    <div class="container" data-reveal>
+      <div class="formats-inner">
+        <div>
+          <p class="eyebrow"><EqBars size="sm" /> Every Episode</p>
+          <h2>Squad Dares. 3-Second Roast. He Said What?!</h2>
+          <p>The recurring bits that show up again and again — see what each one actually is.</p>
+        </div>
+        <a class="btn btn-outline" href="/segments/">See the Segments →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="archive-note">
+    <div class="container">
+      <p>Want the full archive? Every WAG Podcast episode has its own page on <a href="https://wildadventuregirls.com/podcast/">the main WAG site →</a></p>
     </div>
   </section>
 
@@ -60,15 +138,16 @@ import { insiderHref } from "../../lib/insiderLink";
   .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 30%; display:block; }
   .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.75) 0%, transparent 45%); }
   .hero-inner{ max-width:68ch; }
-  .eyebrow{ display:inline-flex; align-items:center; gap:10px; }
-  .watch-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; margin-bottom:.3em; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .watch-hero h1{ font-size: clamp(2rem, 4.2vw, 3.4rem); max-width:20ch; margin-bottom:.3em; }
   .text-accent{
     background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   .lede{ font-size:1.1rem; max-width:60ch; margin-bottom:1.4em; }
 
-  .watch-embed{ padding: 48px 0 72px; }
+  .featured-section{ padding: 0 0 56px; }
+  .featured-section .eyebrow{ margin-bottom:16px; }
   .embed-wrap{
     position:relative; width:100%; aspect-ratio: 16/9; border-radius: var(--radius); overflow:hidden;
     border: 2px solid transparent;
@@ -76,12 +155,54 @@ import { insiderHref } from "../../lib/insiderLink";
       linear-gradient(var(--bg), var(--bg)) padding-box,
       linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
     box-shadow: 0 20px 50px rgba(0,0,0,.4);
+    margin-bottom:20px;
   }
   .embed-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
-  .embed-caption{ margin-top:20px; font-size:.96rem; }
-  .embed-caption a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+  .featured-title{ font-size: clamp(1.3rem, 2.6vw, 1.7rem); max-width:70ch; margin-bottom:.3em; }
+  .featured-date{ font-size:.9rem; color: var(--ink-muted); }
 
-  .join{ padding: 8px 0 72px; }
+  .recent-section{ padding: 8px 0 56px; border-top:1px solid var(--line); padding-top:48px; }
+  .recent-section h2{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: .2em 0 .8em; }
+  .recent-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:22px; }
+  .recent-card{
+    display:block; border-radius: var(--radius); overflow:hidden; border:1px solid var(--line);
+    background: var(--bg-alt); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .recent-card:hover{ transform: translateY(-3px); border-color: var(--wag-green); box-shadow: 0 16px 32px rgba(165,235,14,.14); }
+  .recent-thumb{ position:relative; aspect-ratio:16/9; overflow:hidden; }
+  .recent-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .play-icon{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:44px; height:44px; border-radius:50%; background: rgba(11,11,12,.7); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:.95rem;
+  }
+  .recent-body{ padding:16px 18px 20px; }
+  .recent-date{ font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em; font-size:.72rem; color: var(--wag-green); }
+  .recent-body h3{ font-size:.98rem; margin:.4em 0; line-height:1.35; }
+  .recent-body p{ font-size:.84rem; color: var(--ink-muted); margin:0; }
+
+  .clips-section{ padding: 8px 0 56px; border-top:1px solid var(--line); padding-top:48px; }
+  .clips-section h2{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: .2em 0 .8em; }
+  .clips-grid{ display:grid; grid-template-columns: repeat(6, 1fr); gap:12px; }
+  .clip-card{ display:block; border-radius: var(--radius-sm); overflow:hidden; }
+  .clip-card img{ width:100%; aspect-ratio:9/16; object-fit:cover; display:block; transition: transform .2s ease; }
+  .clip-card:hover img{ transform: scale(1.05); }
+
+  .formats-section{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }
+  .formats-inner{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+    padding:28px 30px; border-radius: var(--radius-lg); border:1px solid var(--line); background: var(--bg-alt);
+  }
+  .formats-inner h2{ font-size:1.25rem; margin:.3em 0; }
+  .formats-inner p{ font-size:.94rem; color: var(--ink-soft); margin:0; max-width:50ch; }
+  .btn-outline{ border-color: var(--ink); flex-shrink:0; }
+  .btn-outline:hover{ background: var(--ink); color: var(--bg); }
+
+  .archive-note{ padding: 8px 0 8px; }
+  .archive-note p{ font-size:.95rem; margin:0; }
+  .archive-note a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .join{ padding: 40px 0 72px; }
   .join-inner{
     padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
     display:flex; flex-direction:column; align-items:center; gap:14px;
@@ -93,4 +214,14 @@ import { insiderHref } from "../../lib/insiderLink";
   }
   .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
   .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 900px){
+    .recent-grid{ grid-template-columns: 1fr 1fr; }
+    .clips-grid{ grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 600px){
+    .recent-grid{ grid-template-columns: 1fr; }
+    .clips-grid{ grid-template-columns: repeat(3, 1fr); }
+    .formats-inner{ flex-direction:column; align-items:flex-start; }
+  }
 </style>

@@ -1,0 +1,47 @@
+---
+interface Crumb {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  items: Crumb[]; // full trail including the current page (last item renders as plain text)
+}
+
+const { items } = Astro.props;
+
+// Real hierarchy signal for both users and crawlers -- only rendered on
+// pages that actually sit under a parent (e.g. /topics/growing-up/),
+// not flat top-level pages like /about/. Includes the current page as
+// the final list item, per schema.org's own BreadcrumbList examples.
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.label,
+    item: new URL(item.href, "https://thewagpodcast.com").toString(),
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<p class="breadcrumb">
+  {items.map((item, i) => (
+    <>
+      {i < items.length - 1 ? <a href={item.href}>{item.label}</a> : <span aria-current="page">{item.label}</span>}
+      {i < items.length - 1 && " / "}
+    </>
+  ))}
+</p>
+
+<style>
+  .breadcrumb{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.04em;
+    font-size:.82rem; color: var(--ink-muted); margin-bottom:16px;
+  }
+  .breadcrumb a{ color: var(--ink-muted); }
+  .breadcrumb a:hover{ color: var(--wag-pink); }
+</style>

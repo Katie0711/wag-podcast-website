@@ -38,12 +38,34 @@ const segments = [
     examples: [],
   },
 ];
+
+// Real collection -- the show's actual recurring segments, sourced from
+// WAG's own sponsor deck (same source as Home). Schema represents
+// exactly the 4 items listed below, nothing more.
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Recurring Segments — WAG Podcast",
+  url: "https://thewagpodcast.com/segments/",
+  hasPart: {
+    "@type": "ItemList",
+    itemListElement: segments.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: s.name,
+      description: s.desc,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title="Recurring Segments — WAG Podcast"
   description="What are Squad Dares, Tell Me the Truth, He Said What?!, and the 3-Second Roast? A guide to the recurring segments fans actually wait for on WAG Podcast."
+  ogImage="/images/studio/wag-studio-53.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
   <section class="seg-hero">
     <div class="hero-photo">
       <picture>

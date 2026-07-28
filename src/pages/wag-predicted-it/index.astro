@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { insiderHref } from "../../lib/insiderLink";
+
+// Real, original WAG material -- three real episodes where the hosts
+// made actual on-camera predictions. Found via the Phase 2 catalog
+// audit; too small a set (3 episodes) to justify its own topic hub, but
+// a genuine, distinct thread worth pulling into one page. Deliberately
+// does NOT claim to score whether the predictions came true -- that's
+// not verified, and each episode already poses that as its own open
+// question. This page just collects the real predictions; the episode
+// is the source of truth.
+const predictions = [
+  {
+    title: "Who Gets Their First Kiss This Summer?",
+    videoId: "ko8HDrQp7LQ",
+    url: "https://wildadventuregirls.com/podcast/episodes/2026-predictions-first-kiss-and-teen-trends-ko8hdrqp7lq",
+    blurb: "Real 2026 predictions — first kiss, the trends, what the top YouTubers are doing.",
+  },
+  {
+    title: "If This Stranger Things Theory Is Right… Will Is Gone",
+    videoId: "JfJ6khURkrM",
+    url: "https://wildadventuregirls.com/podcast/episodes/will-byers-death-theory-stranger-things-jfj6khurkrm",
+    blurb: "A real theory on how Will Byers' story ends in Stranger Things.",
+  },
+  {
+    title: "We Predicted The ENDING of STRANGER THINGS!",
+    videoId: "dUtZhJS3qu0",
+    url: "https://wildadventuregirls.com/podcast/episodes/stranger-things-ending-predictions-dutzhjs3qu0",
+    blurb: "The wildest Season 5 theories, called out loud before the finale.",
+  },
+];
+---
+
+<BaseLayout
+  title="WAG Predicted It — WAG Podcast"
+  description="The real predictions WAG Podcast has made on camera — 2026 trends, a Stranger Things theory, and the show's own Season 5 ending predictions."
+  ogImage="/images/studio/wag-studio-221.jpg"
+>
+  <section class="pred-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-221.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-221.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> WAG Predicted It</p>
+      <h1>The real calls WAG Podcast made <span class="text-accent">on camera.</span></h1>
+      <p class="lede">Every so often, the hosts stop and make an actual prediction — out loud, on the record. Here are the real ones, so you can go check for yourself.</p>
+    </div>
+  </section>
+
+  <section class="pred-intro">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "WAG Predicted It", href: "/wag-predicted-it/" }]} />
+      <p>We're not scoring these — that's the fun part. Watch the real episode and decide for yourself whether they called it.</p>
+    </div>
+  </section>
+
+  <section class="predictions">
+    <div class="container" data-reveal="stagger">
+      <div class="predictions-grid">
+        {predictions.map((p) => (
+          <a class="pred-card" href={p.url}>
+            <div class="pred-thumb">
+              <img src={`https://img.youtube.com/vi/${p.videoId}/mqdefault.jpg`} alt={p.title} loading="lazy" />
+            </div>
+            <div class="pred-body">
+              <h2>{p.title}</h2>
+              <p>{p.blurb}</p>
+              <span class="pred-link">Watch the episode →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("wag-predicted-it")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .pred-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .pred-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:22ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .pred-intro{ padding: 0 0 32px; }
+  .pred-intro p{ font-size:1.02rem; max-width:64ch; }
+
+  .predictions{ padding: 0 0 24px; }
+  .predictions-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; }
+  .pred-card{
+    display:block; border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--line);
+    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .pred-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(255,22,200,.16); border-color: var(--wag-pink); }
+  .pred-thumb{ aspect-ratio: 16/9; overflow:hidden; }
+  .pred-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .pred-body{ padding:18px 20px 22px; }
+  .pred-body h2{ font-size:1.05rem; margin-bottom:.5em; line-height:1.35; }
+  .pred-body p{ font-size:.9rem; color: var(--ink-soft); margin-bottom:1em; }
+  .pred-link{ font-weight:600; font-size:.86rem; color: var(--wag-green); }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 900px){
+    .predictions-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px){
+    .predictions-grid{ grid-template-columns: 1fr; }
+  }
+</style>

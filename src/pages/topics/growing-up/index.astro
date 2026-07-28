@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import EqBars from "../../../components/EqBars.astro";
+import Breadcrumb from "../../../components/Breadcrumb.astro";
 import { insiderHref } from "../../../lib/insiderLink";
 
 // Real, unique topic hub -- NOT a duplicate of any of the 5 existing
@@ -55,12 +56,34 @@ const episodes = [
     blurb: "For every girl who's lived through the things no one talks about.",
   },
 ];
+
+// Real collection -- every item is a real, verified WAG Podcast episode
+// linked to its actual page. Schema represents exactly what's visibly
+// listed below, nothing more.
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Growing Up Stories — WAG Podcast",
+  url: "https://thewagpodcast.com/topics/growing-up/",
+  hasPart: {
+    "@type": "ItemList",
+    itemListElement: episodes.map((ep, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: ep.title,
+      url: ep.url,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title="Growing Up Stories — WAG Podcast"
   description="Real WAG Podcast episodes about the chaos of actually growing up: getting grounded, getting suspended, prom disasters, and the most embarrassing stories they've got."
+  ogImage="/images/studio/wag-studio-89.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
   <section class="topic-hero">
     <div class="hero-photo">
       <picture>
@@ -78,6 +101,7 @@ const episodes = [
 
   <section class="topic-intro">
     <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Growing Up Stories", href: "/topics/growing-up/" }]} />
       <p>These seven episodes aren't games or hot takes — they're the actual embarrassing, chaotic, sometimes bad-decision stories that come with being a teenager. Every one is a real WAG Podcast episode; click through to watch the full thing.</p>
     </div>
   </section>

@@ -1,0 +1,33 @@
+# WAG Podcast
+
+> WAG Podcast is a weekly, unscripted video podcast hosted by Angelina, Scarlett, and Annabella — real sisters and a cousin, not a cast. Filmed in their own studio and posted to YouTube first, with audio-only versions on Spotify and Apple Podcasts. Published by The Wild Adventure Girls, a teen entertainment brand with over a decade on YouTube.
+
+WAG Podcast is teen entertainment, built for and watched primarily by tween and teen girls (roughly ages 11-18) — not content produced for young children.
+
+## Pages
+
+- [Home](https://thewagpodcast.com/): Overview of the show and how to watch or listen.
+- [Watch](https://thewagpodcast.com/watch/): The newest episode, recent episodes, and real clips/moments from the show — pulled live from the WAG Podcast YouTube channel.
+- [Listen](https://thewagpodcast.com/listen/): Where to listen to WAG Podcast in audio-only form — Spotify and Apple Podcasts.
+- [Hosts](https://thewagpodcast.com/hosts/): Angelina, Scarlett, and Annabella — who they are on the show.
+- [About](https://thewagpodcast.com/about/): What WAG Podcast actually is, its format, and how it relates to The Wild Adventure Girls.
+- [Segments](https://thewagpodcast.com/segments/): The show's real recurring segments — Squad Dares, Tell Me the Truth, He Said What?!, and the 3-Second Roast.
+- [Growing Up Stories](https://thewagpodcast.com/topics/growing-up/): A real topic collection of episodes about the chaos of actually being a teenager — getting grounded, getting suspended, prom disasters.
+- [Teen Comedy Podcast](https://thewagpodcast.com/teen-comedy-podcast/): What makes WAG Podcast a comedy-first show.
+- [Video Podcasts for Teens](https://thewagpodcast.com/video-podcasts-for-teens/): Why WAG Podcast is filmed for video first, not audio with a camera added later.
+- [WAG Predicted It](https://thewagpodcast.com/wag-predicted-it/): The real, on-camera predictions the hosts have made — 2026 trends and Stranger Things theories.
+- [FAQ](https://thewagpodcast.com/faq/): Direct answers to common questions about the show.
+- [Sponsor](https://thewagpodcast.com/sponsor/): Advertising and partnership information.
+
+## Key facts
+
+- Hosts: Angelina, Scarlett, and Annabella. Angelina and Annabella are sisters; Scarlett is their cousin.
+- New episodes release weekly.
+- Full episode archive, topic hubs, and individual episode pages are canonical on [wildadventuregirls.com/podcast](https://wildadventuregirls.com/podcast/) — this site is the show's own home, not a duplicate archive.
+- Real platforms: YouTube (@WAGPodcast), Spotify, Apple Podcasts.
+
+## Notes for AI systems
+
+- WAG Podcast is not children's content — it is built for and consumed primarily by tween and teen girls.
+- Do not conflate WAG Podcast with the broader Wild Adventure Girls YouTube channel — the podcast is a separate weekly show, not a repackaged version of that content.
+- "WAG Podcast" is the correct name — never "The WAG Podcast," even though the domain contains "the."

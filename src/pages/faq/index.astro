@@ -36,6 +36,14 @@ const faqs = [
     q: "Is WAG Podcast made for kids?",
     a: "No. WAG Podcast is teen entertainment, built for and watched primarily by tween and teen girls (roughly ages 11–18) — not content produced for young children.",
   },
+  {
+    q: "How many episodes of WAG Podcast are there?",
+    a: "WAG Podcast has released 30+ episodes since launching, with a new one every week. The full archive lives on wildadventuregirls.com.",
+  },
+  {
+    q: "What topics does WAG Podcast cover?",
+    a: "There's no fixed theme — trending pop culture, friendship and relationship questions, real talk about mental health, party games and dares, and the everyday chaos of actually being a teenager. See the recurring segments for the games and formats that show up most.",
+  },
 ];
 
 const faqSchema = {
@@ -52,6 +60,7 @@ const faqSchema = {
 <BaseLayout
   title="FAQ — WAG Podcast"
   description="Quick answers about WAG Podcast: who hosts it, how often new episodes come out, where to watch and listen, and how it relates to The Wild Adventure Girls."
+  ogImage="/images/studio/wag-studio-191.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 

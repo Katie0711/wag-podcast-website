@@ -7,6 +7,7 @@ import { insiderHref } from "../../lib/insiderLink";
 <BaseLayout
   title="About WAG Podcast"
   description="What WAG Podcast actually is: a weekly, video-first talk show hosted by three teen girls, its format, its topics, and how it fits into The Wild Adventure Girls."
+  ogImage="/images/studio/wag-studio-428.jpg"
 >
   <section class="about-hero">
     <div class="hero-photo">
@@ -33,6 +34,13 @@ import { insiderHref } from "../../lib/insiderLink";
       <div class="about-block">
         <h2>Video-first, not audio-only</h2>
         <p>Most podcasts are built for audio and treat video as an afterthought. WAG Podcast is the opposite — full episodes are shot for YouTube first, then released as audio-only versions on Spotify and Apple Podcasts for anyone who'd rather just listen. If you've never watched a <a href="/video-podcasts-for-teens/">video podcast built for teens</a> before, this is built to be watched.</p>
+      </div>
+
+      <div class="about-photo-break">
+        <picture>
+          <source srcset="/images/studio/wag-studio-283.webp" type="image/webp" />
+          <img src="/images/studio/wag-studio-283.jpg" alt="Angelina, Scarlett, and Annabella recording WAG Podcast" loading="lazy" />
+        </picture>
       </div>
 
       <div class="about-block">
@@ -92,6 +100,15 @@ import { insiderHref } from "../../lib/insiderLink";
   .about-block h2{ font-size:1.3rem; margin-bottom:.5em; }
   .about-block p{ font-size:1rem; }
   .about-block a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .about-photo-break{
+    max-width:70ch; margin: 8px 0 36px; border-radius: var(--radius-lg); overflow:hidden;
+    border: 2px solid transparent;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+  }
+  .about-photo-break img{ width:100%; aspect-ratio: 16/9; object-fit:cover; object-position: center 30%; display:block; }
 
   .about-cta{ padding: 8px 0 40px; display:flex; gap:16px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:40px; }
   .btn-outline{ border-color: var(--ink); }
