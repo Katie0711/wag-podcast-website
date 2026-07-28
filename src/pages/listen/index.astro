@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
 
 const platforms = [
   { name: "Spotify", href: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb", note: "Full episodes, audio-only, new one every week." },
@@ -13,9 +14,16 @@ const platforms = [
   description="Where to listen to WAG Podcast: Spotify and Apple Podcasts for audio-only episodes, released weekly."
 >
   <section class="listen-hero">
-    <div class="container">
-      <p class="eyebrow">Listen</p>
-      <h1>Prefer audio? It's here too.</h1>
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-333.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-333.jpg" alt="Annabella and Scarlett reacting on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> Listen</p>
+      <h1>Prefer <span class="text-accent">audio</span>? It's here too.</h1>
       <p class="lede">WAG Podcast is filmed for video first, but every episode also goes up as audio-only on Spotify and Apple Podcasts — same conversation, no screen required.</p>
     </div>
   </section>
@@ -47,17 +55,26 @@ const platforms = [
 </BaseLayout>
 
 <style>
-  .listen-hero{ padding: 64px 0 32px; border-bottom:1px solid var(--line); }
+  .listen-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 20%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; }
   .listen-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
   .lede{ font-size:1.1rem; max-width:60ch; }
 
   .platforms{ padding: 48px 0 24px; }
   .platforms .container{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
   .platform-card{
     display:block; padding:24px 26px; border-radius: var(--radius); border:1px solid var(--line);
-    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .15s ease;
+    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
-  .platform-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--wag-green); }
+  .platform-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(165,235,14,.16); border-color: var(--wag-green); }
   .platform-card h2{ font-size:1.2rem; margin-bottom:.4em; }
   .platform-card p{ font-size:.9rem; margin-bottom:1em; }
   .platform-cta{ font-weight:600; font-size:.88rem; color: var(--wag-green); }

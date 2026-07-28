@@ -1,27 +1,37 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+
+// Real brand partners, sourced from WAG's own sponsor deck/brand
+// playbook -- these are Wild Adventure Girls partnerships (licensing,
+// commercial features, campaigns), not claimed as podcast-specific ad
+// buys, since that distinction matters and isn't documented either way.
+const brandPartners = [
+  "Nintendo", "Google", "UpFaith & Family", "Razor USA",
+  "Get Epic!", "The Toy Insider", "Hexbug USA", "NSI International", "Dynacraft",
+];
 ---
 
 <BaseLayout
   title="Sponsor WAG Podcast"
   description="Advertise or partner with WAG Podcast, a weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts."
 >
-  <div class="register-light sponsor-page">
-    <section class="sponsor-hero">
-      <div class="hero-photo">
-        <picture>
-          <source srcset="/images/studio/wag-studio-195.webp" type="image/webp" />
-          <img src="/images/studio/wag-studio-195.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
-        </picture>
-        <div class="hero-scrim"></div>
-      </div>
-      <div class="container hero-inner">
-        <p class="eyebrow">Sponsor / Advertise</p>
-        <h1>Advertise with WAG Podcast.</h1>
-        <p class="lede">A weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts — hosted by three real teen girls with an established audience from The Wild Adventure Girls.</p>
-      </div>
-    </section>
+  <section class="sponsor-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-195.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-195.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> Sponsor / Advertise</p>
+      <h1>Advertise with <span class="text-accent">WAG Podcast</span>.</h1>
+      <p class="lede">A weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts — hosted by three real teen girls with an established audience from The Wild Adventure Girls.</p>
+    </div>
+  </section>
 
+  <div class="register-light sponsor-body-wrap">
     <section class="sponsor-body">
       <div class="container" data-reveal="stagger">
         <div class="sponsor-block">
@@ -29,8 +39,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           <p>WAG Podcast reaches the same core teen and tween audience that follows The Wild Adventure Girls — a brand with a real, established YouTube presence built over more than a decade. The podcast is the newest format in that ecosystem, released weekly on video and audio.</p>
         </div>
         <div class="sponsor-block">
-          <h2>Why brands work with WAG</h2>
-          <p>The Wild Adventure Girls has a documented track record of family-friendly, advertiser-safe content and real brand partnerships. For the full case studies, audience data, and past campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a> — the podcast is part of that same brand relationship, not a separate, unproven channel.</p>
+          <h2>Brands who trust The Wild Adventure Girls</h2>
+          <p>WAG Podcast is part of a brand with a real, documented partnership track record — not a separate, unproven channel.</p>
+          <ul class="brand-list">
+            {brandPartners.map((b) => <li>{b}</li>)}
+          </ul>
+          <p>For the full case studies, audience data, and past campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a>.</p>
         </div>
         <div class="sponsor-block">
           <h2>Get in touch</h2>
@@ -43,18 +57,35 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
-  .sponsor-page{ background: var(--bg); }
   .sponsor-hero{ position:relative; padding: 0 0 32px; }
   .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
   .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
   .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.55) 0%, transparent 45%); }
   .hero-inner{ max-width:68ch; }
+  .sponsor-hero .eyebrow{ color: var(--wag-green); display:inline-flex; align-items:center; gap:10px; }
   .sponsor-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; color:#fff; }
-  .sponsor-hero .eyebrow{ color: var(--wag-green); }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
   .sponsor-hero .lede{ font-size:1.1rem; max-width:62ch; color:#E7E7EE; }
 
+  .brand-list{
+    display:flex; flex-wrap:wrap; gap:10px 14px; list-style:none; padding:0; margin: 1em 0;
+  }
+  .brand-list li{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.02em;
+    font-weight:700; font-size:.85rem; color: var(--ink);
+    padding:.5em 1em; border-radius:999px; border:1px solid var(--line); background: var(--bg);
+  }
+
+  .sponsor-body-wrap{ background: var(--bg); }
   .sponsor-body{ padding: 48px 0 72px; }
-  .sponsor-block{ max-width:70ch; margin-bottom:36px; }
+  .sponsor-block{
+    max-width:70ch; margin-bottom:28px; padding:24px 28px; border-radius: var(--radius);
+    border:1px solid transparent; transition: border-color .2s ease, background .2s ease;
+  }
+  .sponsor-block:hover{ border-color: var(--line); background: var(--bg-alt); }
   .sponsor-block h2{ font-size:1.25rem; margin-bottom:.5em; }
   .sponsor-block p{ font-size:1rem; margin-bottom:1em; }
   .sponsor-block a:not(.btn){ color: var(--wag-pink-dark); font-weight:600; text-decoration:underline; }

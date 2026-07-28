@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
 
 // Podcast-specific: their on-show roles and dynamic, not a rewrite of
 // their full WAG bios (those stay authoritative at
@@ -45,8 +46,8 @@ const hosts = [
       <div class="hero-scrim"></div>
     </div>
     <div class="container hero-inner">
-      <p class="eyebrow">Hosts</p>
-      <h1>Three personalities. Zero filter.</h1>
+      <p class="eyebrow"><EqBars size="sm" /> Hosts</p>
+      <h1>Three <span class="text-accent">personalities</span>. Zero filter.</h1>
       <p class="lede">Angelina, Scarlett, and Annabella — real sisters and a cousin, so the dynamic on screen is a real family relationship, not a cast assembled for a show.</p>
     </div>
   </section>
@@ -83,11 +84,21 @@ const hosts = [
   .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 22%; display:block; }
   .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.75) 0%, transparent 45%); }
   .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; }
   .hosts-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
   .lede{ font-size:1.1rem; max-width:60ch; }
 
   .hosts-list{ padding: 48px 0; display:flex; flex-direction:column; gap:36px; }
-  .host-row{ display:grid; grid-template-columns: 220px 1fr; gap:32px; align-items:center; }
+  .host-row{
+    display:grid; grid-template-columns: 220px 1fr; gap:32px; align-items:center;
+    padding:20px; border-radius: var(--radius-lg); border:1px solid transparent;
+    transition: border-color .25s ease, box-shadow .25s ease;
+  }
+  .host-row:hover{ border-color: var(--wag-pink); box-shadow: 0 16px 40px rgba(255,22,200,.14); }
   .host-row picture{ display:block; border-radius: var(--radius-lg); overflow:hidden; aspect-ratio: 4/5; }
   .host-row img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
   .host-role{
