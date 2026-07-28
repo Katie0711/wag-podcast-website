@@ -104,15 +104,28 @@ const podcastSchema = {
 
     <script type="application/ld+json" set:html={JSON.stringify(podcastSchema)} />
 
-    <!--
-      Analytics deliberately not wired yet. Per the Phase 1 plan: this
-      needs to be ONE GA4 property with TWO data streams (this domain +
-      wildadventuregirls.com) and cross-domain measurement configured
-      between them, not a separate, unlinked property -- otherwise
-      traffic between the two sites shows up as unrelated referral
-      sessions instead of one continuous session. Waiting on Katie to
-      confirm before creating anything in the Google account.
-    -->
+    {allowIndexing && (
+      <>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZR4HT2CJ97"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          // Astro compiles this script as an ES module, so a bare
+          // `function gtag(){}` declaration stays module-scoped and never
+          // becomes `window.gtag` -- the astro:page-load tracker below
+          // (a separate script block) checks `window.gtag` and was
+          // silently no-op-ing on every real pageview because of this.
+          // Assign to window explicitly so it's actually global.
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag("js", new Date());
+          // send_page_view disabled here -- ClientRouter's astro:page-load
+          // listener below fires page_view explicitly instead, since it
+          // covers both the initial load and every client-side transition
+          // gtag's own auto-firing would otherwise miss.
+          window.gtag("config", "G-ZR4HT2CJ97", { send_page_view: false });
+        </script>
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="92L21AD6Valoz9paP1W4xQ" async></script>
+      </>
+    )}
 
     <ClientRouter />
   </head>
@@ -150,6 +163,26 @@ const podcastSchema = {
 
       initReveal();
       document.addEventListener("astro:page-load", initReveal);
+
+      // ClientRouter swaps pages without a real navigation, so gtag's
+      // own automatic page_view (fired once, on initial script load)
+      // never sees subsequent pages -- send one explicitly per transition.
+      // Guarded by last-tracked-URL since this runs at top level (for the
+      // first paint) AND on every astro:page-load, which also fires for
+      // that same first paint -- without the guard the initial view
+      // would be double-counted.
+      let lastTrackedHref = "";
+      function trackPageView() {
+        if (typeof (window as any).gtag !== "function") return;
+        if (lastTrackedHref === location.href) return;
+        lastTrackedHref = location.href;
+        (window as any).gtag("event", "page_view", {
+          page_location: location.href,
+          page_title: document.title,
+        });
+      }
+      trackPageView();
+      document.addEventListener("astro:page-load", trackPageView);
     </script>
   </body>
 </html>
