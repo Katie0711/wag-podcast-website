@@ -6,11 +6,22 @@ const footerLinks = [
   { href: "/hosts/", label: "Hosts" },
   { href: "/watch/", label: "Watch" },
   { href: "/listen/", label: "Listen" },
+  { href: "/faq/", label: "FAQ" },
+  { href: "/sponsor/", label: "Sponsor" },
+];
+
+// Real WAG Podcast IP -- formats, games, and topic collections. Kept as
+// its own footer column so the flat page nav above doesn't get
+// cluttered, while nothing stays orphaned/footer-only-reachable.
+const exploreLinks = [
   { href: "/games/", label: "Games" },
   { href: "/guys-answer-questions/", label: "Guys Answer Questions" },
   { href: "/segments/", label: "Segments" },
-  { href: "/faq/", label: "FAQ" },
-  { href: "/sponsor/", label: "Sponsor" },
+  { href: "/topics/growing-up/", label: "Growing Up Stories" },
+  { href: "/mental-health/", label: "Mental Health, Real Talk" },
+  { href: "/teen-comedy-podcast/", label: "Teen Comedy Podcast" },
+  { href: "/video-podcasts-for-teens/", label: "Why Video-First" },
+  { href: "/wag-predicted-it/", label: "WAG Predicted It" },
 ];
 
 // Podcast-specific channels plus the shared WAG social accounts --
@@ -37,8 +48,18 @@ const listenLinks = [
       </div>
 
       <nav class="footer-nav" aria-label="Footer">
+        <span class="footer-col-label">Pages</span>
         <ul>
           {footerLinks.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Explore WAG Podcast">
+        <span class="footer-col-label">Explore</span>
+        <ul>
+          {exploreLinks.map((l) => (
             <li><a href={l.href}>{l.label}</a></li>
           ))}
         </ul>
@@ -73,10 +94,15 @@ const listenLinks = [
   .footer-tagline{ color:#8A8A94; font-size:.85rem; line-height:1.5; margin:0; }
   .footer-tagline a{ color:#B4B4C4; text-decoration:underline; }
   .footer-tagline a:hover{ color:#fff; }
-  .footer-nav ul{ display:flex; flex-wrap:wrap; gap:20px 28px; }
+  .footer-nav{ display:flex; flex-direction:column; gap:14px; max-width:220px; }
+  .footer-col-label{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em;
+    font-size:.72rem; font-weight:700; color: var(--wag-green);
+  }
+  .footer-nav ul{ display:flex; flex-direction:column; flex-wrap:wrap; gap:12px; max-height:180px; }
   .footer-nav a{
     font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em;
-    font-weight:600; font-size:.9rem; color:#fff;
+    font-weight:600; font-size:.86rem; color:#fff; line-height:1.3;
   }
   .footer-nav a:hover{ color: var(--wag-green); }
   .footer-social{ display:flex; gap:20px; }
