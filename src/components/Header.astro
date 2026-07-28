@@ -1,5 +1,6 @@
 ---
 const navItems = [
+  { href: "/", label: "Home" },
   { href: "/about/", label: "About" },
   { href: "/hosts/", label: "Hosts" },
   { href: "/watch/", label: "Watch" },
@@ -19,7 +20,7 @@ const currentPath = Astro.url.pathname;
     <nav class="main-nav" id="mainNav" aria-label="Primary">
       <ul class="nav-list" id="navList">
         {navItems.map((item) => {
-          const active = currentPath === item.href || currentPath.startsWith(item.href);
+          const active = item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href);
           return (
             <li>
               <a href={item.href} aria-current={active ? "page" : undefined}>{item.label}</a>

@@ -178,7 +178,10 @@ function truncate(text: string, max = 160) {
   }
   .recent-body{ padding:16px 18px 20px; }
   .recent-date{ font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em; font-size:.72rem; color: var(--wag-green); }
-  .recent-body h3{ font-size:.98rem; margin:.4em 0; line-height:1.35; }
+  .recent-body h3{
+    font-family: var(--font-body); font-weight:700; text-transform:none; letter-spacing:0;
+    font-size:.98rem; margin:.4em 0; line-height:1.35;
+  }
   .recent-body p{ font-size:.84rem; color: var(--ink-muted); margin:0; }
 
   .clips-section{ padding: 8px 0 56px; border-top:1px solid var(--line); padding-top:48px; }

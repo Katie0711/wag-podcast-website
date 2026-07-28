@@ -2,6 +2,29 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
 import { insiderHref } from "../../lib/insiderLink";
+
+const facts = [
+  { label: "Format", value: "Weekly video episodes, filmed in their own studio" },
+  { label: "Hosts", value: "Angelina, Scarlett & Annabella — real sisters and a cousin" },
+  { label: "Also On", value: "YouTube, Spotify & Apple Podcasts" },
+];
+
+// Real recurring territory -- same facts already established elsewhere
+// on the site (Explore module, Segments, Growing Up, Teen Comedy Podcast).
+const topics = [
+  "Trending Pop Culture",
+  "Friendship & Relationships",
+  "Real Talk",
+  "Party Games & Dares",
+  "Growing Up Stories",
+  "Comedy",
+];
+
+const hosts = [
+  { name: "Annabella", photo: "/images/annabella-thumb.jpg", photoWebp: "/images/annabella-thumb.webp" },
+  { name: "Scarlett", photo: "/images/scarlett-thumb.jpg", photoWebp: "/images/scarlett-thumb.webp" },
+  { name: "Angelina", photo: "/images/angelina-thumb.jpg", photoWebp: "/images/angelina-thumb.webp" },
+];
 ---
 
 <BaseLayout
@@ -24,39 +47,65 @@ import { insiderHref } from "../../lib/insiderLink";
     </div>
   </section>
 
-  <section class="about-body">
+  <section class="facts-strip">
     <div class="container" data-reveal="stagger">
-      <div class="about-block">
-        <h2>A weekly, unscripted talk show</h2>
-        <p>WAG Podcast is a weekly video podcast hosted by Angelina, Scarlett, and Annabella. Every episode is filmed in their own studio — no writers' room, no script. It's the same real dynamic the three of them have off camera, just with a mic on: trending topics, viral dares, fan questions, and the kind of behind-the-scenes stories that don't make it into a normal video.</p>
-      </div>
+      {facts.map((f) => (
+        <div class="fact">
+          <span class="fact-label">{f.label}</span>
+          <span class="fact-value">{f.value}</span>
+        </div>
+      ))}
+    </div>
+  </section>
 
-      <div class="about-block">
-        <h2>Video-first, not audio-only</h2>
-        <p>Most podcasts are built for audio and treat video as an afterthought. WAG Podcast is the opposite — full episodes are shot for YouTube first, then released as audio-only versions on Spotify and Apple Podcasts for anyone who'd rather just listen. If you've never watched a <a href="/video-podcasts-for-teens/">video podcast built for teens</a> before, this is built to be watched.</p>
-      </div>
+  <section class="about-intro">
+    <div class="container" data-reveal>
+      <p>WAG Podcast is a weekly, unscripted talk show. No writers' room, no script — it's the same real dynamic Angelina, Scarlett, and Annabella have off camera, just with a mic on. Most podcasts are built for audio and treat video as an afterthought; this one is the opposite. Full episodes are shot for <a href="/video-podcasts-for-teens/">YouTube first</a>, then released as audio-only versions for anyone who'd rather just listen.</p>
+    </div>
+  </section>
 
-      <div class="about-photo-break">
-        <picture>
-          <source srcset="/images/studio/wag-studio-283.webp" type="image/webp" />
-          <img src="/images/studio/wag-studio-283.jpg" alt="Angelina, Scarlett, and Annabella recording WAG Podcast" loading="lazy" />
-        </picture>
-      </div>
+  <section class="about-photo-break">
+    <div class="container">
+      <picture>
+        <source srcset="/images/studio/wag-studio-283.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-283.jpg" alt="Angelina, Scarlett, and Annabella recording WAG Podcast" loading="lazy" />
+      </picture>
+    </div>
+  </section>
 
-      <div class="about-block">
-        <h2>What topics come up</h2>
-        <p>There's no fixed theme episode to episode — that's on purpose, since real conversations don't work that way. Recurring territory includes trending topics and pop culture, friendship and relationship questions, real talk about tough stuff, party games and challenges, the actual chaos of <a href="/topics/growing-up/">growing up</a>, and behind-the-scenes stories from filming Wild Adventure Girls content. It's also, honestly, a <a href="/teen-comedy-podcast/">pretty funny</a> way to spend twenty minutes.</p>
-      </div>
+  <section class="topics-section">
+    <div class="container" data-reveal>
+      <p class="eyebrow"><EqBars size="sm" /> What Topics Come Up</p>
+      <p class="topics-intro">There's no fixed theme episode to episode — real conversations don't work that way. Recurring territory:</p>
+      <ul class="topics-pills">
+        {topics.map((t) => <li>{t}</li>)}
+      </ul>
+    </div>
+  </section>
 
-      <div class="about-block">
-        <h2>How it relates to The Wild Adventure Girls</h2>
-        <p>WAG Podcast is published by <a href="https://wildadventuregirls.com/">The Wild Adventure Girls</a> — the teen entertainment brand Angelina, Scarlett, and Annabella built on YouTube making adventure, mystery-investigation, and challenge content. The podcast is a separate show with its own format and its own weekly release, not a repackaged version of that content. Full episode-by-episode coverage — every episode's own page, topic hubs, and companion articles — lives on the main WAG site; this site is the show's own home.</p>
+  <section class="hosts-strip">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow">Who's Behind It</p>
+      <p class="hosts-intro">Real sisters and a cousin, not a cast brought together for a show.</p>
+      <div class="hosts-grid">
+        {hosts.map((h) => (
+          <a class="host-card" href="/hosts/">
+            <picture>
+              <source srcset={h.photoWebp} type="image/webp" />
+              <img src={h.photo} alt={h.name} loading="lazy" />
+            </picture>
+            <span>{h.name}</span>
+          </a>
+        ))}
       </div>
+      <a class="hosts-link" href="/hosts/">Meet the hosts →</a>
+    </div>
+  </section>
 
-      <div class="about-block">
-        <h2>Who's behind it</h2>
-        <p>Angelina, Scarlett, and Annabella are real sisters and a cousin, not a cast brought together for a show. <a href="/hosts/">Meet the hosts →</a></p>
-      </div>
+  <section class="relation-section">
+    <div class="container" data-reveal>
+      <p class="eyebrow">How It Relates to The Wild Adventure Girls</p>
+      <p>WAG Podcast is published by <a href="https://wildadventuregirls.com/">The Wild Adventure Girls</a> — the teen entertainment brand behind the adventure, mystery-investigation, and challenge content Angelina, Scarlett, and Annabella built on YouTube. The podcast is a separate show with its own format and its own weekly release, not a repackaged version of that content. Full episode-by-episode coverage lives on the main WAG site; this site is the show's own home.</p>
     </div>
   </section>
 
@@ -78,12 +127,12 @@ import { insiderHref } from "../../lib/insiderLink";
 </BaseLayout>
 
 <style>
-  .about-hero{ position:relative; padding: 0 0 32px; }
-  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .about-hero{ position:relative; padding: 0 0 0; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:0; }
   .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 30%; display:block; }
   .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.75) 0%, transparent 45%); }
   .hero-inner{ max-width:68ch; }
-  .eyebrow{ display:inline-flex; align-items:center; gap:10px; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
   .about-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
   .text-accent{
     background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
@@ -91,26 +140,63 @@ import { insiderHref } from "../../lib/insiderLink";
   }
   .lede{ font-size:1.1rem; max-width:60ch; }
 
-  .about-body{ padding: 48px 0; }
-  .about-block{
-    max-width:70ch; margin-bottom:28px; padding:24px 28px; border-radius: var(--radius);
-    border:1px solid transparent; transition: border-color .2s ease, background .2s ease;
+  .facts-strip{
+    padding: 28px 0; border-bottom:1px solid var(--line);
   }
-  .about-block:hover{ border-color: var(--line); background: var(--bg-alt); }
-  .about-block h2{ font-size:1.3rem; margin-bottom:.5em; }
-  .about-block p{ font-size:1rem; }
-  .about-block a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+  .facts-strip .container{ display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; }
+  .fact{ display:flex; flex-direction:column; gap:.35em; }
+  .fact-label{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em;
+    font-size:.72rem; font-weight:700; color: var(--wag-green);
+  }
+  .fact-value{ font-size:.98rem; color: var(--ink-soft); }
 
-  .about-photo-break{
-    max-width:70ch; margin: 8px 0 36px; border-radius: var(--radius-lg); overflow:hidden;
-    border: 2px solid transparent;
+  .about-intro{ padding: 44px 0 8px; }
+  .about-intro p{ font-size:1.15rem; max-width:70ch; color: var(--ink-soft); }
+  .about-intro a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .about-photo-break{ padding: 36px 0; }
+  .about-photo-break .container{
+    border-radius: var(--radius-lg); overflow:hidden; border: 2px solid transparent;
     background:
       linear-gradient(var(--bg), var(--bg)) padding-box,
       linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
   }
-  .about-photo-break img{ width:100%; aspect-ratio: 16/9; object-fit:cover; object-position: center 30%; display:block; }
+  .about-photo-break img{ width:100%; aspect-ratio: 21/9; object-fit:cover; object-position: center 30%; display:block; }
 
-  .about-cta{ padding: 8px 0 40px; display:flex; gap:16px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:40px; }
+  .topics-section{ padding: 8px 0 44px; }
+  .topics-section .eyebrow{ margin-bottom:12px; }
+  .topics-intro{ font-size:1rem; color: var(--ink-soft); max-width:60ch; margin-bottom:18px; }
+  .topics-pills{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:10px; }
+  .topics-pills li{
+    padding:.55em 1.2em; border-radius:999px; border:1px solid var(--line); background: var(--bg-alt);
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em; font-weight:600; font-size:.82rem;
+  }
+
+  .hosts-strip{ padding: 8px 0 44px; border-top:1px solid var(--line); padding-top:40px; }
+  .hosts-strip .eyebrow{ margin-bottom:8px; }
+  .hosts-intro{ font-size:1rem; color: var(--ink-soft); margin-bottom:20px; }
+  .hosts-grid{ display:flex; gap:20px; margin-bottom:18px; }
+  .host-card{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .host-card picture{
+    display:block; width:100px; height:100px; border-radius:50%; overflow:hidden;
+    border:2px solid transparent;
+    background:
+      linear-gradient(var(--bg-alt), var(--bg-alt)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    transition: transform .2s ease;
+  }
+  .host-card:hover picture{ transform: scale(1.06); }
+  .host-card img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
+  .host-card span{ font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em; font-weight:600; font-size:.85rem; }
+  .hosts-link{ color: var(--wag-green); font-weight:600; font-size:.94rem; }
+
+  .relation-section{ padding: 8px 0 8px; border-top:1px solid var(--line); padding-top:40px; }
+  .relation-section .eyebrow{ margin-bottom:12px; }
+  .relation-section p{ font-size:1rem; max-width:70ch; color: var(--ink-soft); }
+  .relation-section a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .about-cta{ padding: 32px 0 40px; display:flex; gap:16px; flex-wrap:wrap; border-top:1px solid var(--line); margin-top:16px; }
   .btn-outline{ border-color: var(--ink); }
   .btn-outline:hover{ background: var(--ink); color: var(--bg); }
 
@@ -126,4 +212,10 @@ import { insiderHref } from "../../lib/insiderLink";
   }
   .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
   .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 700px){
+    .facts-strip .container{ grid-template-columns: 1fr; gap:16px; }
+    .hosts-grid{ gap:14px; }
+    .host-card picture{ width:80px; height:80px; }
+  }
 </style>
