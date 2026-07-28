@@ -7,7 +7,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   description="What WAG Podcast actually is: a weekly, video-first talk show hosted by three teen girls, its format, its topics, and how it fits into The Wild Adventure Girls."
 >
   <section class="about-hero">
-    <div class="container">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-428.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-428.jpg" alt="Angelina, Scarlett, and Annabella backstage at the WAG Podcast studio" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
       <p class="eyebrow">About</p>
       <h1>What WAG Podcast actually is.</h1>
       <p class="lede">The show, the format, and how it fits into the wider Wild Adventure Girls world.</p>
@@ -52,7 +59,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
-  .about-hero{ padding: 64px 0 32px; border-bottom:1px solid var(--line); }
+  .about-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 30%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.75) 0%, transparent 45%); }
+  .hero-inner{ max-width:68ch; }
   .about-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
   .lede{ font-size:1.1rem; max-width:60ch; }
 

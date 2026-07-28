@@ -1,0 +1,45 @@
+---
+// Small animated equalizer motif -- pulled directly from the real WAG
+// Podcast logo's own EQ-bar graphic, reused here as a recurring brand
+// element instead of a generic podcast-site mic icon. Pure CSS,
+// respects prefers-reduced-motion (bars hold a static staggered height
+// instead of animating).
+interface Props {
+  size?: "sm" | "md";
+}
+const { size = "md" } = Astro.props;
+---
+
+<span class={`eq-bars eq-${size}`} aria-hidden="true">
+  <i></i><i></i><i></i><i></i><i></i>
+</span>
+
+<style>
+  .eq-bars{ display:inline-flex; align-items:flex-end; gap:3px; height:1em; }
+  .eq-sm{ height:14px; }
+  .eq-md{ height:20px; }
+  .eq-bars i{
+    display:block; width:3px; border-radius:2px;
+    background: linear-gradient(0deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    animation: eq-bounce 1.1s ease-in-out infinite;
+  }
+  .eq-bars i:nth-child(1){ animation-delay: -0.9s; }
+  .eq-bars i:nth-child(2){ animation-delay: -0.6s; }
+  .eq-bars i:nth-child(3){ animation-delay: -1.1s; }
+  .eq-bars i:nth-child(4){ animation-delay: -0.3s; }
+  .eq-bars i:nth-child(5){ animation-delay: -0.7s; }
+
+  @keyframes eq-bounce{
+    0%, 100% { height: 30%; }
+    50% { height: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .eq-bars i{ animation:none; }
+    .eq-bars i:nth-child(1){ height:40%; }
+    .eq-bars i:nth-child(2){ height:75%; }
+    .eq-bars i:nth-child(3){ height:55%; }
+    .eq-bars i:nth-child(4){ height:100%; }
+    .eq-bars i:nth-child(5){ height:65%; }
+  }
+</style>

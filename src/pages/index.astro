@@ -1,11 +1,31 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import EqBars from "../components/EqBars.astro";
+import Marquee from "../components/Marquee.astro";
 import { insiderHref } from "../lib/insiderLink";
+
+const tickerItems = [
+  "New Episodes Every Week",
+  "Squad Dares",
+  "Tell Me the Truth",
+  "He Said What?!",
+  "3-Second Roast",
+  "Watch on YouTube, Spotify & Apple Podcasts",
+];
 
 const hosts = [
   { name: "Annabella", role: "The Wild Card", photo: "/images/annabella-thumb.jpg", photoWebp: "/images/annabella-thumb.webp" },
   { name: "Scarlett", role: "The Quick-Witted Instigator", photo: "/images/scarlett-thumb.jpg", photoWebp: "/images/scarlett-thumb.webp" },
   { name: "Angelina", role: "The Voice of Reason", photo: "/images/angelina-thumb.jpg", photoWebp: "/images/angelina-thumb.webp" },
+];
+
+// Real recurring segment names, from WAG's own podcast sponsor deck --
+// not invented placeholder segment names.
+const segments = [
+  { name: "Squad Dares", desc: "One dares, the others must do it." },
+  { name: "Tell Me the Truth", desc: "No dodging, no lying." },
+  { name: "He Said What?!", desc: "Real reactions to what the boys said." },
+  { name: "3-Second Roast", desc: "One-liner burns in under 3 seconds." },
 ];
 ---
 
@@ -16,12 +36,16 @@ const hosts = [
   <!-- What it is -->
   <section class="hero">
     <div class="hero-photo">
-      <img src="/images/podcast-hero.jpg" alt="Angelina, Scarlett, and Annabella recording WAG Podcast" fetchpriority="high" />
+      <picture>
+        <source srcset="/images/studio/wag-studio-195.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-195.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
+      </picture>
       <div class="hero-scrim"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
     </div>
     <div class="container hero-inner">
-      <p class="eyebrow">WAG Podcast</p>
-      <h1>It feels like your group chat — except a lot of people are watching.</h1>
+      <p class="eyebrow"><EqBars size="sm" /> Live from the WAG Podcast studio</p>
+      <h1>It feels like your <span class="text-accent">group chat</span> — except a lot of people are watching.</h1>
       <p class="lede">A weekly video podcast hosted by three teen girls who don't hold back — trending topics, real conversations, and unscripted chaos, filmed in their own studio.</p>
       <div class="hero-actions">
         <a class="btn btn-accent" href="/watch/">Watch an Episode →</a>
@@ -29,6 +53,8 @@ const hosts = [
       </div>
     </div>
   </section>
+
+  <Marquee items={tickerItems} />
 
   <!-- Who it's for -->
   <section class="who-for">
@@ -77,6 +103,23 @@ const hosts = [
     </div>
   </section>
 
+  <!-- Recurring segments -->
+  <section class="segments">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> Every Episode</p>
+      <h2>The segments fans actually wait for.</h2>
+      <div class="segments-grid">
+        {segments.map((s) => (
+          <div class="segment-card">
+            <EqBars size="sm" />
+            <h3>{s.name}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Watch/Listen -->
   <section class="watch-listen">
     <div class="container" data-reveal>
@@ -105,24 +148,38 @@ const hosts = [
 </BaseLayout>
 
 <style>
-  .hero{ position:relative; padding: 0 0 56px; }
+  .hero{ position:relative; padding: 0 0 0; }
   .hero-photo{ position:relative; width:100%; aspect-ratio: 2.4/1; overflow:hidden; margin-bottom:44px; }
   .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
-  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.7) 0%, transparent 45%); }
-  .hero-inner{ max-width:68ch; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.82) 0%, rgba(10,10,15,.15) 55%, transparent 75%); }
+  .hero-glow{
+    position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen; opacity:.5;
+    background:
+      radial-gradient(ellipse 40% 55% at 8% 100%, var(--wag-pink) 0%, transparent 70%),
+      radial-gradient(ellipse 35% 50% at 100% 100%, var(--wag-green) 0%, transparent 70%);
+  }
+  .hero-inner{ max-width:68ch; padding-bottom:56px; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; }
   .hero h1{ font-size: clamp(2.1rem, 4.4vw, 3.4rem); max-width:20ch; margin-bottom:.35em; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
   .lede{ font-size:1.15rem; max-width:60ch; margin-bottom:1.6em; }
   .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
   .btn-outline{ border-color: var(--ink); }
   .btn-outline:hover{ background: var(--ink); color: var(--bg); }
 
-  .who-for{ padding: 0 0 56px; border-top:1px solid var(--line); padding-top:40px; }
+  .who-for{ padding: 40px 0 56px; }
   .who-for-text{ font-size:1.25rem; max-width:52ch; color: var(--ink-soft); font-weight:500; }
 
   .hosts-strip{ padding: 0 0 64px; }
   .hosts-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:22px; margin:20px 0; }
-  .host-card{ display:block; border-radius: var(--radius); overflow:hidden; border:1px solid var(--line); transition: transform .2s ease, box-shadow .2s ease; }
-  .host-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow); }
+  .host-card{
+    display:block; border-radius: var(--radius); overflow:hidden; border:1px solid var(--line);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+  .host-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 40px rgba(255,22,200,.22); border-color: var(--wag-pink); }
   .host-card picture{ display:block; aspect-ratio: 4/5; }
   .host-card img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
   .host-card-body{ padding:16px 18px; }
@@ -132,9 +189,28 @@ const hosts = [
 
   .why-different{ padding: 24px 0 64px; border-top:1px solid var(--line); }
   .why-different .container{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
-  .diff-card{ padding:22px 24px; border-radius: var(--radius); border:1px solid var(--line); background: var(--bg-alt); }
+  .diff-card{
+    padding:22px 24px; border-radius: var(--radius); border:1px solid var(--line); background: var(--bg-alt);
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .diff-card:hover{ border-color: var(--wag-green); transform: translateY(-2px); }
   .diff-card h2{ font-size:1.05rem; margin-bottom:.5em; }
   .diff-card p{ font-size:.9rem; margin:0; }
+
+  .segments{ padding: 24px 0 64px; border-top:1px solid var(--line); }
+  .segments h2{ font-size: clamp(1.5rem, 3vw, 2.1rem); max-width:20ch; margin-bottom:.8em; }
+  .segments-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:18px; }
+  .segment-card{
+    padding:20px 22px; border-radius: var(--radius); border:1px solid var(--line);
+    background: var(--bg-alt); transition: border-color .2s ease, box-shadow .2s ease;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .segment-card:hover{ border-color: var(--wag-pink); box-shadow: 0 12px 28px rgba(255,22,200,.16); }
+  .segment-card h3{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.02em;
+    font-size:1.05rem; color: var(--wag-pink); margin:0;
+  }
+  .segment-card p{ font-size:.86rem; margin:0; color: var(--ink-muted); }
 
   .watch-listen{ padding: 24px 0 56px; text-align:center; border-top:1px solid var(--line); }
   .watch-listen h2{ font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom:.6em; }
@@ -144,6 +220,11 @@ const hosts = [
   .join-inner{
     padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
     display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
   }
   .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
   .join-inner p{ max-width:52ch; margin:0; }
@@ -152,8 +233,12 @@ const hosts = [
   .cross-link p{ font-size:.95rem; margin:0; }
   .cross-link a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
 
+  @media (max-width: 900px){
+    .segments-grid{ grid-template-columns: 1fr 1fr; }
+  }
   @media (max-width: 760px){
     .hosts-grid{ grid-template-columns:1fr; max-width:340px; margin:20px auto; }
     .why-different .container{ grid-template-columns:1fr; }
+    .segments-grid{ grid-template-columns:1fr; }
   }
 </style>

@@ -1,0 +1,50 @@
+---
+// TV-lower-third-style scrolling ticker -- real segment/show facts only,
+// no filler copy. Content is duplicated once so the CSS scroll loop is
+// seamless; aria-hidden since it's decorative/redundant with real page
+// content, not a substitute for it.
+interface Props {
+  items: string[];
+}
+const { items } = Astro.props;
+const doubled = [...items, ...items];
+---
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {doubled.map((item) => (
+      <span class="marquee-item">
+        {item}
+        <span class="marquee-dot">●</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee{
+    overflow:hidden; white-space:nowrap;
+    background: var(--wag-black); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding: 14px 0;
+  }
+  .marquee-track{
+    display:inline-flex; width:max-content;
+    animation: marquee-scroll 32s linear infinite;
+  }
+  .marquee-item{
+    display:inline-flex; align-items:center; gap:24px;
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.06em;
+    font-weight:700; font-size:1.05rem; color:#fff; padding: 0 24px;
+  }
+  .marquee-dot{ color: var(--wag-pink); font-size:.6rem; }
+
+  @keyframes marquee-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation:none; }
+    .marquee{ overflow-x:auto; }
+  }
+</style>

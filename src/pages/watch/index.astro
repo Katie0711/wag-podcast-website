@@ -12,7 +12,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   description="WAG Podcast is filmed weekly and posted to YouTube first. Here's where to watch, and a real episode to start with."
 >
   <section class="watch-hero">
-    <div class="container">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-111.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-111.jpg" alt="Angelina, Scarlett, and Annabella filming WAG Podcast in the studio" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
       <p class="eyebrow">Watch</p>
       <h1>Video-first. That's the whole point.</h1>
       <p class="lede">Full episodes are filmed in the girls' own studio every week and posted to YouTube before anywhere else — you see the reactions, not just hear them.</p>
@@ -38,7 +45,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 </BaseLayout>
 
 <style>
-  .watch-hero{ padding: 64px 0 32px; border-bottom:1px solid var(--line); }
+  .watch-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 30%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.75) 0%, transparent 45%); }
+  .hero-inner{ max-width:68ch; }
   .watch-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; margin-bottom:.3em; }
   .lede{ font-size:1.1rem; max-width:60ch; margin-bottom:1.4em; }
 
