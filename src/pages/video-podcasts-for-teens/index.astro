@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+import { insiderHref } from "../../lib/insiderLink";
+
+// Keyword-intent cluster B from the Phase 2 audit: "video podcasts for
+// teens" / "teen video podcast" -- a format-first search intent,
+// distinct from "teen girl podcast" (already owned by
+// wildadventuregirls.com/podcast/teen-girl-podcast, not duplicated
+// here). This is core to thewagpodcast.com's actual identity: filmed
+// for YouTube first, audio is the secondary release, not the reverse.
+const whyVideo = [
+  { title: "You see the reactions, not just hear them", desc: "Party games, dares, and hot-take reveals only work on camera — the whole point is watching the reaction happen live." },
+  { title: "Filmed for YouTube first, not audio first", desc: "Most podcasts are audio shows with a camera added later. WAG Podcast is shot as video from the start; Spotify and Apple Podcasts get the audio cut after." },
+  { title: "Real segments built around visuals", desc: "Squad Dares, Heads Up with cancelled celebs, Who's Most Likely To — every one depends on seeing faces, not just hearing voices." },
+];
+---
+
+<BaseLayout
+  title="Video Podcasts for Teens — WAG Podcast"
+  description="Looking for a real video podcast for teens, not just an audio show with a webcam added? WAG Podcast is filmed for YouTube first — weekly, unscripted, and made to be watched."
+>
+  <section class="video-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-416.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-416.jpg" alt="Angelina, Scarlett, and Annabella filming WAG Podcast for YouTube" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> Video Podcasts for Teens</p>
+      <h1>A podcast that's actually <span class="text-accent">made to be watched.</span></h1>
+      <p class="lede">Not an audio show with a camera bolted on — WAG Podcast is filmed for YouTube first, every week, by three teen girls.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="/watch/">Watch an Episode →</a>
+        <a class="btn btn-outline" href="https://www.youtube.com/@WAGPodcast" target="_blank" rel="noopener">Subscribe on YouTube →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="answer">
+    <div class="container" data-reveal>
+      <p>Yes — WAG Podcast is a real video podcast for teens. It's released weekly on YouTube first, with audio-only versions following on Spotify and Apple Podcasts for anyone who'd rather just listen. If you've been searching for a teen podcast that's actually built for video instead of treating it as an afterthought, this is it.</p>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> Why Video, Not Just Audio</p>
+      <div class="why-grid">
+        {whyVideo.map((w) => (
+          <div class="why-card">
+            <h2>{w.title}</h2>
+            <p>{w.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="platforms-line">
+    <div class="container" data-reveal>
+      <p>Watch full episodes on <a href="https://www.youtube.com/@WAGPodcast" target="_blank" rel="noopener">YouTube</a> — or if you're ever without a screen, the same episodes are available audio-only on <a href="https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb" target="_blank" rel="noopener">Spotify</a> and <a href="https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489" target="_blank" rel="noopener">Apple Podcasts</a>.</p>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("video-podcasts-for-teens")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .video-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.4/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.82) 0%, rgba(10,10,15,.15) 55%, transparent 75%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .video-hero h1{ font-size: clamp(2rem, 4.2vw, 3.2rem); max-width:22ch; margin-bottom:.35em; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:60ch; margin-bottom:1.4em; }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-outline{ border-color: var(--ink); }
+  .btn-outline:hover{ background: var(--ink); color: var(--bg); }
+
+  .answer{ padding: 0 0 48px; }
+  .answer p{ font-size:1.1rem; max-width:68ch; }
+
+  .why{ padding: 8px 0 48px; }
+  .why .eyebrow{ margin-bottom:1em; }
+  .why-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+  .why-card{
+    padding:26px 24px; border-radius: var(--radius); border:1px solid var(--line);
+    background: var(--bg-alt); transition: border-color .2s ease, transform .2s ease;
+  }
+  .why-card:hover{ border-color: var(--wag-green); transform: translateY(-3px); }
+  .why-card h2{ font-size:1.1rem; margin-bottom:.5em; }
+  .why-card p{ font-size:.92rem; color: var(--ink-soft); }
+
+  .platforms-line{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:32px; }
+  .platforms-line p{ font-size:1rem; margin:0; max-width:68ch; }
+  .platforms-line a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 900px){
+    .why-grid{ grid-template-columns: 1fr; }
+  }
+</style>

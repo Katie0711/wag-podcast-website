@@ -1,0 +1,154 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+import { insiderHref } from "../../lib/insiderLink";
+
+// Keyword-intent cluster D from the Phase 2 audit: "teen comedy podcast"
+// / "funny podcasts for teens" -- an entertainment-first search intent,
+// distinct from "teen girl podcast" (gender-first intent, already owned
+// by wildadventuregirls.com/podcast/teen-girl-podcast -- not duplicated
+// here). Every claim below is grounded in real, recurring show content.
+const bits = [
+  { name: "Squad Dares", desc: "One dares, the others must do it — on camera, no take-backs." },
+  { name: "3-Second Roast", desc: "One-liner burns, under three seconds, no mercy." },
+  { name: "He Said What?!", desc: "Real, unfiltered reactions to what the boys actually said." },
+  { name: "Tell Me the Truth", desc: "No dodging, no lying — just the answer, out loud." },
+];
+
+const funnyEpisodes = [
+  {
+    title: "They Said WHAT?! (Playing Cancelled Celebs Heads Up)",
+    url: "https://wildadventuregirls.com/podcast/episodes/heads-up-game-with-cancelled-celebrities-_aawenhkn4m",
+  },
+  {
+    title: "She Said WHAT?! Playing Who's Most Likely To…?",
+    url: "https://wildadventuregirls.com/podcast/episodes/whos-most-likely-to-party-game-cmli8uf39qq",
+  },
+  {
+    title: "Hot Takes That Might Get Us Cancelled!",
+    url: "https://wildadventuregirls.com/podcast/episodes/our-most-controversial-teen-hot-takes-gwezmpb3r3m",
+  },
+];
+---
+
+<BaseLayout
+  title="Teen Comedy Podcast — WAG Podcast"
+  description="Looking for a genuinely funny podcast for teens? WAG Podcast is a weekly video podcast built around real comedy segments: dares, roasts, hot takes, and party games — hosted by three teen girls."
+>
+  <section class="comedy-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-274.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-274.jpg" alt="Angelina, Scarlett, and Annabella laughing on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> Teen Comedy Podcast</p>
+      <h1>Looking for a <span class="text-accent">genuinely funny</span> podcast for teens?</h1>
+      <p class="lede">WAG Podcast is a weekly video podcast built around real comedy — dares, roasts, hot takes, and party games, hosted by three teen girls who don't hold back.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="/watch/">Watch an Episode →</a>
+        <a class="btn btn-outline" href="/listen/">Listen →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="answer">
+    <div class="container" data-reveal>
+      <p>Yes — WAG Podcast is a teen comedy podcast. It's not a talk show with the occasional joke; the comedy is the format, built into recurring segments every single episode, filmed on video first and posted weekly on YouTube, Spotify, and Apple Podcasts.</p>
+    </div>
+  </section>
+
+  <section class="bits">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> The Comedy Segments</p>
+      <div class="bits-grid">
+        {bits.map((b) => (
+          <div class="bit-card">
+            <EqBars size="sm" />
+            <h2>{b.name}</h2>
+            <p>{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="examples">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow">See It In Action</p>
+      <h2>Real episodes, real chaos.</h2>
+      <ul class="examples-list">
+        {funnyEpisodes.map((ep) => (
+          <li><a href={ep.url}>{ep.title} →</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("teen-comedy-podcast")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .comedy-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.4/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.82) 0%, rgba(10,10,15,.15) 55%, transparent 75%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .comedy-hero h1{ font-size: clamp(2rem, 4.2vw, 3.2rem); max-width:22ch; margin-bottom:.35em; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:60ch; margin-bottom:1.4em; }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-outline{ border-color: var(--ink); }
+  .btn-outline:hover{ background: var(--ink); color: var(--bg); }
+
+  .answer{ padding: 0 0 48px; }
+  .answer p{ font-size:1.1rem; max-width:68ch; }
+
+  .bits{ padding: 8px 0 48px; }
+  .bits .eyebrow{ margin-bottom:1em; }
+  .bits-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:18px; }
+  .bit-card{
+    padding:22px 20px; border-radius: var(--radius); border:1px solid var(--line);
+    background: var(--bg-alt); transition: border-color .2s ease, transform .2s ease;
+  }
+  .bit-card:hover{ border-color: var(--wag-pink); transform: translateY(-3px); }
+  .bit-card h2{ font-size:1.1rem; margin: .6em 0 .4em; }
+  .bit-card p{ font-size:.88rem; color: var(--ink-soft); }
+
+  .examples{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }
+  .examples h2{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: .3em 0 .8em; }
+  .examples-list{ list-style:none; padding:0; display:flex; flex-direction:column; gap:.7em; }
+  .examples-list a{ font-size:1.02rem; color: var(--wag-green); font-weight:600; }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 900px){
+    .bits-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px){
+    .bits-grid{ grid-template-columns: 1fr; }
+  }
+</style>

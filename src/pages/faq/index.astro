@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+import { insiderHref } from "../../lib/insiderLink";
+
+// AEO-focused direct-answer page -- distinct from About (narrative
+// prose). Every answer here is a real, already-established fact
+// (confirmed elsewhere on this site or on wildadventuregirls.com), not
+// a thin/invented FAQ built to capture keyword volume.
+const faqs = [
+  {
+    q: "What is WAG Podcast?",
+    a: "WAG Podcast is a weekly, unscripted video podcast hosted by three teen girls — Angelina, Scarlett, and Annabella. It's filmed in their own studio and released on YouTube, Spotify, and Apple Podcasts.",
+  },
+  {
+    q: "Who hosts WAG Podcast?",
+    a: "Angelina, Scarlett, and Annabella host every episode. They're real sisters and a cousin, not a cast assembled for a show — Angelina and Annabella are sisters, and Scarlett is their cousin.",
+  },
+  {
+    q: "How often does a new episode come out?",
+    a: "A new episode releases weekly.",
+  },
+  {
+    q: "Where can I watch WAG Podcast?",
+    a: "Full video episodes are posted to YouTube first, at youtube.com/@WAGPodcast. Audio-only versions follow on Spotify and Apple Podcasts.",
+  },
+  {
+    q: "Is WAG Podcast on Spotify and Apple Podcasts?",
+    a: "Yes — both are audio-only versions of the same weekly episodes that release as video on YouTube first.",
+  },
+  {
+    q: "Is WAG Podcast related to The Wild Adventure Girls?",
+    a: "Yes. WAG Podcast is published by The Wild Adventure Girls, the teen entertainment brand behind Angelina, Scarlett, and Annabella's main YouTube channel. It's a separate weekly show with its own format — not a repackaged version of that content.",
+  },
+  {
+    q: "Is WAG Podcast made for kids?",
+    a: "No. WAG Podcast is teen entertainment, built for and watched primarily by tween and teen girls (roughly ages 11–18) — not content produced for young children.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="FAQ — WAG Podcast"
+  description="Quick answers about WAG Podcast: who hosts it, how often new episodes come out, where to watch and listen, and how it relates to The Wild Adventure Girls."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="faq-hero">
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> FAQ</p>
+      <h1>Quick <span class="text-accent">answers</span> about WAG Podcast.</h1>
+      <p class="lede">The most common questions, answered directly.</p>
+    </div>
+  </section>
+
+  <section class="faq-list">
+    <div class="container" data-reveal="stagger">
+      {faqs.map((f) => (
+        <div class="faq-item">
+          <h2>{f.q}</h2>
+          <p>{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("faq")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .faq-hero{ padding: 56px 0 24px; }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .faq-hero h1{ font-size: clamp(2rem, 4.2vw, 3rem); max-width:20ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; }
+
+  .faq-list{ padding: 24px 0 48px; }
+  .faq-item{
+    max-width:72ch; padding:24px 0; border-bottom:1px solid var(--line);
+  }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item h2{ font-size:1.2rem; margin-bottom:.5em; }
+  .faq-item p{ font-size:1rem; color: var(--ink-soft); }
+
+  .join{ padding: 8px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+</style>

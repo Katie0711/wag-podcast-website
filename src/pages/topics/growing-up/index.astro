@@ -1,0 +1,173 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EqBars from "../../../components/EqBars.astro";
+import { insiderHref } from "../../../lib/insiderLink";
+
+// Real, unique topic hub -- NOT a duplicate of any of the 5 existing
+// WAG Podcast topic hubs on wildadventuregirls.com (friendship-
+// relationships, mental-health-real-talk, games-challenges, scary-
+// close-calls, pop-culture-trends). Found via a real audit of the full
+// episode catalog (wildadventuregirls.com/llms.txt): these 7 episodes
+// are real coming-of-age mishap stories that don't cleanly fit any of
+// those 5 buckets. Full episodes stay canonical on the main site --
+// this page curates and links out, it doesn't republish them.
+const episodes = [
+  {
+    title: "The Reason She Got Kicked Out of Camp...",
+    videoId: "NQ7yOgnHHqM",
+    url: "https://wildadventuregirls.com/podcast/episodes/getting-kicked-out-of-summer-camp-nq7yognhhqm",
+    blurb: "We thought camp would be fun. We were wrong.",
+  },
+  {
+    title: "My Prom Night Was a Complete Disaster…",
+    videoId: "FOES2xwMxxw",
+    url: "https://wildadventuregirls.com/podcast/episodes/prom-night-disaster-story-foes2xwmxxw",
+    blurb: "The night that was supposed to be perfect, told the way it actually happened.",
+  },
+  {
+    title: "I Got Grounded for Life After Sneaking Out!",
+    videoId: "Q0JRxMCdxdE",
+    url: "https://wildadventuregirls.com/podcast/episodes/getting-grounded-for-sneaking-out-q0jrxmcdxde",
+    blurb: "The cringey, annoying, straight-up hilarious things parents do when they catch you.",
+  },
+  {
+    title: "I Never Thought This Would Get Me Suspended!",
+    videoId: "rmSz8UwXCKM",
+    url: "https://wildadventuregirls.com/podcast/episodes/the-story-that-got-me-suspended-from-school-rmsz8uwxckm",
+    blurb: "The full, unfiltered story of how it actually happened.",
+  },
+  {
+    title: "Her Most Embarrassing Teen Story Ever…",
+    videoId: "k5TtGz2dUec",
+    url: "https://wildadventuregirls.com/podcast/episodes/most-embarrassing-teen-story-k5ttgz2duec",
+    blurb: "The funniest and most embarrassing stories, told out loud for the first time.",
+  },
+  {
+    title: "Why We ACTUALLY Failed Our Resolutions... (It's Bad)",
+    videoId: "oQ9LTmqqvdU",
+    url: "https://wildadventuregirls.com/podcast/episodes/why-new-years-resolutions-fail-oq9ltmqqvdu",
+    blurb: "The biggest lies everyone tells themselves every New Year.",
+  },
+  {
+    title: "Embarrassing Things Only GIRLS Understand!",
+    videoId: "sxxt7ZEHpQY",
+    url: "https://wildadventuregirls.com/podcast/episodes/embarrassing-things-only-girls-understand-sxxt7zehpqy",
+    blurb: "For every girl who's lived through the things no one talks about.",
+  },
+];
+---
+
+<BaseLayout
+  title="Growing Up Stories — WAG Podcast"
+  description="Real WAG Podcast episodes about the chaos of actually growing up: getting grounded, getting suspended, prom disasters, and the most embarrassing stories they've got."
+>
+  <section class="topic-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-89.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-89.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> Topic Hub</p>
+      <h1>The chaos of <span class="text-accent">actually growing up</span>, on camera.</h1>
+      <p class="lede">Getting grounded, getting suspended, prom night going sideways — the real stories WAG Podcast keeps coming back to, pulled into one place.</p>
+    </div>
+  </section>
+
+  <section class="topic-intro">
+    <div class="container" data-reveal>
+      <p>These seven episodes aren't games or hot takes — they're the actual embarrassing, chaotic, sometimes bad-decision stories that come with being a teenager. Every one is a real WAG Podcast episode; click through to watch the full thing.</p>
+    </div>
+  </section>
+
+  <section class="episodes">
+    <div class="container" data-reveal="stagger">
+      <div class="episodes-grid">
+        {episodes.map((ep) => (
+          <a class="episode-card" href={ep.url}>
+            <div class="episode-thumb">
+              <img src={`https://img.youtube.com/vi/${ep.videoId}/mqdefault.jpg`} alt={ep.title} loading="lazy" />
+            </div>
+            <div class="episode-body">
+              <h2>{ep.title}</h2>
+              <p>{ep.blurb}</p>
+              <span class="episode-link">Watch the episode →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-cta">
+    <div class="container">
+      <p>Want more? <a href="/watch/">See how to watch WAG Podcast →</a></p>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("topics-growing-up")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .topic-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .topic-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:22ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .topic-intro{ padding: 0 0 40px; }
+  .topic-intro p{ font-size:1.05rem; max-width:68ch; }
+
+  .episodes{ padding: 0 0 24px; }
+  .episodes-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; }
+  .episode-card{
+    display:block; border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--line);
+    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .episode-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(255,22,200,.16); border-color: var(--wag-pink); }
+  .episode-thumb{ aspect-ratio: 16/9; overflow:hidden; }
+  .episode-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .episode-body{ padding:18px 20px 22px; }
+  .episode-body h2{ font-size:1.05rem; margin-bottom:.5em; line-height:1.35; }
+  .episode-body p{ font-size:.9rem; color: var(--ink-soft); margin-bottom:1em; }
+  .episode-link{ font-weight:600; font-size:.86rem; color: var(--wag-green); }
+
+  .topic-cta{ padding: 24px 0 8px; border-top:1px solid var(--line); padding-top:32px; }
+  .topic-cta p{ font-size:1rem; margin:0; }
+  .topic-cta a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 900px){
+    .episodes-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px){
+    .episodes-grid{ grid-template-columns: 1fr; }
+  }
+</style>

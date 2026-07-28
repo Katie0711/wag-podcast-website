@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+import { insiderHref } from "../../lib/insiderLink";
+
+// Real recurring segment names, from WAG's own podcast sponsor deck --
+// same source already used on Home. This page exists because these
+// segments are searched by name once fans have seen a clip, and no
+// single page currently explains what each one actually is. Episode
+// links are only included where a real, verified episode exists for
+// that exact segment/format -- the "___ Said WHAT?!" games map to
+// three real, confirmed episodes. The other segments are real recurring
+// bits woven through episodes rather than single dedicated episodes, so
+// they're described honestly without a fabricated specific link.
+const segments = [
+  {
+    name: "He Said What?!",
+    desc: "Real, unfiltered reactions to what the boys actually said — the format behind several of WAG Podcast's most-watched episodes.",
+    examples: [
+      { title: "He Said WHAT?! (I Went On the WORST Date of My Life!)", url: "https://wildadventuregirls.com/podcast/episodes/worst-first-date-story-ommra5zu_eq" },
+      { title: "They Said WHAT?! (Playing Cancelled Celebs Heads Up)", url: "https://wildadventuregirls.com/podcast/episodes/heads-up-game-with-cancelled-celebrities-_aawenhkn4m" },
+      { title: "She Said WHAT?! Playing Who's Most Likely To…?", url: "https://wildadventuregirls.com/podcast/episodes/whos-most-likely-to-party-game-cmli8uf39qq" },
+    ],
+  },
+  {
+    name: "Squad Dares",
+    desc: "One dares, the others must do it — on camera, no take-backs. A recurring bit that shows up across multiple episodes rather than one dedicated one.",
+    examples: [],
+  },
+  {
+    name: "Tell Me the Truth",
+    desc: "No dodging, no lying — just the answer, out loud. The moment in an episode where the hosts stop joking and actually answer.",
+    examples: [],
+  },
+  {
+    name: "3-Second Roast",
+    desc: "One-liner burns, under three seconds, no mercy. A fast, recurring segment that shows up mid-episode.",
+    examples: [],
+  },
+];
+---
+
+<BaseLayout
+  title="Recurring Segments — WAG Podcast"
+  description="What are Squad Dares, Tell Me the Truth, He Said What?!, and the 3-Second Roast? A guide to the recurring segments fans actually wait for on WAG Podcast."
+>
+  <section class="seg-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-53.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-53.jpg" alt="Angelina, Scarlett, and Annabella playing a game on the WAG Podcast set" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> The Segments</p>
+      <h1>The bits fans actually <span class="text-accent">wait for.</span></h1>
+      <p class="lede">Every WAG Podcast episode has room for real conversation — and a few recurring segments that show up again and again. Here's what each one actually is.</p>
+    </div>
+  </section>
+
+  <section class="segments-list">
+    <div class="container" data-reveal="stagger">
+      {segments.map((s) => (
+        <div class="segment-block">
+          <div class="segment-head">
+            <EqBars size="sm" />
+            <h2>{s.name}</h2>
+          </div>
+          <p>{s.desc}</p>
+          {s.examples.length > 0 && (
+            <ul class="segment-examples">
+              {s.examples.map((ex) => (
+                <li><a href={ex.url}>{ex.title} →</a></li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="seg-cta">
+    <div class="container">
+      <p>Want to see them in action? <a href="/watch/">Watch an episode →</a></p>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("segments")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .seg-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .seg-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:22ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .segments-list{ padding: 0 0 24px; display:flex; flex-direction:column; gap:8px; }
+  .segment-block{
+    padding:28px 30px; border-radius: var(--radius-lg); border:1px solid var(--line);
+    background: var(--bg-alt); margin-bottom:20px; transition: border-color .2s ease;
+  }
+  .segment-block:hover{ border-color: var(--wag-pink); }
+  .segment-head{ display:flex; align-items:center; gap:12px; margin-bottom:.5em; }
+  .segment-head h2{ font-size:1.4rem; margin:0; }
+  .segment-block > p{ font-size:1rem; max-width:64ch; color: var(--ink-soft); }
+  .segment-examples{ list-style:none; padding:0; margin-top:1em; display:flex; flex-direction:column; gap:.5em; }
+  .segment-examples a{ color: var(--wag-green); font-weight:600; font-size:.94rem; }
+
+  .seg-cta{ padding: 8px 0 8px; border-top:1px solid var(--line); padding-top:32px; }
+  .seg-cta p{ font-size:1rem; margin:0; }
+  .seg-cta a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+</style>

@@ -10,6 +10,18 @@ const brandPartners = [
   "Nintendo", "Google", "UpFaith & Family", "Razor USA",
   "Get Epic!", "The Toy Insider", "Hexbug USA", "NSI International", "Dynacraft",
 ];
+
+// Available ad/partnership formats -- described as offerings, not
+// claimed past campaigns (WAG Podcast doesn't have a documented
+// podcast-specific sponsor history separate from the broader WAG
+// partnerships above yet). Standing rule: never write copy implying WAG
+// doesn't take brand deals -- this frames it as available, not absent.
+const formats = [
+  { name: "In-episode mentions", desc: "A natural, spoken mention worked into the real conversation, not a pre-roll ad read." },
+  { name: "Sponsored segments", desc: "A brand woven into one of the show's real recurring segments — Squad Dares, 3-Second Roast, and others." },
+  { name: "Product integration", desc: "A product used, tested, or reacted to on camera as part of an episode, the same way WAG features products elsewhere." },
+  { name: "Co-branded episode", desc: "A full episode built around a brand, product, or campaign, credited clearly to the partner." },
+];
 ---
 
 <BaseLayout
@@ -39,8 +51,20 @@ const brandPartners = [
           <p>WAG Podcast reaches the same core teen and tween audience that follows The Wild Adventure Girls — a brand with a real, established YouTube presence built over more than a decade. The podcast is the newest format in that ecosystem, released weekly on video and audio.</p>
         </div>
         <div class="sponsor-block">
+          <h2>Partnership formats</h2>
+          <p>WAG Podcast is a weekly, unscripted show with real recurring segments — that format opens up a few different ways to partner:</p>
+          <div class="formats-grid">
+            {formats.map((f) => (
+              <div class="format-card">
+                <h3>{f.name}</h3>
+                <p>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="sponsor-block">
           <h2>Brands who trust The Wild Adventure Girls</h2>
-          <p>WAG Podcast is part of a brand with a real, documented partnership track record — not a separate, unproven channel.</p>
+          <p>WAG Podcast is part of a brand with a real, documented partnership track record — not a separate, unproven channel. These are Wild Adventure Girls partnerships across the broader brand; podcast-specific campaigns are discussed directly, since the show is newer than these relationships.</p>
           <ul class="brand-list">
             {brandPartners.map((b) => <li>{b}</li>)}
           </ul>
@@ -69,6 +93,16 @@ const brandPartners = [
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
   .sponsor-hero .lede{ font-size:1.1rem; max-width:62ch; color:#E7E7EE; }
+
+  .formats-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:1.2em; }
+  .format-card{
+    padding:18px 20px; border-radius: var(--radius); border:1px solid var(--line); background: var(--bg);
+  }
+  .format-card h3{ font-size:1rem; margin-bottom:.4em; }
+  .format-card p{ font-size:.88rem; margin:0; }
+  @media (max-width: 640px){
+    .formats-grid{ grid-template-columns: 1fr; }
+  }
 
   .brand-list{
     display:flex; flex-wrap:wrap; gap:10px 14px; list-style:none; padding:0; margin: 1em 0;
