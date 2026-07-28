@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
+import { insiderHref } from "../../lib/insiderLink";
 ---
 
 <BaseLayout
@@ -57,6 +58,14 @@ import EqBars from "../../components/EqBars.astro";
       <a class="btn btn-outline" href="/listen/">Listen Now →</a>
     </div>
   </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("about")}>Join WAG Insider →</a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -83,7 +92,20 @@ import EqBars from "../../components/EqBars.astro";
   .about-block p{ font-size:1rem; }
   .about-block a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
 
-  .about-cta{ padding: 8px 0 72px; display:flex; gap:16px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:40px; }
+  .about-cta{ padding: 8px 0 40px; display:flex; gap:16px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:40px; }
   .btn-outline{ border-color: var(--ink); }
   .btn-outline:hover{ background: var(--ink); color: var(--bg); }
+
+  .join{ padding: 8px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
 </style>

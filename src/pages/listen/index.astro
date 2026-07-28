@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
+import { insiderHref } from "../../lib/insiderLink";
 
 const platforms = [
   { name: "Spotify", href: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb", note: "Full episodes, audio-only, new one every week." },
@@ -52,6 +53,14 @@ const platforms = [
       ></iframe>
     </div>
   </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("listen")}>Join WAG Insider →</a>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -79,8 +88,21 @@ const platforms = [
   .platform-card p{ font-size:.9rem; margin-bottom:1em; }
   .platform-cta{ font-weight:600; font-size:.88rem; color: var(--wag-green); }
 
-  .spotify-embed{ padding: 24px 0 72px; }
+  .spotify-embed{ padding: 24px 0 8px; }
   .spotify-embed iframe{ border-radius: var(--radius); border:1px solid var(--line); display:block; }
+
+  .join{ padding: 8px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
 
   @media (max-width: 760px){
     .platforms .container{ grid-template-columns:1fr; }
