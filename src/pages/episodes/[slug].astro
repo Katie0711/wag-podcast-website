@@ -14,15 +14,43 @@ const { entry } = Astro.props as { entry: Awaited<ReturnType<typeof getCollectio
 const { Content } = await render(entry);
 const dateFmt = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" });
 
-const videoSchema = {
+const hostNames: Record<string, string> = { angelina: "Angelina", scarlett: "Scarlett", annabella: "Annabella" };
+const hostList = entry.data.hosts.map((h) => hostNames[h]);
+const hostLabel = hostList.length > 1
+  ? `${hostList.slice(0, -1).join(", ")} & ${hostList[hostList.length - 1]}`
+  : hostList[0];
+
+// PodcastEpisode, not VideoObject -- the real schema.org type for a
+// podcast episode, and it's what ties this page's entity graph back to
+// the show (partOfSeries) and its real hosts (actor), matching the
+// PodcastSeries @id already declared in BaseLayout.astro. timeRequired
+// only appears when a real, verified runtime exists -- never guessed.
+const episodeSchema = {
   "@context": "https://schema.org",
-  "@type": "VideoObject",
+  "@type": "PodcastEpisode",
   name: entry.data.title,
   description: entry.data.description,
-  embedUrl: `https://www.youtube.com/embed/${entry.data.videoId}`,
-  thumbnailUrl: entry.data.heroImage,
-  uploadDate: entry.data.publishDate.toISOString(),
+  datePublished: entry.data.publishDate.toISOString(),
+  url: `https://thewagpodcast.com/episodes/${entry.id}/`,
+  image: entry.data.heroImage,
+  ...(entry.data.durationSeconds ? { timeRequired: `PT${entry.data.durationSeconds}S` } : {}),
+  partOfSeries: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast", name: "WAG Podcast" },
+  actor: hostList.map((name) => ({ "@type": "Person", name })),
+  associatedMedia: { "@type": "VideoObject", embedUrl: `https://www.youtube.com/embed/${entry.data.videoId}`, thumbnailUrl: entry.data.heroImage },
 };
+
+// Generated directly from entry.data.faqs -- the exact same array that
+// drives the visible "Quick Answers" section below, so schema can never
+// drift from what's actually on the page.
+const faqSchema = entry.data.faqs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: entry.data.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+} : null;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -34,8 +62,9 @@ const breadcrumbSchema = {
 };
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description} ogImage={entry.data.heroImage}>
-  <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />
+<BaseLayout title={entry.data.metaTitle ?? entry.data.title} description={entry.data.description} ogImage={entry.data.heroImage}>
+  <script type="application/ld+json" set:html={JSON.stringify(episodeSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <article class="episode-page">
@@ -45,7 +74,7 @@ const breadcrumbSchema = {
       <div class="episode-header">
         <p class="eyebrow"><EqBars size="sm" /> WAG Podcast Story</p>
         <h1>{entry.data.title}</h1>
-        <p class="episode-meta">{dateFmt.format(entry.data.publishDate)} &middot; Angelina, Scarlett &amp; Annabella</p>
+        <p class="episode-meta">{dateFmt.format(entry.data.publishDate)} &middot; {hostLabel}</p>
       </div>
 
       <section class="episode-video" data-reveal>
@@ -63,6 +92,18 @@ const breadcrumbSchema = {
       <div class="episode-body">
         <Content />
       </div>
+
+      {entry.data.faqs.length > 0 && (
+        <div class="episode-faqs">
+          <h2>Quick Answers</h2>
+          {entry.data.faqs.map((f) => (
+            <div class="faq-item">
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
 
     <section class="join">
@@ -93,10 +134,21 @@ const breadcrumbSchema = {
   }
   .embed-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 
-  .episode-body{ max-width:70ch; font-size:1.08rem; margin: 0 auto 56px; }
+  .episode-body{ max-width:70ch; font-size:1.08rem; margin: 0 auto 40px; }
   .episode-body :global(h2){ font-size:1.3rem; margin: 1.4em 0 .5em; }
+  .episode-body :global(h3){ font-size:1.08rem; margin: 1.2em 0 .4em; text-transform:none; letter-spacing:0; font-family: var(--font-body); font-weight:700; color: var(--ink); }
   .episode-body :global(p){ margin-bottom:1.2em; color: var(--ink-soft); }
   .episode-body :global(a){ color: var(--wag-green); font-weight:600; }
+  .episode-body :global(blockquote){ margin: 1.4em 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--wag-green); font-style: italic; color: var(--ink); }
+
+  .episode-faqs{ max-width:70ch; margin: 0 auto 48px; border-top:1px solid var(--line); padding-top:32px; }
+  .episode-faqs h2{ font-size:1.4rem; margin-bottom:20px; }
+  .faq-item{ margin-bottom:20px; }
+  .faq-item h3{
+    font-family: var(--font-body); font-weight:700; font-size:1.02rem;
+    text-transform:none; letter-spacing:0; color: var(--ink); margin-bottom:.4em;
+  }
+  .faq-item p{ color: var(--ink-soft); font-size:.98rem; margin:0; }
 
   .join{ padding: 8px 0 72px; }
   .join-inner{

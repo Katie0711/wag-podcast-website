@@ -18,10 +18,22 @@ const episodes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/episodes" }),
   schema: z.object({
     title: z.string(),
+    // Search-facing <title> override, when it needs to differ from the
+    // real on-page H1 (e.g. a shorter, more literal phrasing for the
+    // title tag vs. a fuller H1) -- same pattern as the main site's
+    // episodeSeoTitles.ts. Falls back to `title` when unset.
+    metaTitle: z.string().optional(),
     videoId: z.string(), // the real YouTube video ID -- same source of truth as the main site
     publishDate: z.date(),
     description: z.string(),
     heroImage: z.string(),
+    // Real, verified only -- the actual episode runtime in seconds, when
+    // known, powers PodcastEpisode schema's timeRequired. Never guessed.
+    durationSeconds: z.number().optional(),
+    // Direct-answer Q&As for on-page "Quick Answers" + FAQPage schema.
+    // Schema is generated from this exact array, so it can never drift
+    // from what's actually visible on the page.
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     // All three co-host every episode by default (a standing fact, not
     // a per-episode guess) -- override only when an episode is real and
     // different (e.g. a solo or two-host cut).
