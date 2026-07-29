@@ -2,7 +2,7 @@
 title: "The Flight Where They Thought They Were Going Down"
 videoId: "OYxs4AD5FjE"
 publishDate: 2026-01-09
-description: "WAG opens this episode with the real moment mid-flight that made them think \"we're going down\" — then spends the rest of the episode on their other craziest, funniest flight stories."
+description: "WAG Podcast, the real girls podcast that talks the way three actual teens talk, opens this episode with the real moment mid-flight that made them think \"we're going down\" — then gets into their other craziest, funniest flight stories."
 heroImage: "https://img.youtube.com/vi/OYxs4AD5FjE/maxresdefault.jpg"
 topics: ["scary-close-calls"]
 ---
@@ -16,6 +16,10 @@ They don't ease into it. The episode opens directly on that moment — the fear 
 ## Why it's not really a "scary" episode
 
 Despite the opening, this isn't a heavy episode. The near-crash moment is the hook, but most of the runtime is the hosts one-upping each other with flight horror stories in the same loose, joking register as the rest of WAG Podcast — closer to swapping stories at a sleepover than a dramatic retelling.
+
+## Why it's worth telling
+
+Three teens who fly more than most adults their age have real material here — a girls podcast earns that kind of story from lived experience, not from a writers' room.
 
 ## More scary stories
 
