@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
 import { getPodcastEpisodes, getPodcastClips } from "../../lib/youtube";
 import { insiderHref } from "../../lib/insiderLink";
+import { getCollection } from "astro:content";
 
 // Real, live data straight from the WAG Podcast YouTube channel feed --
 // re-fetched on every build, never hand-maintained. This is the site's
@@ -15,6 +16,7 @@ const episodes = await getPodcastEpisodes(6);
 const [featured, ...rest] = episodes;
 const recentEpisodes = rest.slice(0, 3);
 const clips = await getPodcastClips(6);
+const stories = (await getCollection("episodes")).sort((a, b) => +b.data.publishDate - +a.data.publishDate);
 
 const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
 
@@ -104,6 +106,29 @@ function truncate(text: string, max = 160) {
     </section>
   )}
 
+  {stories.length > 0 && (
+    <section class="stories-section">
+      <div class="container" data-reveal="stagger">
+        <p class="eyebrow">Deep Dives</p>
+        <h2>The story behind the episode.</h2>
+        <div class="recent-grid">
+          {stories.map((s) => (
+            <a class="recent-card" href={`/episodes/${s.id}/`}>
+              <div class="recent-thumb">
+                <img src={s.data.heroImage} alt={s.data.title} loading="lazy" />
+                <span class="play-icon" aria-hidden="true">▶</span>
+              </div>
+              <div class="recent-body">
+                <h3>{s.data.title}</h3>
+                <p>{truncate(s.data.description)}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <section class="formats-section">
     <div class="container" data-reveal>
       <div class="formats-inner">
@@ -183,6 +208,9 @@ function truncate(text: string, max = 160) {
     font-size:.98rem; margin:.4em 0; line-height:1.35;
   }
   .recent-body p{ font-size:.84rem; color: var(--ink-muted); margin:0; }
+
+  .stories-section{ padding: 8px 0 56px; border-top:1px solid var(--line); padding-top:48px; }
+  .stories-section h2{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: .2em 0 .8em; }
 
   .clips-section{ padding: 8px 0 56px; border-top:1px solid var(--line); padding-top:48px; }
   .clips-section h2{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: .2em 0 .8em; }
