@@ -1,17 +1,19 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
-// Phase 2 infrastructure only -- schema + (eventually) page template for
-// thewagpodcast.com's own episode pages. No content files exist yet and
-// no route consumes this collection yet. Per Katie's explicit brief:
-// "don't migrate episodes yet" -- every real episode's canonical home
-// stays wildadventuregirls.com/podcast/episodes/[slug] (driven live off
-// the YouTube feed, see that repo's src/lib/youtube.ts) until an
-// evidence-based decision is made to migrate. This collection is the
-// richer model this site would use if/when that happens: it adds fields
-// the live-feed-driven model doesn't have (transcript, guest, topic
-// tags, clip relationships), while `videoId` keeps every entry anchored
-// to the same real YouTube video as its source of truth.
+// Backs /episodes/[slug] -- narrative "Story" deep dives on select real
+// episodes, distinct in voice and angle from both (a) the main site's
+// leaner embed+FAQ episode pages and (b) its reflective first-person
+// podcast-articles essays, so the two domains don't compete for the
+// same search intent on the same episode. Per Katie's explicit brief:
+// "don't migrate episodes yet" -- every real episode's canonical
+// video-first home stays wildadventuregirls.com/podcast/episodes/[slug]
+// (driven live off the YouTube feed, see that repo's src/lib/youtube.ts).
+// This collection is additive, not a migration: only episodes that earn
+// a genuinely distinct deep-dive get an entry here, `videoId` keeps
+// every entry anchored to the same real YouTube video as its source of
+// truth, and fields like transcript/guest/topic tags let an entry go
+// deeper than the live-feed-driven model ever could.
 const episodes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/episodes" }),
   schema: z.object({
