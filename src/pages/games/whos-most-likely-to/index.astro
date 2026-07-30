@@ -21,13 +21,18 @@ const faqSchema = {
       name: "What real stories come up during WAG's game?",
       acceptedAnswer: { "@type": "Answer", text: "Real embarrassing moments, like the hurdle fail that ended a track career and the Pier 1 glass shelf disaster, come up as the group debates their votes." },
     },
+    {
+      "@type": "Question",
+      name: "What are some real \"who's most likely to\" prompts from this episode?",
+      acceptedAnswer: { "@type": "Answer", text: "A few real ones: who's most likely to go to jail, who's most likely to go viral for something stupid, and who's most likely to flirt their way out of a ticket." },
+    },
   ],
 };
 ---
 
 <BaseLayout
   title="Who's Most Likely To — WAG Podcast Games"
-  description="How to play Who's Most Likely To, the game where WAG's real embarrassing stories come out — real rules, plus the real episode where they played it."
+  description="How to play Who's Most Likely To, plus the real prompts WAG actually used — from who's most likely to go to jail to who'd flirt their way out of a ticket — and the stories the votes turned into."
   ogImage="https://img.youtube.com/vi/cmLI8UF39qQ/maxresdefault.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -44,7 +49,14 @@ const faqSchema = {
   <section class="how-to-play">
     <div class="container" data-reveal>
       <p class="eyebrow">How to Play</p>
-      <p>Each round, the group votes on who's "most likely" to do something specific — anything from getting into trouble to flirting their way out of a ticket. Whoever gets the most votes has to own it, and it usually turns into a real story. In this episode, the votes surface two real ones: the hurdle fail that ended a track career, and the Pier 1 glass shelf disaster.</p>
+      <p>Someone throws out a "who's most likely to..." prompt, and the group votes on who fits it best. Whoever gets the most votes has to own it — admit it, explain it, or tell the story behind it, on camera, no dodging.</p>
+    </div>
+  </section>
+
+  <section class="real-prompts">
+    <div class="container" data-reveal>
+      <p class="eyebrow">Real Prompts From This Episode</p>
+      <p>A few of the actual prompts that came up: Who's most likely to go to jail? Who's most likely to go viral for something stupid? Who's most likely to flirt their way out of a ticket? The votes on those turned into two of the episode's best stories — the hurdle fail that ended a track career, and the Pier 1 glass shelf disaster.</p>
     </div>
   </section>
 
@@ -90,9 +102,13 @@ const faqSchema = {
   }
   .lede{ font-size:1.1rem; max-width:62ch; }
 
-  .how-to-play{ padding: 24px 0 40px; }
+  .how-to-play{ padding: 24px 0 8px; }
   .how-to-play .eyebrow{ margin-bottom:12px; }
   .how-to-play p{ font-size:1.05rem; max-width:70ch; color: var(--ink-soft); }
+
+  .real-prompts{ padding: 8px 0 40px; }
+  .real-prompts .eyebrow{ margin-bottom:12px; }
+  .real-prompts p{ font-size:1.05rem; max-width:70ch; color: var(--ink-soft); }
 
   .game-video{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }
   .game-video .eyebrow{ margin-bottom:16px; }

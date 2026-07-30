@@ -34,6 +34,7 @@ const questions = [
   { q: "Do guys overthink texting as much as girls do?", a: "According to the guy WAG interviewed for installment 2, yes — the episode has a full segment on how much guys actually overanalyze texts and reads from their crush." },
   { q: "What makes a girl attractive to guys?", a: "Installment 2 covers this directly, along with guys' biggest \"icks\" and what actually makes them catch feelings — not just looks." },
   { q: "What kind of questions do girls actually want to ask guys?", a: "Everything from dating and texting habits to the awkward, embarrassing, and random things girls wonder about but rarely ask directly — WAG put those exact questions to Ryan on camera in installment 1." },
+  { q: "How do guys know if a girl likes them, and why do some guys ghost after coming on strong?", a: "Installment 2 gets into both — from the perspective of the guy WAG interviewed. He walks through what he personally looks for, and gives his own take on why some guys go all in early and then disappear." },
 ];
 
 const collectionSchema = {
@@ -65,7 +66,7 @@ const faqSchema = {
 
 <BaseLayout
   title="Guys Answer Questions — WAG Podcast"
-  description="The real WAG Podcast format where a real guy answers the questions girls actually want asked — every installment, guest, and best question so far."
+  description="Real questions girls want to ask guys — answered by the guys themselves, on camera, unscripted."
   ogImage="/images/studio/wag-studio-301.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
@@ -89,7 +90,7 @@ const faqSchema = {
   <section class="gaq-intro">
     <div class="container" data-reveal>
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Guys Answer Questions", href: "/guys-answer-questions/" }]} />
-      <p>Twice now, WAG has sat a real guy down and asked him the questions girls actually want answered — dating, texting, red flags, what guys really think. Each installment is a different guy, a different round of questions, same real format.</p>
+      <p>Twice now, WAG's Angelina, Annabella, and Scarlett have put guys in the hot seat — asking the questions girls actually want answered about texting, dating, red flags, how guys know when a girl likes them, and why some guys come on strong and then disappear. Different guy, different questions, same unscripted format.</p>
     </div>
   </section>
 
@@ -133,6 +134,7 @@ const faqSchema = {
   <section class="gaq-cta">
     <div class="container">
       <p>Want to see the real reactions? <a href="/watch/">Watch WAG Podcast →</a> Or catch the recurring bits like this one on the <a href="/segments/">Segments page →</a></p>
+      <p>Want the girls' side of dating red flags? <a href="/episodes/dating-red-flags-would-you-still-date-him/">WAG debates those too →</a></p>
     </div>
   </section>
 
@@ -198,6 +200,7 @@ const faqSchema = {
 
   .gaq-cta{ padding: 8px 0 8px; }
   .gaq-cta p{ font-size:1rem; margin:0; }
+  .gaq-cta p + p{ margin-top:.6em; }
   .gaq-cta a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
 
   .join{ padding: 40px 0 72px; }

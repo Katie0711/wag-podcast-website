@@ -190,6 +190,10 @@ Real relationships happen between actual people.
 
 And sometimes figuring out what matters to you starts with sitting on a couch with your sisters and arguing about it for twenty minutes.
 
+## Want the Guys' Perspective?
+
+[Guys Answer Questions](/guys-answer-questions/) flips the perspective, with WAG putting dating, texting, and red-flag questions directly to the guys — on camera and unscripted.
+
 ## More real relationship talk
 
 WAG has gotten into the real stuff before — including [the time an ex wouldn't stop showing up](/episodes/ex-stalked-me-story/). For the full archive and everything else the show covers, head to [The Wild Adventure Girls](https://wildadventuregirls.com/).

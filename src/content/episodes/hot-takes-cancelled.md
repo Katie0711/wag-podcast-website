@@ -2,12 +2,21 @@
 title: "Hot Takes That Might Get Us Cancelled"
 videoId: "gweZmPb3r3M"
 publishDate: 2026-05-22
-description: "WAG Podcast, the real girls podcast, trades in their most controversial opinions — the episode where things got more heated than the hosts expected."
+description: "Angelina, Annabella, and Scarlett debate their hot takes and unpopular opinions — from pineapple on pizza and bicycle seats to meeting YouTubers in real life and unexpected track banquet drama."
 heroImage: "https://img.youtube.com/vi/gweZmPb3r3M/maxresdefault.jpg"
 topics: ["pop-culture-trends"]
+faqs:
+  - q: "What hot takes do WAG actually get into in this episode?"
+    a: "Real ones — pineapple on pizza, why bicycle seats are the worst, and their honest opinions on what it's actually like meeting YouTubers in person versus how they come across online."
+  - q: "What's the \"track banquet drama\" the hosts mention?"
+    a: "It's a real situation that happened right around when they were filming — the hosts get into it live and unscripted, as one of the most honest moments in the episode."
 ---
 
-By WAG's own admission, "things got way more heated than we expected" in this one. The hosts set out to trade their most controversial opinions and ended up somewhere less scripted than that premise usually goes.
+By WAG's own admission, "things got way more heated than we expected" in this one. Angelina, Annabella, and Scarlett sat down to trade their hot takes and unpopular opinions — pineapple on pizza, why bicycle seats are the worst, and what it's actually like meeting YouTubers in person versus how they come across online. It didn't stay tidy.
+
+## Hot Takes We Definitely Didn't Agree On
+
+No script, no safe answers — just real unpopular opinions, argued out loud. This episode also gets into the track banquet drama that happened right as they were recording, unfiltered, in real time.
 
 ## What makes this one different
 
