@@ -2,7 +2,7 @@
 title: "The Time My Ex Stalked Me"
 videoId: "3XpllLzZ9fs"
 publishDate: 2026-04-03
-description: "A real teen dating story from WAG Podcast, the girls podcast that talks about the stuff most teen shows skip — an ex who wouldn't stop showing up, what it actually felt like, and what she did about it."
+description: "A real teen dating story from WAG Podcast, the girls podcast that talks about the stuff most teen shows skip — an ex who wouldn't stop showing up."
 heroImage: "https://img.youtube.com/vi/3XpllLzZ9fs/maxresdefault.jpg"
 topics: ["friendship-relationships"]
 ---

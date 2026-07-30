@@ -2,7 +2,7 @@
 title: "The Flight Where They Thought They Were Going Down"
 videoId: "OYxs4AD5FjE"
 publishDate: 2026-01-09
-description: "WAG Podcast, the real girls podcast that talks the way three actual teens talk, opens this episode with the real moment mid-flight that made them think \"we're going down\" — then gets into their other craziest, funniest flight stories."
+description: "WAG Podcast, the real girls podcast, opens with the real mid-flight moment that made them think \"we're going down\" — then more flight stories."
 heroImage: "https://img.youtube.com/vi/OYxs4AD5FjE/maxresdefault.jpg"
 topics: ["scary-close-calls"]
 ---

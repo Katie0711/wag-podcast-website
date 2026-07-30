@@ -215,8 +215,8 @@ function truncate(text: string, max = 160) {
   .clips-section{ padding: 8px 0 56px; border-top:1px solid var(--line); padding-top:48px; }
   .clips-section h2{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: .2em 0 .8em; }
   .clips-grid{ display:grid; grid-template-columns: repeat(6, 1fr); gap:12px; }
-  .clip-card{ display:block; border-radius: var(--radius-sm); overflow:hidden; }
-  .clip-card img{ width:100%; aspect-ratio:9/16; object-fit:cover; display:block; transition: transform .2s ease; }
+  .clip-card{ display:block; border-radius: var(--radius-sm); overflow:hidden; background: #0A0A0F; }
+  .clip-card img{ width:100%; height:100%; aspect-ratio:9/16; object-fit:contain; display:block; transition: transform .2s ease; }
   .clip-card:hover img{ transform: scale(1.05); }
 
   .formats-section{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }

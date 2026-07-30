@@ -2,7 +2,7 @@
 title: "We Rated the Golden Globes Red Carpet"
 videoId: "z65YmriEg6Q"
 publishDate: 2026-01-23
-description: "WAG Podcast, the girls podcast where three real teens argue it out on camera, rates the Golden Globes red carpet — bold looks, confusing choices, and the back-and-forth debate over which stars nailed it."
+description: "WAG Podcast, the girls podcast where three real teens argue it out on camera, rates the Golden Globes red carpet — bold looks and confusing choices."
 heroImage: "https://img.youtube.com/vi/z65YmriEg6Q/maxresdefault.jpg"
 topics: ["pop-culture-trends"]
 ---

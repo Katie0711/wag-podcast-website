@@ -2,7 +2,7 @@
 title: "The Jeep That Flipped Outside My House"
 videoId: "RwhRLWdN2Jk"
 publishDate: 2026-02-26
-description: "A real car accident story from WAG Podcast, the girls podcast where the hosts tell you what actually happened instead of performing it — a Jeep flipped outside the host's house, and she talks through what it actually felt like."
+description: "A real car accident story from WAG Podcast, the girls podcast that tells it like it actually happened — a Jeep flipped outside the host's house."
 heroImage: "https://img.youtube.com/vi/RwhRLWdN2Jk/maxresdefault.jpg"
 topics: ["scary-close-calls"]
 ---
