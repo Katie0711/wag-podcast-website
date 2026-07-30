@@ -2,7 +2,7 @@
 title: "The Weirdest Prom Ever"
 videoId: "FOES2xwMxxw"
 publishDate: 2026-05-20
-description: "A real prom night story from WAG Podcast, the girls podcast that tells it like it actually happened — the specific, chaotic details from a prom that went nothing like planned."
+description: "A real prom night story from WAG Podcast, the girls podcast that tells it like it happened — chaotic details from a prom gone nothing like planned."
 heroImage: "https://img.youtube.com/vi/FOES2xwMxxw/maxresdefault.jpg"
 topics: ["friendship-relationships"]
 ---

@@ -36,7 +36,14 @@ const episodeSchema = {
   ...(entry.data.durationSeconds ? { timeRequired: `PT${entry.data.durationSeconds}S` } : {}),
   partOfSeries: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast", name: "WAG Podcast" },
   actor: hostList.map((name) => ({ "@type": "Person", name })),
-  associatedMedia: { "@type": "VideoObject", embedUrl: `https://www.youtube.com/embed/${entry.data.videoId}`, thumbnailUrl: entry.data.heroImage },
+  associatedMedia: {
+    "@type": "VideoObject",
+    name: entry.data.title,
+    description: entry.data.description,
+    uploadDate: entry.data.publishDate.toISOString(),
+    embedUrl: `https://www.youtube.com/embed/${entry.data.videoId}`,
+    thumbnailUrl: entry.data.heroImage,
+  },
 };
 
 // Generated directly from entry.data.faqs -- the exact same array that

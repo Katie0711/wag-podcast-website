@@ -2,7 +2,7 @@
 title: "We Tested Every Viral Glow-Up Tip"
 videoId: "8P3vbpTHmF0"
 publishDate: 2026-03-13
-description: "WAG Podcast, the girls podcast that actually tries what it talks about, tested viral TikTok glow-up tips before summer to see which ones are real and which ones are hype."
+description: "WAG Podcast, the girls podcast that actually tries what it talks about, tested viral TikTok glow-up tips to see which ones are real and which are hype."
 heroImage: "https://img.youtube.com/vi/8P3vbpTHmF0/maxresdefault.jpg"
 topics: ["pop-culture-trends"]
 ---

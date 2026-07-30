@@ -65,7 +65,7 @@ const collectionSchema = {
   "@type": "CollectionPage",
   name: "Growing Up Stories — WAG Podcast",
   url: "https://thewagpodcast.com/topics/growing-up/",
-  hasPart: {
+  mainEntity: {
     "@type": "ItemList",
     itemListElement: episodes.map((ep, i) => ({
       "@type": "ListItem",
@@ -79,7 +79,7 @@ const collectionSchema = {
 
 <BaseLayout
   title="Growing Up Stories — WAG Podcast"
-  description="Real WAG Podcast episodes about the chaos of actually growing up: getting grounded, getting suspended, prom disasters, and the most embarrassing stories they've got."
+  description="Real WAG Podcast episodes about the chaos of actually growing up — getting grounded, getting suspended, prom disasters, and more."
   ogImage="/images/studio/wag-studio-89.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
