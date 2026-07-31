@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
+import Marquee from "../../components/Marquee.astro";
 
 // Real brand partners, sourced from WAG's own sponsor deck/brand
 // playbook -- these are Wild Adventure Girls partnerships (licensing,
@@ -66,9 +67,10 @@ const formats = [
         <img src="/images/studio/wag-studio-195.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
       </picture>
       <div class="hero-scrim"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
     </div>
     <div class="container hero-inner">
-      <p class="eyebrow"><EqBars size="sm" /> Sponsor / Advertise</p>
+      <p class="eyebrow"><EqBars size="sm" /> WAG Podcast Media Kit</p>
       <h1>Advertise with <span class="text-accent">WAG Podcast</span>.</h1>
       <p class="lede">A new, fast-growing weekly video podcast for teens — real talk, real chaos, real reactions, from the team behind The Wild Adventure Girls. Every episode feels like sitting in on the group chat, only millions are watching.</p>
       <a class="btn btn-accent" href="#partner">Become a Sponsor →</a>
@@ -97,67 +99,97 @@ const formats = [
     </div>
   </section>
 
-  <div class="register-light sponsor-body-wrap">
-    <section class="audience-section">
-      <div class="container" data-reveal>
-        <p class="eyebrow"><EqBars size="sm" /> Who's Watching</p>
-        <h2>The audience every brand wants and few can reach.</h2>
-        <div class="audience-grid">
-          {audienceStats.map((s) => (
-            <div class="audience-stat"><span class="stat-num">{s.num}</span><span class="stat-label">{s.label}</span></div>
-          ))}
-        </div>
-        <p class="audience-note">Platform-obsessed — YouTube, TikTok, Spotify, and Instagram, all at once.</p>
-      </div>
-    </section>
+  <nav class="jumpnav" aria-label="Sponsor page sections">
+    <div class="container jumpnav-inner">
+      <a href="#audience">Audience</a>
+      <a href="#brands">Brands</a>
+      <a href="#formats">Partnership Formats</a>
+      <a href="#partner">Let's Talk</a>
+    </div>
+  </nav>
 
-    <section class="brand-marquee-section">
-      <div class="container" data-reveal>
-        <p class="eyebrow">Brands Who Trust Us</p>
-        <p class="marquee-lede">We've worked with some of the biggest names in tech, toys, and family media — brands who trust us because we deliver fans, reach, and real results.</p>
-      </div>
-      <div class="marquee" role="list" aria-label="Brand partners">
-        <div class="marquee-track">
-          {[...brandPartners, ...brandPartners].map((b) => <span class="marquee-item" role="listitem">{b}</span>)}
-        </div>
-      </div>
-      <div class="container">
-        <p class="marquee-footnote">For the full case studies, audience data, and past campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a></p>
-      </div>
-    </section>
-
-    <section class="sponsor-body">
-      <div class="container" data-reveal="stagger">
-        <div class="sponsor-block">
-          <h2>What sponsors get exposure to</h2>
-          <p>WAG Podcast reaches the same core teen and tween audience that follows The Wild Adventure Girls — a brand with a real, established YouTube presence built over more than a decade. Every episode covers real, recurring territory:</p>
-          <ul class="pillar-pills">
-            {contentPillars.map((p) => <li>{p}</li>)}
-          </ul>
-        </div>
-        <div class="sponsor-block">
-          <h2>Partnership formats</h2>
-          <p>WAG Podcast is a weekly, unscripted show with real recurring segments — that format opens up a few different ways to partner:</p>
-          <div class="formats-grid">
-            {formats.map((f) => (
-              <div class="format-card">
-                <h3>{f.name}</h3>
-                <p>{f.desc}</p>
-              </div>
-            ))}
+  <section class="audience-section" id="audience">
+    <div class="audience-glow" aria-hidden="true"></div>
+    <div class="container" data-reveal>
+      <p class="eyebrow"><EqBars size="sm" /> Who's Watching</p>
+      <h2>The audience every brand wants and few can reach.</h2>
+      <div class="audience-row">
+        {audienceStats.map((s, i) => (
+          <div class={`audience-stat accent-${i % 2 === 0 ? "pink" : "green"}`}>
+            <span class="stat-num">{s.num}</span>
+            <span class="stat-label">{s.label}</span>
           </div>
-        </div>
+        ))}
       </div>
-    </section>
+      <p class="audience-note">Platform-obsessed — YouTube, TikTok, Spotify, and Instagram, all at once.</p>
+    </div>
+  </section>
 
-    <section class="sponsor-cta" id="partner">
-      <div class="container cta-inner" data-reveal>
-        <div class="cta-copy">
-          <p class="eyebrow"><EqBars size="sm" /> Let's Talk</p>
-          <h2>Let's build something worth showing off.</h2>
-          <p class="cta-note">Tell us about your brand and what you're looking to do — pricing and packages are discussed directly, not posted publicly.</p>
-          <p class="cta-email">Or email us directly: <a href="mailto:thewildadventuregirls@gmail.com?subject=WAG%20Podcast%20Sponsorship">thewildadventuregirls@gmail.com</a></p>
-        </div>
+  <section class="brand-section" id="brands">
+    <div class="container brand-lede" data-reveal>
+      <p class="eyebrow"><EqBars size="sm" /> Brands Who Trust Us</p>
+      <p class="lede-text">We've worked with some of the biggest names in tech, toys, and family media — brands who trust us because we deliver fans, reach, and real results.</p>
+    </div>
+  </section>
+
+  <Marquee items={brandPartners} />
+
+  <div class="container brand-footnote">
+    <p>For the full case studies, audience data, and past campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a></p>
+  </div>
+
+  <section class="photo-break">
+    <picture>
+      <source srcset="/images/studio/wag-studio-333.webp" type="image/webp" />
+      <img src="/images/studio/wag-studio-333.jpg" alt="Annabella and Scarlett reacting on the WAG Podcast set" loading="lazy" />
+    </picture>
+    <div class="photo-break-scrim"></div>
+    <p class="photo-break-caption">Every episode, filmed live in their own studio — checkerboard set, neon sign, real reactions.</p>
+  </section>
+
+  <section class="reach-section" id="reach">
+    <div class="container" data-reveal>
+      <p class="eyebrow"><EqBars size="sm" /> What Sponsors Get Exposure To</p>
+      <p class="reach-copy">WAG Podcast reaches the same core teen and tween audience that follows The Wild Adventure Girls — a brand with a real, established YouTube presence built over more than a decade. Every episode covers real, recurring territory:</p>
+      <ul class="pillar-pills">
+        {contentPillars.map((p, i) => <li class={i % 2 === 0 ? "pill-pink" : "pill-green"}>{p}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="formats-section" id="formats">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> How It Works</p>
+      <h2>Four ways to partner with the show.</h2>
+      <p class="formats-intro">WAG Podcast is a weekly, unscripted show with real recurring segments — that format opens up a few different ways to partner:</p>
+      <div class="formats-grid">
+        {formats.map((f, i) => (
+          <div class={`format-card accent-${i % 2 === 0 ? "pink" : "green"}`}>
+            <span class="format-index">{String(i + 1).padStart(2, "0")}</span>
+            <h3>{f.name}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sponsor-cta" id="partner">
+    <div class="container cta-inner" data-reveal>
+      <div class="cta-photo">
+        <picture>
+          <source srcset="/images/studio/wag-studio-283.webp" type="image/webp" />
+          <img src="/images/studio/wag-studio-283.jpg" alt="A WAG Podcast host on the studio couch" loading="lazy" />
+        </picture>
+        <div class="cta-photo-glow" aria-hidden="true"></div>
+        <div class="cta-photo-badge">We reply personally — no bots.</div>
+      </div>
+
+      <div class="cta-copy">
+        <p class="eyebrow"><EqBars size="sm" /> Let's Talk</p>
+        <h2>Let's build something worth showing off.</h2>
+        <p class="cta-note">Tell us about your brand and what you're looking to do — pricing and packages are discussed directly, not posted publicly.</p>
+        <p class="cta-email">Or email us directly: <a href="mailto:thewildadventuregirls@gmail.com?subject=WAG%20Podcast%20Sponsorship">thewildadventuregirls@gmail.com</a></p>
 
         <form class="sponsor-form" name="wagpodcast-sponsor-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="wagpodcast-sponsor-inquiry" />
@@ -193,8 +225,8 @@ const formats = [
           <button class="btn btn-accent" type="submit">Send Inquiry →</button>
         </form>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <script>
@@ -208,101 +240,139 @@ const formats = [
 
 <style>
   .sponsor-hero{ position:relative; padding: 0 0 32px; }
-  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.4/1; overflow:hidden; margin-bottom:44px; }
   .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
-  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.65) 0%, transparent 45%); }
-  .hero-inner{ max-width:68ch; }
-  .sponsor-hero .eyebrow{ color: var(--wag-green); display:inline-flex; align-items:center; gap:10px; }
-  .sponsor-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; color:#fff; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.82) 0%, rgba(10,10,15,.15) 55%, transparent 75%); }
+  .hero-glow{
+    position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen; opacity:.5;
+    background:
+      radial-gradient(ellipse 40% 55% at 8% 100%, var(--wag-pink) 0%, transparent 70%),
+      radial-gradient(ellipse 35% 50% at 100% 100%, var(--wag-green) 0%, transparent 70%);
+  }
+  .hero-inner{ max-width:68ch; padding-bottom:56px; }
+  .sponsor-hero .eyebrow{ color: var(--wag-green); }
+  .sponsor-hero h1{ font-size: clamp(2.2rem, 4.6vw, 3.6rem); max-width:20ch; color:#fff; }
   .text-accent{
     background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .sponsor-hero .lede{ font-size:1.1rem; max-width:62ch; color:#E7E7EE; margin-bottom:1.4em; }
+  .sponsor-hero .lede{ font-size:1.15rem; max-width:62ch; color:#E7E7EE; margin-bottom:1.4em; }
 
-  .stat-strip{ background: var(--wag-black); border-top:1px solid #2A2A2E; border-bottom:1px solid #2A2A2E; padding: 40px 0; }
-  .stat-strip .container{ display:flex; align-items:center; gap:48px; flex-wrap:wrap; }
-  .stat-group{ display:flex; flex-direction:column; gap:14px; }
+  .stat-strip{ background: var(--wag-black); border-top:1px solid #2A2A2E; padding: 44px 0; }
+  .stat-strip .container{ display:flex; align-items:center; gap:56px; flex-wrap:wrap; }
+  .stat-group{ display:flex; flex-direction:column; gap:16px; }
   .stat-group-label{
     font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em;
     font-size:.75rem; font-weight:700; color: var(--wag-green); margin:0;
   }
-  .stat-row{ display:flex; gap:40px; }
+  .stat-row{ display:flex; gap:48px; flex-wrap:wrap; }
   .stat{ display:flex; flex-direction:column; gap:2px; }
-  .stat-num{ font-family: var(--font-display); font-size:2.2rem; font-weight:700; color:#fff; line-height:1; }
-  .stat-label{ font-size:.85rem; color:#9C9CB0; }
+  .stat-num{ font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight:700; color:#fff; line-height:1; }
+  .stat-label{ font-size:.88rem; color:#9C9CB0; }
   .stat-divider{ width:1px; align-self:stretch; background:#2A2A38; }
 
-  .sponsor-body-wrap{ background: var(--bg); }
-
-  .audience-section{ padding: 56px 0 48px; }
-  .audience-section .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--accent); margin-bottom:.6em; }
-  .audience-section h2{ font-size: clamp(1.5rem, 2.6vw, 2.1rem); max-width:26ch; margin-bottom:28px; }
-  .audience-grid{ display:grid; grid-template-columns: repeat(3, 1fr); background: var(--wag-green); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; }
-  .audience-stat{ padding:28px; display:flex; flex-direction:column; gap:4px; border-right:1px solid rgba(0,0,0,.12); }
-  .audience-stat:last-child{ border-right:0; }
-  .audience-stat .stat-num{ color:#0B0B0C; font-size:2rem; }
-  .audience-stat .stat-label{ color:#0B0B0C; opacity:.75; }
-  .audience-note{ margin-top:18px; font-size:.98rem; color: var(--ink-soft); }
-  @media (max-width: 640px){
-    .audience-grid{ grid-template-columns: 1fr; }
-    .audience-stat{ border-right:0; border-bottom:1px solid rgba(0,0,0,.12); }
-    .audience-stat:last-child{ border-bottom:0; }
+  .jumpnav{ background: var(--wag-black); border-bottom:1px solid #2A2A2E; }
+  .jumpnav-inner{ display:flex; gap:32px; flex-wrap:wrap; padding:16px 24px; }
+  .jumpnav a{
+    position:relative; font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em;
+    font-size:.82rem; font-weight:700; color:#B4B4C4; padding-bottom:4px;
   }
+  .jumpnav a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:0; height:2px;
+    background: var(--wag-green); transition: right .2s ease;
+  }
+  .jumpnav a:hover{ color:#fff; }
+  .jumpnav a:hover::after{ right:0; }
 
-  .brand-marquee-section{ padding: 24px 0 48px; border-top:1px solid var(--line); }
-  .brand-marquee-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
-  .marquee-lede{ font-size:1rem; max-width:66ch; color: var(--ink-soft); margin-bottom:24px; }
-  .marquee{ overflow:hidden; position:relative; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-  .marquee-track{ display:flex; width:max-content; gap:14px; animation: wag-marquee 28s linear infinite; }
-  .marquee:hover .marquee-track{ animation-play-state: paused; }
-  .marquee-item{
+  .audience-section{ position:relative; padding: 64px 0 56px; overflow:hidden; }
+  .audience-glow{
+    position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen; opacity:.35;
+    background: radial-gradient(ellipse 45% 60% at 90% 0%, var(--wag-pink) 0%, transparent 70%);
+  }
+  .audience-section .eyebrow{ color: var(--accent); margin-bottom:.6em; }
+  .audience-section h2{ font-size: clamp(1.7rem, 3vw, 2.5rem); max-width:24ch; margin-bottom:40px; }
+  .audience-row{ display:flex; gap:56px; flex-wrap:wrap; }
+  .audience-stat{ display:flex; flex-direction:column; gap:6px; padding-bottom:14px; border-bottom:3px solid transparent; }
+  .audience-stat.accent-pink{ border-color: var(--wag-pink); }
+  .audience-stat.accent-green{ border-color: var(--wag-green); }
+  .audience-stat .stat-num{ font-size: clamp(3rem, 6vw, 4.4rem); color:#fff; }
+  .audience-stat .stat-label{ font-size:.95rem; color: var(--ink-muted); text-transform:uppercase; letter-spacing:.04em; font-weight:600; }
+  .audience-note{ margin-top:36px; font-size:1.02rem; color: var(--ink-soft); }
+
+  .brand-section{ padding: 24px 0 0; border-top:1px solid var(--line); }
+  .brand-lede{ padding-bottom:28px; }
+  .brand-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
+  .lede-text{ font-size:1.1rem; max-width:66ch; color: var(--ink-soft); }
+  .brand-footnote{ padding: 22px 24px 56px; }
+  .brand-footnote p{ font-size:.98rem; color: var(--ink-soft); margin:0; }
+  .brand-footnote a{ color: var(--wag-pink); font-weight:600; }
+
+  .photo-break{ position:relative; width:100%; aspect-ratio: 3.2/1; overflow:hidden; }
+  .photo-break img{ width:100%; height:100%; object-fit:cover; object-position: center 30%; display:block; }
+  .photo-break-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.75) 0%, transparent 60%); }
+  .photo-break-caption{
+    position:absolute; left:24px; bottom:20px; margin:0; max-width:44ch;
     font-family: var(--font-display); text-transform:uppercase; letter-spacing:.02em;
-    font-weight:700; font-size:.95rem; color: var(--ink);
-    padding:.7em 1.4em; border-radius:999px; border:1px solid var(--line); background: var(--bg-alt);
-    white-space:nowrap; flex-shrink:0;
-  }
-  .marquee-footnote{ margin-top:20px; font-size:.96rem; color: var(--ink-soft); }
-  .marquee-footnote a{ color: var(--wag-pink-dark); font-weight:600; text-decoration:underline; }
-  @keyframes wag-marquee{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce){
-    .marquee-track{ animation: none; flex-wrap:wrap; width:auto; }
-    .marquee{ mask-image:none; -webkit-mask-image:none; }
+    font-size:.88rem; font-weight:600; color:#fff;
   }
 
-  .pillar-pills{ list-style:none; padding:0; margin: 1em 0 0; display:flex; flex-wrap:wrap; gap:10px; }
+  .reach-section{ padding: 56px 0 8px; }
+  .reach-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
+  .reach-copy{ font-size:1.05rem; max-width:66ch; margin-bottom:1.2em; }
+  .pillar-pills{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:12px; }
   .pillar-pills li{
-    padding:.5em 1.1em; border-radius:999px; border:1px solid var(--line); background: var(--bg-alt);
+    padding:.55em 1.2em; border-radius:999px; border:1.5px solid var(--line); background: var(--bg-alt);
     font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em; font-weight:600; font-size:.82rem;
+    transition: border-color .2s ease, color .2s ease;
   }
+  .pillar-pills li.pill-pink:hover{ border-color: var(--wag-pink); color: var(--wag-pink); }
+  .pillar-pills li.pill-green:hover{ border-color: var(--wag-green); color: var(--wag-green); }
 
-  .formats-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:1.2em; }
+  .formats-section{ padding: 48px 0 64px; }
+  .formats-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
+  .formats-section h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:22ch; margin-bottom:.4em; }
+  .formats-intro{ font-size:1.02rem; max-width:64ch; margin-bottom:1.6em; }
+  .formats-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
   .format-card{
-    padding:18px 20px; border-radius: var(--radius); border:1px solid var(--line); background: var(--bg);
+    position:relative; padding:26px 24px 22px; border-radius: var(--radius); border:1px solid var(--line);
+    background: var(--bg-alt); overflow:hidden;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
   }
-  .format-card h3{ font-size:1rem; margin-bottom:.4em; }
-  .format-card p{ font-size:.88rem; margin:0; }
+  .format-card.accent-pink:hover{ border-color: var(--wag-pink); box-shadow: 0 16px 36px rgba(255,22,200,.18); transform: translateY(-3px); }
+  .format-card.accent-green:hover{ border-color: var(--wag-green); box-shadow: 0 16px 36px rgba(165,235,14,.16); transform: translateY(-3px); }
+  .format-index{
+    position:absolute; top:-6px; right:14px; font-family: var(--font-display); font-weight:700;
+    font-size:4.2rem; line-height:1; -webkit-text-stroke: 1px var(--line); color:transparent;
+  }
+  .format-card h3{ position:relative; font-size:1.1rem; margin-bottom:.4em; max-width:80%; }
+  .format-card p{ position:relative; font-size:.92rem; margin:0; color: var(--ink-soft); }
   @media (max-width: 640px){
     .formats-grid{ grid-template-columns: 1fr; }
   }
 
-  .sponsor-body{ padding: 8px 0 24px; }
-  .sponsor-block{
-    max-width:70ch; margin-bottom:28px; padding:24px 28px; border-radius: var(--radius);
-    border:1px solid transparent; transition: border-color .2s ease, background .2s ease;
-  }
-  .sponsor-block:hover{ border-color: var(--line); background: var(--bg-alt); }
-  .sponsor-block h2{ font-size:1.25rem; margin-bottom:.5em; }
-  .sponsor-block p{ font-size:1rem; margin-bottom:1em; }
-
-  .sponsor-cta{ padding: 48px 0 80px; border-top:1px solid var(--line); margin-top:16px; }
-  .cta-inner{ display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:start; }
+  .sponsor-cta{ padding: 56px 0 88px; border-top:1px solid var(--line); margin-top:8px; }
+  .cta-inner{ display:grid; grid-template-columns: .9fr 1fr; gap:56px; align-items:start; }
   .cta-copy .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--accent); margin-bottom:.6em; }
-  .cta-copy h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:16ch; margin-bottom:.4em; }
+  .cta-copy h2{ font-size: clamp(1.8rem, 3.2vw, 2.6rem); max-width:16ch; margin-bottom:.4em; }
   .cta-note{ font-size:1.02rem; max-width:44ch; margin-bottom:1em; }
-  .cta-email a{ color: var(--wag-pink-dark); font-weight:600; text-decoration:underline; }
+  .cta-email a{ color: var(--wag-pink); font-weight:600; text-decoration:underline; }
 
-  .sponsor-form{ display:flex; flex-direction:column; gap:14px; }
+  .cta-photo{ position:relative; }
+  .cta-photo picture{ display:block; border-radius: var(--radius-lg); overflow:hidden; box-shadow: var(--shadow); }
+  .cta-photo img{ width:100%; aspect-ratio:4/5; object-fit:cover; object-position: center 25%; }
+  .cta-photo-glow{
+    position:absolute; inset:-20px; z-index:-1; pointer-events:none; mix-blend-mode:screen; opacity:.4;
+    background: radial-gradient(ellipse 60% 60% at 30% 100%, var(--wag-green) 0%, transparent 70%);
+  }
+  .cta-photo-badge{
+    position:absolute; right:-14px; bottom:28px; max-width:190px;
+    background: var(--wag-pink); color:#fff; border-radius: var(--radius-sm);
+    padding:.9em 1.1em; font-family: var(--font-display); text-transform:uppercase;
+    letter-spacing:.02em; font-weight:700; font-size:.9rem; line-height:1.25;
+    box-shadow: var(--shadow-sm); transform: rotate(4deg);
+  }
+
+  .sponsor-form{ display:flex; flex-direction:column; gap:14px; margin-top:1.6em; }
   .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
   .sponsor-form label{
     font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em;
@@ -315,8 +385,15 @@ const formats = [
   }
   .sponsor-form button{ margin-top:8px; align-self:flex-start; }
 
-  @media (max-width: 800px){
+  @media (max-width: 900px){
     .cta-inner{ grid-template-columns: 1fr; }
+    .cta-photo{ order:-1; max-width:420px; margin:0 auto 8px; }
+    .cta-photo-badge{ right:-10px; }
+  }
+  @media (max-width: 800px){
     .form-row{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px){
+    .audience-row{ gap:36px; }
   }
 </style>
