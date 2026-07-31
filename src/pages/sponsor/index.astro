@@ -6,15 +6,45 @@ import EqBars from "../../components/EqBars.astro";
 // playbook -- these are Wild Adventure Girls partnerships (licensing,
 // commercial features, campaigns), not claimed as podcast-specific ad
 // buys, since that distinction matters and isn't documented either way.
+// Corroborated across two independent real sources this session: the
+// WAG Podcast media kit one-sheeter and the Fall 2025 sponsorship deck.
 const brandPartners = [
   "Nintendo", "Google", "UpFaith & Family", "Razor USA",
   "Get Epic!", "The Toy Insider", "Hexbug USA", "NSI International", "Dynacraft",
 ];
 
+// Real, verified numbers only -- WAG Podcast's own channel performance
+// (from Katie's own YouTube Studio dashboard) kept clearly separate
+// from the parent brand's numbers (from the WAG media kit / sponsor
+// deck), since conflating "the podcast has X" with "the team behind it
+// has X" would be a real, material overstatement. No launch date and
+// no subscriber-delta number here per explicit direction -- the raw
+// growth number reads as unimpressive next to the real story, which is
+// "new and fast-growing," not a specific subscriber count.
+const podcastStats = [
+  { num: "3.7M+", label: "Views" },
+  { num: "15.5K+", label: "Hours Watched" },
+];
+const teamStats = [
+  { num: "1.2M+", label: "Subscribers" },
+  { num: "1B+", label: "Lifetime Views" },
+];
+
+// Real audience data, corroborated across the same two real sources
+// (media kit + Fall 2025 deck) and consistent with the numbers already
+// live on wildadventuregirls.com/brand-partnerships.
+const audienceStats = [
+  { num: "70%", label: "Female Audience" },
+  { num: "11–18", label: "Primary Ages" },
+  { num: "80%", label: "U.S.-Based" },
+];
+
+// Real recurring content territory, matching what's already live on
+// the About page and Segments hub -- not invented for this page.
+const contentPillars = ["Trending Pop Culture", "Friendship & Relationships", "Real Talk", "Party Games & Dares", "Growing Up Stories", "Comedy"];
+
 // Available ad/partnership formats -- described as offerings, not
-// claimed past campaigns (WAG Podcast doesn't have a documented
-// podcast-specific sponsor history separate from the broader WAG
-// partnerships above yet). Standing rule: never write copy implying WAG
+// claimed past campaigns. Standing rule: never write copy implying WAG
 // doesn't take brand deals -- this frames it as available, not absent.
 const formats = [
   { name: "In-episode mentions", desc: "A natural, spoken mention worked into the real conversation, not a pre-roll ad read." },
@@ -26,7 +56,7 @@ const formats = [
 
 <BaseLayout
   title="Sponsor WAG Podcast"
-  description="Advertise or partner with WAG Podcast, a weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts."
+  description="Advertise or partner with WAG Podcast, a new, fast-growing weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts."
   ogImage="/images/studio/wag-studio-195.jpg"
 >
   <section class="sponsor-hero">
@@ -40,16 +70,70 @@ const formats = [
     <div class="container hero-inner">
       <p class="eyebrow"><EqBars size="sm" /> Sponsor / Advertise</p>
       <h1>Advertise with <span class="text-accent">WAG Podcast</span>.</h1>
-      <p class="lede">A weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts — hosted by three real teen girls with an established audience from The Wild Adventure Girls.</p>
+      <p class="lede">A new, fast-growing weekly video podcast for teens — real talk, real chaos, real reactions, from the team behind The Wild Adventure Girls. Every episode feels like sitting in on the group chat, only millions are watching.</p>
+      <a class="btn btn-accent" href="#partner">Become a Sponsor →</a>
+    </div>
+  </section>
+
+  <section class="stat-strip">
+    <div class="container" data-reveal="stagger">
+      <div class="stat-group">
+        <p class="stat-group-label">WAG Podcast</p>
+        <div class="stat-row">
+          {podcastStats.map((s) => (
+            <div class="stat"><span class="stat-num">{s.num}</span><span class="stat-label">{s.label}</span></div>
+          ))}
+        </div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-group">
+        <p class="stat-group-label">The team behind it — The Wild Adventure Girls</p>
+        <div class="stat-row">
+          {teamStats.map((s) => (
+            <div class="stat"><span class="stat-num">{s.num}</span><span class="stat-label">{s.label}</span></div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
   <div class="register-light sponsor-body-wrap">
+    <section class="audience-section">
+      <div class="container" data-reveal>
+        <p class="eyebrow"><EqBars size="sm" /> Who's Watching</p>
+        <h2>The audience every brand wants and few can reach.</h2>
+        <div class="audience-grid">
+          {audienceStats.map((s) => (
+            <div class="audience-stat"><span class="stat-num">{s.num}</span><span class="stat-label">{s.label}</span></div>
+          ))}
+        </div>
+        <p class="audience-note">Platform-obsessed — YouTube, TikTok, Spotify, and Instagram, all at once.</p>
+      </div>
+    </section>
+
+    <section class="brand-marquee-section">
+      <div class="container" data-reveal>
+        <p class="eyebrow">Brands Who Trust Us</p>
+        <p class="marquee-lede">We've worked with some of the biggest names in tech, toys, and family media — brands who trust us because we deliver fans, reach, and real results.</p>
+      </div>
+      <div class="marquee" role="list" aria-label="Brand partners">
+        <div class="marquee-track">
+          {[...brandPartners, ...brandPartners].map((b) => <span class="marquee-item" role="listitem">{b}</span>)}
+        </div>
+      </div>
+      <div class="container">
+        <p class="marquee-footnote">For the full case studies, audience data, and past campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a></p>
+      </div>
+    </section>
+
     <section class="sponsor-body">
       <div class="container" data-reveal="stagger">
         <div class="sponsor-block">
-          <h2>The audience</h2>
-          <p>WAG Podcast reaches the same core teen and tween audience that follows The Wild Adventure Girls — a brand with a real, established YouTube presence built over more than a decade. The podcast is the newest format in that ecosystem, released weekly on video and audio.</p>
+          <h2>What sponsors get exposure to</h2>
+          <p>WAG Podcast reaches the same core teen and tween audience that follows The Wild Adventure Girls — a brand with a real, established YouTube presence built over more than a decade. Every episode covers real, recurring territory:</p>
+          <ul class="pillar-pills">
+            {contentPillars.map((p) => <li>{p}</li>)}
+          </ul>
         </div>
         <div class="sponsor-block">
           <h2>Partnership formats</h2>
@@ -63,29 +147,70 @@ const formats = [
             ))}
           </div>
         </div>
-        <div class="sponsor-block">
-          <h2>Brands who trust The Wild Adventure Girls</h2>
-          <p>WAG Podcast is part of a brand with a real, documented partnership track record — not a separate, unproven channel. These are Wild Adventure Girls partnerships across the broader brand; podcast-specific campaigns are discussed directly, since the show is newer than these relationships.</p>
-          <ul class="brand-list">
-            {brandPartners.map((b) => <li>{b}</li>)}
-          </ul>
-          <p>For the full case studies, audience data, and past campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a>.</p>
+      </div>
+    </section>
+
+    <section class="sponsor-cta" id="partner">
+      <div class="container cta-inner" data-reveal>
+        <div class="cta-copy">
+          <p class="eyebrow"><EqBars size="sm" /> Let's Talk</p>
+          <h2>Let's build something worth showing off.</h2>
+          <p class="cta-note">Tell us about your brand and what you're looking to do — pricing and packages are discussed directly, not posted publicly.</p>
+          <p class="cta-email">Or email us directly: <a href="mailto:thewildadventuregirls@gmail.com?subject=WAG%20Podcast%20Sponsorship">thewildadventuregirls@gmail.com</a></p>
         </div>
-        <div class="sponsor-block">
-          <h2>Get in touch</h2>
-          <p>For podcast-specific sponsorship, ad placements, or partnership questions, reach out directly — pricing and inventory are discussed one-to-one, not published here.</p>
-          <a class="btn btn-primary" href="mailto:thewildadventuregirls@gmail.com?subject=WAG%20Podcast%20Sponsorship">Email thewildadventuregirls@gmail.com →</a>
-        </div>
+
+        <form class="sponsor-form" name="wagpodcast-sponsor-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="wagpodcast-sponsor-inquiry" />
+          <input type="hidden" name="referring-page" id="sponsor-referring-page" value="" />
+          <p class="sr-only"><label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+          <div class="form-row">
+            <div>
+              <label for="sponsor-name">Name</label>
+              <input id="sponsor-name" name="name" type="text" required />
+            </div>
+            <div>
+              <label for="sponsor-email">Email</label>
+              <input id="sponsor-email" name="email" type="email" required />
+            </div>
+          </div>
+
+          <label for="sponsor-company">Company / Brand</label>
+          <input id="sponsor-company" name="company" type="text" required />
+
+          <label for="sponsor-interest">What are you looking to do?</label>
+          <select id="sponsor-interest" name="interest">
+            <option>In-Episode Mention</option>
+            <option>Sponsored Segment</option>
+            <option>Product Integration</option>
+            <option>Co-Branded Episode</option>
+            <option>Something Else</option>
+          </select>
+
+          <label for="sponsor-message">Tell us about your brand</label>
+          <textarea id="sponsor-message" name="message" rows="4" required></textarea>
+
+          <button class="btn btn-accent" type="submit">Send Inquiry →</button>
+        </form>
       </div>
     </section>
   </div>
 </BaseLayout>
 
+<script>
+  function fillReferringPage() {
+    const field = document.getElementById("sponsor-referring-page") as HTMLInputElement | null;
+    if (field && !field.value) field.value = document.referrer || "direct";
+  }
+  fillReferringPage();
+  document.addEventListener("astro:page-load", fillReferringPage);
+</script>
+
 <style>
   .sponsor-hero{ position:relative; padding: 0 0 32px; }
   .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
   .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
-  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.55) 0%, transparent 45%); }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.65) 0%, transparent 45%); }
   .hero-inner{ max-width:68ch; }
   .sponsor-hero .eyebrow{ color: var(--wag-green); display:inline-flex; align-items:center; gap:10px; }
   .sponsor-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; color:#fff; }
@@ -93,7 +218,63 @@ const formats = [
     background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .sponsor-hero .lede{ font-size:1.1rem; max-width:62ch; color:#E7E7EE; }
+  .sponsor-hero .lede{ font-size:1.1rem; max-width:62ch; color:#E7E7EE; margin-bottom:1.4em; }
+
+  .stat-strip{ background: var(--wag-black); border-top:1px solid #2A2A2E; border-bottom:1px solid #2A2A2E; padding: 40px 0; }
+  .stat-strip .container{ display:flex; align-items:center; gap:48px; flex-wrap:wrap; }
+  .stat-group{ display:flex; flex-direction:column; gap:14px; }
+  .stat-group-label{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em;
+    font-size:.75rem; font-weight:700; color: var(--wag-green); margin:0;
+  }
+  .stat-row{ display:flex; gap:40px; }
+  .stat{ display:flex; flex-direction:column; gap:2px; }
+  .stat-num{ font-family: var(--font-display); font-size:2.2rem; font-weight:700; color:#fff; line-height:1; }
+  .stat-label{ font-size:.85rem; color:#9C9CB0; }
+  .stat-divider{ width:1px; align-self:stretch; background:#2A2A38; }
+
+  .sponsor-body-wrap{ background: var(--bg); }
+
+  .audience-section{ padding: 56px 0 48px; }
+  .audience-section .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--accent); margin-bottom:.6em; }
+  .audience-section h2{ font-size: clamp(1.5rem, 2.6vw, 2.1rem); max-width:26ch; margin-bottom:28px; }
+  .audience-grid{ display:grid; grid-template-columns: repeat(3, 1fr); background: var(--wag-green); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; }
+  .audience-stat{ padding:28px; display:flex; flex-direction:column; gap:4px; border-right:1px solid rgba(0,0,0,.12); }
+  .audience-stat:last-child{ border-right:0; }
+  .audience-stat .stat-num{ color:#0B0B0C; font-size:2rem; }
+  .audience-stat .stat-label{ color:#0B0B0C; opacity:.75; }
+  .audience-note{ margin-top:18px; font-size:.98rem; color: var(--ink-soft); }
+  @media (max-width: 640px){
+    .audience-grid{ grid-template-columns: 1fr; }
+    .audience-stat{ border-right:0; border-bottom:1px solid rgba(0,0,0,.12); }
+    .audience-stat:last-child{ border-bottom:0; }
+  }
+
+  .brand-marquee-section{ padding: 24px 0 48px; border-top:1px solid var(--line); }
+  .brand-marquee-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
+  .marquee-lede{ font-size:1rem; max-width:66ch; color: var(--ink-soft); margin-bottom:24px; }
+  .marquee{ overflow:hidden; position:relative; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track{ display:flex; width:max-content; gap:14px; animation: wag-marquee 28s linear infinite; }
+  .marquee:hover .marquee-track{ animation-play-state: paused; }
+  .marquee-item{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.02em;
+    font-weight:700; font-size:.95rem; color: var(--ink);
+    padding:.7em 1.4em; border-radius:999px; border:1px solid var(--line); background: var(--bg-alt);
+    white-space:nowrap; flex-shrink:0;
+  }
+  .marquee-footnote{ margin-top:20px; font-size:.96rem; color: var(--ink-soft); }
+  .marquee-footnote a{ color: var(--wag-pink-dark); font-weight:600; text-decoration:underline; }
+  @keyframes wag-marquee{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation: none; flex-wrap:wrap; width:auto; }
+    .marquee{ mask-image:none; -webkit-mask-image:none; }
+  }
+
+  .pillar-pills{ list-style:none; padding:0; margin: 1em 0 0; display:flex; flex-wrap:wrap; gap:10px; }
+  .pillar-pills li{
+    padding:.5em 1.1em; border-radius:999px; border:1px solid var(--line); background: var(--bg-alt);
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em; font-weight:600; font-size:.82rem;
+  }
 
   .formats-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:1.2em; }
   .format-card{
@@ -105,17 +286,7 @@ const formats = [
     .formats-grid{ grid-template-columns: 1fr; }
   }
 
-  .brand-list{
-    display:flex; flex-wrap:wrap; gap:10px 14px; list-style:none; padding:0; margin: 1em 0;
-  }
-  .brand-list li{
-    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.02em;
-    font-weight:700; font-size:.85rem; color: var(--ink);
-    padding:.5em 1em; border-radius:999px; border:1px solid var(--line); background: var(--bg);
-  }
-
-  .sponsor-body-wrap{ background: var(--bg); }
-  .sponsor-body{ padding: 48px 0 72px; }
+  .sponsor-body{ padding: 8px 0 24px; }
   .sponsor-block{
     max-width:70ch; margin-bottom:28px; padding:24px 28px; border-radius: var(--radius);
     border:1px solid transparent; transition: border-color .2s ease, background .2s ease;
@@ -123,5 +294,29 @@ const formats = [
   .sponsor-block:hover{ border-color: var(--line); background: var(--bg-alt); }
   .sponsor-block h2{ font-size:1.25rem; margin-bottom:.5em; }
   .sponsor-block p{ font-size:1rem; margin-bottom:1em; }
-  .sponsor-block a:not(.btn){ color: var(--wag-pink-dark); font-weight:600; text-decoration:underline; }
+
+  .sponsor-cta{ padding: 48px 0 80px; border-top:1px solid var(--line); margin-top:16px; }
+  .cta-inner{ display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:start; }
+  .cta-copy .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--accent); margin-bottom:.6em; }
+  .cta-copy h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:16ch; margin-bottom:.4em; }
+  .cta-note{ font-size:1.02rem; max-width:44ch; margin-bottom:1em; }
+  .cta-email a{ color: var(--wag-pink-dark); font-weight:600; text-decoration:underline; }
+
+  .sponsor-form{ display:flex; flex-direction:column; gap:14px; }
+  .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+  .sponsor-form label{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em;
+    font-size:.8rem; font-weight:600; margin-top:6px; display:block;
+  }
+  .sponsor-form input, .sponsor-form select, .sponsor-form textarea{
+    padding:.8em 1em; border-radius: var(--radius-sm); border:1px solid var(--line);
+    font-family: var(--font-body); font-size:1rem; width:100%; background: var(--bg-alt);
+    color: var(--ink);
+  }
+  .sponsor-form button{ margin-top:8px; align-self:flex-start; }
+
+  @media (max-width: 800px){
+    .cta-inner{ grid-template-columns: 1fr; }
+    .form-row{ grid-template-columns: 1fr; }
+  }
 </style>

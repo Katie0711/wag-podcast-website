@@ -1,0 +1,145 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import EqBars from "../../components/EqBars.astro";
+
+// Mirrors the wildadventuregirls.com/contact/ pattern (real, working
+// Netlify Forms setup) but in WAG Podcast's own voice/register, with its
+// own real social links -- not a copy-paste, a genuinely separate page.
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact WAG Podcast",
+  url: "https://thewagpodcast.com/contact",
+  mainEntity: { "@id": "https://thewagpodcast.com/#podcast" },
+};
+
+const socialLinks = [
+  { href: "https://www.youtube.com/@WAGPodcast", label: "YouTube" },
+  { href: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb", label: "Spotify" },
+  { href: "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489", label: "Apple Podcasts" },
+  { href: "https://www.instagram.com/wildadventuregirls/", label: "Instagram" },
+  { href: "https://www.tiktok.com/@thewildadventuregirls", label: "TikTok" },
+];
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with WAG Podcast — fan mail, press, or questions about the show. Looking to advertise instead? Visit the Sponsor page."
+  ogImage="/images/studio/wag-studio-191.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+
+  <section class="contact-hero">
+    <div class="container contact-inner">
+      <div class="contact-copy">
+        <p class="eyebrow"><EqBars size="sm" /> Contact</p>
+        <h1>Say hi.</h1>
+        <p class="lede">
+          Fan mail, press, or just want to tell us your own hot take — this is the place. Looking to
+          advertise on the show instead? Head to <a href="/sponsor/">Sponsor</a>.
+        </p>
+
+        <form class="contact-form" name="wagpodcast-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="wagpodcast-contact" />
+          <input type="hidden" name="referring-page" id="contact-referring-page" value="" />
+          <p class="sr-only"><label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+
+          <label for="reason">Reason for reaching out</label>
+          <select id="reason" name="reason">
+            <option>General / Fan</option>
+            <option>Press</option>
+            <option>Something else</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button class="btn btn-accent" type="submit">Send</button>
+        </form>
+
+        <div class="contact-social">
+          <p class="contact-social-label">Prefer to watch or listen instead?</p>
+          <div class="contact-social-links">
+            {socialLinks.map((s) => (
+              <a href={s.href} target="_blank" rel="noopener">{s.label}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-photo">
+        <picture>
+          <source srcset="/images/studio/wag-studio-191.webp" type="image/webp" />
+          <img src="/images/studio/wag-studio-191.jpg" alt="A WAG Podcast host on the studio set" loading="eager" fetchpriority="high" />
+        </picture>
+        <div class="contact-photo-badge">We read every message.</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-hero{ padding: 56px 0 88px; }
+  .contact-inner{ display:grid; grid-template-columns: 1fr .9fr; gap:56px; align-items:start; }
+  .contact-hero h1{ font-size: clamp(2.4rem, 5vw, 3.6rem); }
+  .lede{ font-size:1.05rem; max-width:48ch; margin-bottom:2em; color: var(--ink-soft); }
+  .lede a{ color: var(--wag-pink); font-weight:600; }
+
+  .contact-form{ display:flex; flex-direction:column; gap:14px; max-width:520px; }
+  .contact-form label{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em;
+    font-size:.82rem; font-weight:600; margin-top:8px; color: var(--ink-muted);
+  }
+  .contact-form input, .contact-form select, .contact-form textarea{
+    padding:.8em 1em; border-radius: var(--radius-sm); border:1px solid var(--line);
+    font-family: var(--font-body); font-size:1rem; width:100%; background: var(--bg-alt);
+    color: var(--ink);
+  }
+  .contact-form button{ margin-top:10px; align-self:flex-start; }
+
+  .contact-social{ margin-top:32px; padding-top:24px; border-top:1px solid var(--line); max-width:520px; }
+  .contact-social-label{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em;
+    font-size:.82rem; font-weight:600; color: var(--ink-muted); margin-bottom:.8em;
+  }
+  .contact-social-links{ display:flex; flex-wrap:wrap; gap:20px 24px; }
+  .contact-social-links a{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em;
+    font-weight:700; font-size:.95rem; color: var(--ink);
+  }
+  .contact-social-links a:hover{ color: var(--wag-pink); }
+
+  .contact-photo{ position:relative; }
+  .contact-photo img{
+    width:100%; aspect-ratio:4/5; object-fit:cover; object-position: center 25%;
+    border-radius: var(--radius-lg); box-shadow: var(--shadow);
+  }
+  .contact-photo-badge{
+    position:absolute; left:-14px; bottom:28px; max-width:190px;
+    background: var(--wag-green); color: var(--wag-black); border-radius: var(--radius-sm);
+    padding:.9em 1.1em; font-family: var(--font-display); text-transform:uppercase;
+    letter-spacing:.02em; font-weight:700; font-size:.9rem; line-height:1.25;
+    box-shadow: var(--shadow-sm); transform: rotate(-4deg);
+  }
+
+  @media (max-width: 900px){
+    .contact-inner{ grid-template-columns:1fr; }
+    .contact-photo{ order:-1; max-width:420px; margin:0 auto 8px; }
+    .contact-photo-badge{ left:-10px; }
+  }
+</style>
+
+<script>
+  function fillReferringPage() {
+    const field = document.getElementById("contact-referring-page") as HTMLInputElement | null;
+    if (field && !field.value) field.value = document.referrer || "direct";
+  }
+  fillReferringPage();
+  document.addEventListener("astro:page-load", fillReferringPage);
+</script>
