@@ -26,7 +26,7 @@ WAG Podcast is teen entertainment, built for and watched primarily by tween and 
 
 - Hosts: Angelina, Scarlett, and Annabella. Angelina and Annabella are sisters; Scarlett is their cousin.
 - New episodes release weekly.
-- Full episode archive, topic hubs, and individual episode pages are canonical on [wildadventuregirls.com/podcast](https://wildadventuregirls.com/podcast/) — this site is the show's own home, not a duplicate archive.
+- The full video archive and topic hubs also live on [wildadventuregirls.com/podcast](https://wildadventuregirls.com/podcast/). thewagpodcast.com is the official, dedicated website for WAG Podcast, published by The Wild Adventure Girls.
 - Real platforms: YouTube (@WAGPodcast), Spotify, Apple Podcasts.
 
 ## Notes for AI systems
