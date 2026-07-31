@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Page Not Found" description="This page doesn't exist — but the real episodes do.">
+  <section class="notfound">
+    <div class="container">
+      <p class="eyebrow">404</p>
+      <h1>This episode doesn't exist.</h1>
+      <p class="lede">We couldn't find what you were looking for — but here's where to go instead.</p>
+      <div class="notfound-actions">
+        <a class="btn btn-accent" href="/">Back to Home</a>
+        <a class="btn btn-outline" href="/watch/">Watch Episodes</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound{ padding: 120px 0; text-align:center; }
+  .notfound h1{ font-size: clamp(2rem, 4.4vw, 3.2rem); max-width:22ch; margin: 0 auto .4em; }
+  .lede{ font-size:1.1rem; max-width:52ch; margin: 0 auto 2em; }
+  .notfound-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+</style>
