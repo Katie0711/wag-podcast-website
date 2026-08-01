@@ -12,9 +12,15 @@ import { getCollection } from "astro:content";
 // recurring formats -> YouTube CTA. Full episode archive still stays
 // canonical on wildadventuregirls.com; this sends viewers straight to
 // YouTube rather than guessing at main-site episode-page slugs.
-const episodes = await getPodcastEpisodes(6);
+// Requesting more than the old limit of 6 costs nothing extra today (the
+// no-API-key RSS fallback still only returns what's in YouTube's most
+// recent 15 uploads, Shorts included -- see youtube.ts), but means this
+// row/expand UI scales automatically the moment YOUTUBE_API_KEY is set
+// and the real, uncapped episode list comes through.
+const episodes = await getPodcastEpisodes(12);
 const [featured, ...rest] = episodes;
-const recentEpisodes = rest.slice(0, 3);
+const recentEpisodes = rest.slice(0, 9);
+const hasMoreEpisodes = recentEpisodes.length > 3;
 const clips = await getPodcastClips(6);
 const stories = (await getCollection("episodes")).sort((a, b) => +b.data.publishDate - +a.data.publishDate);
 
@@ -71,9 +77,14 @@ function truncate(text: string, max = 160) {
       <div class="container" data-reveal="stagger">
         <p class="eyebrow">Catch Up</p>
         <h2>Recent episodes.</h2>
-        <div class="recent-grid">
-          {recentEpisodes.map((ep) => (
-            <a class="recent-card" href={`https://www.youtube.com/watch?v=${ep.videoId}`} target="_blank" rel="noopener">
+        <div class="recent-grid" id="recent-grid">
+          {recentEpisodes.map((ep, i) => (
+            <a
+              class={`recent-card${i >= 3 ? " is-extra" : ""}`}
+              href={`https://www.youtube.com/watch?v=${ep.videoId}`}
+              target="_blank"
+              rel="noopener"
+            >
               <div class="recent-thumb">
                 <img src={ep.thumbnailUrl} alt={ep.title} loading="lazy" />
                 <span class="play-icon" aria-hidden="true">▶</span>
@@ -86,6 +97,9 @@ function truncate(text: string, max = 160) {
             </a>
           ))}
         </div>
+        {hasMoreEpisodes && (
+          <button class="btn btn-outline watch-more-btn" id="watch-more-btn" type="button">Watch More →</button>
+        )}
       </div>
     </section>
   )}
@@ -157,6 +171,20 @@ function truncate(text: string, max = 160) {
   </section>
 </BaseLayout>
 
+<script>
+  function initWatchMore() {
+    const btn = document.getElementById("watch-more-btn");
+    const grid = document.getElementById("recent-grid");
+    if (!btn || !grid) return;
+    btn.addEventListener("click", () => {
+      grid.classList.add("expanded");
+      btn.remove();
+    });
+  }
+  initWatchMore();
+  document.addEventListener("astro:page-load", initWatchMore);
+</script>
+
 <style>
   .watch-hero{ position:relative; padding: 0 0 32px; }
   .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
@@ -208,6 +236,9 @@ function truncate(text: string, max = 160) {
     font-size:.98rem; margin:.4em 0; line-height:1.35;
   }
   .recent-body p{ font-size:.84rem; color: var(--ink-muted); margin:0; }
+  .recent-card.is-extra{ display:none; }
+  .recent-grid.expanded .recent-card.is-extra{ display:block; }
+  .watch-more-btn{ margin-top:26px; }
 
   .stories-section{ padding: 8px 0 56px; border-top:1px solid var(--line); padding-top:48px; }
   .stories-section h2{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: .2em 0 .8em; }
