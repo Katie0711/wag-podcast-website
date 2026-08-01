@@ -49,11 +49,12 @@ const segments = [
   <section class="hero">
     <div class="hero-photo">
       <picture>
-        <source srcset="/images/studio/wag-studio-195.webp" type="image/webp" />
-        <img src="/images/studio/wag-studio-195.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
+        <source srcset="/images/studio/wag-studio-137.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-137.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
       </picture>
       <div class="hero-scrim"></div>
       <div class="hero-glow" aria-hidden="true"></div>
+      <a class="hero-sponsor-badge" href="/sponsor/">Brands partner with us in this studio →</a>
     </div>
     <div class="container hero-inner">
       <p class="eyebrow"><EqBars size="sm" /> Live from the WAG Podcast studio</p>
@@ -236,6 +237,18 @@ const segments = [
       radial-gradient(ellipse 40% 55% at 8% 100%, var(--wag-pink) 0%, transparent 70%),
       radial-gradient(ellipse 35% 50% at 100% 100%, var(--wag-green) 0%, transparent 70%);
   }
+  /* Same rotated-badge language as the Sponsor page's cta-photo-badge --
+     turns the fact that both pages are shot in the same real studio into
+     a deliberate cross-link instead of an accidental-looking repeat. */
+  .hero-sponsor-badge{
+    position:absolute; z-index:2; right:20px; bottom:20px; max-width:220px;
+    background: var(--wag-pink); color:#fff; border-radius: var(--radius-sm);
+    padding:.85em 1.1em; font-family: var(--font-display); text-transform:uppercase;
+    letter-spacing:.02em; font-weight:700; font-size:.85rem; line-height:1.3;
+    box-shadow: var(--shadow-sm); transform: rotate(-2deg);
+    transition: transform .15s ease;
+  }
+  .hero-sponsor-badge:hover{ transform: rotate(-2deg) translateY(-2px); }
   .hero-inner{ max-width:68ch; padding-bottom:56px; }
   .eyebrow{ display:inline-flex; align-items:center; gap:10px; }
   .hero h1{ font-size: clamp(2.1rem, 4.4vw, 3.4rem); max-width:20ch; margin-bottom:.35em; }
