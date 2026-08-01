@@ -37,6 +37,14 @@ const podcastSchema = {
   inLanguage: "en-US",
   image: "https://thewagpodcast.com/images/podcast-hero.jpg",
   webFeed: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb",
+  // Real, verified platform profiles for this show specifically -- not
+  // duplicated from the parent Organization's sameAs (which lists the
+  // main WAG channel, not this podcast's own).
+  sameAs: [
+    "https://www.youtube.com/@WAGPodcast",
+    "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb",
+    "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489",
+  ],
   publisher: {
     "@type": "Organization",
     "@id": "https://wildadventuregirls.com/#organization",
