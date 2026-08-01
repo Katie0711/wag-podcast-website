@@ -171,40 +171,67 @@ const segments = [
       <p class="eyebrow"><EqBars size="sm" /> Explore WAG Podcast</p>
       <div class="explore-grid">
         <a class="explore-card" href="/guys-answer-questions/">
-          <h3>Guys Answer Questions</h3>
-          <p>A real guy, real questions, no script — every installment so far.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-301.jpg" alt="Guys Answer Questions" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>Guys Answer Questions</h3>
+            <p>A real guy, real questions, no script — every installment so far.</p>
+          </div>
         </a>
         <a class="explore-card" href="/mental-health/">
-          <h3>Teen Mental Health, Real Talk</h3>
-          <p>Real teens, unfiltered, on burnout, school stress, and what actually helps.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-440.jpg" alt="Teen Mental Health, Real Talk" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>Teen Mental Health, Real Talk</h3>
+            <p>Real teens, unfiltered, on burnout, school stress, and what actually helps.</p>
+          </div>
         </a>
         <a class="explore-card" href="/games/">
-          <h3>WAG Podcast Games</h3>
-          <p>Guess the Imposter, Who's Most Likely To, Heads Up — how each one works.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-466.jpg" alt="WAG Podcast Games" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>WAG Podcast Games</h3>
+            <p>Guess the Imposter, Who's Most Likely To, Heads Up — how each one works.</p>
+          </div>
         </a>
         <a class="explore-card" href="/topics/growing-up/">
-          <h3>Growing Up Stories</h3>
-          <p>The real, chaotic coming-of-age episodes — grounded, suspended, prom disasters.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-89.jpg" alt="Growing Up Stories" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>Growing Up Stories</h3>
+            <p>The real, chaotic coming-of-age episodes — grounded, suspended, prom disasters.</p>
+          </div>
         </a>
         <a class="explore-card" href="/teen-comedy-podcast/">
-          <h3>Teen Comedy Podcast</h3>
-          <p>Dares, roasts, and hot takes — the comedy built into every episode.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-274.jpg" alt="Teen Comedy Podcast" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>Teen Comedy Podcast</h3>
+            <p>Dares, roasts, and hot takes — the comedy built into every episode.</p>
+          </div>
         </a>
         <a class="explore-card" href="/video-podcasts-for-teens/">
-          <h3>Why Video-First</h3>
-          <p>Filmed for YouTube first, not an audio show with a camera added later.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-416.jpg" alt="Why Video-First" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>Why Video-First</h3>
+            <p>Filmed for YouTube first, not an audio show with a camera added later.</p>
+          </div>
         </a>
         <a class="explore-card" href="/segments/">
-          <h3>Recurring Segments</h3>
-          <p>What Squad Dares, Tell Me the Truth, and the 3-Second Roast actually are.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-53.jpg" alt="Recurring Segments" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>Recurring Segments</h3>
+            <p>What Squad Dares, Tell Me the Truth, and the 3-Second Roast actually are.</p>
+          </div>
         </a>
         <a class="explore-card" href="/faq/">
-          <h3>FAQ</h3>
-          <p>Quick answers — who hosts it, where to watch, how it fits into WAG.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-191.jpg" alt="FAQ" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>FAQ</h3>
+            <p>Quick answers — who hosts it, where to watch, how it fits into WAG.</p>
+          </div>
         </a>
         <a class="explore-card" href="/wag-predicted-it/">
-          <h3>WAG Predicted It</h3>
-          <p>The real, on-camera predictions the hosts have made — go see if they called it.</p>
+          <div class="explore-thumb"><img src="/images/studio/wag-studio-221.jpg" alt="WAG Predicted It" loading="lazy" /></div>
+          <div class="explore-body">
+            <h3>WAG Predicted It</h3>
+            <p>The real, on-camera predictions the hosts have made — go see if they called it.</p>
+          </div>
         </a>
       </div>
     </div>
@@ -313,10 +340,14 @@ const segments = [
   .explore .eyebrow{ margin-bottom:20px; }
   .explore-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; }
   .explore-card{
-    display:block; padding:22px 24px; border-radius: var(--radius); border:1px solid var(--line);
+    display:block; overflow:hidden; border-radius: var(--radius); border:1px solid var(--line);
     background: var(--bg-alt); transition: border-color .2s ease, transform .2s ease;
   }
   .explore-card:hover{ border-color: var(--wag-pink); transform: translateY(-3px); }
+  .explore-thumb{ aspect-ratio: 16/9; overflow:hidden; }
+  .explore-thumb img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .3s ease; }
+  .explore-card:hover .explore-thumb img{ transform: scale(1.04); }
+  .explore-body{ padding:18px 22px 22px; }
   .explore-card h3{ font-size:1.05rem; margin-bottom:.4em; }
   .explore-card p{ font-size:.86rem; color: var(--ink-muted); margin:0; }
 
