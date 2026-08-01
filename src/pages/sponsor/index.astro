@@ -65,15 +65,17 @@ const formats = [
         <source srcset="/images/studio/wag-studio-137.webp" type="image/webp" />
         <img src="/images/studio/wag-studio-137.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
       </picture>
+      <div class="hero-photo-fade" aria-hidden="true"></div>
+      <div class="hero-kit-badge">WAG Podcast<br />Media Kit</div>
     </div>
-    <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="hero-kit-badge">WAG Podcast<br />Media Kit</div>
-    <div class="container hero-inner">
-      <p class="eyebrow"><EqBars size="sm" /> Sponsor WAG Podcast</p>
-      <h1>Advertise with <span class="text-accent">WAG Podcast</span>.</h1>
-      <p class="lede">A new, fast-growing weekly video podcast for teens — real talk, real chaos, real reactions, from the team behind The Wild Adventure Girls. Every episode feels like sitting in on the group chat, only millions are watching.</p>
-      <a class="btn btn-accent" href="#partner">Become a Sponsor →</a>
+    <div class="hero-text">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow"><EqBars size="sm" /> Sponsor WAG Podcast</p>
+        <h1>Advertise with <span class="text-accent">WAG Podcast</span>.</h1>
+        <p class="lede">A new, fast-growing weekly video podcast for teens — real talk, real chaos, real reactions, from the team behind The Wild Adventure Girls. Every episode feels like sitting in on the group chat, only millions are watching.</p>
+        <a class="btn btn-accent" href="#partner">Become a Sponsor →</a>
+      </div>
     </div>
   </section>
 
@@ -239,42 +241,47 @@ const formats = [
 </script>
 
 <style>
-  /* Full-bleed cinematic overlay -- was a thin photo strip with plain
-     text below it (read like a blog post). Photo now fills the whole
-     hero, text sits directly on it, matching the pin-hero pattern
-     already established elsewhere on the site. */
-  .sponsor-hero{ position:relative; padding: 64px 0 48px; overflow:hidden; min-height:460px; display:flex; align-items:flex-end; }
-  .hero-photo{ position:absolute; inset:0; z-index:0; }
-  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 32%; display:block; }
-  .hero-scrim{
-    position:absolute; inset:0; z-index:0;
-    /* Kept light through the upper-middle band where their faces and
-       shoulders actually sit -- only goes fully opaque in the bottom
-       strip the text occupies, so the photo stays the point, not a
-       backdrop buried under a black gradient. */
-    background: linear-gradient(180deg, rgba(10,10,15,.05) 0%, rgba(10,10,15,.1) 45%, rgba(10,10,15,.55) 72%, rgba(10,10,15,.94) 100%);
-  }
-  .hero-glow{
-    position:absolute; inset:0; z-index:0; pointer-events:none; mix-blend-mode:screen; opacity:.55;
-    background:
-      radial-gradient(ellipse 40% 55% at 8% 100%, var(--wag-pink) 0%, transparent 70%),
-      radial-gradient(ellipse 35% 50% at 100% 100%, var(--wag-green) 0%, transparent 70%);
+  /* Photo and headline no longer share the same frame -- the previous
+     overlay put "Advertise with WAG Podcast." directly on top of the
+     real WAG PODCAST neon sign in the shot, two competing pieces of
+     text in one glance. Photo now gets its own full, undarkened
+     section; text gets a separate section below with real glow but no
+     photo behind it, so nothing is ever fighting for the same space. */
+  .sponsor-hero{ position:relative; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.1/1; overflow:hidden; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 28%; display:block; }
+  .hero-photo-fade{
+    position:absolute; inset:0;
+    background: linear-gradient(0deg, rgba(10,10,15,.9) 0%, transparent 22%);
   }
   .hero-kit-badge{
-    position:absolute; z-index:2; top:32px; right:24px; max-width:170px;
+    position:absolute; z-index:2; top:24px; right:24px; max-width:170px;
     background: var(--wag-pink); color:#fff; border-radius: var(--radius-sm);
     padding:.8em 1.05em; font-family: var(--font-display); text-transform:uppercase;
     letter-spacing:.02em; font-weight:700; font-size:.8rem; line-height:1.3; text-align:center;
     box-shadow: var(--shadow-sm); transform: rotate(3deg);
   }
+  .hero-text{ position:relative; background: var(--wag-black); padding: 52px 0 64px; overflow:hidden; }
+  .hero-glow{
+    position:absolute; inset:0; z-index:0; pointer-events:none; mix-blend-mode:screen; opacity:.5;
+    background:
+      radial-gradient(ellipse 40% 70% at 8% 0%, var(--wag-pink) 0%, transparent 70%),
+      radial-gradient(ellipse 35% 60% at 100% 0%, var(--wag-green) 0%, transparent 70%);
+  }
   .hero-inner{ position:relative; z-index:1; max-width:68ch; }
   .sponsor-hero .eyebrow{ color: var(--wag-green); }
-  .sponsor-hero h1{ font-size: clamp(2.6rem, 5.4vw, 4.2rem); max-width:18ch; color:#fff; }
+  .sponsor-hero h1{ font-size: clamp(2.4rem, 4.8vw, 3.8rem); max-width:18ch; color:#fff; }
   .text-accent{
     background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .sponsor-hero .lede{ font-size:1.18rem; max-width:58ch; color:#E7E7EE; margin-bottom:1.4em; }
+  .sponsor-hero .lede{ font-size:1.15rem; max-width:58ch; color:#E7E7EE; margin-bottom:1.4em; }
+
+  @media (max-width: 700px){
+    .hero-photo{ aspect-ratio: 4/3; }
+    .hero-kit-badge{ top:16px; right:16px; max-width:140px; font-size:.72rem; }
+    .hero-text{ padding: 40px 0 48px; }
+  }
 
   @media (max-width: 700px){
     .sponsor-hero{ min-height:520px; padding: 100px 0 48px; }
