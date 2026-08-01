@@ -243,12 +243,16 @@ const formats = [
      text below it (read like a blog post). Photo now fills the whole
      hero, text sits directly on it, matching the pin-hero pattern
      already established elsewhere on the site. */
-  .sponsor-hero{ position:relative; padding: 120px 0 72px; overflow:hidden; min-height:580px; display:flex; align-items:flex-end; }
+  .sponsor-hero{ position:relative; padding: 64px 0 48px; overflow:hidden; min-height:460px; display:flex; align-items:flex-end; }
   .hero-photo{ position:absolute; inset:0; z-index:0; }
-  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 18%; display:block; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 32%; display:block; }
   .hero-scrim{
     position:absolute; inset:0; z-index:0;
-    background: linear-gradient(180deg, rgba(10,10,15,.35) 0%, rgba(10,10,15,.5) 45%, rgba(10,10,15,.97) 100%);
+    /* Kept light through the upper-middle band where their faces and
+       shoulders actually sit -- only goes fully opaque in the bottom
+       strip the text occupies, so the photo stays the point, not a
+       backdrop buried under a black gradient. */
+    background: linear-gradient(180deg, rgba(10,10,15,.05) 0%, rgba(10,10,15,.1) 45%, rgba(10,10,15,.55) 72%, rgba(10,10,15,.94) 100%);
   }
   .hero-glow{
     position:absolute; inset:0; z-index:0; pointer-events:none; mix-blend-mode:screen; opacity:.55;
