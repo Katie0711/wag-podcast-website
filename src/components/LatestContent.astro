@@ -11,8 +11,9 @@ import EqBars from "./EqBars.astro";
 
 interface SupportPlatform {
   icon: "spotify" | "apple";
-  line: string;
-  sub: string;
+  platform: string;
+  ctaLabel: string;
+  benefit: string;
   href: string;
 }
 
@@ -43,9 +44,28 @@ const {
 
 const dateLabel = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" }).format(date);
 
+// Sized and weighted to actually read at a glance, not just decorate a
+// colored square -- 3 bold soundwave arcs for Spotify (its real mark),
+// the dot-and-broadcast-arcs silhouette real Apple Podcasts uses. Not
+// the official trademarked badge artwork (that requires the exact,
+// unmodified files from each platform's brand-resources page, which
+// aren't available to pull in here) -- paired with explicit "Listen on
+// [Platform]" text so recognition never depends on icon fidelity alone.
+// Real bug found while fixing this: these were being injected via
+// set:html into a plain <span>, with no <svg> wrapper. A browser's HTML
+// parser has no meaning for a bare <path> element -- it silently
+// swallowed every path as a mis-nested non-rendering node, so the icon
+// never drew at all, just the colored badge behind it. Wrapping each
+// entry in a real <svg> (which DOES switch the parser into foreign/SVG
+// content mode) is the actual fix, not just a style tweak.
 const icons: Record<SupportPlatform["icon"], string> = {
-  spotify: `<circle cx="12" cy="12" r="10" fill="none"/><path d="M6 9.5c3.5-1 8-.6 11 1M6.5 13c3-1 6.5-.7 9 .8M7 16.3c2.4-.7 5-.5 7.2.7" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>`,
-  apple: `<path d="M12 3a9 9 0 0 0-9 9v6a2 2 0 0 0 2 2h1v-8H4a8 8 0 0 1 16 0h-2v8h1a2 2 0 0 0 2-2v-6a9 9 0 0 0-9-9z"/>`,
+  spotify: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 9.3c4.5-1.3 9.8-1 13.8 1.3" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M5.6 13c3.8-1.1 8.2-.9 11.4 1" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M6.4 16.5c3-.9 6.5-.7 9 .8" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>`,
+  apple: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="7.8" r="2.5" fill="#fff"/><path d="M7.9 11.8a5.9 5.9 0 0 1 8.2 0" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M5.5 9.2a9 9 0 0 1 13 0" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M10.7 14.3h2.6l-.8 6.3a.5.5 0 0 1-1 0z" fill="#fff"/></svg>`,
+};
+
+const platformColors: Record<SupportPlatform["icon"], string> = {
+  spotify: "#1DB954",
+  apple: "#D633FF",
 };
 ---
 
@@ -77,11 +97,18 @@ const icons: Record<SupportPlatform["icon"], string> = {
       {support.length > 0 && (
         <div class="lc-support">
           {support.map((s) => (
-            <a class={`lc-support-card icon-${s.icon}`} href={s.href} target="_blank" rel="noopener">
+            <a
+              class={`lc-support-card icon-${s.icon}`}
+              href={s.href}
+              target="_blank"
+              rel="noopener"
+              style={`--platform-color: ${platformColors[s.icon]}`}
+            >
               <span class="lc-support-icon" set:html={icons[s.icon]} />
               <span class="lc-support-copy">
-                <b>{s.line}</b>
-                <span>{s.sub}</span>
+                <span class="lc-support-platform">{s.platform}</span>
+                <span class="lc-support-cta">{s.ctaLabel}</span>
+                <span class="lc-support-benefit">{s.benefit}</span>
               </span>
             </a>
           ))}
@@ -137,25 +164,34 @@ const icons: Record<SupportPlatform["icon"], string> = {
   }
   .lc-primary-btn:hover{ transform: translateY(-2px); box-shadow: 0 18px 34px rgba(255,22,200,.36); }
 
-  .lc-support{ display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
+  .lc-support{ display:flex; flex-direction:column; gap:12px; margin-bottom:16px; }
   .lc-support-card{
-    display:flex; align-items:center; gap:12px; padding:13px 16px;
-    border-radius:10px; border:1px solid var(--line); background: var(--bg-alt);
-    transition: border-color .15s ease, transform .15s ease;
+    display:flex; align-items:center; gap:16px; padding:16px 18px;
+    border-radius:12px; border:1.5px solid var(--line); background: var(--bg-alt);
+    transition: border-color .15s ease, transform .15s ease, background .15s ease;
   }
-  .lc-support-card:hover{ transform: translateX(2px); }
-  .icon-spotify:hover{ border-color:#1DB954; }
-  .icon-apple:hover{ border-color:#F452FF; }
+  .lc-support-card:hover{
+    transform: translateX(3px);
+    border-color: var(--platform-color);
+    background: color-mix(in srgb, var(--platform-color) 10%, var(--bg-alt));
+  }
   .lc-support-icon{
-    width:30px; height:30px; border-radius:8px; flex:none;
+    width:48px; height:48px; border-radius:12px; flex:none;
     display:flex; align-items:center; justify-content:center;
+    background: var(--platform-color);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--platform-color) 45%, transparent);
   }
-  .lc-support-icon :global(svg){ width:15px; height:15px; fill:#fff; }
-  .icon-spotify .lc-support-icon{ background:#1DB954; }
-  .icon-apple .lc-support-icon{ background: linear-gradient(135deg,#F452FF,#832BC1); }
-  .lc-support-copy{ display:flex; flex-direction:column; gap:1px; }
-  .lc-support-copy b{ font-family: var(--font-display); font-weight:700; text-transform:none; letter-spacing:0; font-size:.9rem; color: var(--ink); }
-  .lc-support-copy span{ font-size:.76rem; color: var(--ink-muted); }
+  .lc-support-icon :global(svg){ width:22px; height:22px; }
+  .lc-support-copy{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+  .lc-support-platform{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.08em;
+    font-size:.72rem; font-weight:700; color: var(--platform-color);
+  }
+  .lc-support-cta{
+    font-family: var(--font-display); font-weight:700; text-transform:none; letter-spacing:0;
+    font-size:1.15rem; color:#fff; line-height:1.2;
+  }
+  .lc-support-benefit{ font-size:.8rem; color: var(--ink-muted); }
 
   .lc-proof{ font-size:.82rem; color: var(--ink-muted); margin:0; }
 
