@@ -62,14 +62,15 @@ const formats = [
   <section class="sponsor-hero">
     <div class="hero-photo">
       <picture>
-        <source srcset="/images/studio/wag-studio-195.webp" type="image/webp" />
-        <img src="/images/studio/wag-studio-195.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
+        <source srcset="/images/studio/wag-studio-137.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-137.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
       </picture>
-      <div class="hero-scrim"></div>
-      <div class="hero-glow" aria-hidden="true"></div>
     </div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-kit-badge">WAG Podcast<br />Media Kit</div>
     <div class="container hero-inner">
-      <p class="eyebrow"><EqBars size="sm" /> WAG Podcast Media Kit</p>
+      <p class="eyebrow"><EqBars size="sm" /> Sponsor WAG Podcast</p>
       <h1>Advertise with <span class="text-accent">WAG Podcast</span>.</h1>
       <p class="lede">A new, fast-growing weekly video podcast for teens — real talk, real chaos, real reactions, from the team behind The Wild Adventure Girls. Every episode feels like sitting in on the group chat, only millions are watching.</p>
       <a class="btn btn-accent" href="#partner">Become a Sponsor →</a>
@@ -238,24 +239,43 @@ const formats = [
 </script>
 
 <style>
-  .sponsor-hero{ position:relative; padding: 0 0 32px; }
-  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.4/1; overflow:hidden; margin-bottom:44px; }
-  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
-  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.82) 0%, rgba(10,10,15,.15) 55%, transparent 75%); }
+  /* Full-bleed cinematic overlay -- was a thin photo strip with plain
+     text below it (read like a blog post). Photo now fills the whole
+     hero, text sits directly on it, matching the pin-hero pattern
+     already established elsewhere on the site. */
+  .sponsor-hero{ position:relative; padding: 120px 0 72px; overflow:hidden; min-height:580px; display:flex; align-items:flex-end; }
+  .hero-photo{ position:absolute; inset:0; z-index:0; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 18%; display:block; }
+  .hero-scrim{
+    position:absolute; inset:0; z-index:0;
+    background: linear-gradient(180deg, rgba(10,10,15,.35) 0%, rgba(10,10,15,.5) 45%, rgba(10,10,15,.97) 100%);
+  }
   .hero-glow{
-    position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen; opacity:.5;
+    position:absolute; inset:0; z-index:0; pointer-events:none; mix-blend-mode:screen; opacity:.55;
     background:
       radial-gradient(ellipse 40% 55% at 8% 100%, var(--wag-pink) 0%, transparent 70%),
       radial-gradient(ellipse 35% 50% at 100% 100%, var(--wag-green) 0%, transparent 70%);
   }
-  .hero-inner{ max-width:68ch; padding-bottom:56px; }
+  .hero-kit-badge{
+    position:absolute; z-index:2; top:32px; right:24px; max-width:170px;
+    background: var(--wag-pink); color:#fff; border-radius: var(--radius-sm);
+    padding:.8em 1.05em; font-family: var(--font-display); text-transform:uppercase;
+    letter-spacing:.02em; font-weight:700; font-size:.8rem; line-height:1.3; text-align:center;
+    box-shadow: var(--shadow-sm); transform: rotate(3deg);
+  }
+  .hero-inner{ position:relative; z-index:1; max-width:68ch; }
   .sponsor-hero .eyebrow{ color: var(--wag-green); }
-  .sponsor-hero h1{ font-size: clamp(2.2rem, 4.6vw, 3.6rem); max-width:20ch; color:#fff; }
+  .sponsor-hero h1{ font-size: clamp(2.6rem, 5.4vw, 4.2rem); max-width:18ch; color:#fff; }
   .text-accent{
     background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .sponsor-hero .lede{ font-size:1.15rem; max-width:62ch; color:#E7E7EE; margin-bottom:1.4em; }
+  .sponsor-hero .lede{ font-size:1.18rem; max-width:58ch; color:#E7E7EE; margin-bottom:1.4em; }
+
+  @media (max-width: 700px){
+    .sponsor-hero{ min-height:520px; padding: 100px 0 48px; }
+    .hero-kit-badge{ top:20px; right:16px; max-width:140px; font-size:.72rem; }
+  }
 
   .stat-strip{ background: var(--wag-black); border-top:1px solid #2A2A2E; padding: 44px 0; }
   .stat-strip .container{ display:flex; align-items:center; gap:56px; flex-wrap:wrap; }
