@@ -38,6 +38,43 @@ const segments = [
   { name: "He Said What?!", desc: "Real reactions to what the boys said." },
   { name: "3-Second Roast", desc: "One-liner burns in under 3 seconds." },
 ];
+
+// Explore section, streaming-shelf redesign (approved 2026-08-02). Each
+// category's art is a real photo: a real flagship episode thumbnail where
+// one clearly exists, or the same real studio photo already used as that
+// page's own ogImage where it doesn't (Why Video-First, Segments, FAQ).
+// Hero picks Guys Answer Questions -- the strongest real evidenced search
+// demand found in this session's SEO audit, not an arbitrary choice.
+const EXPLORE_ICONS: Record<string, string> = {
+  guys: `<svg viewBox="0 0 48 48" fill="none"><path d="M6 10a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H20l-9 8v-8h-1a4 4 0 0 1-4-4V10Z" fill="currentColor"/><text x="24" y="27" font-family="Khand,Arial" font-weight="700" font-size="20" fill="#08080C" text-anchor="middle">?</text></svg>`,
+  mental: `<svg viewBox="0 0 48 48" fill="none"><circle cx="18" cy="20" r="12.5" fill="currentColor" opacity=".5"/><circle cx="30" cy="26" r="12.5" fill="currentColor"/><circle cx="26" cy="26" r="2" fill="#08080C"/><circle cx="32" cy="26" r="2" fill="#08080C"/></svg>`,
+  games: `<svg viewBox="0 0 48 48" fill="none"><rect x="4" y="15" width="40" height="21" rx="10.5" fill="currentColor"/><rect x="19" y="20.5" width="3" height="10" rx="1.2" fill="#08080C"/><rect x="15.5" y="24.5" width="10" height="3" rx="1.2" fill="#08080C"/><circle cx="36" cy="21.5" r="2.6" fill="#08080C"/><circle cx="30.5" cy="27" r="2.6" fill="#08080C"/></svg>`,
+  growing: `<svg viewBox="0 0 48 48" fill="none"><path d="M24 6 44 16 24 26 4 16 24 6Z" fill="currentColor"/><path d="M13 20v10c0 3.5 5 6.5 11 6.5s11-3 11-6.5V20" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/><line x1="42" y1="16" x2="42" y2="31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>`,
+  comedy: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="19" fill="currentColor"/><circle cx="17" cy="21" r="2.7" fill="#08080C"/><circle cx="31" cy="21" r="2.7" fill="#08080C"/><path d="M13.5 28.5c3 5.5 8.5 9 10.5 9s7.5-3.5 10.5-9" stroke="#08080C" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>`,
+  video: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="19" fill="currentColor"/><path d="M20 16 32.5 24 20 32V16Z" fill="#08080C"/></svg>`,
+  segments: `<svg viewBox="0 0 48 48" fill="none"><rect x="6" y="17" width="36" height="25" rx="4.5" fill="currentColor"/><path d="M6 23h36" stroke="#08080C" stroke-width="3"/><path d="M10.5 17 16 8h7l-5.5 9h-7Z" fill="#08080C"/><path d="M23.5 17 29 8h7l-5.5 9h-7Z" fill="#08080C"/></svg>`,
+  faq: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="19" fill="currentColor"/><text x="24" y="32" font-family="Khand,Arial" font-weight="700" font-size="25" fill="#08080C" text-anchor="middle">?</text></svg>`,
+  predicted: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="19" r="13.5" fill="currentColor" opacity=".92"/><ellipse cx="19.5" cy="14.5" rx="4" ry="2.6" fill="#fff" opacity=".55"/><path d="M13 38.5c0-4.3 4.9-6.5 11-6.5s11 2.2 11 6.5" fill="currentColor"/></svg>`,
+};
+
+const EXPLORE_CATS = [
+  { key: "guys", name: "Guys Answer Questions", hook: "The questions your group chat always asks. Now on camera.", href: "/guys-answer-questions/", photo: "https://img.youtube.com/vi/UlOMu3Aql3Y/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Format" },
+  { key: "mental", name: "Teen Mental Health, Real Talk", hook: "What actually helps, from teens who've actually been there.", href: "/mental-health/", photo: "https://img.youtube.com/vi/LjuXuymi-LY/mqdefault.jpg", accent: "var(--wag-green)", tag: "Real Talk" },
+  { key: "games", name: "WAG Podcast Games", hook: "The games that turn every episode into chaos.", href: "/games/", photo: "https://img.youtube.com/vi/IJu1eGaUSqA/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Games" },
+  { key: "growing", name: "Growing Up Stories", hook: "Suspended. Grounded. Prom disasters. All real.", href: "/topics/growing-up/", photo: "https://img.youtube.com/vi/rmSz8UwXCKM/mqdefault.jpg", accent: "var(--wag-green)", tag: "Stories" },
+  { key: "comedy", name: "Teen Comedy Podcast", hook: "Dares, roasts, hot takes — this is the funny stuff.", href: "/teen-comedy-podcast/", photo: "https://img.youtube.com/vi/gweZmPb3r3M/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Comedy" },
+  { key: "video", name: "Why Video-First", hook: "Why we film everything instead of just talking.", href: "/video-podcasts-for-teens/", photo: "/images/studio/wag-studio-416.jpg", accent: "var(--wag-green)", tag: "About" },
+  { key: "segments", name: "Recurring Segments", hook: "The bits fans wait for, finally explained.", href: "/segments/", photo: "/images/studio/wag-studio-53.jpg", accent: "var(--wag-pink)", tag: "Format" },
+  { key: "faq", name: "FAQ", hook: "Everything you're wondering, answered fast.", href: "/faq/", photo: "/images/studio/wag-studio-191.jpg", accent: "var(--wag-green)", tag: "Info" },
+  { key: "predicted", name: "WAG Predicted It", hook: "Did they call it? Go find out.", href: "/wag-predicted-it/", photo: "https://img.youtube.com/vi/ko8HDrQp7LQ/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Recap" },
+];
+
+const EXPLORE_SHELVES = [
+  { title: "Formats & Franchises", tag: "Fan Favorites", items: ["guys", "segments", "comedy"] },
+  { title: "Real Talk", tag: "Goes Deeper", items: ["mental", "growing"] },
+  { title: "About the Show", tag: "Good to Know", items: ["video", "faq", "predicted"] },
+];
+const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
 ---
 
 <BaseLayout
@@ -169,69 +206,45 @@ const segments = [
   <section class="explore">
     <div class="container" data-reveal="stagger">
       <p class="eyebrow"><EqBars size="sm" /> Explore WAG Podcast</p>
-      <div class="explore-grid">
-        <a class="explore-card" href="/guys-answer-questions/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-301.jpg" alt="Guys Answer Questions" loading="lazy" /></div>
-          <div class="explore-body">
-            <h3>Guys Answer Questions</h3>
-            <p>A real guy, real questions, no script — every installment so far.</p>
+
+      <a class="explore-hero" href={exploreHero.href} style={`background-image:url(${exploreHero.photo.replace("mqdefault", "hqdefault")})`}>
+        <span class="explore-hero-badge">★ Fan Favorite</span>
+        <div class="explore-hero-inner">
+          <h3>{exploreHero.name}</h3>
+          <div class="explore-hero-underline"></div>
+          <p>{exploreHero.hook}</p>
+          <span class="explore-hero-cta">Explore the Format →</span>
+        </div>
+      </a>
+
+      {EXPLORE_SHELVES.map((shelf, si) => (
+        <div class="explore-shelf">
+          <div class="explore-shelf-head">
+            <h4>{shelf.title}</h4>
+            <div class="shelf-controls">
+              <span>{shelf.tag}</span>
+              <button class="shelf-arrow" data-scroll-target={`explore-row-${si}`} data-dir="-1" aria-label="Scroll left">‹</button>
+              <button class="shelf-arrow" data-scroll-target={`explore-row-${si}`} data-dir="1" aria-label="Scroll right">›</button>
+            </div>
           </div>
-        </a>
-        <a class="explore-card no-thumb" href="/mental-health/">
-          <div class="explore-body">
-            <h3>Teen Mental Health, Real Talk</h3>
-            <p>Real teens, unfiltered, on burnout, school stress, and what actually helps.</p>
+          <div class="explore-row" id={`explore-row-${si}`}>
+            {shelf.items.map((key) => {
+              const c = EXPLORE_CATS.find((x) => x.key === key)!;
+              return (
+                <a class="explore-poster" href={c.href}>
+                  <div class="explore-poster-accent" style={`background:linear-gradient(90deg,${c.accent},transparent 160%)`} />
+                  <div class="explore-poster-art" style={`background-image:url(${c.photo})`}>
+                    <span class="explore-poster-tag">{c.tag}</span>
+                    <div class="explore-poster-icon" style={`background:${c.accent}`} set:html={EXPLORE_ICONS[c.key]} />
+                    <div class="explore-poster-play">▶</div>
+                  </div>
+                  <div class="explore-poster-body"><h5>{c.name}</h5><p>{c.hook}</p></div>
+                </a>
+              );
+            })}
           </div>
-        </a>
-        <a class="explore-card no-thumb" href="/games/">
-          <div class="explore-body">
-            <h3>WAG Podcast Games</h3>
-            <p>Guess the Imposter, Who's Most Likely To, Heads Up — how each one works.</p>
-          </div>
-        </a>
-        <a class="explore-card" href="/topics/growing-up/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-89.jpg" alt="Growing Up Stories" loading="lazy" /></div>
-          <div class="explore-body">
-            <h3>Growing Up Stories</h3>
-            <p>The real, chaotic coming-of-age episodes — grounded, suspended, prom disasters.</p>
-          </div>
-        </a>
-        <a class="explore-card" href="/teen-comedy-podcast/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-274.jpg" alt="Teen Comedy Podcast" loading="lazy" /></div>
-          <div class="explore-body">
-            <h3>Teen Comedy Podcast</h3>
-            <p>Dares, roasts, and hot takes — the comedy built into every episode.</p>
-          </div>
-        </a>
-        <a class="explore-card" href="/video-podcasts-for-teens/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-416.jpg" alt="Why Video-First" loading="lazy" /></div>
-          <div class="explore-body">
-            <h3>Why Video-First</h3>
-            <p>Filmed for YouTube first, not an audio show with a camera added later.</p>
-          </div>
-        </a>
-        <a class="explore-card" href="/segments/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-53.jpg" alt="Recurring Segments" loading="lazy" /></div>
-          <div class="explore-body">
-            <h3>Recurring Segments</h3>
-            <p>What Squad Dares, Tell Me the Truth, and the 3-Second Roast actually are.</p>
-          </div>
-        </a>
-        <a class="explore-card" href="/faq/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-191.jpg" alt="FAQ" loading="lazy" /></div>
-          <div class="explore-body">
-            <h3>FAQ</h3>
-            <p>Quick answers — who hosts it, where to watch, how it fits into WAG.</p>
-          </div>
-        </a>
-        <a class="explore-card" href="/wag-predicted-it/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-221.jpg" alt="WAG Predicted It" loading="lazy" /></div>
-          <div class="explore-body">
-            <h3>WAG Predicted It</h3>
-            <p>The real, on-camera predictions the hosts have made — go see if they called it.</p>
-          </div>
-        </a>
-      </div>
+        </div>
+      ))}
     </div>
   </section>
 
@@ -336,37 +349,80 @@ const segments = [
 
   .explore{ padding: 24px 0 8px; border-top:1px solid var(--line); padding-top:48px; }
   .explore .eyebrow{ margin-bottom:20px; }
-  .explore-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; }
-  .explore-card{
-    display:block; overflow:hidden; border-radius: var(--radius); border:1px solid var(--line);
-    background: var(--bg-alt); transition: border-color .2s ease, transform .2s ease;
-  }
-  .explore-card:hover{ border-color: var(--wag-pink); transform: translateY(-3px); }
-  .explore-thumb{ aspect-ratio: 16/9; overflow:hidden; }
-  .explore-thumb img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .3s ease; }
-  .explore-card:hover .explore-thumb img{ transform: scale(1.04); }
-  .explore-body{ padding:18px 22px 22px; }
-  .explore-card h3{ font-size:1.05rem; margin-bottom:.4em; }
-  .explore-card p{ font-size:.86rem; color: var(--ink-muted); margin:0; }
 
-  .explore-card.no-thumb{
+  .explore-hero{
+    position:relative; display:block; border-radius: var(--radius-lg); overflow:hidden; min-height:280px;
+    border:1px solid var(--line); text-decoration:none; color:inherit; margin-bottom:32px;
+    background-size:cover; background-position:center 25%;
+    box-shadow: 0 20px 50px -14px rgba(0,0,0,.6);
+  }
+  .explore-hero::before{
+    content:""; position:absolute; inset:0;
     background:
-      linear-gradient(var(--bg-alt), var(--bg-alt)) padding-box,
-      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
-    border:1px solid transparent;
+      linear-gradient(90deg, rgba(10,10,15,.96) 0%, rgba(10,10,15,.72) 40%, rgba(10,10,15,.2) 78%, rgba(10,10,15,.05) 100%),
+      radial-gradient(ellipse 55% 90% at 100% 10%, rgba(165,235,14,.2), transparent 68%);
   }
-  .explore-card.no-thumb:hover{ transform: translateY(-3px); }
-  .explore-card.no-thumb .explore-body{
-    display:flex; flex-direction:column; justify-content:center;
-    min-height:148px; padding:24px 26px;
+  .explore-hero-badge{
+    position:absolute; top:22px; left:22px; z-index:1;
+    font-family: var(--font-display); font-weight:600; text-transform:uppercase; font-size:.76rem;
+    letter-spacing:.08em; color:#0A0A0F; background:var(--wag-green); padding:6px 14px; border-radius:999px;
   }
-  .explore-card.no-thumb h3{
-    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.02em;
-    font-size:1.3rem; line-height:1.2; margin-bottom:.5em;
-    background: linear-gradient(90deg, var(--wag-pink), var(--wag-green));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
+  .explore-hero-inner{ position:relative; z-index:1; padding:34px 36px 38px; max-width:52ch; }
+  .explore-hero-inner h3{
+    font-family: var(--font-display); text-transform:uppercase; font-weight:700;
+    font-size: clamp(1.9rem, 3.6vw, 2.6rem); margin:0; line-height:1;
   }
-  .explore-card.no-thumb p{ font-size:.88rem; }
+  .explore-hero-underline{ width:56px; height:4px; border-radius:99px; background:linear-gradient(90deg,var(--wag-pink),var(--wag-green)); margin:14px 0 16px; }
+  .explore-hero-inner p{ font-size:1.02rem; color:var(--ink-soft); margin:0 0 18px; }
+  .explore-hero-cta{ font-family: var(--font-display); font-weight:600; text-transform:uppercase; font-size:.9rem; letter-spacing:.03em; color:var(--wag-green); }
+
+  .explore-shelf{ margin-bottom:32px; }
+  .explore-shelf-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
+  .explore-shelf-head h4{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:1.15rem; margin:0; letter-spacing:.02em; }
+  .shelf-controls{ display:flex; align-items:center; gap:12px; }
+  .shelf-controls span{ font-size:.76rem; color:var(--ink-muted); font-family: var(--font-display); font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
+  .shelf-arrow{
+    width:30px; height:30px; border-radius:50%; border:1px solid var(--line); background:var(--bg-alt);
+    color:var(--ink-soft); display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+    font-size:1.1rem; line-height:1; transition:border-color .2s ease, color .2s ease;
+  }
+  .shelf-arrow:hover{ border-color:var(--wag-pink); color:#fff; }
+
+  .explore-row{ display:flex; gap:14px; overflow-x:auto; padding:2px 2px 8px; scroll-snap-type:x proximity; scroll-behavior:smooth; }
+  .explore-row::-webkit-scrollbar{ height:6px; }
+  .explore-row::-webkit-scrollbar-thumb{ background:var(--line); border-radius:99px; }
+
+  .explore-poster{
+    flex:0 0 200px; scroll-snap-align:start; display:block; border-radius: var(--radius); overflow:hidden;
+    border:1px solid var(--line); background: var(--bg-alt); position:relative;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .explore-poster:hover{ transform: translateY(-6px); border-color: var(--wag-pink); box-shadow: 0 16px 36px -12px rgba(0,0,0,.55); }
+  .explore-poster-accent{ height:4px; width:100%; }
+  .explore-poster-art{
+    height:130px; position:relative; overflow:hidden; background-size:cover; background-position:center 30%;
+  }
+  .explore-poster-art::before{ content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(10,10,15,.9) 0%, rgba(10,10,15,.1) 62%, transparent 100%); }
+  .explore-poster-tag{
+    position:absolute; top:10px; left:10px; z-index:1; font-family: var(--font-display); font-weight:600;
+    font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; background:rgba(10,10,15,.6);
+    color:var(--ink-soft); padding:3px 9px; border-radius:999px;
+  }
+  .explore-poster-icon{
+    position:absolute; z-index:1; bottom:10px; right:10px; width:30px; height:30px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center; color:#0A0A0F;
+  }
+  .explore-poster-icon svg{ width:16px; height:16px; }
+  .explore-poster-play{
+    position:absolute; z-index:1; top:50%; left:50%; transform:translate(-50%,-50%) scale(.7);
+    width:40px; height:40px; border-radius:50%; background:rgba(10,10,15,.55); backdrop-filter:blur(4px);
+    color:#fff; display:flex; align-items:center; justify-content:center; font-size:.85rem;
+    opacity:0; transition:opacity .2s ease, transform .2s ease; border:1.5px solid rgba(255,255,255,.5);
+  }
+  .explore-poster:hover .explore-poster-play{ opacity:1; transform:translate(-50%,-50%) scale(1); }
+  .explore-poster-body{ padding:14px 14px 16px; }
+  .explore-poster-body h5{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:.94rem; margin:0 0 5px; line-height:1.15; }
+  .explore-poster-body p{ font-size:.76rem; color:var(--ink-muted); margin:0; line-height:1.42; }
 
   .join{ padding: 8px 0 56px; }
   .join-inner{
@@ -387,12 +443,21 @@ const segments = [
 
   @media (max-width: 900px){
     .segments-grid{ grid-template-columns: 1fr 1fr; }
-    .explore-grid{ grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 760px){
     .hosts-grid{ grid-template-columns:1fr; max-width:340px; margin:20px auto; }
     .why-different .container{ grid-template-columns:1fr; }
     .segments-grid{ grid-template-columns:1fr; }
-    .explore-grid{ grid-template-columns:1fr; }
+    .explore-hero-inner{ padding:26px 22px 30px; }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".shelf-arrow").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const row = document.getElementById(btn.dataset.scrollTarget || "");
+      const dir = Number(btn.dataset.dir || "1");
+      row?.scrollBy({ left: dir * 440, behavior: "smooth" });
+    });
+  });
+</script>
