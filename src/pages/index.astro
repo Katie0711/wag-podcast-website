@@ -177,15 +177,13 @@ const segments = [
             <p>A real guy, real questions, no script — every installment so far.</p>
           </div>
         </a>
-        <a class="explore-card" href="/mental-health/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-440.jpg" alt="Teen Mental Health, Real Talk" loading="lazy" /></div>
+        <a class="explore-card no-thumb" href="/mental-health/">
           <div class="explore-body">
             <h3>Teen Mental Health, Real Talk</h3>
             <p>Real teens, unfiltered, on burnout, school stress, and what actually helps.</p>
           </div>
         </a>
-        <a class="explore-card" href="/games/">
-          <div class="explore-thumb"><img src="/images/studio/wag-studio-466.jpg" alt="WAG Podcast Games" loading="lazy" /></div>
+        <a class="explore-card no-thumb" href="/games/">
           <div class="explore-body">
             <h3>WAG Podcast Games</h3>
             <p>Guess the Imposter, Who's Most Likely To, Heads Up — how each one works.</p>
@@ -350,6 +348,25 @@ const segments = [
   .explore-body{ padding:18px 22px 22px; }
   .explore-card h3{ font-size:1.05rem; margin-bottom:.4em; }
   .explore-card p{ font-size:.86rem; color: var(--ink-muted); margin:0; }
+
+  .explore-card.no-thumb{
+    background:
+      linear-gradient(var(--bg-alt), var(--bg-alt)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border:1px solid transparent;
+  }
+  .explore-card.no-thumb:hover{ transform: translateY(-3px); }
+  .explore-card.no-thumb .explore-body{
+    display:flex; flex-direction:column; justify-content:center;
+    min-height:148px; padding:24px 26px;
+  }
+  .explore-card.no-thumb h3{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.02em;
+    font-size:1.3rem; line-height:1.2; margin-bottom:.5em;
+    background: linear-gradient(90deg, var(--wag-pink), var(--wag-green));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .explore-card.no-thumb p{ font-size:.88rem; }
 
   .join{ padding: 8px 0 56px; }
   .join-inner{
