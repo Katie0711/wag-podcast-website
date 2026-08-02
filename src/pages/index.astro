@@ -69,12 +69,27 @@ const EXPLORE_CATS = [
   { key: "predicted", name: "WAG Predicted It", hook: "Did they call it? Go find out.", href: "/wag-predicted-it/", photo: "https://img.youtube.com/vi/ko8HDrQp7LQ/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Recap" },
 ];
 
+// Two even shelves of 4 -- "guys" is the hero above and intentionally not
+// repeated below; all other 8 real categories are split evenly so both
+// rows fill the same width instead of the uneven 3/2/3 the first pass had.
 const EXPLORE_SHELVES = [
-  { title: "Formats & Franchises", tag: "Fan Favorites", items: ["guys", "segments", "comedy"] },
-  { title: "Real Talk", tag: "Goes Deeper", items: ["mental", "growing"] },
-  { title: "About the Show", tag: "Good to Know", items: ["video", "faq", "predicted"] },
+  { title: "Formats & Games", tag: "Fan Favorites", items: ["segments", "comedy", "games", "predicted"] },
+  { title: "Real Talk & Info", tag: "Good to Know", items: ["mental", "growing", "video", "faq"] },
 ];
 const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
+
+// Real ItemList schema for the Explore section -- every entry is a real,
+// live page on this site, in the same order as the section renders.
+const exploreOrder = [exploreHero.key, ...EXPLORE_SHELVES.flatMap((s) => s.items)];
+const exploreListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Explore WAG Podcast",
+  itemListElement: exploreOrder.map((key, i) => {
+    const c = EXPLORE_CATS.find((x) => x.key === key)!;
+    return { "@type": "ListItem", position: i + 1, name: c.name, url: `https://thewagpodcast.com${c.href}` };
+  }),
+};
 ---
 
 <BaseLayout
@@ -204,10 +219,13 @@ const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
 
   <!-- Explore -->
   <section class="explore">
+    <script type="application/ld+json" set:html={JSON.stringify(exploreListSchema)} />
     <div class="container" data-reveal="stagger">
       <p class="eyebrow"><EqBars size="sm" /> Explore WAG Podcast</p>
+      <h2 class="sr-only">Explore WAG Podcast: formats, games, and topics</h2>
 
-      <a class="explore-hero" href={exploreHero.href} style={`background-image:url(${exploreHero.photo.replace("mqdefault", "hqdefault")})`}>
+      <a class="explore-hero" href={exploreHero.href}>
+        <img class="explore-hero-img" src={exploreHero.photo.replace("mqdefault", "hqdefault")} alt={`${exploreHero.name} — WAG Podcast`} loading="lazy" />
         <span class="explore-hero-badge">★ Fan Favorite</span>
         <div class="explore-hero-inner">
           <h3>{exploreHero.name}</h3>
@@ -220,7 +238,7 @@ const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
       {EXPLORE_SHELVES.map((shelf, si) => (
         <div class="explore-shelf">
           <div class="explore-shelf-head">
-            <h4>{shelf.title}</h4>
+            <h3>{shelf.title}</h3>
             <div class="shelf-controls">
               <span>{shelf.tag}</span>
               <button class="shelf-arrow" data-scroll-target={`explore-row-${si}`} data-dir="-1" aria-label="Scroll left">‹</button>
@@ -233,12 +251,13 @@ const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
               return (
                 <a class="explore-poster" href={c.href}>
                   <div class="explore-poster-accent" style={`background:linear-gradient(90deg,${c.accent},transparent 160%)`} />
-                  <div class="explore-poster-art" style={`background-image:url(${c.photo})`}>
+                  <div class="explore-poster-art">
+                    <img src={c.photo} alt={c.name} loading="lazy" />
                     <span class="explore-poster-tag">{c.tag}</span>
                     <div class="explore-poster-icon" style={`background:${c.accent}`} set:html={EXPLORE_ICONS[c.key]} />
                     <div class="explore-poster-play">▶</div>
                   </div>
-                  <div class="explore-poster-body"><h5>{c.name}</h5><p>{c.hook}</p></div>
+                  <div class="explore-poster-body"><h4>{c.name}</h4><p>{c.hook}</p></div>
                 </a>
               );
             })}
@@ -351,23 +370,25 @@ const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
   .explore .eyebrow{ margin-bottom:20px; }
 
   .explore-hero{
-    position:relative; display:block; border-radius: var(--radius-lg); overflow:hidden; min-height:280px;
+    position:relative; display:flex; align-items:center; border-radius: var(--radius-lg); overflow:hidden; min-height:280px;
     border:1px solid var(--line); text-decoration:none; color:inherit; margin-bottom:32px;
-    background-size:cover; background-position:center 25%;
     box-shadow: 0 20px 50px -14px rgba(0,0,0,.6);
   }
+  .explore-hero-img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 25%; z-index:0;
+  }
   .explore-hero::before{
-    content:""; position:absolute; inset:0;
+    content:""; position:absolute; inset:0; z-index:1;
     background:
       linear-gradient(90deg, rgba(10,10,15,.96) 0%, rgba(10,10,15,.72) 40%, rgba(10,10,15,.2) 78%, rgba(10,10,15,.05) 100%),
       radial-gradient(ellipse 55% 90% at 100% 10%, rgba(165,235,14,.2), transparent 68%);
   }
   .explore-hero-badge{
-    position:absolute; top:22px; left:22px; z-index:1;
+    position:absolute; top:22px; left:22px; z-index:2;
     font-family: var(--font-display); font-weight:600; text-transform:uppercase; font-size:.76rem;
     letter-spacing:.08em; color:#0A0A0F; background:var(--wag-green); padding:6px 14px; border-radius:999px;
   }
-  .explore-hero-inner{ position:relative; z-index:1; padding:34px 36px 38px; max-width:52ch; }
+  .explore-hero-inner{ position:relative; z-index:2; padding:34px 36px 38px; max-width:52ch; }
   .explore-hero-inner h3{
     font-family: var(--font-display); text-transform:uppercase; font-weight:700;
     font-size: clamp(1.9rem, 3.6vw, 2.6rem); margin:0; line-height:1;
@@ -378,7 +399,7 @@ const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
 
   .explore-shelf{ margin-bottom:32px; }
   .explore-shelf-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
-  .explore-shelf-head h4{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:1.15rem; margin:0; letter-spacing:.02em; }
+  .explore-shelf-head h3{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:1.15rem; margin:0; letter-spacing:.02em; }
   .shelf-controls{ display:flex; align-items:center; gap:12px; }
   .shelf-controls span{ font-size:.76rem; color:var(--ink-muted); font-family: var(--font-display); font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
   .shelf-arrow{
@@ -399,29 +420,30 @@ const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
   }
   .explore-poster:hover{ transform: translateY(-6px); border-color: var(--wag-pink); box-shadow: 0 16px 36px -12px rgba(0,0,0,.55); }
   .explore-poster-accent{ height:4px; width:100%; }
-  .explore-poster-art{
-    height:130px; position:relative; overflow:hidden; background-size:cover; background-position:center 30%;
+  .explore-poster-art{ height:130px; position:relative; overflow:hidden; }
+  .explore-poster-art img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; z-index:0;
   }
-  .explore-poster-art::before{ content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(10,10,15,.9) 0%, rgba(10,10,15,.1) 62%, transparent 100%); }
+  .explore-poster-art::before{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg, rgba(10,10,15,.9) 0%, rgba(10,10,15,.1) 62%, transparent 100%); }
   .explore-poster-tag{
-    position:absolute; top:10px; left:10px; z-index:1; font-family: var(--font-display); font-weight:600;
+    position:absolute; top:10px; left:10px; z-index:2; font-family: var(--font-display); font-weight:600;
     font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; background:rgba(10,10,15,.6);
     color:var(--ink-soft); padding:3px 9px; border-radius:999px;
   }
   .explore-poster-icon{
-    position:absolute; z-index:1; bottom:10px; right:10px; width:30px; height:30px; border-radius:8px;
+    position:absolute; z-index:2; bottom:10px; right:10px; width:30px; height:30px; border-radius:8px;
     display:flex; align-items:center; justify-content:center; color:#0A0A0F;
   }
   .explore-poster-icon svg{ width:16px; height:16px; }
   .explore-poster-play{
-    position:absolute; z-index:1; top:50%; left:50%; transform:translate(-50%,-50%) scale(.7);
+    position:absolute; z-index:2; top:50%; left:50%; transform:translate(-50%,-50%) scale(.7);
     width:40px; height:40px; border-radius:50%; background:rgba(10,10,15,.55); backdrop-filter:blur(4px);
     color:#fff; display:flex; align-items:center; justify-content:center; font-size:.85rem;
     opacity:0; transition:opacity .2s ease, transform .2s ease; border:1.5px solid rgba(255,255,255,.5);
   }
   .explore-poster:hover .explore-poster-play{ opacity:1; transform:translate(-50%,-50%) scale(1); }
   .explore-poster-body{ padding:14px 14px 16px; }
-  .explore-poster-body h5{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:.94rem; margin:0 0 5px; line-height:1.15; }
+  .explore-poster-body h4{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:.94rem; margin:0 0 5px; line-height:1.15; }
   .explore-poster-body p{ font-size:.76rem; color:var(--ink-muted); margin:0; line-height:1.42; }
 
   .join{ padding: 8px 0 56px; }
