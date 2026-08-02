@@ -1,8 +1,8 @@
 ---
-title: "Why We Made Angelina Save Her First Kiss Story for Last"
+title: "Our Most Awkward First Kiss Stories"
 videoId: "prR_u0sWmJE"
 publishDate: 2025-12-08
-description: "Hot takes, dream scenarios, and a first-kiss would-you-rather game — before the story with a plot twist nobody saw coming. Real WAG Podcast conversation, uncut."
+description: "Hot takes, dream scenarios, and a first-kiss would-you-rather game — plus the real, awkward stories behind them. A full WAG Podcast conversation about first kisses."
 heroImage: "https://img.youtube.com/vi/prR_u0sWmJE/maxresdefault.jpg"
 topics: ["friendship-relationships"]
 faqs:
@@ -58,4 +58,4 @@ And it's the reason the advice at the very end of the episode actually lands. No
 
 The hot takes, the games, the story, and the plot twist nobody saw coming — [listen to the full conversation on YouTube →](https://youtu.be/prR_u0sWmJE)
 
-Want the full story, start to finish? [Read it on wildadventuregirls.com →](https://wildadventuregirls.com/podcast/articles/my-first-kiss-story-had-a-plot-twist-nobody-saw-coming/)
+Want the full story, start to finish? [Read it on wildadventuregirls.com →](https://wildadventuregirls.com/podcast/articles/the-truth-about-my-first-kiss-it-was-a-disaster/)
