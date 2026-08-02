@@ -225,13 +225,15 @@ const exploreListSchema = {
       <h2 class="sr-only">Explore WAG Podcast: formats, games, and topics</h2>
 
       <a class="explore-hero" href={exploreHero.href}>
-        <img class="explore-hero-img" src={exploreHero.photo.replace("mqdefault", "hqdefault")} alt={`${exploreHero.name} — WAG Podcast`} loading="lazy" />
-        <span class="explore-hero-badge">★ Fan Favorite</span>
-        <div class="explore-hero-inner">
+        <div class="explore-hero-text">
+          <span class="explore-hero-badge">★ Fan Favorite</span>
           <h3>{exploreHero.name}</h3>
           <div class="explore-hero-underline"></div>
           <p>{exploreHero.hook}</p>
           <span class="explore-hero-cta">Explore the Format →</span>
+        </div>
+        <div class="explore-hero-photo">
+          <img src={exploreHero.photo.replace("mqdefault", "hqdefault")} alt={`${exploreHero.name} — WAG Podcast`} loading="lazy" />
         </div>
       </a>
 
@@ -370,32 +372,39 @@ const exploreListSchema = {
   .explore .eyebrow{ margin-bottom:20px; }
 
   .explore-hero{
-    position:relative; display:flex; align-items:center; border-radius: var(--radius-lg); overflow:hidden; min-height:280px;
+    position:relative; display:grid; grid-template-columns: 1.15fr 1fr; align-items:stretch;
+    border-radius: var(--radius-lg); overflow:hidden; min-height:260px;
     border:1px solid var(--line); text-decoration:none; color:inherit; margin-bottom:32px;
+    background: linear-gradient(160deg,#1c1030,var(--bg-alt) 75%);
     box-shadow: 0 20px 50px -14px rgba(0,0,0,.6);
   }
-  .explore-hero-img{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 25%; z-index:0;
-  }
-  .explore-hero::before{
-    content:""; position:absolute; inset:0; z-index:1;
-    background:
-      linear-gradient(90deg, rgba(10,10,15,.96) 0%, rgba(10,10,15,.72) 40%, rgba(10,10,15,.2) 78%, rgba(10,10,15,.05) 100%),
-      radial-gradient(ellipse 55% 90% at 100% 10%, rgba(165,235,14,.2), transparent 68%);
+  .explore-hero-text{
+    position:relative; z-index:1; padding:34px 38px; display:flex; flex-direction:column; justify-content:center;
   }
   .explore-hero-badge{
-    position:absolute; top:22px; left:22px; z-index:2;
+    align-self:flex-start;
     font-family: var(--font-display); font-weight:600; text-transform:uppercase; font-size:.76rem;
     letter-spacing:.08em; color:#0A0A0F; background:var(--wag-green); padding:6px 14px; border-radius:999px;
+    margin-bottom:16px;
   }
-  .explore-hero-inner{ position:relative; z-index:2; padding:34px 36px 38px; max-width:52ch; }
-  .explore-hero-inner h3{
+  .explore-hero-text h3{
     font-family: var(--font-display); text-transform:uppercase; font-weight:700;
-    font-size: clamp(1.9rem, 3.6vw, 2.6rem); margin:0; line-height:1;
+    font-size: clamp(1.7rem, 3vw, 2.3rem); margin:0; line-height:1.02;
   }
-  .explore-hero-underline{ width:56px; height:4px; border-radius:99px; background:linear-gradient(90deg,var(--wag-pink),var(--wag-green)); margin:14px 0 16px; }
-  .explore-hero-inner p{ font-size:1.02rem; color:var(--ink-soft); margin:0 0 18px; }
-  .explore-hero-cta{ font-family: var(--font-display); font-weight:600; text-transform:uppercase; font-size:.9rem; letter-spacing:.03em; color:var(--wag-green); }
+  .explore-hero-underline{ width:52px; height:4px; border-radius:99px; background:linear-gradient(90deg,var(--wag-pink),var(--wag-green)); margin:14px 0 16px; }
+  .explore-hero-text p{ font-size:.98rem; color:var(--ink-soft); margin:0 0 18px; max-width:36ch; }
+  .explore-hero-cta{ font-family: var(--font-display); font-weight:600; text-transform:uppercase; font-size:.88rem; letter-spacing:.03em; color:var(--wag-green); }
+
+  .explore-hero-photo{ position:relative; overflow:hidden; }
+  .explore-hero-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%; filter:saturate(.92) brightness(.94); }
+  .explore-hero-photo::before{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(90deg, var(--bg-alt) 0%, rgba(18,18,27,.35) 14%, transparent 40%);
+  }
+  .explore-hero-photo::after{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(0deg, rgba(10,10,15,.55) 0%, transparent 45%);
+  }
 
   .explore-shelf{ margin-bottom:32px; }
   .explore-shelf-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
@@ -422,9 +431,17 @@ const exploreListSchema = {
   .explore-poster-accent{ height:4px; width:100%; }
   .explore-poster-art{ height:130px; position:relative; overflow:hidden; }
   .explore-poster-art img{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; z-index:0;
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; z-index:0;
+    filter: saturate(.65) brightness(.62) contrast(1.05);
+    transition: filter .25s ease, transform .3s ease;
   }
-  .explore-poster-art::before{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(0deg, rgba(10,10,15,.9) 0%, rgba(10,10,15,.1) 62%, transparent 100%); }
+  .explore-poster:hover .explore-poster-art img{ filter: saturate(.8) brightness(.72) contrast(1.05); transform: scale(1.04); }
+  .explore-poster-art::before{
+    content:""; position:absolute; inset:0; z-index:1;
+    background:
+      linear-gradient(0deg, rgba(10,10,15,.92) 0%, rgba(10,10,15,.35) 55%, rgba(10,10,15,.28) 100%),
+      linear-gradient(160deg, rgba(255,22,200,.14), rgba(165,235,14,.1));
+  }
   .explore-poster-tag{
     position:absolute; top:10px; left:10px; z-index:2; font-family: var(--font-display); font-weight:600;
     font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; background:rgba(10,10,15,.6);
@@ -470,7 +487,10 @@ const exploreListSchema = {
     .hosts-grid{ grid-template-columns:1fr; max-width:340px; margin:20px auto; }
     .why-different .container{ grid-template-columns:1fr; }
     .segments-grid{ grid-template-columns:1fr; }
-    .explore-hero-inner{ padding:26px 22px 30px; }
+    .explore-hero{ grid-template-columns:1fr; }
+    .explore-hero-photo{ min-height:180px; order:-1; }
+    .explore-hero-photo::before{ background:linear-gradient(0deg, var(--bg-alt) 0%, transparent 30%); }
+    .explore-hero-text{ padding:26px 22px 30px; }
   }
 </style>
 
