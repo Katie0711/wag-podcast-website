@@ -380,13 +380,13 @@ const exploreListSchema = {
     box-shadow: 0 20px 50px -14px rgba(0,0,0,.6);
   }
   .explore-hero-photo{ position:absolute; inset:0; }
-  .explore-hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 26%; filter:saturate(1.05) brightness(.8) contrast(1.03); }
+  .explore-hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 26%; filter:saturate(1.05) brightness(.94) contrast(1.02); }
   .explore-hero-photo::after{
     content:""; position:absolute; inset:0;
     background:
-      linear-gradient(0deg, var(--bg-alt) 0%, rgba(10,10,15,.68) 34%, rgba(10,10,15,.2) 62%, transparent 82%),
-      linear-gradient(90deg, rgba(10,10,15,.82) 0%, rgba(10,10,15,.2) 46%, transparent 72%),
-      radial-gradient(ellipse 55% 55% at 88% 0%, rgba(255,22,200,.18), transparent 70%);
+      linear-gradient(0deg, var(--bg-alt) 0%, rgba(10,10,15,.6) 30%, rgba(10,10,15,.12) 58%, transparent 78%),
+      linear-gradient(90deg, rgba(10,10,15,.7) 0%, rgba(10,10,15,.12) 44%, transparent 68%),
+      radial-gradient(ellipse 55% 55% at 88% 0%, rgba(255,22,200,.14), transparent 70%);
   }
   .explore-hero-text{
     position:relative; z-index:1; padding:44px 44px 40px; display:flex; flex-direction:column; justify-content:flex-end;
@@ -443,14 +443,14 @@ const exploreListSchema = {
   .explore-poster-art{ aspect-ratio:16/9.2; position:relative; overflow:hidden; }
   .explore-poster-art img{
     position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; z-index:0;
-    filter: saturate(.7) brightness(.66) contrast(1.05); transition: filter .3s ease, transform .35s ease;
+    filter: saturate(.9) brightness(.86) contrast(1.02); transition: filter .3s ease, transform .35s ease;
   }
-  .explore-poster:hover .explore-poster-art img{ filter: saturate(.9) brightness(.78) contrast(1.05); transform: scale(1.06); }
+  .explore-poster:hover .explore-poster-art img{ filter: saturate(1) brightness(.96) contrast(1.02); transform: scale(1.06); }
   .explore-poster-art::before{
     content:""; position:absolute; inset:0; z-index:1;
     background:
-      linear-gradient(0deg, rgba(10,10,15,.9) 0%, rgba(10,10,15,.2) 55%, rgba(10,10,15,.22) 100%),
-      linear-gradient(160deg, rgba(255,22,200,.14), rgba(165,235,14,.1));
+      linear-gradient(0deg, rgba(10,10,15,.78) 0%, rgba(10,10,15,.08) 55%, rgba(10,10,15,.1) 100%),
+      linear-gradient(160deg, rgba(255,22,200,.1), rgba(165,235,14,.07));
   }
   .explore-poster-rank{
     position:absolute; left:-4px; bottom:-14px; z-index:1; font-size:4.6rem; font-weight:900; line-height:1;
