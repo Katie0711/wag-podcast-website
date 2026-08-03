@@ -39,26 +39,15 @@ const segments = [
   { name: "3-Second Roast", desc: "One-liner burns in under 3 seconds." },
 ];
 
-// Explore section, streaming-shelf redesign (approved 2026-08-02). Each
-// category's art is a real photo: a real flagship episode thumbnail where
-// one clearly exists, or the same real studio photo already used as that
-// page's own ogImage where it doesn't (Why Video-First, Segments, FAQ).
-// Hero picks Guys Answer Questions -- the strongest real evidenced search
-// demand found in this session's SEO audit, not an arbitrary choice.
-const EXPLORE_ICONS: Record<string, string> = {
-  guys: `<svg viewBox="0 0 48 48" fill="none"><path d="M6 10a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H20l-9 8v-8h-1a4 4 0 0 1-4-4V10Z" fill="currentColor"/><text x="24" y="27" font-family="Khand,Arial" font-weight="700" font-size="20" fill="#08080C" text-anchor="middle">?</text></svg>`,
-  mental: `<svg viewBox="0 0 48 48" fill="none"><circle cx="18" cy="20" r="12.5" fill="currentColor" opacity=".5"/><circle cx="30" cy="26" r="12.5" fill="currentColor"/><circle cx="26" cy="26" r="2" fill="#08080C"/><circle cx="32" cy="26" r="2" fill="#08080C"/></svg>`,
-  games: `<svg viewBox="0 0 48 48" fill="none"><rect x="4" y="15" width="40" height="21" rx="10.5" fill="currentColor"/><rect x="19" y="20.5" width="3" height="10" rx="1.2" fill="#08080C"/><rect x="15.5" y="24.5" width="10" height="3" rx="1.2" fill="#08080C"/><circle cx="36" cy="21.5" r="2.6" fill="#08080C"/><circle cx="30.5" cy="27" r="2.6" fill="#08080C"/></svg>`,
-  growing: `<svg viewBox="0 0 48 48" fill="none"><path d="M24 6 44 16 24 26 4 16 24 6Z" fill="currentColor"/><path d="M13 20v10c0 3.5 5 6.5 11 6.5s11-3 11-6.5V20" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/><line x1="42" y1="16" x2="42" y2="31" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>`,
-  comedy: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="19" fill="currentColor"/><circle cx="17" cy="21" r="2.7" fill="#08080C"/><circle cx="31" cy="21" r="2.7" fill="#08080C"/><path d="M13.5 28.5c3 5.5 8.5 9 10.5 9s7.5-3.5 10.5-9" stroke="#08080C" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg>`,
-  video: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="19" fill="currentColor"/><path d="M20 16 32.5 24 20 32V16Z" fill="#08080C"/></svg>`,
-  segments: `<svg viewBox="0 0 48 48" fill="none"><rect x="6" y="17" width="36" height="25" rx="4.5" fill="currentColor"/><path d="M6 23h36" stroke="#08080C" stroke-width="3"/><path d="M10.5 17 16 8h7l-5.5 9h-7Z" fill="#08080C"/><path d="M23.5 17 29 8h7l-5.5 9h-7Z" fill="#08080C"/></svg>`,
-  faq: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="19" fill="currentColor"/><text x="24" y="32" font-family="Khand,Arial" font-weight="700" font-size="25" fill="#08080C" text-anchor="middle">?</text></svg>`,
-  predicted: `<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="19" r="13.5" fill="currentColor" opacity=".92"/><ellipse cx="19.5" cy="14.5" rx="4" ry="2.6" fill="#fff" opacity=".55"/><path d="M13 38.5c0-4.3 4.9-6.5 11-6.5s11 2.2 11 6.5" fill="currentColor"/></svg>`,
-};
-
+// Explore section, streamer-polish redesign (approved 2026-08-03 -- bigger
+// cinematic hero, ranked "Top Picks" row, hover-zoom cards). Each category's
+// art is a real photo: a real flagship episode thumbnail where one clearly
+// exists, or the same real studio photo already used as that page's own
+// ogImage where it doesn't (Why Video-First, Segments, FAQ). Hero picks Guys
+// Answer Questions -- the strongest real evidenced search demand found in
+// this session's SEO audit, not an arbitrary choice.
 const EXPLORE_CATS = [
-  { key: "guys", name: "Guys Answer Questions", hook: "The questions your group chat always asks. Now on camera.", href: "/guys-answer-questions/", photo: "https://img.youtube.com/vi/UlOMu3Aql3Y/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Format" },
+  { key: "guys", name: "Guys Answer Questions", hook: "The questions your group chat always asks. Now on camera.", href: "/guys-answer-questions/", photo: "https://img.youtube.com/vi/UlOMu3Aql3Y/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Format", heroStat: "2 Real Installments" },
   { key: "mental", name: "Teen Mental Health, Real Talk", hook: "What actually helps, from teens who've actually been there.", href: "/mental-health/", photo: "https://img.youtube.com/vi/LjuXuymi-LY/mqdefault.jpg", accent: "var(--wag-green)", tag: "Real Talk" },
   { key: "games", name: "WAG Podcast Games", hook: "The games that turn every episode into chaos.", href: "/games/", photo: "https://img.youtube.com/vi/IJu1eGaUSqA/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Games" },
   { key: "growing", name: "Growing Up Stories", hook: "Suspended. Grounded. Prom disasters. All real.", href: "/topics/growing-up/", photo: "https://img.youtube.com/vi/rmSz8UwXCKM/mqdefault.jpg", accent: "var(--wag-green)", tag: "Stories" },
@@ -72,9 +61,16 @@ const EXPLORE_CATS = [
 // Two even shelves of 4 -- "guys" is the hero above and intentionally not
 // repeated below; all other 8 real categories are split evenly so both
 // rows fill the same width instead of the uneven 3/2/3 the first pass had.
+// "ranked" only controls the numeral visual treatment -- it is NOT a real
+// popularity ranking. These 4 items are the same editorial "format/games"
+// grouping as the original streaming-shelf design (approved 2026-08-02),
+// not ordered by any measured data (no GA4 per-category click-through
+// analysis has been done). Title/tag are worded to avoid implying a
+// measured rank; if real per-category engagement data is ever pulled,
+// this can become a genuine "Top Picks" row at that point.
 const EXPLORE_SHELVES = [
-  { title: "Formats & Games", tag: "Fan Favorites", items: ["segments", "comedy", "games", "predicted"] },
-  { title: "Real Talk & Info", tag: "Good to Know", items: ["mental", "growing", "video", "faq"] },
+  { title: "Formats & Games", tag: "Pick a Format", ranked: true, items: ["segments", "comedy", "games", "predicted"] },
+  { title: "Real Talk & Info", tag: "Good to Know", ranked: false, items: ["mental", "growing", "video", "faq"] },
 ];
 const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
 
@@ -224,18 +220,21 @@ const exploreListSchema = {
       <p class="eyebrow"><EqBars size="sm" /> Explore WAG Podcast</p>
       <h2 class="sr-only">Explore WAG Podcast: formats, games, and topics</h2>
 
-      <a class="explore-hero" href={exploreHero.href}>
-        <div class="explore-hero-text">
-          <span class="explore-hero-badge">★ Fan Favorite</span>
-          <h3>{exploreHero.name}</h3>
-          <div class="explore-hero-underline"></div>
-          <p>{exploreHero.hook}</p>
-          <span class="explore-hero-cta">Explore the Format →</span>
-        </div>
+      <div class="explore-hero">
         <div class="explore-hero-photo">
           <img src={exploreHero.photo.replace("mqdefault", "hqdefault")} alt={`${exploreHero.name} — WAG Podcast`} loading="lazy" />
         </div>
-      </a>
+        <div class="explore-hero-text">
+          <span class="explore-hero-badge">★ Fan Favorite</span>
+          <h3>{exploreHero.name}</h3>
+          <div class="explore-hero-sub"><span>{exploreHero.tag}</span><span class="explore-hero-dot"></span><span>{exploreHero.heroStat}</span></div>
+          <p>{exploreHero.hook}</p>
+          <div class="explore-hero-actions">
+            <a class="explore-hero-btn primary" href={exploreHero.href}>▶ Start Watching</a>
+            <a class="explore-hero-btn ghost" href={exploreHero.href}>More Like This</a>
+          </div>
+        </div>
+      </div>
 
       {EXPLORE_SHELVES.map((shelf, si) => (
         <div class="explore-shelf">
@@ -247,19 +246,21 @@ const exploreListSchema = {
               <button class="shelf-arrow" data-scroll-target={`explore-row-${si}`} data-dir="1" aria-label="Scroll right">›</button>
             </div>
           </div>
-          <div class="explore-row" id={`explore-row-${si}`}>
-            {shelf.items.map((key) => {
+          <div class={`explore-row${shelf.ranked ? " ranked" : ""}`} id={`explore-row-${si}`}>
+            {shelf.items.map((key, i) => {
               const c = EXPLORE_CATS.find((x) => x.key === key)!;
               return (
                 <a class="explore-poster" href={c.href}>
-                  <div class="explore-poster-accent" style={`background:linear-gradient(90deg,${c.accent},transparent 160%)`} />
                   <div class="explore-poster-art">
                     <img src={c.photo} alt={c.name} loading="lazy" />
-                    <span class="explore-poster-tag">{c.tag}</span>
-                    <div class="explore-poster-icon" style={`background:${c.accent}`} set:html={EXPLORE_ICONS[c.key]} />
-                    <div class="explore-poster-play">▶</div>
+                    {shelf.ranked && <span class="explore-poster-rank">{String(i + 1).padStart(2, "0")}</span>}
+                    <span class="explore-poster-play">▶</span>
                   </div>
-                  <div class="explore-poster-body"><h4>{c.name}</h4><p>{c.hook}</p></div>
+                  <div class="explore-poster-body">
+                    <span class="explore-poster-tag">{c.tag}</span>
+                    <h4>{c.name}</h4>
+                    <p>{c.hook}</p>
+                  </div>
                 </a>
               );
             })}
@@ -372,43 +373,53 @@ const exploreListSchema = {
   .explore .eyebrow{ margin-bottom:20px; }
 
   .explore-hero{
-    position:relative; display:grid; grid-template-columns: 1.15fr 1fr; align-items:stretch;
-    border-radius: var(--radius-lg); overflow:hidden; min-height:260px;
-    border:1px solid var(--line); text-decoration:none; color:inherit; margin-bottom:32px;
+    position:relative; display:grid; grid-template-columns: 1fr; align-items:stretch;
+    border-radius: var(--radius-lg); overflow:hidden; min-height:64vh;
+    border:1px solid var(--line); margin-bottom:40px;
     background: linear-gradient(160deg,#1c1030,var(--bg-alt) 75%);
     box-shadow: 0 20px 50px -14px rgba(0,0,0,.6);
   }
+  .explore-hero-photo{ position:absolute; inset:0; }
+  .explore-hero-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 26%; filter:saturate(1.05) brightness(.8) contrast(1.03); }
+  .explore-hero-photo::after{
+    content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(0deg, var(--bg-alt) 0%, rgba(10,10,15,.68) 34%, rgba(10,10,15,.2) 62%, transparent 82%),
+      linear-gradient(90deg, rgba(10,10,15,.82) 0%, rgba(10,10,15,.2) 46%, transparent 72%),
+      radial-gradient(ellipse 55% 55% at 88% 0%, rgba(255,22,200,.18), transparent 70%);
+  }
   .explore-hero-text{
-    position:relative; z-index:1; padding:34px 38px; display:flex; flex-direction:column; justify-content:center;
+    position:relative; z-index:1; padding:44px 44px 40px; display:flex; flex-direction:column; justify-content:flex-end;
+    max-width:640px;
   }
   .explore-hero-badge{
     align-self:flex-start;
     font-family: var(--font-display); font-weight:600; text-transform:uppercase; font-size:.76rem;
     letter-spacing:.08em; color:#0A0A0F; background:var(--wag-green); padding:6px 14px; border-radius:999px;
-    margin-bottom:16px;
+    margin-bottom:20px;
   }
   .explore-hero-text h3{
     font-family: var(--font-display); text-transform:uppercase; font-weight:700;
-    font-size: clamp(1.7rem, 3vw, 2.3rem); margin:0; line-height:1.02;
+    font-size: clamp(2.2rem, 5vw, 3.4rem); margin:0 0 12px; line-height:.96;
+    text-shadow:0 4px 30px rgba(0,0,0,.5);
   }
-  .explore-hero-underline{ width:52px; height:4px; border-radius:99px; background:linear-gradient(90deg,var(--wag-pink),var(--wag-green)); margin:14px 0 16px; }
-  .explore-hero-text p{ font-size:.98rem; color:var(--ink-soft); margin:0 0 18px; max-width:36ch; }
-  .explore-hero-cta{ font-family: var(--font-display); font-weight:600; text-transform:uppercase; font-size:.88rem; letter-spacing:.03em; color:var(--wag-green); }
+  .explore-hero-sub{ display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--ink-muted); font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+  .explore-hero-dot{ width:4px; height:4px; border-radius:50%; background:var(--ink-muted); }
+  .explore-hero-text p{ font-size:1.06rem; color:var(--ink-soft); margin:0 0 24px; max-width:42ch; }
+  .explore-hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+  .explore-hero-btn{
+    display:inline-flex; align-items:center; gap:8px; font-family: var(--font-display); font-weight:700;
+    text-transform:uppercase; letter-spacing:.02em; font-size:.92rem; padding:.8em 1.6em; border-radius:10px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .explore-hero-btn:hover{ transform:translateY(-2px); }
+  .explore-hero-btn.primary{ background:#fff; color:#0A0A0F; }
+  .explore-hero-btn.primary:hover{ box-shadow:0 10px 24px rgba(255,255,255,.22); }
+  .explore-hero-btn.ghost{ background:rgba(255,255,255,.12); color:#fff; backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.2); }
 
-  .explore-hero-photo{ position:relative; overflow:hidden; }
-  .explore-hero-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 22%; filter:saturate(.92) brightness(.94); }
-  .explore-hero-photo::before{
-    content:""; position:absolute; inset:0;
-    background: linear-gradient(90deg, var(--bg-alt) 0%, rgba(18,18,27,.35) 14%, transparent 40%);
-  }
-  .explore-hero-photo::after{
-    content:""; position:absolute; inset:0;
-    background: linear-gradient(0deg, rgba(10,10,15,.55) 0%, transparent 45%);
-  }
-
-  .explore-shelf{ margin-bottom:32px; }
-  .explore-shelf-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
-  .explore-shelf-head h3{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:1.15rem; margin:0; letter-spacing:.02em; }
+  .explore-shelf{ margin-bottom:36px; }
+  .explore-shelf-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px; }
+  .explore-shelf-head h3{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:1.3rem; margin:0; letter-spacing:.02em; }
   .shelf-controls{ display:flex; align-items:center; gap:12px; }
   .shelf-controls span{ font-size:.76rem; color:var(--ink-muted); font-family: var(--font-display); font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
   .shelf-arrow{
@@ -418,50 +429,52 @@ const exploreListSchema = {
   }
   .shelf-arrow:hover{ border-color:var(--wag-pink); color:#fff; }
 
-  .explore-row{ display:flex; gap:14px; overflow-x:auto; padding:2px 2px 8px; scroll-snap-type:x proximity; scroll-behavior:smooth; }
+  .explore-row{ display:flex; gap:20px; overflow-x:auto; padding:14px 4px 22px; scroll-snap-type:x proximity; scroll-behavior:smooth; }
   .explore-row::-webkit-scrollbar{ height:6px; }
   .explore-row::-webkit-scrollbar-thumb{ background:var(--line); border-radius:99px; }
 
   .explore-poster{
-    flex:0 0 200px; scroll-snap-align:start; display:block; border-radius: var(--radius); overflow:hidden;
+    flex:0 0 250px; scroll-snap-align:start; display:block; border-radius: var(--radius); overflow:hidden;
     border:1px solid var(--line); background: var(--bg-alt); position:relative;
-    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    transition: transform .3s cubic-bezier(.2,.85,.25,1), border-color .3s ease, box-shadow .3s ease, z-index 0s;
   }
-  .explore-poster:hover{ transform: translateY(-6px); border-color: var(--wag-pink); box-shadow: 0 16px 36px -12px rgba(0,0,0,.55); }
-  .explore-poster-accent{ height:4px; width:100%; }
-  .explore-poster-art{ height:130px; position:relative; overflow:hidden; }
+  .explore-row.ranked .explore-poster{ flex-basis:280px; }
+  .explore-poster:hover{ transform: scale(1.08) translateY(-4px); z-index:5; border-color: var(--wag-pink); box-shadow: 0 26px 54px -16px rgba(0,0,0,.7); }
+  .explore-poster-art{ aspect-ratio:16/9.2; position:relative; overflow:hidden; }
   .explore-poster-art img{
     position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 28%; z-index:0;
-    filter: saturate(.65) brightness(.62) contrast(1.05);
-    transition: filter .25s ease, transform .3s ease;
+    filter: saturate(.7) brightness(.66) contrast(1.05); transition: filter .3s ease, transform .35s ease;
   }
-  .explore-poster:hover .explore-poster-art img{ filter: saturate(.8) brightness(.72) contrast(1.05); transform: scale(1.04); }
+  .explore-poster:hover .explore-poster-art img{ filter: saturate(.9) brightness(.78) contrast(1.05); transform: scale(1.06); }
   .explore-poster-art::before{
     content:""; position:absolute; inset:0; z-index:1;
     background:
-      linear-gradient(0deg, rgba(10,10,15,.92) 0%, rgba(10,10,15,.35) 55%, rgba(10,10,15,.28) 100%),
+      linear-gradient(0deg, rgba(10,10,15,.9) 0%, rgba(10,10,15,.2) 55%, rgba(10,10,15,.22) 100%),
       linear-gradient(160deg, rgba(255,22,200,.14), rgba(165,235,14,.1));
   }
-  .explore-poster-tag{
-    position:absolute; top:10px; left:10px; z-index:2; font-family: var(--font-display); font-weight:600;
-    font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; background:rgba(10,10,15,.6);
-    color:var(--ink-soft); padding:3px 9px; border-radius:999px;
+  .explore-poster-rank{
+    position:absolute; left:-4px; bottom:-14px; z-index:1; font-size:4.6rem; font-weight:900; line-height:1;
+    color:transparent; -webkit-text-stroke:2px rgba(255,255,255,.55); font-style:italic; pointer-events:none;
   }
-  .explore-poster-icon{
-    position:absolute; z-index:2; bottom:10px; right:10px; width:30px; height:30px; border-radius:8px;
-    display:flex; align-items:center; justify-content:center; color:#0A0A0F;
-  }
-  .explore-poster-icon svg{ width:16px; height:16px; }
   .explore-poster-play{
-    position:absolute; z-index:2; top:50%; left:50%; transform:translate(-50%,-50%) scale(.7);
-    width:40px; height:40px; border-radius:50%; background:rgba(10,10,15,.55); backdrop-filter:blur(4px);
-    color:#fff; display:flex; align-items:center; justify-content:center; font-size:.85rem;
-    opacity:0; transition:opacity .2s ease, transform .2s ease; border:1.5px solid rgba(255,255,255,.5);
+    position:absolute; z-index:2; top:12px; right:12px; width:32px; height:32px; border-radius:50%;
+    background:rgba(10,10,15,.55); backdrop-filter:blur(4px); color:#fff; display:flex; align-items:center;
+    justify-content:center; font-size:.72rem; opacity:0; transform:scale(.7);
+    transition:opacity .2s ease, transform .2s ease; border:1.5px solid rgba(255,255,255,.5);
   }
-  .explore-poster:hover .explore-poster-play{ opacity:1; transform:translate(-50%,-50%) scale(1); }
-  .explore-poster-body{ padding:14px 14px 16px; }
-  .explore-poster-body h4{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:.94rem; margin:0 0 5px; line-height:1.15; }
-  .explore-poster-body p{ font-size:.76rem; color:var(--ink-muted); margin:0; line-height:1.42; }
+  .explore-poster:hover .explore-poster-play{ opacity:1; transform:scale(1); }
+  .explore-poster-body{ padding:14px 16px 18px; position:relative; }
+  .explore-poster-tag{
+    display:inline-block; font-family: var(--font-display); font-weight:600;
+    font-size:.62rem; text-transform:uppercase; letter-spacing:.06em; color:#0A0A0F;
+    background:var(--ink-soft); padding:3px 9px; border-radius:5px; margin-bottom:8px;
+  }
+  .explore-poster-body h4{ font-family: var(--font-display); text-transform:uppercase; font-weight:600; font-size:1rem; margin:0 0 5px; line-height:1.15; }
+  .explore-poster-body p{
+    font-size:.78rem; color:var(--ink-muted); margin:0; line-height:1.42; max-width:26ch;
+    opacity:0; max-height:0; overflow:hidden; transition:opacity .25s ease, max-height .25s ease;
+  }
+  .explore-poster:hover .explore-poster-body p{ opacity:1; max-height:4em; }
 
   .join{ padding: 8px 0 56px; }
   .join-inner{
@@ -487,10 +500,8 @@ const exploreListSchema = {
     .hosts-grid{ grid-template-columns:1fr; max-width:340px; margin:20px auto; }
     .why-different .container{ grid-template-columns:1fr; }
     .segments-grid{ grid-template-columns:1fr; }
-    .explore-hero{ grid-template-columns:1fr; }
-    .explore-hero-photo{ min-height:180px; order:-1; }
-    .explore-hero-photo::before{ background:linear-gradient(0deg, var(--bg-alt) 0%, transparent 30%); }
-    .explore-hero-text{ padding:26px 22px 30px; }
+    .explore-hero{ min-height:56vh; }
+    .explore-hero-text{ padding:26px 22px 30px; max-width:none; }
   }
 </style>
 
