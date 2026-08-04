@@ -52,13 +52,53 @@ const formats = [
   { name: "Product integration", desc: "A product used, tested, or reacted to on camera as part of an episode, the same way WAG features products elsewhere." },
   { name: "Co-branded episode", desc: "A full episode built around a brand, product, or campaign, credited clearly to the partner." },
 ];
+
+// Every answer here is a real, already-established fact -- matching the
+// same audience/partner/format data already on this page, or facts
+// already published on the site's own FAQ. No minimum-commitment,
+// exclusivity, or turnaround-time answers, since those aren't decided
+// yet and shouldn't be invented for this page.
+const faqs = [
+  {
+    q: "What audience does WAG Podcast reach?",
+    a: "WAG Podcast's audience skews 70% female, primarily ages 11–18, and about 80% U.S.-based.",
+  },
+  {
+    q: "Has WAG Podcast's team partnered with brands before?",
+    a: "Yes — brands including Nintendo, Google, UpFaith & Family, Razor USA, Get Epic!, The Toy Insider, Hexbug USA, NSI International, and Dynacraft have all partnered with the wider Wild Adventure Girls brand.",
+  },
+  {
+    q: "What kind of content is WAG Podcast?",
+    a: "Weekly, unscripted episodes recorded in the girls' own studio — real conversations and real reactions, not a scripted ad read.",
+  },
+  {
+    q: "Where does WAG Podcast publish episodes?",
+    a: "New episodes go live weekly on YouTube first, followed by audio versions on Spotify and Apple Podcasts.",
+  },
+  {
+    q: "How do I get in touch about sponsoring?",
+    a: "Fill out the form below or email partners@wagstudios.co directly — pricing and packages are discussed one-on-one, not posted publicly.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
-  title="Sponsor WAG Podcast"
-  description="Advertise or partner with WAG Podcast, a new, fast-growing weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts."
+  title="Sponsor WAG Podcast — Advertising & Partnerships"
+  description="Sponsor or advertise with WAG Podcast, a new, fast-growing weekly video podcast reaching a teen audience across YouTube, Spotify, and Apple Podcasts — real audience data, brand safety, and partnership formats."
   ogImage="/images/studio/wag-studio-195.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <section class="sponsor-hero">
     <div class="hero-photo">
       <picture>
@@ -66,13 +106,13 @@ const formats = [
         <img src="/images/studio/wag-studio-137.jpg" alt="Angelina, Scarlett, and Annabella on the WAG Podcast set" fetchpriority="high" />
       </picture>
       <div class="hero-photo-fade" aria-hidden="true"></div>
-      <div class="hero-kit-badge">WAG Podcast<br />Media Kit</div>
+      <div class="hero-kit-badge">WAG Podcast<br />Sponsorships</div>
     </div>
     <div class="hero-text">
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container hero-inner">
         <p class="eyebrow"><EqBars size="sm" /> Sponsor WAG Podcast</p>
-        <h1>Advertise with <span class="text-accent">WAG Podcast</span>.</h1>
+        <h1>Sponsor <span class="text-accent">WAG Podcast</span>.</h1>
         <p class="lede">A new, fast-growing weekly video podcast for teens — real talk, real chaos, real reactions, from the team behind The Wild Adventure Girls. Every episode feels like sitting in on the group chat, only millions are watching.</p>
         <a class="btn btn-accent" href="#partner">Become a Sponsor →</a>
       </div>
@@ -106,6 +146,8 @@ const formats = [
       <a href="#audience">Audience</a>
       <a href="#brands">Brands</a>
       <a href="#formats">Partnership Formats</a>
+      <a href="#brand-safety">Brand Safety</a>
+      <a href="#faq">FAQ</a>
       <a href="#partner">Let's Talk</a>
     </div>
   </nav>
@@ -176,6 +218,29 @@ const formats = [
     </div>
   </section>
 
+  <section class="safety-section" id="brand-safety">
+    <div class="container" data-reveal>
+      <p class="eyebrow"><EqBars size="sm" /> Brand Safety</p>
+      <h2>Real, but never reckless.</h2>
+      <p class="safety-copy">WAG Podcast is unscripted — real conversations and real reactions, filmed in the girls' own studio, for the same teen and tween audience The Wild Adventure Girls have built over more than a decade, not younger children. The girls' privacy comes first: we don't publish their exact location or last names anywhere on this site.</p>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> FAQ</p>
+      <h2>Quick answers before you reach out.</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="sponsor-cta" id="partner">
     <div class="container cta-inner" data-reveal>
       <div class="cta-photo">
@@ -191,7 +256,7 @@ const formats = [
         <p class="eyebrow"><EqBars size="sm" /> Let's Talk</p>
         <h2>Let's build something worth showing off.</h2>
         <p class="cta-note">Tell us about your brand and what you're looking to do — pricing and packages are discussed directly, not posted publicly.</p>
-        <p class="cta-email">Or email us directly: <a href="mailto:thewildadventuregirls@gmail.com?subject=WAG%20Podcast%20Sponsorship">thewildadventuregirls@gmail.com</a></p>
+        <p class="cta-email">Or email us directly: <a href="mailto:partners@wagstudios.co?subject=WAG%20Podcast%20Sponsorship">partners@wagstudios.co</a></p>
 
         <form class="sponsor-form" name="wagpodcast-sponsor-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-astro-reload>
           <input type="hidden" name="form-name" value="wagpodcast-sponsor-inquiry" />
@@ -379,6 +444,21 @@ const formats = [
   @media (max-width: 640px){
     .formats-grid{ grid-template-columns: 1fr; }
   }
+
+  .safety-section{ padding: 48px 0 8px; border-top:1px solid var(--line); }
+  .safety-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
+  .safety-section h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:22ch; margin-bottom:.5em; }
+  .safety-copy{ font-size:1.05rem; max-width:66ch; margin:0; }
+
+  .faq-section{ padding: 48px 0 8px; }
+  .faq-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
+  .faq-section h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:22ch; margin-bottom:1em; }
+  .faq-list{ max-width:72ch; }
+  .faq-item{ padding:20px 0; border-bottom:1px solid var(--line); }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item:last-child{ border-bottom:none; }
+  .faq-item h3{ font-size:1.08rem; margin-bottom:.4em; }
+  .faq-item p{ font-size:.98rem; color: var(--ink-soft); margin:0; }
 
   .sponsor-cta{ padding: 56px 0 88px; border-top:1px solid var(--line); margin-top:8px; }
   .cta-inner{ display:grid; grid-template-columns: .9fr 1fr; gap:56px; align-items:start; }
