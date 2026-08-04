@@ -196,4 +196,4 @@ And sometimes figuring out what matters to you starts with sitting on a couch wi
 
 ## More real relationship talk
 
-WAG has gotten into the real stuff before — including [the time an ex wouldn't stop showing up](/episodes/ex-stalked-me-story/). For the full archive and everything else the show covers, head to [The Wild Adventure Girls](https://wildadventuregirls.com/).
+WAG has gotten into the real stuff before — including [the time an ex wouldn't stop showing up](/episodes/ex-stalked-me-story/) and [the group's own most awkward first-kiss stories](/episodes/our-most-awkward-first-kiss-stories/). For the full archive and everything else the show covers, head to [The Wild Adventure Girls](https://wildadventuregirls.com/).

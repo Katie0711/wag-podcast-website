@@ -2,7 +2,7 @@
 title: "Hot Takes That Might Get Us Cancelled!"
 videoId: "gweZmPb3r3M"
 publishDate: 2026-05-22
-description: "Angelina, Annabella, and Scarlett debate their hot takes and unpopular opinions — from pineapple on pizza and bicycle seats to meeting YouTubers in real life and unexpected track banquet drama."
+description: "Angelina, Annabella, and Scarlett debate real hot takes — pineapple on pizza, bicycle seats, meeting YouTubers IRL, and unscripted track banquet drama."
 heroImage: "https://img.youtube.com/vi/gweZmPb3r3M/maxresdefault.jpg"
 topics: ["pop-culture-trends"]
 faqs:

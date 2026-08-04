@@ -79,7 +79,7 @@ That's the funny thing about family stories.
 
 You never really finish one.
 
-You just end up remembering another.
+You just end up remembering another — the same thing happens when the group gets going on [their craziest school stories](/episodes/our-craziest-school-stories/) instead of travel ones.
 
 ## Listen to the Full Conversation
 

@@ -58,7 +58,7 @@ By the end, it's not really about school anymore. It's about how one story never
 
 That's the funny thing about a conversation like this. You don't sit down planning to spend it here.
 
-You just don't leave.
+You just don't leave — it's the same chain reaction that takes over [their craziest travel stories](/episodes/our-craziest-travel-stories-somehow-turned-into-complete-chaos/), just with a different starting point.
 
 ## Listen to the Full Conversation
 
