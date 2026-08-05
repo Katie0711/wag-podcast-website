@@ -2,7 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
-import { insiderHref } from "../../lib/insiderLink";
+import PlatformBar from "../../components/PlatformBar.astro";
+import WhatsNext from "../../components/WhatsNext.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -78,6 +79,20 @@ const related = allEpisodes
   .filter((e) => e.id !== entry.id && e.data.topics.some((t) => entry.data.topics.includes(t)))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
   .slice(0, 3);
+
+const canonicalUrl = `https://thewagpodcast.com/episodes/${entry.id}/`;
+
+// "What's Next" items -- every entry points at something real: the next
+// most-related episode(s) already computed above, the real Games hub when
+// this episode's own topics actually include games-challenges (never
+// linked when there's no genuine overlap), and the platform links this
+// episode actually has (falling back to the show-level ones).
+const whatsNextItems = [
+  ...related.slice(0, 2).map((r) => ({ icon: "🎬", label: r.data.title, href: `/episodes/${r.id}/` })),
+  ...(entry.data.topics.includes("games-challenges")
+    ? [{ icon: "😂", label: "Play: WAG Games", href: "/games/" }]
+    : []),
+];
 ---
 
 <BaseLayout title={entry.data.metaTitle ?? entry.data.title} description={entry.data.description} ogImage={entry.data.heroImage}>
@@ -93,6 +108,13 @@ const related = allEpisodes
         <p class="eyebrow"><EqBars size="sm" /> WAG Podcast Story</p>
         <h1>{entry.data.title}</h1>
         <p class="episode-meta">{dateFmt.format(entry.data.publishDate)} &middot; {hostLabel}</p>
+        <div class="episode-platforms">
+          <PlatformBar
+            spotifyUrl={entry.data.destinations?.spotify}
+            appleUrl={entry.data.destinations?.apple}
+            showWatch={false}
+          />
+        </div>
       </div>
 
       <section class="episode-video" data-reveal>
@@ -140,13 +162,12 @@ const related = allEpisodes
       )}
     </div>
 
-    <section class="join">
-      <div class="container register-light join-inner" data-reveal>
-        <h2>Never miss a new episode.</h2>
-        <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
-        <a class="btn btn-primary" href={insiderHref(`episode-${entry.id}`)}>Join WAG Insider →</a>
-      </div>
-    </section>
+    <WhatsNext
+      items={whatsNextItems}
+      shareUrl={canonicalUrl}
+      shareTitle={entry.data.title}
+      insiderPage={`episode-${entry.id}`}
+    />
   </article>
 </BaseLayout>
 
@@ -155,7 +176,8 @@ const related = allEpisodes
   .episode-header{ max-width:74ch; margin: 20px 0 28px; }
   .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em; font-size:.78rem; font-weight:700; margin-bottom:.6em; }
   .episode-header h1{ font-size: clamp(1.9rem, 3.8vw, 2.7rem); margin: 0 0 .4em; max-width:22ch; }
-  .episode-meta{ color: var(--ink-muted); font-size:.95rem; margin:0; }
+  .episode-meta{ color: var(--ink-muted); font-size:.95rem; margin:0 0 18px; }
+  .episode-platforms{ margin-top: 4px; }
 
   .episode-video{ padding: 0 0 40px; }
   .embed-wrap{
@@ -199,16 +221,4 @@ const related = allEpisodes
     font-size:.92rem; line-height:1.35; color: var(--ink);
   }
 
-  .join{ padding: 8px 0 72px; }
-  .join-inner{
-    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
-    display:flex; flex-direction:column; align-items:center; gap:14px;
-    position:relative;
-    background:
-      linear-gradient(var(--bg), var(--bg)) padding-box,
-      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
-    border: 2px solid transparent;
-  }
-  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
-  .join-inner p{ max-width:52ch; margin:0; }
 </style>

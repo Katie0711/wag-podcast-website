@@ -2,7 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
-import { insiderHref } from "../../lib/insiderLink";
+import WhatsNext from "../../components/WhatsNext.astro";
 
 // Real WAG Podcast IP -- three real party games the hosts have actually
 // played on camera, each with real, already-documented rules. Built as
@@ -93,13 +93,16 @@ const collectionSchema = {
     </div>
   </section>
 
-  <section class="join">
-    <div class="container register-light join-inner" data-reveal>
-      <h2>Never miss a new episode.</h2>
-      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
-      <a class="btn btn-primary" href={insiderHref("games")}>Join WAG Insider →</a>
-    </div>
-  </section>
+  <WhatsNext
+    items={[
+      { icon: "❓", label: "Guys Answer Questions", href: "/guys-answer-questions/" },
+      { icon: "🔮", label: "WAG Predicted It", href: "/wag-predicted-it/" },
+      { icon: "🎬", label: "Watch every episode", href: "/watch/" },
+    ]}
+    shareUrl="https://thewagpodcast.com/games/"
+    shareTitle="WAG Podcast Games"
+    insiderPage="games"
+  />
 </BaseLayout>
 
 <style>
@@ -134,19 +137,6 @@ const collectionSchema = {
   }
   .game-body p{ font-size:.9rem; color: var(--ink-soft); margin-bottom:1em; }
   .game-link{ font-weight:600; font-size:.86rem; color: var(--wag-green); }
-
-  .join{ padding: 40px 0 72px; }
-  .join-inner{
-    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
-    display:flex; flex-direction:column; align-items:center; gap:14px;
-    position:relative;
-    background:
-      linear-gradient(var(--bg), var(--bg)) padding-box,
-      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
-    border: 2px solid transparent;
-  }
-  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
-  .join-inner p{ max-width:52ch; margin:0; }
 
   @media (max-width: 800px){
     .games-grid{ grid-template-columns: 1fr; }

@@ -1,0 +1,40 @@
+---
+// Standardized platform-links row -- same wording, same order, everywhere
+// it appears, so the site reads as one consistent brand rather than pages
+// with different button phrasing. Falls back to the show-level Spotify/
+// Apple links (from /listen/) when an episode has no per-episode deep link.
+import { CTA } from "../lib/ctaCopy";
+
+interface Props {
+  spotifyUrl?: string;
+  appleUrl?: string;
+  youtubeUrl?: string;
+  showWatch?: boolean; // omit on pages that already embed the video
+}
+const {
+  spotifyUrl = "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb",
+  appleUrl = "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489",
+  youtubeUrl = "https://www.youtube.com/@WAGPodcast",
+  showWatch = true,
+} = Astro.props;
+---
+
+<div class="platform-bar">
+  {showWatch && (
+    <a class="platform-link watch" href={youtubeUrl} target="_blank" rel="noopener">{CTA.watchYouTube}</a>
+  )}
+  <a class="platform-link" href={spotifyUrl} target="_blank" rel="noopener">{CTA.listenSpotify}</a>
+  <a class="platform-link" href={appleUrl} target="_blank" rel="noopener">{CTA.listenApple}</a>
+</div>
+
+<style>
+  .platform-bar { display: flex; flex-wrap: wrap; gap: 10px; }
+  .platform-link {
+    display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: .9rem;
+    padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--bg-alt); color: var(--ink); text-decoration: none;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .platform-link:hover { border-color: var(--wag-green); transform: translateY(-1px); }
+  .platform-link.watch { border-color: var(--wag-pink); color: var(--wag-pink); }
+</style>

@@ -1,0 +1,71 @@
+---
+// The consistent end-of-page "what happens after this" block Katie asked
+// for: instead of the page just stopping, it hands the visitor a specific
+// next action -- listen, watch, read, play, share, or subscribe. Every
+// `items` entry must point at something real (a real episode, a real game,
+// a real platform link); this component doesn't invent content, it just
+// gives real content a consistent home at the bottom of every page.
+import ShareSheet from "./ShareSheet.astro";
+import { CTA } from "../lib/ctaCopy";
+import { insiderHref } from "../lib/insiderLink";
+
+interface NextItem {
+  icon: string;
+  label: string;
+  href: string;
+  external?: boolean;
+}
+interface Props {
+  items: NextItem[];
+  shareUrl: string;
+  shareTitle: string;
+  insiderPage: string; // page id for insiderHref's utm_campaign tagging
+}
+const { items, shareUrl, shareTitle, insiderPage } = Astro.props;
+---
+
+<section class="whats-next" data-reveal>
+  <div class="container">
+    <div class="wn-card">
+      <h2>What's Next?</h2>
+      <div class="wn-grid">
+        {items.map((item) => (
+          <a class="wn-item" href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener" : undefined}>
+            <span class="wn-icon">{item.icon}</span>
+            <span class="wn-label">{item.label}</span>
+          </a>
+        ))}
+        <div class="wn-item wn-share">
+          <ShareSheet url={shareUrl} title={shareTitle} id="whats-next" />
+        </div>
+        <a class="wn-item wn-subscribe" href={insiderHref(insiderPage)}>
+          <span class="wn-icon">📬</span>
+          <span class="wn-label">{CTA.subscribe}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .whats-next { padding: 8px 0 72px; }
+  .wn-card {
+    padding: 36px 32px; border-radius: var(--radius-lg); position: relative;
+    background: linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .wn-card h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 0 0 20px; text-align: center; }
+  .wn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .wn-item, .wn-share :global(.share-trigger) {
+    display: flex; align-items: center; gap: 10px; padding: 14px 16px;
+    border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--bg-alt);
+    color: var(--ink); text-decoration: none; font-weight: 600; font-size: .94rem;
+    transition: border-color .15s ease, transform .15s ease; width: 100%; text-align: left;
+  }
+  .wn-item:hover { border-color: var(--wag-green); transform: translateY(-2px); }
+  .wn-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .wn-share :global(.share-sheet) { width: 100%; }
+  .wn-share :global(.share-menu) { left: 0; right: auto; }
+  .wn-subscribe { border-color: var(--wag-pink); }
+</style>
