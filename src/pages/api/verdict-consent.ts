@@ -60,13 +60,27 @@ export async function POST({ request }: APIContext): Promise<Response> {
       }),
     });
 
+    // TEMP DEBUG (2026-08-06): unconditional logging while diagnosing a
+    // real bug -- the route was returning ok:true with no subscriber ever
+    // landing in Beehiiv. Remove once root-caused.
+    console.log("DEBUG verdict-consent: apiKey present:", !!apiKey, "apiKey length:", apiKey?.length ?? 0, "apiKey prefix:", apiKey?.slice(0, 6) ?? "none");
+    console.log("DEBUG verdict-consent: createRes status:", createRes.status, createRes.statusText);
+
     if (!createRes.ok) {
       const errText = await createRes.text();
       console.error("Beehiiv subscription create failed:", createRes.status, errText);
       return new Response(JSON.stringify({ error: "Could not save your preferences" }), { status: 502 });
     }
 
-    const created = await createRes.json();
+    const createdText = await createRes.text();
+    console.log("DEBUG verdict-consent: createRes body:", createdText);
+    let created: any;
+    try {
+      created = JSON.parse(createdText);
+    } catch {
+      console.error("DEBUG verdict-consent: response body was not valid JSON");
+      return new Response(JSON.stringify({ error: "Could not save your preferences" }), { status: 502 });
+    }
     const subscriptionId = created?.data?.id;
     if (!subscriptionId) {
       console.error("Beehiiv response missing subscription id:", created);
