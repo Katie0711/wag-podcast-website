@@ -1,37 +1,79 @@
 ---
+export const prerender = false;
+
+import { getStore } from "@netlify/blobs";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
+import PollWidget from "../../components/PollWidget.astro";
+import SponsorSlot from "../../components/SponsorSlot.astro";
 import WhatsNext from "../../components/WhatsNext.astro";
 
 // Real, original WAG material -- three real episodes where the hosts
 // made actual on-camera predictions. Found via the Phase 2 catalog
 // audit; too small a set (3 episodes) to justify its own topic hub, but
-// a genuine, distinct thread worth pulling into one page. Deliberately
-// does NOT claim to score whether the predictions came true -- that's
-// not verified, and each episode already poses that as its own open
-// question. This page just collects the real predictions; the episode
-// is the source of truth.
+// a genuine, distinct thread worth pulling into one page. Still does
+// NOT claim to score whether the predictions came true -- that's not
+// verified, and each episode already poses that as its own open
+// question. What changed in this review pass: each prediction gets a
+// real audience-opinion poll ("called it" vs "way off") via the
+// existing PollWidget/poll-vote.ts -- honest because it's clearly
+// framed as fan opinion, never as a verified real-world outcome. No
+// email consent capture here (unlike Verdict/Match/Poll/Questions):
+// there's no future reveal to notify anyone about, so a consent step
+// would just be friction, not a real hook.
 const predictions = [
   {
     title: "Who Gets Their First Kiss This Summer?",
     videoId: "ko8HDrQp7LQ",
     url: "https://wildadventuregirls.com/podcast/episodes/2026-predictions-first-kiss-and-teen-trends-ko8hdrqp7lq",
     blurb: "Real 2026 predictions — first kiss, the trends, what the top YouTubers are doing.",
+    pollKey: "predicted-summer-kiss",
   },
   {
     title: "If This Stranger Things Theory Is Right… Will Is Gone",
     videoId: "JfJ6khURkrM",
     url: "https://wildadventuregirls.com/podcast/episodes/will-byers-death-theory-stranger-things-jfj6khurkrm",
     blurb: "A real theory on how Will Byers' story ends in Stranger Things.",
+    pollKey: "predicted-will-byers",
   },
   {
     title: "We Predicted The ENDING of STRANGER THINGS!",
     videoId: "dUtZhJS3qu0",
     url: "https://wildadventuregirls.com/podcast/episodes/stranger-things-ending-predictions-dutzhjs3qu0",
     blurb: "The wildest Season 5 theories, called out loud before the finale.",
+    pollKey: "predicted-st-ending",
   },
 ];
+
+const pollOptions = [
+  { key: "called-it", label: "🎯 They called it" },
+  { key: "way-off", label: "😬 Way off" },
+];
+
+const store = getStore("wag-poll-votes");
+const pollCounts = Object.fromEntries(
+  await Promise.all(
+    predictions.map(async (p) => [p.pollKey, ((await store.get(p.pollKey, { type: "json" })) as Record<string, number> | null) ?? {}])
+  )
+);
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "WAG Predicted It — WAG Podcast",
+  description: "The real predictions WAG Podcast has made on camera — 2026 trends, a Stranger Things theory, and the show's own Season 5 ending predictions.",
+  image: "https://thewagpodcast.com/images/studio/wag-studio-221.jpg",
+  author: { "@type": "Organization", name: "WAG Podcast" },
+  publisher: { "@type": "Organization", name: "The Wild Adventure Girls", url: "https://wildadventuregirls.com" },
+};
+
+const listSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "WAG Predicted It",
+  itemListElement: predictions.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: p.title, url: p.url })),
+};
 ---
 
 <BaseLayout
@@ -39,6 +81,9 @@ const predictions = [
   description="The real predictions WAG Podcast has made on camera — 2026 trends, a Stranger Things theory, and the show's own Season 5 ending predictions."
   ogImage="/images/studio/wag-studio-221.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(listSchema)} />
+
   <section class="pred-hero">
     <div class="hero-photo">
       <picture>
@@ -57,7 +102,7 @@ const predictions = [
   <section class="pred-intro">
     <div class="container" data-reveal>
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "WAG Predicted It", href: "/wag-predicted-it/" }]} />
-      <p>We're not scoring these — that's the fun part. Watch the real episode and decide for yourself whether they called it.</p>
+      <p>We're not scoring these officially — that's the fun part. Watch the real episode, then vote on whether you think they called it.</p>
     </div>
   </section>
 
@@ -65,25 +110,39 @@ const predictions = [
     <div class="container" data-reveal="stagger">
       <div class="predictions-grid">
         {predictions.map((p) => (
-          <a class="pred-card" href={p.url}>
-            <div class="pred-thumb">
-              <img src={`https://img.youtube.com/vi/${p.videoId}/mqdefault.jpg`} alt={p.title} loading="lazy" />
+          <div class="pred-card">
+            <a class="pred-card-link" href={p.url}>
+              <div class="pred-thumb">
+                <img src={`https://img.youtube.com/vi/${p.videoId}/mqdefault.jpg`} alt={p.title} loading="lazy" />
+              </div>
+              <div class="pred-body">
+                <h2>{p.title}</h2>
+                <p>{p.blurb}</p>
+                <span class="pred-link">Watch the episode →</span>
+              </div>
+            </a>
+            <div class="pred-poll">
+              <PollWidget pollKey={p.pollKey} question="What do you think?" options={pollOptions} initialCounts={pollCounts[p.pollKey]} />
             </div>
-            <div class="pred-body">
-              <h2>{p.title}</h2>
-              <p>{p.blurb}</p>
-              <span class="pred-link">Watch the episode →</span>
-            </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
+  <section class="pred-sponsor">
+    <div class="container container--narrow" data-reveal>
+      <SponsorSlot
+        fallbackHref="/watch/"
+        fallbackLabel="🎬 Catch up on the latest WAG Podcast episode"
+      />
+    </div>
+  </section>
+
   <WhatsNext
     items={[
-      { icon: "❓", label: "Guys Answer Questions", href: "/guys-answer-questions/" },
-      { icon: "😂", label: "WAG Podcast Games", href: "/games/" },
+      { icon: "🎭", label: "Which WAG host are you? (WAG Match)", href: "/match/" },
+      { icon: "❓", label: "Submit a question", href: "/questions-featured/" },
       { icon: "🎬", label: "Watch every episode", href: "/watch/" },
     ]}
     shareUrl="https://thewagpodcast.com/wag-predicted-it/"
@@ -110,26 +169,29 @@ const predictions = [
   .pred-intro p{ font-size:1.02rem; max-width:64ch; }
 
   .predictions{ padding: 0 0 24px; }
-  .predictions-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; }
-  .pred-card{
-    display:block; border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--line);
-    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  .predictions-grid{ display:flex; flex-direction:column; gap:32px; max-width:680px; margin:0 auto; }
+  .pred-card{ border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--line); background: var(--bg-alt); }
+  .pred-card-link{
+    display:grid; grid-template-columns:160px 1fr; gap:0; text-decoration:none; color:inherit;
+    transition: background .2s ease;
   }
-  .pred-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(255,22,200,.16); border-color: var(--wag-pink); }
+  .pred-card-link:hover{ background: rgba(255,22,200,.06); }
   .pred-thumb{ aspect-ratio: 16/9; overflow:hidden; }
   .pred-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .pred-body{ padding:18px 20px 22px; }
+  .pred-body{ padding:16px 20px; }
   .pred-body h2{
     font-family: var(--font-body); font-weight:700; text-transform:none; letter-spacing:0;
     font-size:1.05rem; margin-bottom:.5em; line-height:1.35;
   }
   .pred-body p{ font-size:.9rem; color: var(--ink-soft); margin-bottom:1em; }
   .pred-link{ font-weight:600; font-size:.86rem; color: var(--wag-green); }
+  .pred-poll{ border-top:1px solid var(--line); }
+  .pred-poll :global(.poll-widget){ border:none; border-radius:0; }
 
-  @media (max-width: 900px){
-    .predictions-grid{ grid-template-columns: 1fr 1fr; }
-  }
+  .container--narrow{ max-width:680px; }
+  .pred-sponsor{ padding: 8px 0 32px; }
+
   @media (max-width: 600px){
-    .predictions-grid{ grid-template-columns: 1fr; }
+    .pred-card-link{ grid-template-columns:1fr; }
   }
 </style>
