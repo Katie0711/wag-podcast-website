@@ -57,9 +57,19 @@ const {
       const statusEl = pair.querySelector<HTMLElement>("[data-consent-status]")!;
 
       // Revealed only after a real vote is cast on this same widget --
-      // never shown, never asked for, before that. VoteWidget dispatches
-      // this event from itself with bubbles:true, so e.target is the
-      // [data-vote-widget] element carrying the matching data-vote-key.
+      // never shown, never asked for, before that. Two paths reveal it,
+      // not one: the live wag:voted event (cast a vote just now, same
+      // page load) AND a direct localStorage check (already voted on a
+      // past visit). Relying on the event alone is a real, confirmed bug
+      // -- on a page reload, VoteWidget's own script runs first and
+      // dispatches wag:voted synchronously for an already-voted visitor,
+      // before this script has even attached its listener, so the event
+      // fires into the void and the form stays hidden forever after the
+      // first visit. The localStorage check below is what actually makes
+      // a return visit work.
+      if (localStorage.getItem(`wag_voted_${voteKey}`)) {
+        pair.hidden = false;
+      }
       document.addEventListener("wag:voted", (e) => {
         const target = e.target as HTMLElement;
         if (target?.dataset?.voteKey === voteKey) {
