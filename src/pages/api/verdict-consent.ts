@@ -60,31 +60,36 @@ export async function POST({ request }: APIContext): Promise<Response> {
       }),
     });
 
-    // TEMP DEBUG (2026-08-06): unconditional logging while diagnosing a
-    // real bug -- the route was returning ok:true with no subscriber ever
-    // landing in Beehiiv. Remove once root-caused.
-    console.log("DEBUG verdict-consent: apiKey present:", !!apiKey, "apiKey length:", apiKey?.length ?? 0, "apiKey prefix:", apiKey?.slice(0, 6) ?? "none");
-    console.log("DEBUG verdict-consent: createRes status:", createRes.status, createRes.statusText);
+    // TEMP DEBUG (2026-08-06): surfacing diagnostics in the response body
+    // itself (not just console.log) because Netlify's Preview Server log
+    // viewer is down ("logs are currently unavailable"). No key material
+    // included -- only presence/length and Beehiiv's own response shape.
+    // Diagnosing a real bug: the route returns ok:true but no subscriber
+    // ever lands in Beehiiv. Remove once root-caused.
+    const debug: Record<string, unknown> = {
+      apiKeyPresent: !!apiKey,
+      apiKeyLength: apiKey?.length ?? 0,
+      createStatus: createRes.status,
+      createStatusText: createRes.statusText,
+    };
 
     if (!createRes.ok) {
       const errText = await createRes.text();
-      console.error("Beehiiv subscription create failed:", createRes.status, errText);
-      return new Response(JSON.stringify({ error: "Could not save your preferences" }), { status: 502 });
+      debug.createErrorBody = errText;
+      return new Response(JSON.stringify({ error: "Could not save your preferences", debug }), { status: 502 });
     }
 
     const createdText = await createRes.text();
-    console.log("DEBUG verdict-consent: createRes body:", createdText);
+    debug.createBody = createdText;
     let created: any;
     try {
       created = JSON.parse(createdText);
     } catch {
-      console.error("DEBUG verdict-consent: response body was not valid JSON");
-      return new Response(JSON.stringify({ error: "Could not save your preferences" }), { status: 502 });
+      return new Response(JSON.stringify({ error: "Could not save your preferences", debug }), { status: 502 });
     }
     const subscriptionId = created?.data?.id;
     if (!subscriptionId) {
-      console.error("Beehiiv response missing subscription id:", created);
-      return new Response(JSON.stringify({ error: "Could not save your preferences" }), { status: 502 });
+      return new Response(JSON.stringify({ error: "Could not save your preferences", debug }), { status: 502 });
     }
 
     // Step 2: apply exactly the tag(s) that match what was actually
@@ -98,15 +103,16 @@ export async function POST({ request }: APIContext): Promise<Response> {
       }
     );
 
+    debug.subscriptionId = subscriptionId;
+    debug.tagStatus = tagRes.status;
     if (!tagRes.ok) {
-      const errText = await tagRes.text();
-      console.error("Beehiiv tag apply failed:", tagRes.status, errText);
+      debug.tagErrorBody = await tagRes.text();
       // The subscription itself succeeded; tagging failed. Still report
-      // success to her (the email capture worked), but log loudly so
-      // this doesn't go unnoticed.
+      // success to her (the email capture worked), but surface it in
+      // debug so this doesn't go unnoticed.
     }
 
-    return new Response(JSON.stringify({ ok: true }), {
+    return new Response(JSON.stringify({ ok: true, debug }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
