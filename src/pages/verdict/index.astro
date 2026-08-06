@@ -70,6 +70,7 @@ const pageSchema = {
   "@type": "Article",
   headline: "WAG Verdict",
   description: "Vote on the real dilemmas WAG Podcast debates — see how everyone else is calling it, then find out what the girls actually decided.",
+  ...(sourceEpisode?.data.heroImage ? { image: sourceEpisode.data.heroImage } : {}),
   author: { "@type": "Organization", name: "WAG Podcast" },
   publisher: { "@type": "Organization", name: "The Wild Adventure Girls", url: "https://wildadventuregirls.com" },
 };
@@ -88,6 +89,7 @@ const faqSchema = {
 <BaseLayout
   title="WAG Verdict — WAG Podcast"
   description="Vote on the real dilemmas WAG Podcast debates on camera. See how everyone else is calling it, then find out what the girls actually decided."
+  ogImage={sourceEpisode?.data.heroImage}
 >
   <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
