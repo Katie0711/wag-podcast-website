@@ -1,0 +1,225 @@
+---
+// Fourth production interaction. Real, functional question-submission
+// pipeline for the real Guys Answer Questions format -- not a new
+// abstraction: the submit-then-reveal-consent UI is written directly
+// in this page rather than factored into a shared component, since
+// this is the first interaction that needs free-text submission (per
+// the "generalize only after a second real feature needs it" rule).
+// Reuses ConsentCheckboxPair/SponsorSlot/WhatsNext unchanged.
+//
+// Deliberately no fake "featured questions" showcase -- no real
+// question has been featured yet, and inventing example ones would
+// repeat the exact overpromising mistake just corrected on the
+// favorite-segment poll. The FAQ section explains the real mechanic
+// honestly instead.
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import EqBars from "../../components/EqBars.astro";
+import ConsentCheckboxPair from "../../components/ConsentCheckboxPair.astro";
+import SponsorSlot from "../../components/SponsorSlot.astro";
+import WhatsNext from "../../components/WhatsNext.astro";
+
+const SUBMIT_KEY = "questions-featured";
+
+const faqs = [
+  { q: "What happens to my question?", a: "It goes straight to WAG. Some real submissions get picked for a future Guys Answer Questions episode or featured on this page — there's no guarantee, but every question actually gets read." },
+  { q: "Do I have to give my name?", a: "No — it's optional. Leave it blank and your question is submitted anonymously." },
+  { q: "What kind of questions work best?", a: "The specific ones — the question you'd actually want to ask a guy in real life, not a generic one. Check out Guys Answer Questions to see the kind of questions that have worked before." },
+];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Questions Featured — WAG Podcast",
+  description: "Submit a real question for a future Guys Answer Questions episode. Some real submissions get picked and featured.",
+  image: "https://thewagpodcast.com/images/studio/wag-studio-301.jpg",
+  author: { "@type": "Organization", name: "WAG Podcast" },
+  publisher: { "@type": "Organization", name: "The Wild Adventure Girls", url: "https://wildadventuregirls.com" },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Questions Featured — Submit a Question for Guys Answer Questions | WAG Podcast"
+  description="Submit a real question for a future Guys Answer Questions episode. Some real submissions get picked and featured — no guarantee, but every question gets read."
+  ogImage="/images/studio/wag-studio-301.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="qf-hero">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Questions Featured", href: "/questions-featured/" }]} />
+      <p class="eyebrow"><EqBars size="sm" /> Questions Featured</p>
+      <h1>Got a question for <span class="text-accent">Guys Answer Questions</span>?</h1>
+      <p class="lede">Submit the question you'd actually want a guy to answer, on camera. Real submissions get read — some get picked for a future episode.</p>
+    </div>
+  </section>
+
+  <section class="qf-submit">
+    <div class="container container--narrow" data-reveal>
+      <div class="submit-card" data-question-form data-submit-key={SUBMIT_KEY} data-vote-key={SUBMIT_KEY}>
+        <label class="qf-label" for="qf-question">Your question</label>
+        <textarea id="qf-question" data-question-text class="qf-textarea" maxlength="500" rows="4" placeholder="What's a question you'd actually want a guy to answer honestly?"></textarea>
+        <label class="qf-label" for="qf-name">Your name (optional)</label>
+        <input id="qf-name" type="text" data-question-name class="qf-input" maxlength="60" placeholder="Leave blank to stay anonymous" />
+        <button type="button" class="qf-submit-btn" data-question-submit>Submit my question</button>
+        <p class="qf-status" data-question-status role="status" aria-live="polite"></p>
+      </div>
+      <ConsentCheckboxPair
+        voteKey={SUBMIT_KEY}
+        transactionalLabel="Email me if my question gets featured"
+        marketingLabel="Also join WAG Insider for future episodes, quizzes, votes, and product news"
+        apiEndpoint="/api/interaction-consent"
+        transactionalTag="questions-featured"
+      />
+    </div>
+  </section>
+
+  <section class="qf-sponsor">
+    <div class="container container--narrow" data-reveal>
+      <SponsorSlot
+        fallbackHref="/guys-answer-questions/"
+        fallbackLabel="🎬 See the real questions already answered"
+      />
+    </div>
+  </section>
+
+  <section class="qf-how">
+    <div class="container container--narrow" data-reveal>
+      <h2>How this works</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WhatsNext
+    items={[
+      { icon: "❓", label: "Guys Answer Questions", href: "/guys-answer-questions/" },
+      { icon: "🎭", label: "Which WAG host are you? (WAG Match)", href: "/match/" },
+      { icon: "🗳️", label: "Vote on WAG Verdict", href: "/verdict/" },
+    ]}
+    shareUrl="https://thewagpodcast.com/questions-featured/"
+    shareTitle="Questions Featured — WAG Podcast"
+    insiderPage="questions-featured"
+  />
+</BaseLayout>
+
+<script>
+  function initQuestionForms() {
+    document.querySelectorAll<HTMLElement>("[data-question-form]:not([data-question-bound])").forEach((form) => {
+      form.setAttribute("data-question-bound", "true");
+      const submitKey = form.dataset.submitKey!;
+      const textarea = form.querySelector<HTMLTextAreaElement>("[data-question-text]")!;
+      const nameInput = form.querySelector<HTMLInputElement>("[data-question-name]")!;
+      const submitBtn = form.querySelector<HTMLButtonElement>("[data-question-submit]")!;
+      const statusEl = form.querySelector<HTMLElement>("[data-question-status]")!;
+
+      const storageKey = `wag_voted_${submitKey}`;
+
+      function showSubmitted() {
+        textarea.disabled = true;
+        nameInput.disabled = true;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitted";
+        form.dispatchEvent(new CustomEvent("wag:voted", { bubbles: true }));
+      }
+
+      if (localStorage.getItem(storageKey)) {
+        showSubmitted();
+        statusEl.textContent = "Question submitted — thanks!";
+      }
+
+      submitBtn.addEventListener("click", async () => {
+        const question = textarea.value.trim();
+        if (question.length < 5) {
+          statusEl.textContent = "Give us a real question — a few words won't cut it.";
+          return;
+        }
+        submitBtn.disabled = true;
+        statusEl.textContent = "Submitting...";
+
+        if (typeof (window as any).gtag === "function") {
+          (window as any).gtag("event", "question_submitted", { submit_key: submitKey });
+        }
+
+        try {
+          const res = await fetch("/api/question-submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ question, name: nameInput.value.trim() }),
+          });
+          if (res.ok) {
+            localStorage.setItem(storageKey, "1");
+            statusEl.textContent = "Question submitted — thanks!";
+            showSubmitted();
+          } else {
+            statusEl.textContent = "Something went wrong — try again in a moment.";
+            submitBtn.disabled = false;
+          }
+        } catch {
+          statusEl.textContent = "Something went wrong — try again in a moment.";
+          submitBtn.disabled = false;
+        }
+      });
+    });
+  }
+
+  initQuestionForms();
+  document.addEventListener("astro:page-load", initQuestionForms);
+</script>
+
+<style>
+  .qf-hero { padding: 32px 0 20px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--wag-green); margin-top: 14px; }
+  .qf-hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); max-width: 24ch; }
+  .text-accent {
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede { font-size: 1.05rem; max-width: 60ch; color: var(--ink-soft); }
+
+  .container--narrow { max-width: 680px; }
+
+  .qf-submit { padding: 12px 0 24px; }
+  .submit-card {
+    padding: 28px 24px; border-radius: var(--radius-lg); border: 2px solid var(--wag-pink);
+    background: var(--bg-alt); margin-bottom: 20px;
+  }
+  .qf-label { display: block; font-size: .82rem; color: var(--ink-muted); margin-bottom: 6px; margin-top: 14px; }
+  .qf-label:first-child { margin-top: 0; }
+  .qf-textarea, .qf-input {
+    width: 100%; padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--line);
+    background: var(--bg); color: var(--ink); font: inherit; font-size: .96rem; resize: vertical;
+  }
+  .qf-textarea:focus, .qf-input:focus { outline: none; border-color: var(--wag-green); }
+  .qf-submit-btn {
+    font-family: var(--font-display); font-size: 1rem; padding: 12px 24px; border-radius: var(--radius-sm);
+    border: none; background: var(--wag-pink); color: var(--wag-white); cursor: pointer; margin-top: 18px;
+  }
+  .qf-submit-btn:disabled { opacity: .6; cursor: default; }
+  .qf-status { font-size: .84rem; color: var(--wag-green); margin: 10px 0 0; min-height: 1.2em; }
+
+  .qf-sponsor { padding: 0 0 32px; }
+
+  .qf-how { padding: 12px 0 40px; }
+  .qf-how h2 { font-size: 1.5rem; margin-bottom: 18px; }
+  .faq-list { display: flex; flex-direction: column; gap: 18px; }
+  .faq-item h3 { font-family: var(--font-body); font-weight: 700; text-transform: none; letter-spacing: 0; font-size: 1rem; margin-bottom: 6px; }
+  .faq-item p { font-size: .92rem; color: var(--ink-soft); margin: 0; }
+</style>
