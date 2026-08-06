@@ -56,20 +56,22 @@ const EXPLORE_CATS = [
   { key: "segments", name: "Recurring Segments", hook: "The bits fans wait for, finally explained.", href: "/segments/", photo: "/images/studio/wag-studio-53.jpg", accent: "var(--wag-pink)", tag: "Format" },
   { key: "faq", name: "FAQ", hook: "Everything you're wondering, answered fast.", href: "/faq/", photo: "/images/studio/wag-studio-191.jpg", accent: "var(--wag-green)", tag: "Info" },
   { key: "predicted", name: "WAG Predicted It", hook: "Did they call it? Go find out.", href: "/wag-predicted-it/", photo: "https://img.youtube.com/vi/ko8HDrQp7LQ/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Recap" },
+  { key: "verdict", name: "WAG Verdict", hook: "Real dilemmas from the show. Cast your vote, see the real outcome.", href: "/verdict/", photo: "https://img.youtube.com/vi/mCfeIZst5qQ/mqdefault.jpg", accent: "var(--wag-green)", tag: "Vote" },
 ];
 
-// Two even shelves of 4 -- "guys" is the hero above and intentionally not
-// repeated below; all other 8 real categories are split evenly so both
-// rows fill the same width instead of the uneven 3/2/3 the first pass had.
-// "ranked" only controls the numeral visual treatment -- it is NOT a real
-// popularity ranking. These 4 items are the same editorial "format/games"
-// grouping as the original streaming-shelf design (approved 2026-08-02),
-// not ordered by any measured data (no GA4 per-category click-through
-// analysis has been done). Title/tag are worded to avoid implying a
-// measured rank; if real per-category engagement data is ever pulled,
-// this can become a genuine "Top Picks" row at that point.
+// "guys" is the hero above and intentionally not repeated below; all
+// other 9 real categories are split by editorial grouping. "verdict" is
+// the newest real interaction (a live weekly vote, not a recap or a
+// static format) so it leads its shelf. "ranked" only controls the
+// numeral visual treatment -- it is NOT a real popularity ranking. These
+// items are the same editorial "format/games" grouping as the original
+// streaming-shelf design (approved 2026-08-02), not ordered by any
+// measured data (no GA4 per-category click-through analysis has been
+// done). Title/tag are worded to avoid implying a measured rank; if real
+// per-category engagement data is ever pulled, this can become a genuine
+// "Top Picks" row at that point.
 const EXPLORE_SHELVES = [
-  { title: "Formats & Games", tag: "Pick a Format", ranked: true, items: ["segments", "comedy", "games", "predicted"] },
+  { title: "Formats & Games", tag: "Pick a Format", ranked: true, items: ["verdict", "segments", "comedy", "games", "predicted"] },
   { title: "Real Talk & Info", tag: "Good to Know", ranked: false, items: ["mental", "growing", "video", "faq"] },
 ];
 const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;

@@ -82,12 +82,21 @@ const related = allEpisodes
 
 const canonicalUrl = `https://thewagpodcast.com/episodes/${entry.id}/`;
 
+// Generic, not hardcoded to any one episode: any future episode a Verdict
+// is sourced from automatically picks up this link, no per-episode wiring.
+const allVerdicts = await getCollection("verdicts");
+const sourcedVerdict = allVerdicts.find((v) => v.data.sourceEpisode === entry.id);
+
 // "What's Next" items -- every entry points at something real: the next
 // most-related episode(s) already computed above, the real Games hub when
 // this episode's own topics actually include games-challenges (never
-// linked when there's no genuine overlap), and the platform links this
-// episode actually has (falling back to the show-level ones).
+// linked when there's no genuine overlap), the real WAG Verdict this
+// episode's own dilemma became (when one exists), and the platform links
+// this episode actually has (falling back to the show-level ones).
 const whatsNextItems = [
+  ...(sourcedVerdict
+    ? [{ icon: "⚖️", label: sourcedVerdict.data.status === "current" ? "Cast your Verdict vote" : "See how the Verdict landed", href: "/verdict/" }]
+    : []),
   ...related.slice(0, 2).map((r) => ({ icon: "🎬", label: r.data.title, href: `/episodes/${r.id}/` })),
   ...(entry.data.topics.includes("games-challenges")
     ? [{ icon: "😂", label: "Play: WAG Games", href: "/games/" }]
