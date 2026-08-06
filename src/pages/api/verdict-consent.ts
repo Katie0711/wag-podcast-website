@@ -60,36 +60,17 @@ export async function POST({ request }: APIContext): Promise<Response> {
       }),
     });
 
-    // TEMP DEBUG (2026-08-06): surfacing diagnostics in the response body
-    // itself (not just console.log) because Netlify's Preview Server log
-    // viewer is down ("logs are currently unavailable"). No key material
-    // included -- only presence/length and Beehiiv's own response shape.
-    // Diagnosing a real bug: the route returns ok:true but no subscriber
-    // ever lands in Beehiiv. Remove once root-caused.
-    const debug: Record<string, unknown> = {
-      apiKeyPresent: !!apiKey,
-      apiKeyLength: apiKey?.length ?? 0,
-      createStatus: createRes.status,
-      createStatusText: createRes.statusText,
-    };
-
     if (!createRes.ok) {
       const errText = await createRes.text();
-      debug.createErrorBody = errText;
-      return new Response(JSON.stringify({ error: "Could not save your preferences", debug }), { status: 502 });
+      console.error("Beehiiv subscription create failed:", createRes.status, errText);
+      return new Response(JSON.stringify({ error: "Could not save your preferences" }), { status: 502 });
     }
 
-    const createdText = await createRes.text();
-    debug.createBody = createdText;
-    let created: any;
-    try {
-      created = JSON.parse(createdText);
-    } catch {
-      return new Response(JSON.stringify({ error: "Could not save your preferences", debug }), { status: 502 });
-    }
+    const created = await createRes.json();
     const subscriptionId = created?.data?.id;
     if (!subscriptionId) {
-      return new Response(JSON.stringify({ error: "Could not save your preferences", debug }), { status: 502 });
+      console.error("Beehiiv response missing subscription id:", created);
+      return new Response(JSON.stringify({ error: "Could not save your preferences" }), { status: 502 });
     }
 
     // Step 2: apply exactly the tag(s) that match what was actually
@@ -103,16 +84,15 @@ export async function POST({ request }: APIContext): Promise<Response> {
       }
     );
 
-    debug.subscriptionId = subscriptionId;
-    debug.tagStatus = tagRes.status;
     if (!tagRes.ok) {
-      debug.tagErrorBody = await tagRes.text();
+      const errText = await tagRes.text();
+      console.error("Beehiiv tag apply failed:", tagRes.status, errText);
       // The subscription itself succeeded; tagging failed. Still report
-      // success to her (the email capture worked), but surface it in
-      // debug so this doesn't go unnoticed.
+      // success to her (the email capture worked), but log loudly so
+      // this doesn't go unnoticed.
     }
 
-    return new Response(JSON.stringify({ ok: true, debug }), {
+    return new Response(JSON.stringify({ ok: true }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
