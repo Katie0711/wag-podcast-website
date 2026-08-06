@@ -8,18 +8,37 @@
 // needs the same transactional/marketing split reuses this component
 // rather than rebuilding it.
 interface Props {
-  voteKey: string;
+  voteKey: string; // the item this consent capture is attached to (a Verdict voteKey, a quizKey, etc.)
   transactionalLabel: string;
   marketingLabel: string;
+  // Everything below defaults to Verdict's original, already-verified
+  // behavior -- only a new caller (e.g. WAG Match) needs to set these.
+  apiEndpoint?: string;
+  transactionalTag?: string; // required by /api/interaction-consent; ignored by /api/verdict-consent
+  revealEvent?: string; // custom event that reveals this form once the interaction is complete
+  storageKey?: string; // localStorage key checked on load so a return visitor sees the form immediately
 }
 const {
   voteKey,
   transactionalLabel = "Email me when this Verdict is revealed",
   marketingLabel = "Also join WAG Insider for future votes, quizzes, episodes, and product news",
+  apiEndpoint = "/api/verdict-consent",
+  transactionalTag,
+  revealEvent = "wag:voted",
+  storageKey = `wag_voted_${voteKey}`,
 } = Astro.props;
 ---
 
-<div class="consent-pair" data-consent-pair data-vote-key={voteKey} hidden>
+<div
+  class="consent-pair"
+  data-consent-pair
+  data-vote-key={voteKey}
+  data-api-endpoint={apiEndpoint}
+  data-transactional-tag={transactionalTag}
+  data-reveal-event={revealEvent}
+  data-storage-key={storageKey}
+  hidden
+>
   <p class="consent-intro">Want to know how this turns out?</p>
   <label class="consent-email-label" for={`consent-email-${voteKey}`}>Email address</label>
   <input
@@ -50,6 +69,10 @@ const {
     document.querySelectorAll<HTMLElement>("[data-consent-pair]:not([data-consent-bound])").forEach((pair) => {
       pair.setAttribute("data-consent-bound", "true");
       const voteKey = pair.dataset.voteKey!;
+      const apiEndpoint = pair.dataset.apiEndpoint || "/api/verdict-consent";
+      const transactionalTag = pair.dataset.transactionalTag;
+      const revealEvent = pair.dataset.revealEvent || "wag:voted";
+      const storageKey = pair.dataset.storageKey || `wag_voted_${voteKey}`;
       const emailInput = pair.querySelector<HTMLInputElement>("[data-consent-email]")!;
       const transactionalBox = pair.querySelector<HTMLInputElement>("[data-consent-transactional]")!;
       const marketingBox = pair.querySelector<HTMLInputElement>("[data-consent-marketing]")!;
@@ -67,12 +90,18 @@ const {
       // fires into the void and the form stays hidden forever after the
       // first visit. The localStorage check below is what actually makes
       // a return visit work.
-      if (localStorage.getItem(`wag_voted_${voteKey}`)) {
+      if (localStorage.getItem(storageKey)) {
         pair.hidden = false;
       }
-      document.addEventListener("wag:voted", (e) => {
+      document.addEventListener(revealEvent, (e) => {
         const target = e.target as HTMLElement;
-        if (target?.dataset?.voteKey === voteKey) {
+        const detail = (e as CustomEvent).detail;
+        const matches =
+          target?.dataset?.voteKey === voteKey ||
+          target?.dataset?.quizKey === voteKey ||
+          detail?.voteKey === voteKey ||
+          detail?.quizKey === voteKey;
+        if (matches) {
           pair.hidden = false;
         }
       });
@@ -96,15 +125,15 @@ const {
         statusEl.textContent = "Saving...";
 
         if (typeof (window as any).gtag === "function") {
-          if (transactional) (window as any).gtag("event", "verdict_consent_transactional_checked", { verdict_key: voteKey });
-          if (marketing) (window as any).gtag("event", "verdict_consent_marketing_checked", { verdict_key: voteKey });
+          if (transactional) (window as any).gtag("event", "consent_transactional_checked", { item_key: voteKey });
+          if (marketing) (window as any).gtag("event", "consent_marketing_checked", { item_key: voteKey });
         }
 
         try {
-          const res = await fetch("/api/verdict-consent", {
+          const res = await fetch(apiEndpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, transactional, marketing, voteKey }),
+            body: JSON.stringify({ email, transactional, marketing, voteKey, itemKey: voteKey, transactionalTag }),
           });
           if (res.ok) {
             statusEl.textContent = "You're set — we'll be in touch.";

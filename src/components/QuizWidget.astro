@@ -1,0 +1,209 @@
+---
+// Reusable multi-question personality-match quiz engine -- built once so
+// future quizzes (this is WAG Match; more can follow) reuse the same
+// step-through/tally/reveal mechanic instead of a one-off rebuild. No
+// account, no login, same MVP posture as VoteWidget: a soft per-browser
+// localStorage flag remembers a completed run so a return visit shows the
+// result immediately instead of re-asking every question.
+//
+// Result matching is a simple highest-tally count (ties broken by
+// whichever resultKey was picked first) -- intentionally not a hidden
+// scoring algorithm, since the "real" part of this feature is the three
+// real hosts and their real, already-published traits, not the quiz math.
+interface QuizOption {
+  label: string;
+  resultKey: string;
+}
+interface QuizQuestion {
+  q: string;
+  options: QuizOption[];
+}
+interface QuizResult {
+  key: string;
+  name: string;
+  tagline: string;
+  description: string;
+  photo: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+interface Props {
+  quizKey: string;
+  questions: QuizQuestion[];
+  results: QuizResult[];
+}
+const { quizKey, questions, results } = Astro.props;
+---
+
+<div class="quiz-widget" data-quiz-widget data-quiz-key={quizKey} data-results={JSON.stringify(results)}>
+  <div class="quiz-questions" data-quiz-questions>
+    <div class="quiz-progress" data-quiz-progress>
+      <div class="quiz-progress-bar" data-quiz-progress-bar style="width: 0%"></div>
+    </div>
+    <p class="quiz-step-label" data-quiz-step-label>Question 1 of {questions.length}</p>
+    {questions.map((question, i) => (
+      <div class="quiz-question" data-quiz-question data-question-index={i} hidden={i !== 0}>
+        <h2 class="quiz-q-text">{question.q}</h2>
+        <div class="quiz-options">
+          {question.options.map((opt) => (
+            <button type="button" class="quiz-option" data-quiz-option data-result-key={opt.resultKey}>
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="quiz-result" data-quiz-result hidden>
+    <p class="quiz-result-eyebrow">You're most like</p>
+    <img class="quiz-result-photo" data-quiz-result-photo src="" alt="" />
+    <h2 class="quiz-result-name" data-quiz-result-name></h2>
+    <p class="quiz-result-tagline" data-quiz-result-tagline></p>
+    <p class="quiz-result-description" data-quiz-result-description></p>
+    <a class="quiz-result-cta" data-quiz-result-cta href="">Learn more →</a>
+    <button type="button" class="quiz-retake" data-quiz-retake>Take it again</button>
+  </div>
+</div>
+
+<script>
+  interface QuizResult {
+    key: string;
+    name: string;
+    tagline: string;
+    description: string;
+    photo: string;
+    ctaLabel: string;
+    ctaHref: string;
+  }
+
+  function initQuizWidgets() {
+    document.querySelectorAll<HTMLElement>("[data-quiz-widget]:not([data-quiz-bound])").forEach((widget) => {
+      widget.setAttribute("data-quiz-bound", "true");
+      const quizKey = widget.dataset.quizKey!;
+      const results: QuizResult[] = JSON.parse(widget.dataset.results || "[]");
+      const questionsEl = widget.querySelector<HTMLElement>("[data-quiz-questions]")!;
+      const resultEl = widget.querySelector<HTMLElement>("[data-quiz-result]")!;
+      const progressBar = widget.querySelector<HTMLElement>("[data-quiz-progress-bar]")!;
+      const stepLabel = widget.querySelector<HTMLElement>("[data-quiz-step-label]")!;
+      const questionEls = Array.from(widget.querySelectorAll<HTMLElement>("[data-quiz-question]"));
+      const total = questionEls.length;
+
+      const storageKey = `wag_quiz_${quizKey}`;
+      const tally: Record<string, number> = {};
+      let currentIndex = 0;
+
+      function showResult(resultKey: string, persist: boolean) {
+        const result = results.find((r) => r.key === resultKey) ?? results[0];
+        questionsEl.hidden = true;
+        resultEl.hidden = false;
+        resultEl.querySelector<HTMLImageElement>("[data-quiz-result-photo]")!.src = result.photo;
+        resultEl.querySelector<HTMLImageElement>("[data-quiz-result-photo]")!.alt = result.name;
+        resultEl.querySelector("[data-quiz-result-name]")!.textContent = result.name;
+        resultEl.querySelector("[data-quiz-result-tagline]")!.textContent = result.tagline;
+        resultEl.querySelector("[data-quiz-result-description]")!.textContent = result.description;
+        const cta = resultEl.querySelector<HTMLAnchorElement>("[data-quiz-result-cta]")!;
+        cta.href = result.ctaHref;
+        cta.textContent = `${result.ctaLabel} →`;
+
+        if (persist) {
+          localStorage.setItem(storageKey, resultKey);
+          if (typeof (window as any).gtag === "function") {
+            (window as any).gtag("event", "quiz_completed", { quiz_key: quizKey, result_key: resultKey });
+          }
+        }
+        widget.dispatchEvent(new CustomEvent("wag:quizComplete", { bubbles: true, detail: { quizKey, resultKey } }));
+      }
+
+      function showQuestion(index: number) {
+        questionEls.forEach((el, i) => (el.hidden = i !== index));
+        progressBar.style.width = `${Math.round((index / total) * 100)}%`;
+        stepLabel.textContent = `Question ${index + 1} of ${total}`;
+      }
+
+      const alreadyDone = localStorage.getItem(storageKey);
+      if (alreadyDone) {
+        showResult(alreadyDone, false);
+      }
+
+      questionEls.forEach((qEl) => {
+        qEl.querySelectorAll<HTMLButtonElement>("[data-quiz-option]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const resultKey = btn.dataset.resultKey!;
+            tally[resultKey] = (tally[resultKey] ?? 0) + 1;
+
+            if (typeof (window as any).gtag === "function") {
+              (window as any).gtag("event", "quiz_question_answered", {
+                quiz_key: quizKey,
+                question_index: currentIndex,
+              });
+            }
+
+            currentIndex += 1;
+            if (currentIndex < total) {
+              showQuestion(currentIndex);
+            } else {
+              progressBar.style.width = "100%";
+              const winner = Object.entries(tally).sort((a, b) => b[1] - a[1])[0][0];
+              showResult(winner, true);
+            }
+          });
+        });
+      });
+
+      resultEl.querySelector<HTMLButtonElement>("[data-quiz-retake]")!.addEventListener("click", () => {
+        localStorage.removeItem(storageKey);
+        currentIndex = 0;
+        Object.keys(tally).forEach((k) => delete tally[k]);
+        resultEl.hidden = true;
+        questionsEl.hidden = false;
+        showQuestion(0);
+      });
+    });
+  }
+
+  initQuizWidgets();
+  document.addEventListener("astro:page-load", initQuizWidgets);
+</script>
+
+<style>
+  .quiz-widget {
+    padding: 28px 24px; border-radius: var(--radius-lg); border: 2px solid var(--wag-pink);
+    background: var(--bg-alt);
+  }
+
+  .quiz-progress { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; margin-bottom: 10px; }
+  .quiz-progress-bar { height: 100%; background: linear-gradient(90deg, var(--wag-pink), var(--wag-green)); transition: width .3s ease; }
+  .quiz-step-label { font-size: .78rem; color: var(--ink-muted); text-align: center; margin: 0 0 22px; }
+
+  .quiz-q-text { font-size: clamp(1.2rem, 2.4vw, 1.5rem); margin: 0 0 20px; text-align: center; text-wrap: balance; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option {
+    font: inherit; font-size: 1rem; text-align: left; padding: 16px 18px; cursor: pointer;
+    border-radius: var(--radius-sm); border: 2px solid var(--line); background: var(--bg);
+    color: var(--ink); transition: border-color .15s ease, transform .15s ease;
+  }
+  .quiz-option:hover { border-color: var(--wag-pink); transform: translateX(2px); }
+
+  .quiz-result { text-align: center; }
+  .quiz-result-eyebrow {
+    font-family: var(--font-display); text-transform: uppercase; letter-spacing: .08em;
+    font-size: .8rem; color: var(--wag-green); margin: 0 0 12px;
+  }
+  .quiz-result-photo {
+    width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: top center;
+    border: 3px solid var(--wag-pink); margin: 0 auto 16px; display: block;
+  }
+  .quiz-result-name { font-size: clamp(1.5rem, 3vw, 2rem); margin: 0 0 6px; }
+  .quiz-result-tagline { font-family: var(--font-display); color: var(--wag-pink); font-size: 1rem; margin: 0 0 16px; }
+  .quiz-result-description { font-size: .98rem; color: var(--ink-soft); max-width: 52ch; margin: 0 auto 22px; }
+  .quiz-result-cta {
+    display: inline-block; font-family: var(--font-display); font-size: 1rem; padding: 12px 26px;
+    border-radius: var(--radius-sm); background: var(--wag-pink); color: var(--wag-white); text-decoration: none;
+    margin-bottom: 16px;
+  }
+  .quiz-retake {
+    display: block; margin: 0 auto; font: inherit; font-size: .86rem; color: var(--ink-muted);
+    background: none; border: none; cursor: pointer; text-decoration: underline;
+  }
+</style>
