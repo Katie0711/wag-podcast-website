@@ -25,7 +25,7 @@ const initialYesPct = initialTotal > 0 ? Math.round((initialYes / initialTotal) 
     <button type="button" class="vote-btn vote-no" data-vote-choice="no">{optionNo}</button>
   </div>
 
-  <div class="vote-results" data-vote-results hidden>
+  <div class="vote-results" data-vote-results hidden role="status" aria-live="polite">
     <p class="vote-results-label">Here's how everyone else is calling it so far:</p>
     <div class="vote-bar">
       <div class="vote-bar-yes" data-vote-bar-yes style={`width:${initialYesPct}%`}>
