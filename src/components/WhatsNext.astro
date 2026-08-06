@@ -24,13 +24,13 @@ interface Props {
 const { items, shareUrl, shareTitle, insiderPage } = Astro.props;
 ---
 
-<section class="whats-next" data-reveal>
+<section class="whats-next" data-reveal data-wn-source={insiderPage}>
   <div class="container">
     <div class="wn-card">
       <h2>What's Next?</h2>
       <div class="wn-grid">
         {items.map((item) => (
-          <a class="wn-item" href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener" : undefined}>
+          <a class="wn-item" data-wn-track data-wn-label={item.label} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener" : undefined}>
             <span class="wn-icon">{item.icon}</span>
             <span class="wn-label">{item.label}</span>
           </a>
@@ -38,7 +38,7 @@ const { items, shareUrl, shareTitle, insiderPage } = Astro.props;
         <div class="wn-item wn-share">
           <ShareSheet url={shareUrl} title={shareTitle} id="whats-next" />
         </div>
-        <a class="wn-item wn-subscribe" href={insiderHref(insiderPage)}>
+        <a class="wn-item wn-subscribe" data-wn-track data-wn-label="Subscribe" href={insiderHref(insiderPage)}>
           <span class="wn-icon">📬</span>
           <span class="wn-label">{CTA.subscribe}</span>
         </a>
@@ -46,6 +46,53 @@ const { items, shareUrl, shareTitle, insiderPage } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  // Uniform related-content click tracking -- lands on every interaction
+  // page for free since they all share this component. destination_type
+  // is derived from the URL rather than needing a per-item prop, so
+  // existing WhatsNext usages across the site pick this up with zero
+  // changes to their own `items` arrays.
+  function classifyDestination(href: string): string {
+    // `href` here is always the resolved absolute URL (reading .href off
+    // an anchor never returns a bare relative path, even if the markup
+    // wrote one). Comparing against location.hostname rather than a
+    // hardcoded "thewagpodcast.com" string is what makes this classify
+    // correctly on localhost/staging/preview too, not just production --
+    // caught live in verification: hardcoding the production domain made
+    // every relative link misclassify as "external" while testing locally.
+    if (/youtube\.com|youtu\.be/.test(href)) return "youtube";
+    try {
+      const url = new URL(href);
+      if (url.hostname === location.hostname) return "internal";
+      if (/wildadventuregirls\.com/.test(url.hostname)) return "wag_main_site";
+    } catch {
+      // malformed href -- fall through to external
+    }
+    return "external";
+  }
+
+  function initWhatsNextTracking() {
+    document.querySelectorAll<HTMLElement>("[data-wn-source]:not([data-wn-bound])").forEach((section) => {
+      section.setAttribute("data-wn-bound", "true");
+      const sourcePage = section.dataset.wnSource!;
+      section.querySelectorAll<HTMLAnchorElement>("[data-wn-track]").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (typeof (window as any).gtag === "function") {
+            (window as any).gtag("event", "next_action_click", {
+              source_page: sourcePage,
+              label: link.dataset.wnLabel,
+              destination_type: classifyDestination(link.href),
+            });
+          }
+        });
+      });
+    });
+  }
+
+  initWhatsNextTracking();
+  document.addEventListener("astro:page-load", initWhatsNextTracking);
+</script>
 
 <style>
   .whats-next { padding: 8px 0 72px; }
