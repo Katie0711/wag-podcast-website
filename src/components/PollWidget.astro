@@ -1,0 +1,144 @@
+---
+// Generalized N-option sibling of VoteWidget (which stays binary
+// yes/no for Verdict, untouched). Same real-time aggregate mechanic --
+// live counts via /api/poll-vote's compare-and-swap Netlify Blobs
+// store -- generalized to any number of options. Dispatches the same
+// "wag:voted" event shape VoteWidget does (bubbles, target carries
+// data-vote-key) so ConsentCheckboxPair's existing reveal-matching
+// logic works with zero changes.
+interface PollOption {
+  key: string;
+  label: string;
+}
+interface Props {
+  pollKey: string;
+  question: string;
+  options: PollOption[];
+  initialCounts: Record<string, number>;
+}
+const { pollKey, question, options, initialCounts } = Astro.props;
+const initialTotal = options.reduce((sum, o) => sum + (initialCounts[o.key] ?? 0), 0);
+---
+
+<div class="poll-widget" data-poll-widget data-vote-key={pollKey} data-poll-key={pollKey} data-valid-choices={JSON.stringify(options.map((o) => o.key))}>
+  <h2 class="poll-question">{question}</h2>
+
+  <div class="poll-buttons" data-poll-buttons>
+    {options.map((o) => (
+      <button type="button" class="poll-btn" data-poll-choice={o.key}>{o.label}</button>
+    ))}
+  </div>
+
+  <div class="poll-results" data-poll-results hidden role="status" aria-live="polite">
+    <p class="poll-results-label">Here's how everyone's voting so far:</p>
+    <div class="poll-bars" data-poll-bars>
+      {options.map((o) => {
+        const count = initialCounts[o.key] ?? 0;
+        const pct = initialTotal > 0 ? Math.round((count / initialTotal) * 100) : 0;
+        return (
+          <div class="poll-bar-row" data-poll-bar-row={o.key}>
+            <span class="poll-bar-label">{o.label}</span>
+            <div class="poll-bar-track">
+              <div class="poll-bar-fill" data-poll-bar-fill={o.key} style={`width:${pct}%`}></div>
+            </div>
+            <span class="poll-bar-pct" data-poll-bar-pct={o.key}>{pct}%</span>
+          </div>
+        );
+      })}
+    </div>
+    <p class="poll-count" data-poll-count>{initialTotal.toLocaleString()} votes so far</p>
+  </div>
+</div>
+
+<script>
+  function initPollWidgets() {
+    document.querySelectorAll<HTMLElement>("[data-poll-widget]:not([data-poll-bound])").forEach((widget) => {
+      widget.setAttribute("data-poll-bound", "true");
+      const pollKey = widget.dataset.pollKey!;
+      const validChoices: string[] = JSON.parse(widget.dataset.validChoices || "[]");
+      const buttonsEl = widget.querySelector<HTMLElement>("[data-poll-buttons]")!;
+      const resultsEl = widget.querySelector<HTMLElement>("[data-poll-results]")!;
+      const countEl = widget.querySelector<HTMLElement>("[data-poll-count]")!;
+
+      const storageKey = `wag_voted_${pollKey}`;
+      const alreadyVoted = localStorage.getItem(storageKey);
+
+      function showResults() {
+        buttonsEl.hidden = true;
+        resultsEl.hidden = false;
+        widget.dispatchEvent(new CustomEvent("wag:voted", { bubbles: true }));
+      }
+
+      function renderResults(counts: Record<string, number>) {
+        const total = validChoices.reduce((sum, k) => sum + (counts[k] ?? 0), 0);
+        validChoices.forEach((key) => {
+          const count = counts[key] ?? 0;
+          const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+          const fill = widget.querySelector<HTMLElement>(`[data-poll-bar-fill="${key}"]`);
+          const pctEl = widget.querySelector<HTMLElement>(`[data-poll-bar-pct="${key}"]`);
+          if (fill) fill.style.width = `${pct}%`;
+          if (pctEl) pctEl.textContent = `${pct}%`;
+        });
+        countEl.textContent = `${total.toLocaleString()} vote${total === 1 ? "" : "s"} so far`;
+      }
+
+      if (alreadyVoted) showResults();
+
+      buttonsEl.querySelectorAll<HTMLButtonElement>("[data-poll-choice]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const choice = btn.dataset.pollChoice!;
+          buttonsEl.querySelectorAll("button").forEach((b) => (b.disabled = true));
+
+          if (typeof (window as any).gtag === "function") {
+            (window as any).gtag("event", "poll_vote_cast", { poll_key: pollKey, choice });
+          }
+
+          try {
+            const res = await fetch("/api/poll-vote", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ pollKey, choice, validChoices }),
+            });
+            if (res.ok) {
+              const data = await res.json();
+              renderResults(data);
+              localStorage.setItem(storageKey, choice);
+            }
+          } catch {
+            // Network hiccup -- fail gracefully, still reveal results state.
+          }
+          showResults();
+        });
+      });
+    });
+  }
+
+  initPollWidgets();
+  document.addEventListener("astro:page-load", initPollWidgets);
+</script>
+
+<style>
+  .poll-widget {
+    padding: 28px 24px; border-radius: var(--radius-lg); border: 2px solid var(--wag-green);
+    background: var(--bg-alt);
+  }
+  .poll-question { font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin: 0 0 22px; text-align: center; text-wrap: balance; }
+  .poll-buttons { display: flex; flex-direction: column; gap: 10px; }
+  .poll-buttons[hidden], .poll-results[hidden] { display: none; }
+  .poll-btn {
+    font-family: var(--font-display); font-size: 1rem; letter-spacing: .02em; padding: 16px 18px;
+    text-align: left; border-radius: var(--radius-sm); border: 2px solid var(--line); background: var(--bg);
+    color: var(--ink); cursor: pointer; transition: border-color .15s ease, transform .15s ease;
+  }
+  .poll-btn:disabled { opacity: .6; cursor: default; }
+  .poll-btn:not(:disabled):hover { border-color: var(--wag-green); transform: translateX(2px); }
+
+  .poll-results-label { font-size: .92rem; color: var(--ink-soft); margin: 0 0 14px; text-align: center; }
+  .poll-bars { display: flex; flex-direction: column; gap: 12px; }
+  .poll-bar-row { display: grid; grid-template-columns: 1fr; gap: 4px; }
+  .poll-bar-label { font-size: .88rem; color: var(--ink-soft); font-weight: 600; }
+  .poll-bar-track { height: 26px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); overflow: hidden; }
+  .poll-bar-fill { height: 100%; background: var(--wag-green); transition: width .4s ease; min-width: 4px; }
+  .poll-bar-pct { font-size: .8rem; color: var(--ink-muted); align-self: flex-end; }
+  .poll-count { font-size: .82rem; color: var(--ink-muted); text-align: center; margin: 16px 0 0; }
+</style>

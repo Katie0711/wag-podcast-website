@@ -58,6 +58,7 @@ const EXPLORE_CATS = [
   { key: "predicted", name: "WAG Predicted It", hook: "Did they call it? Go find out.", href: "/wag-predicted-it/", photo: "https://img.youtube.com/vi/ko8HDrQp7LQ/mqdefault.jpg", accent: "var(--wag-pink)", tag: "Recap" },
   { key: "verdict", name: "WAG Verdict", hook: "Real dilemmas from the show. Cast your vote, see the real outcome.", href: "/verdict/", photo: "https://img.youtube.com/vi/mCfeIZst5qQ/mqdefault.jpg", accent: "var(--wag-green)", tag: "Vote" },
   { key: "match", name: "WAG Match", hook: "Angelina, Scarlett, or Annabella — 5 questions, find your match.", href: "/match/", photo: "/images/hero-group-3.jpg", accent: "var(--wag-pink)", tag: "Quiz" },
+  { key: "community", name: "Community Chooses", hook: "He Said What?! Squad Dares. Tell Me the Truth. Vote for your favorite.", href: "/community-chooses/", photo: "/images/studio/wag-studio-53.jpg", accent: "var(--wag-green)", tag: "Poll" },
 ];
 
 // "guys" is the hero above and intentionally not repeated below; all
@@ -72,7 +73,7 @@ const EXPLORE_CATS = [
 // per-category engagement data is ever pulled, this can become a genuine
 // "Top Picks" row at that point.
 const EXPLORE_SHELVES = [
-  { title: "Formats & Games", tag: "Pick a Format", ranked: true, items: ["verdict", "match", "segments", "comedy", "games", "predicted"] },
+  { title: "Formats & Games", tag: "Pick a Format", ranked: true, items: ["verdict", "match", "community", "segments", "comedy", "games", "predicted"] },
   { title: "Real Talk & Info", tag: "Good to Know", ranked: false, items: ["mental", "growing", "video", "faq"] },
 ];
 const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
