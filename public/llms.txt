@@ -15,6 +15,7 @@ WAG Podcast is teen entertainment, built for and watched primarily by tween and 
 - [WAG Match](https://thewagpodcast.com/match/): A 5-question personality quiz matching visitors to the WAG Podcast host (Angelina, Scarlett, or Annabella) they're most like.
 - [Vote for Your Favorite WAG Segment](https://thewagpodcast.com/favorite-segment/): A running poll where fans vote for their favorite real WAG Podcast recurring segment (He Said What?!, Squad Dares, Tell Me the Truth, 3-Second Roast) and see live results.
 - [Questions Featured](https://thewagpodcast.com/questions-featured/): Submit a real question for a future Guys Answer Questions episode. Some submissions get read and picked to be featured.
+- [WAG Awards](https://thewagpodcast.com/wag-awards/): WAG's real, fan-voted awards. Season 1 category: Favorite Guest — Ryan vs Aiden from Guys Answer Questions. More categories launch as real content exists for them.
 - [Guys Answer Questions](https://thewagpodcast.com/guys-answer-questions/): A real recurring WAG Podcast format — a real guy answers real questions on camera, every installment so far.
 - [Teen Mental Health, Real Talk](https://thewagpodcast.com/mental-health/): A real episode resource on WAG's conversation with a group of teens about burnout, school stress, social media, and what helps.
 - [Games](https://thewagpodcast.com/games/): The real party games WAG Podcast plays — Guess the Imposter, Who's Most Likely To, Heads Up — how each one works and the episode where they played it.
