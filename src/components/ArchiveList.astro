@@ -1,0 +1,43 @@
+---
+// Chronological list of past Verdicts, each linking to its matched
+// episode -- not individual permalinks yet (see content.config.ts note
+// on avoiding thin per-entry pages at low volume). Empty state included
+// since this MVP ships with exactly one current entry and zero archived
+// ones.
+interface ArchiveEntry {
+  dilemma: string;
+  revealText?: string;
+  optionYes: string;
+  optionNo: string;
+  episodeHref: string;
+  episodeTitle: string;
+}
+interface Props {
+  entries: ArchiveEntry[];
+}
+const { entries } = Astro.props;
+---
+
+<div class="archive-list">
+  {entries.length === 0 ? (
+    <p class="archive-empty">The first Verdict is live above — check back next week for the archive to start filling in.</p>
+  ) : (
+    entries.map((entry) => (
+      <div class="archive-item">
+        <h3 class="archive-dilemma">{entry.dilemma}</h3>
+        {entry.revealText && <p class="archive-reveal">{entry.revealText}</p>}
+        <a class="archive-link" href={entry.episodeHref}>Watch the real episode: {entry.episodeTitle} →</a>
+      </div>
+    ))
+  )}
+</div>
+
+<style>
+  .archive-empty { color: var(--ink-muted); font-size: .94rem; text-align: center; padding: 20px 0; }
+  .archive-item { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .archive-item:last-child { border-bottom: none; }
+  .archive-dilemma { font-size: 1.05rem; margin: 0 0 8px; }
+  .archive-reveal { font-size: .9rem; color: var(--ink-soft); margin: 0 0 10px; }
+  .archive-link { font-size: .86rem; color: var(--wag-green); font-weight: 600; text-decoration: none; }
+  .archive-link:hover { text-decoration: underline; }
+</style>

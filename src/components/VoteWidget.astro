@@ -1,0 +1,140 @@
+---
+// The core WAG Verdict interaction: a real binary vote on a real dilemma
+// from an actual episode. No account, no login -- a soft per-browser
+// localStorage flag prevents accidental re-votes (not fraud-proof, an
+// explicit MVP tradeoff, not an oversight). Voting itself makes no
+// Beehiiv call; only ConsentCheckboxPair (rendered after a vote) does.
+interface Props {
+  voteKey: string;
+  dilemma: string;
+  optionYes: string;
+  optionNo: string;
+  initialYes: number;
+  initialNo: number;
+}
+const { voteKey, dilemma, optionYes, optionNo, initialYes, initialNo } = Astro.props;
+const initialTotal = initialYes + initialNo;
+const initialYesPct = initialTotal > 0 ? Math.round((initialYes / initialTotal) * 100) : 50;
+---
+
+<div class="vote-widget" data-vote-widget data-vote-key={voteKey}>
+  <h2 class="vote-dilemma">{dilemma}</h2>
+
+  <div class="vote-buttons" data-vote-buttons>
+    <button type="button" class="vote-btn vote-yes" data-vote-choice="yes">{optionYes}</button>
+    <button type="button" class="vote-btn vote-no" data-vote-choice="no">{optionNo}</button>
+  </div>
+
+  <div class="vote-results" data-vote-results hidden>
+    <p class="vote-results-label">Here's how everyone else is calling it so far:</p>
+    <div class="vote-bar">
+      <div class="vote-bar-yes" data-vote-bar-yes style={`width:${initialYesPct}%`}>
+        <span data-vote-pct-yes>{initialYesPct}%</span>
+      </div>
+      <div class="vote-bar-no" data-vote-bar-no style={`width:${100 - initialYesPct}%`}>
+        <span data-vote-pct-no>{100 - initialYesPct}%</span>
+      </div>
+    </div>
+    <p class="vote-count" data-vote-count>{initialTotal.toLocaleString()} votes so far</p>
+  </div>
+</div>
+
+<script>
+  function initVoteWidgets() {
+    document.querySelectorAll<HTMLElement>("[data-vote-widget]:not([data-vote-bound])").forEach((widget) => {
+      widget.setAttribute("data-vote-bound", "true");
+      const voteKey = widget.dataset.voteKey!;
+      const buttonsEl = widget.querySelector<HTMLElement>("[data-vote-buttons]")!;
+      const resultsEl = widget.querySelector<HTMLElement>("[data-vote-results]")!;
+      const barYes = widget.querySelector<HTMLElement>("[data-vote-bar-yes]")!;
+      const barNo = widget.querySelector<HTMLElement>("[data-vote-bar-no]")!;
+      const pctYesEl = widget.querySelector<HTMLElement>("[data-vote-pct-yes]")!;
+      const pctNoEl = widget.querySelector<HTMLElement>("[data-vote-pct-no]")!;
+      const countEl = widget.querySelector<HTMLElement>("[data-vote-count]")!;
+
+      const storageKey = `wag_voted_${voteKey}`;
+      const alreadyVoted = localStorage.getItem(storageKey);
+
+      function showResults() {
+        buttonsEl.hidden = true;
+        resultsEl.hidden = false;
+        widget.dispatchEvent(new CustomEvent("wag:voted", { bubbles: true }));
+      }
+
+      function renderResults(yes: number, no: number) {
+        const total = yes + no;
+        const yesPct = total > 0 ? Math.round((yes / total) * 100) : 50;
+        barYes.style.width = `${yesPct}%`;
+        barNo.style.width = `${100 - yesPct}%`;
+        pctYesEl.textContent = `${yesPct}%`;
+        pctNoEl.textContent = `${100 - yesPct}%`;
+        countEl.textContent = `${total.toLocaleString()} vote${total === 1 ? "" : "s"} so far`;
+      }
+
+      if (alreadyVoted) showResults();
+
+      buttonsEl.querySelectorAll<HTMLButtonElement>("[data-vote-choice]").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const choice = btn.dataset.voteChoice as "yes" | "no";
+          buttonsEl.querySelectorAll("button").forEach((b) => (b.disabled = true));
+
+          if (typeof (window as any).gtag === "function") {
+            (window as any).gtag("event", "verdict_vote_cast", { verdict_key: voteKey, choice });
+          }
+
+          try {
+            const res = await fetch("/api/verdict-vote", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ voteKey, choice }),
+            });
+            if (res.ok) {
+              const data = await res.json();
+              renderResults(data.yes, data.no);
+              localStorage.setItem(storageKey, choice);
+            }
+          } catch {
+            // Network hiccup -- fail gracefully, still show the reveal-consent
+            // step below rather than leaving her stuck on disabled buttons.
+          }
+          showResults();
+        });
+      });
+    });
+  }
+
+  initVoteWidgets();
+  document.addEventListener("astro:page-load", initVoteWidgets);
+</script>
+
+<style>
+  .vote-widget {
+    padding: 28px 24px; border-radius: var(--radius-lg); border: 2px solid var(--wag-pink);
+    background: var(--bg-alt);
+  }
+  .vote-dilemma { font-size: clamp(1.3rem, 2.6vw, 1.7rem); margin: 0 0 22px; text-align: center; text-wrap: balance; }
+  .vote-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .vote-buttons[hidden], .vote-results[hidden] { display: none; }
+  .vote-btn {
+    font-family: var(--font-display); font-size: 1.1rem; letter-spacing: .02em; padding: 18px 16px;
+    border-radius: var(--radius-sm); border: 2px solid transparent; cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .vote-btn:disabled { opacity: .6; cursor: default; }
+  .vote-yes { background: var(--wag-green); color: var(--wag-black); }
+  .vote-no { background: transparent; color: var(--wag-pink); border-color: var(--wag-pink); }
+  .vote-btn:not(:disabled):hover { transform: translateY(-2px); }
+
+  .vote-results-label { font-size: .92rem; color: var(--ink-soft); margin: 0 0 10px; text-align: center; }
+  .vote-bar {
+    display: flex; height: 42px; border-radius: var(--radius-sm); overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .vote-bar-yes, .vote-bar-no {
+    display: flex; align-items: center; justify-content: center; font-family: var(--font-display);
+    font-size: 1rem; transition: width .4s ease; min-width: 40px;
+  }
+  .vote-bar-yes { background: var(--wag-green); color: var(--wag-black); }
+  .vote-bar-no { background: var(--wag-pink-dark); color: var(--wag-white); }
+  .vote-count { font-size: .82rem; color: var(--ink-muted); text-align: center; margin: 10px 0 0; }
+</style>
