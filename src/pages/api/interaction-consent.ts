@@ -14,7 +14,7 @@ const BEEHIIV_API_BASE = "https://api.beehiiv.com/v2";
 
 // Add this interaction's transactional tag here when it needs one --
 // create the matching tag in Beehiiv first (see docs/interaction-architecture.md).
-const ALLOWED_TRANSACTIONAL_TAGS = new Set(["wag-match", "community-chooses"]);
+const ALLOWED_TRANSACTIONAL_TAGS = new Set(["wag-match", "favorite-segment"]);
 
 export async function POST({ request }: APIContext): Promise<Response> {
   let body: {

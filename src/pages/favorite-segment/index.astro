@@ -1,13 +1,12 @@
 ---
-// Third production interaction on the shared architecture. Deliberately
-// scoped as a retrospective favorite-segment poll, not a forward-looking
-// "vote and we'll film it" promise -- there's no real, confirmed production
-// decision this could honestly attach to yet (see the standing content-
-// authenticity rule: no fabricated stakes). Polling the 4 real recurring
-// segments (same source as /segments/ and Home) is genuinely grounded and
-// still produces real, shareable data ("62% picked Squad Dares") per the
-// interaction-data-becomes-content standing rule -- and gives sponsors a
-// real signal for which segment to attach to.
+// Renamed and repositioned from the original /community-chooses/ build
+// per Katie's correction (2026-08-06): this is a pure favorite-segment
+// preference poll, not the forward-looking "audience picks what WAG
+// makes next" format. "Community Chooses" is reserved for that real,
+// stakes-attached format -- built later once a real upcoming decision
+// exists to attach it to (PollWidget/poll-vote.ts already support it
+// with zero new code; only real content is missing). Copy here is
+// deliberately careful never to imply voting changes what gets filmed.
 export const prerender = false;
 
 import { getStore } from "@netlify/blobs";
@@ -31,16 +30,16 @@ const store = getStore("wag-poll-votes");
 const initialCounts = ((await store.get(POLL_KEY, { type: "json" })) as Record<string, number> | null) ?? {};
 
 const faqs = [
-  { q: "What is Community Chooses?", a: "A running poll where fans vote for their favorite real WAG Podcast segment. It's not tied to one episode — it's an ongoing read on what the community actually likes best." },
-  { q: "Does my vote change what WAG films?", a: "Not directly — this poll tracks which segment fans love most, it isn't a request line. If that changes, this page will say so." },
-  { q: "What are the 4 segments?", a: "He Said What?!, Squad Dares, Tell Me the Truth, and 3-Second Roast — WAG Podcast's real recurring bits. See the Segments page for what each one actually is." },
+  { q: "What is this poll?", a: "A running read on which real WAG Podcast segment fans love most — He Said What?!, Squad Dares, Tell Me the Truth, or 3-Second Roast." },
+  { q: "Does voting mean WAG will film more of that segment?", a: "Not automatically — this tracks what the community likes best, it isn't a request line. If WAG ever ties a real production decision to audience input, that will be its own page, clearly labeled." },
+  { q: "What are the 4 segments?", a: "WAG Podcast's real recurring bits. See the Segments page for what each one actually is." },
 ];
 
 const pageSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Community Chooses — WAG Podcast",
-  description: "Vote for your favorite real WAG Podcast recurring segment and see how the community is voting live.",
+  headline: "Vote for Your Favorite WAG Segment — WAG Podcast",
+  description: "Vote for your favorite real WAG Podcast segment and see how the community is voting live.",
   image: "https://thewagpodcast.com/images/studio/wag-studio-53.jpg",
   author: { "@type": "Organization", name: "WAG Podcast" },
   publisher: { "@type": "Organization", name: "The Wild Adventure Girls", url: "https://wildadventuregirls.com" },
@@ -58,23 +57,23 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title="Community Chooses — Vote for Your Favorite Segment | WAG Podcast"
-  description="Vote for your favorite real WAG Podcast recurring segment — He Said What?!, Squad Dares, Tell Me the Truth, or 3-Second Roast — and see how the community is voting live."
+  title="Vote for Your Favorite WAG Segment | WAG Podcast"
+  description="Vote for your favorite real WAG Podcast segment — He Said What?!, Squad Dares, Tell Me the Truth, or 3-Second Roast — and see how the community is voting live."
   ogImage="/images/studio/wag-studio-53.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <section class="cc-hero">
+  <section class="fs-hero">
     <div class="container" data-reveal>
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Community Chooses", href: "/community-chooses/" }]} />
-      <p class="eyebrow"><EqBars size="sm" /> Community Chooses</p>
-      <h1>Which segment do <span class="text-accent">you</span> love most?</h1>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Favorite Segment", href: "/favorite-segment/" }]} />
+      <p class="eyebrow"><EqBars size="sm" /> Fan Favorite</p>
+      <h1>Vote for your <span class="text-accent">favorite</span> segment.</h1>
       <p class="lede">He Said What?!, Squad Dares, Tell Me the Truth, 3-Second Roast — WAG Podcast's four real recurring bits. Pick your favorite, see how everyone else voted.</p>
     </div>
   </section>
 
-  <section class="cc-poll">
+  <section class="fs-poll">
     <div class="container container--narrow" data-reveal>
       <PollWidget pollKey={POLL_KEY} question="Which real WAG Podcast segment is your favorite?" options={options} initialCounts={initialCounts} />
       <ConsentCheckboxPair
@@ -82,12 +81,12 @@ const faqSchema = {
         transactionalLabel="Email me when this poll updates"
         marketingLabel="Also join WAG Insider for future polls, quizzes, episodes, and product news"
         apiEndpoint="/api/interaction-consent"
-        transactionalTag="community-chooses"
+        transactionalTag="favorite-segment"
       />
     </div>
   </section>
 
-  <section class="cc-sponsor">
+  <section class="fs-sponsor">
     <div class="container container--narrow" data-reveal>
       <SponsorSlot
         fallbackHref="/segments/"
@@ -96,9 +95,9 @@ const faqSchema = {
     </div>
   </section>
 
-  <section class="cc-how">
+  <section class="fs-how">
     <div class="container container--narrow" data-reveal>
-      <h2>About Community Chooses</h2>
+      <h2>About this poll</h2>
       <div class="faq-list">
         {faqs.map((f) => (
           <div class="faq-item">
@@ -116,16 +115,16 @@ const faqSchema = {
       { icon: "🎬", label: "See every real segment", href: "/segments/" },
       { icon: "🗳️", label: "Vote on WAG Verdict", href: "/verdict/" },
     ]}
-    shareUrl="https://thewagpodcast.com/community-chooses/"
-    shareTitle="Community Chooses — WAG Podcast"
-    insiderPage="community-chooses"
+    shareUrl="https://thewagpodcast.com/favorite-segment/"
+    shareTitle="Vote for Your Favorite WAG Segment — WAG Podcast"
+    insiderPage="favorite-segment"
   />
 </BaseLayout>
 
 <style>
-  .cc-hero { padding: 32px 0 20px; }
+  .fs-hero { padding: 32px 0 20px; }
   .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--wag-green); margin-top: 14px; }
-  .cc-hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); max-width: 22ch; }
+  .fs-hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); max-width: 22ch; }
   .text-accent {
     background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -134,11 +133,11 @@ const faqSchema = {
 
   .container--narrow { max-width: 680px; }
 
-  .cc-poll { padding: 12px 0 24px; }
-  .cc-sponsor { padding: 0 0 32px; }
+  .fs-poll { padding: 12px 0 24px; }
+  .fs-sponsor { padding: 0 0 32px; }
 
-  .cc-how { padding: 12px 0 40px; }
-  .cc-how h2 { font-size: 1.5rem; margin-bottom: 18px; }
+  .fs-how { padding: 12px 0 40px; }
+  .fs-how h2 { font-size: 1.5rem; margin-bottom: 18px; }
   .faq-list { display: flex; flex-direction: column; gap: 18px; }
   .faq-item h3 { font-family: var(--font-body); font-weight: 700; text-transform: none; letter-spacing: 0; font-size: 1rem; margin-bottom: 6px; }
   .faq-item p { font-size: .92rem; color: var(--ink-soft); margin: 0; }
