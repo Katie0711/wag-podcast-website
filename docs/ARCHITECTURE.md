@@ -25,6 +25,19 @@ One page to find anything. This is a map, not a tutorial — read the linked sou
 - **`ShareSheet.astro`** — native Web Share API + fallback deep-link menu (SMS, WhatsApp, X, Facebook, email, copy link).
 - **`Breadcrumb.astro`** — renders visible breadcrumb + `BreadcrumbList` JSON-LD.
 
+### These components are the "future software" engines, already
+
+Per Katie's standing framing (2026-08-07): WAG isn't building software to sell today, but every reusable component here already **is** the internal-operating-system module that framing describes, whether or not it's ever sold — no new abstraction needed to make that true, just naming it plainly:
+
+- `PollWidget` + `poll-vote.ts` = the voting/polling engine.
+- `QuizWidget` = the quiz/personality-match engine.
+- `VoteWidget` = the binary-decision engine (Verdict's specific case; not yet generalized into `PollWidget` — see the Reuse Rule note below for why that's correct, not an oversight).
+- `ConsentCheckboxPair` + `interaction-consent.ts` = the audience-consent/tagging engine.
+- `SponsorSlot` = the sponsorship-inventory module.
+- `WhatsNext` + its `next_action_click` tracking = the cross-content recommendation engine.
+
+**Reuse Rule applied here, explicitly:** `VoteWidget` (Verdict) and `PollWidget` (everything else) remain two separate components rather than one, even though they're structurally close — Verdict was mid-review when the generic pattern emerged, and merging them now would touch already-verified, launch-pending code for a cosmetic win. This is the "don't generalize until it's free" judgment call in practice, not an oversight.
+
 ## Shared APIs (`src/pages/api/`)
 
 - **`interaction-consent.ts`** — the shared Beehiiv consent endpoint every interaction *except* Verdict and Predicted It uses. Takes `{email, transactional, marketing, itemKey, transactionalTag}`. `transactionalTag` is checked against a **server-side whitelist** (`ALLOWED_TRANSACTIONAL_TAGS`) — adding a new interaction means adding its tag to that Set, nothing else. Creates/reactivates the Beehiiv subscription, then applies `transactionalTag` (if transactional checked) and `insider-marketing-consent` (if marketing checked).
@@ -38,6 +51,7 @@ One page to find anything. This is a map, not a tutorial — read the linked sou
 - One tag per interaction's transactional consent (`verdict`, `wag-match`, `favorite-segment`, `questions-featured`, `wag-awards`, `seasonal-challenges` — last one pre-created, unused until the page goes live), plus one shared `insider-marketing-consent` tag for the marketing checkbox across all of them.
 - Real segments (tag-backed, `subscriber_tag = '<tag id>'`) exist wherever a consent checkbox makes a promise that needs a real send mechanism later: `Verdict Reveal Recipients`, `Questions Featured Recipients`. Rule of thumb: **if a checkbox says "email me when X happens," a matching segment must exist** so that promise is actually fulfillable — don't ship the checkbox without it (this was a real gap caught and fixed on Questions Featured).
 - Full account facts (plan, pricing, DNS/DMARC state, subscribe-form theme) are tracked outside this repo in the operator's own memory — check there before assuming plan-gated features (Segments/Automations) are or aren't available.
+- **Per-choice tags (added 2026-08-07, Data lens of the interaction optimization pass):** `interaction-consent.ts` now optionally applies a second, more specific tag alongside the participation tag — e.g. `wag-match-annabella` alongside `wag-match`, `wag-awards-ryan` alongside `wag-awards` — whenever the visitor's actual choice (already sitting in localStorage from `PollWidget`/`QuizWidget`, nothing new asked) matches a real entry in the server-side `CHOICE_TAGS` allowlist. Zero added UI friction; turns "who participated" into "who matched Annabella" / "who voted for Ryan" as real, queryable Beehiiv segments. Extend `CHOICE_TAGS` (and create the matching Beehiiv tag first) whenever a new interaction has a small, real, enumerable set of choices worth segmenting on.
 
 ## Analytics
 

@@ -129,11 +129,25 @@ const {
           if (marketing) (window as any).gtag("event", "consent_marketing_checked", { item_key: voteKey });
         }
 
+        // Zero-friction first-party data: PollWidget/VoteWidget/QuizWidget
+        // already write the visitor's real choice (vote option, quiz
+        // result) into localStorage under this exact storageKey before
+        // this form is ever revealed. Reading it here costs nothing new
+        // to ask the visitor -- it just lets the server apply a specific
+        // per-choice Beehiiv tag (e.g. wag-match-annabella) alongside the
+        // existing participation tag, so "who matched Annabella" becomes
+        // real, queryable audience data instead of being thrown away.
+        // Questions Featured's storageKey holds only "1" (a flag, not a
+        // real choice) -- the server-side allowlist naturally ignores
+        // anything that isn't a recognized choice value, so this is safe
+        // to always send.
+        const choiceKey = localStorage.getItem(storageKey);
+
         try {
           const res = await fetch(apiEndpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, transactional, marketing, voteKey, itemKey: voteKey, transactionalTag }),
+            body: JSON.stringify({ email, transactional, marketing, voteKey, itemKey: voteKey, transactionalTag, choiceKey }),
           });
           if (res.ok) {
             statusEl.textContent = "You're set — we'll be in touch.";
