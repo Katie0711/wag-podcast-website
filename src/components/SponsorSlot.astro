@@ -1,0 +1,36 @@
+---
+// Reusable sponsor inventory slot. Unfilled by default (`sponsor` unset)
+// -- per Katie's direction, an empty slot shows a real WAG-owned fallback,
+// never "this could be sponsored" sales copy on the fan-facing page. The
+// same component renders real sponsor branding the moment one is sold,
+// with no template change needed.
+interface Props {
+  sponsor?: { name: string; logoUrl?: string; url: string };
+  fallbackHref: string;
+  fallbackLabel: string;
+}
+const { sponsor, fallbackHref, fallbackLabel } = Astro.props;
+---
+
+{sponsor ? (
+  <a class="sponsor-slot sponsor-slot--filled" href={sponsor.url} target="_blank" rel="noopener sponsored">
+    <span class="sponsor-eyebrow">Presented by</span>
+    {sponsor.logoUrl ? <img src={sponsor.logoUrl} alt={sponsor.name} class="sponsor-logo" /> : <span class="sponsor-name">{sponsor.name}</span>}
+  </a>
+) : (
+  <a class="sponsor-slot sponsor-slot--fallback" href={fallbackHref}>
+    {fallbackLabel}
+  </a>
+)}
+
+<style>
+  .sponsor-slot {
+    display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 18px;
+    border-radius: var(--radius-sm); border: 1px dashed var(--line); text-decoration: none;
+    font-size: .86rem; color: var(--ink-muted); transition: border-color .15s ease, color .15s ease;
+  }
+  .sponsor-slot:hover { border-color: var(--wag-green); color: var(--ink-soft); }
+  .sponsor-slot--filled { border-style: solid; background: var(--bg-alt); }
+  .sponsor-eyebrow { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .06em; font-size: .74rem; }
+  .sponsor-logo { max-height: 28px; }
+</style>

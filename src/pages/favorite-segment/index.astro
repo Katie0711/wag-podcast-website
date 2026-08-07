@@ -1,0 +1,144 @@
+---
+// Renamed and repositioned from the original /community-chooses/ build
+// per Katie's correction (2026-08-06): this is a pure favorite-segment
+// preference poll, not the forward-looking "audience picks what WAG
+// makes next" format. "Community Chooses" is reserved for that real,
+// stakes-attached format -- built later once a real upcoming decision
+// exists to attach it to (PollWidget/poll-vote.ts already support it
+// with zero new code; only real content is missing). Copy here is
+// deliberately careful never to imply voting changes what gets filmed.
+export const prerender = false;
+
+import { getStore } from "@netlify/blobs";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import EqBars from "../../components/EqBars.astro";
+import PollWidget from "../../components/PollWidget.astro";
+import ConsentCheckboxPair from "../../components/ConsentCheckboxPair.astro";
+import SponsorSlot from "../../components/SponsorSlot.astro";
+import WhatsNext from "../../components/WhatsNext.astro";
+
+const POLL_KEY = "favorite-segment";
+const options = [
+  { key: "he-said-what", label: "He Said What?!" },
+  { key: "squad-dares", label: "Squad Dares" },
+  { key: "tell-me-the-truth", label: "Tell Me the Truth" },
+  { key: "3-second-roast", label: "3-Second Roast" },
+];
+
+const store = getStore("wag-poll-votes");
+const initialCounts = ((await store.get(POLL_KEY, { type: "json" })) as Record<string, number> | null) ?? {};
+
+const faqs = [
+  { q: "What is this poll?", a: "A running read on which real WAG Podcast segment fans love most — He Said What?!, Squad Dares, Tell Me the Truth, or 3-Second Roast." },
+  { q: "Does voting mean WAG will film more of that segment?", a: "Not automatically — this tracks what the community likes best, it isn't a request line. If WAG ever ties a real production decision to audience input, that will be its own page, clearly labeled." },
+  { q: "What are the 4 segments?", a: "WAG Podcast's real recurring bits. See the Segments page for what each one actually is." },
+];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Vote for Your Favorite WAG Segment — WAG Podcast",
+  description: "Vote for your favorite real WAG Podcast segment and see how the community is voting live.",
+  image: "https://thewagpodcast.com/images/studio/wag-studio-53.jpg",
+  author: { "@type": "Organization", name: "WAG Podcast" },
+  publisher: { "@type": "Organization", name: "The Wild Adventure Girls", url: "https://wildadventuregirls.com" },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Vote for Your Favorite WAG Segment | WAG Podcast"
+  description="Vote for your favorite real WAG Podcast segment — He Said What?!, Squad Dares, Tell Me the Truth, or 3-Second Roast — and see how the community is voting live."
+  ogImage="/images/studio/wag-studio-53.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="fs-hero">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Favorite Segment", href: "/favorite-segment/" }]} />
+      <p class="eyebrow"><EqBars size="sm" /> Fan Favorite</p>
+      <h1>Vote for your <span class="text-accent">favorite</span> segment.</h1>
+      <p class="lede">He Said What?!, Squad Dares, Tell Me the Truth, 3-Second Roast — WAG Podcast's four real recurring bits. Pick your favorite, see how everyone else voted.</p>
+    </div>
+  </section>
+
+  <section class="fs-poll">
+    <div class="container container--narrow" data-reveal>
+      <PollWidget pollKey={POLL_KEY} question="Which real WAG Podcast segment is your favorite?" options={options} initialCounts={initialCounts} />
+      <ConsentCheckboxPair
+        voteKey={POLL_KEY}
+        transactionalLabel="Email me when this poll updates"
+        marketingLabel="Also join WAG Insider for future polls, quizzes, episodes, and product news"
+        apiEndpoint="/api/interaction-consent"
+        transactionalTag="favorite-segment"
+      />
+    </div>
+  </section>
+
+  <section class="fs-sponsor">
+    <div class="container container--narrow" data-reveal>
+      <SponsorSlot
+        fallbackHref="/segments/"
+        fallbackLabel="🎬 See what each real WAG Podcast segment is"
+      />
+    </div>
+  </section>
+
+  <section class="fs-how">
+    <div class="container container--narrow" data-reveal>
+      <h2>About this poll</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <WhatsNext
+    items={[
+      { icon: "🎭", label: "Which WAG host are you? (WAG Match)", href: "/match/" },
+      { icon: "🏆", label: "Vote in WAG Awards", href: "/wag-awards/" },
+      { icon: "🗳️", label: "Vote on WAG Verdict", href: "/verdict/" },
+    ]}
+    shareUrl="https://thewagpodcast.com/favorite-segment/"
+    shareTitle="Vote for Your Favorite WAG Segment — WAG Podcast"
+    insiderPage="favorite-segment"
+  />
+</BaseLayout>
+
+<style>
+  .fs-hero { padding: 32px 0 20px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--wag-green); margin-top: 14px; }
+  .fs-hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); max-width: 22ch; }
+  .text-accent {
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede { font-size: 1.05rem; max-width: 60ch; color: var(--ink-soft); }
+
+  .container--narrow { max-width: 680px; }
+
+  .fs-poll { padding: 12px 0 24px; }
+  .fs-sponsor { padding: 0 0 32px; }
+
+  .fs-how { padding: 12px 0 40px; }
+  .fs-how h2 { font-size: 1.5rem; margin-bottom: 18px; }
+  .faq-list { display: flex; flex-direction: column; gap: 18px; }
+  .faq-item h3 { font-family: var(--font-body); font-weight: 700; text-transform: none; letter-spacing: 0; font-size: 1rem; margin-bottom: 6px; }
+  .faq-item p { font-size: .92rem; color: var(--ink-soft); margin: 0; }
+</style>

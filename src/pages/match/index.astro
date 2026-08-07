@@ -1,0 +1,228 @@
+---
+// WAG Match -- the second production interaction on the shared architecture
+// (QuizWidget, ConsentCheckboxPair, SponsorSlot, WhatsNext, ShareSheet all
+// reused from WAG Verdict, none rebuilt). Deliberately named "WAG Match"
+// rather than "Which Sister Are You?" -- Scarlett is a real cousin, not a
+// sister, to Angelina and Annabella (confirmed in her own bio), so the
+// literal sister framing would be factually wrong for one of the three
+// real hosts it's about.
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import EqBars from "../../components/EqBars.astro";
+import QuizWidget from "../../components/QuizWidget.astro";
+import ConsentCheckboxPair from "../../components/ConsentCheckboxPair.astro";
+import SponsorSlot from "../../components/SponsorSlot.astro";
+import WhatsNext from "../../components/WhatsNext.astro";
+
+const questions = [
+  {
+    q: "It's Friday night. What are you actually doing?",
+    options: [
+      { label: "Already planned three things and I'm doing all of them", resultKey: "angelina" },
+      { label: "Turning a boring plan into a story worth telling", resultKey: "scarlett" },
+      { label: "Whatever the group is about to regret — I'm in", resultKey: "annabella" },
+    ],
+  },
+  {
+    q: "Someone in the group chat has a bad idea. You:",
+    options: [
+      { label: "Take charge and figure out how you're actually going to pull it off", resultKey: "angelina" },
+      { label: "Make it funnier before deciding if it's smart", resultKey: "scarlett" },
+      { label: "Already typed \"say less\"", resultKey: "annabella" },
+    ],
+  },
+  {
+    q: "Pick your camera role on a shoot day:",
+    options: [
+      { label: "First through the door, keeping everyone on schedule", resultKey: "angelina" },
+      { label: "The one who accidentally becomes the funniest part of the video", resultKey: "scarlett" },
+      { label: "First in frame, last to sit still", resultKey: "annabella" },
+    ],
+  },
+  {
+    q: "A conversation is getting a little too real. You:",
+    options: [
+      { label: "Keep it actually going somewhere instead of letting it get chaotic", resultKey: "angelina" },
+      { label: "Ask the follow-up question that gets someone to admit the truth", resultKey: "scarlett" },
+      { label: "Say the thing everyone's thinking before anyone else does", resultKey: "annabella" },
+    ],
+  },
+  {
+    q: "Your ideal challenge video is:",
+    options: [
+      { label: "One with an actual plan, thank you", resultKey: "angelina" },
+      { label: "One where the twist nobody saw coming happens because of you", resultKey: "scarlett" },
+      { label: "Whichever one everyone else said no to first", resultKey: "annabella" },
+    ],
+  },
+];
+
+const results = [
+  {
+    key: "angelina",
+    name: "Angelina",
+    tagline: "The Voice of Reason",
+    description: "You're the one who keeps things moving in the right direction — first through the door, first to sign up, and the reason the plan actually happens instead of just getting talked about.",
+    photo: "/images/angelina-thumb.jpg",
+    ctaLabel: "Meet Angelina",
+    ctaHref: "https://wildadventuregirls.com/girls/angelina/",
+  },
+  {
+    key: "scarlett",
+    name: "Scarlett",
+    tagline: "The Quick-Witted Instigator",
+    description: "You're the one who turns a normal day into a story — usually the reason there's a twist nobody saw coming, and always the one who asks the question that gets an honest answer.",
+    photo: "/images/scarlett-thumb.jpg",
+    ctaLabel: "Meet Scarlett",
+    ctaHref: "https://wildadventuregirls.com/girls/scarlett/",
+  },
+  {
+    key: "annabella",
+    name: "Annabella",
+    tagline: "The Wild Card",
+    description: "You're the one who's already three steps into a bad idea before anyone can talk you out of it — first in frame, last to sit still, and the one who says the thing everyone's thinking.",
+    photo: "/images/annabella-thumb.jpg",
+    ctaLabel: "Meet Annabella",
+    ctaHref: "https://wildadventuregirls.com/girls/annabella/",
+  },
+];
+
+const faqs = [
+  { q: "How does WAG Match work?", a: "Answer 5 quick questions about how you'd actually act in the group, not how you wish you would. WAG Match tallies your answers and matches you to the real WAG host you're closest to." },
+  { q: "Who are the three possible results?", a: "Angelina, Scarlett, or Annabella — the three real hosts of WAG Podcast. Angelina and Annabella are sisters; Scarlett is their cousin." },
+  { q: "Can I retake it?", a: "Yes — tap \"Take it again\" under your result any time. Your answers aren't saved anywhere except your own browser." },
+];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "WAG Match — Which WAG Podcast Host Are You?",
+  description: "Answer 5 quick questions and find out which real WAG Podcast host you're most like: Angelina, Scarlett, or Annabella.",
+  image: "https://thewagpodcast.com/images/hero-group-3.jpg",
+  author: { "@type": "Organization", name: "WAG Podcast" },
+  publisher: { "@type": "Organization", name: "The Wild Adventure Girls", url: "https://wildadventuregirls.com" },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="WAG Match — Which WAG Podcast Host Are You? | WAG Podcast"
+  description="Answer 5 quick questions and find out which real WAG Podcast host you're most like: Angelina, Scarlett, or Annabella."
+  ogImage="/images/hero-group-3.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="match-hero">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "WAG Match", href: "/match/" }]} />
+      <p class="eyebrow"><EqBars size="sm" /> WAG Match</p>
+      <h1>Which WAG host are <span class="text-accent">you</span>?</h1>
+      <p class="lede">Angelina, Scarlett, or Annabella — five real questions about how you actually show up, matched to the three real WAG Podcast hosts.</p>
+    </div>
+  </section>
+
+  <section class="match-quiz">
+    <div class="container container--narrow" data-reveal>
+      <QuizWidget quizKey="match" questions={questions} results={results} />
+      <ConsentCheckboxPair
+        voteKey="match"
+        transactionalLabel="Email me the next WAG Match quiz"
+        marketingLabel="Also join WAG Insider for future quizzes, votes, episodes, and product news"
+        apiEndpoint="/api/interaction-consent"
+        transactionalTag="wag-match"
+        revealEvent="wag:quizComplete"
+        storageKey="wag_quiz_match"
+      />
+    </div>
+  </section>
+
+  <section class="match-sponsor">
+    <div class="container container--narrow" data-reveal>
+      <SponsorSlot
+        fallbackHref="/hosts/"
+        fallbackLabel="🎬 Meet all three hosts of WAG Podcast"
+      />
+    </div>
+  </section>
+
+  <section class="match-how">
+    <div class="container container--narrow" data-reveal>
+      <h2>About WAG Match</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="match-related">
+    <div class="container container--narrow" data-reveal>
+      <h2>Meet the real hosts</h2>
+      <a class="related-episode" href="/hosts/">
+        <img src="/images/hero-group-3.jpg" alt="Angelina, Scarlett, and Annabella of WAG Podcast" loading="lazy" />
+        <div>
+          <h3>Angelina, Scarlett &amp; Annabella</h3>
+          <span class="related-link">Full host profiles →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <WhatsNext
+    items={[
+      { icon: "🗳️", label: "Vote on WAG Verdict", href: "/verdict/" },
+      { icon: "💭", label: "Submit a question for Guys Answer Questions", href: "/questions-featured/" },
+      { icon: "❓", label: "Guys Answer Questions", href: "/guys-answer-questions/" },
+    ]}
+    shareUrl="https://thewagpodcast.com/match/"
+    shareTitle="WAG Match — Which WAG Podcast Host Are You?"
+    insiderPage="match"
+  />
+</BaseLayout>
+
+<style>
+  .match-hero { padding: 32px 0 20px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--wag-green); margin-top: 14px; }
+  .match-hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); max-width: 20ch; }
+  .text-accent {
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede { font-size: 1.05rem; max-width: 60ch; color: var(--ink-soft); }
+
+  .container--narrow { max-width: 680px; }
+
+  .match-quiz { padding: 12px 0 24px; }
+  .match-sponsor { padding: 0 0 32px; }
+
+  .match-how { padding: 12px 0 40px; }
+  .match-how h2, .match-related h2 { font-size: 1.5rem; margin-bottom: 18px; }
+  .faq-list { display: flex; flex-direction: column; gap: 18px; }
+  .faq-item h3 { font-family: var(--font-body); font-weight: 700; text-transform: none; letter-spacing: 0; font-size: 1rem; margin-bottom: 6px; }
+  .faq-item p { font-size: .92rem; color: var(--ink-soft); margin: 0; }
+
+  .match-related { padding: 0 0 40px; }
+  .related-episode {
+    display: flex; gap: 16px; align-items: center; padding: 14px; border-radius: var(--radius);
+    border: 1px solid var(--line); background: var(--bg-alt); text-decoration: none; color: var(--ink);
+    transition: border-color .15s ease;
+  }
+  .related-episode:hover { border-color: var(--wag-pink); }
+  .related-episode img { width: 120px; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius-sm); flex-shrink: 0; }
+  .related-episode h3 { font-family: var(--font-body); font-weight: 700; text-transform: none; letter-spacing: 0; font-size: .98rem; margin: 0 0 6px; }
+  .related-link { font-size: .84rem; color: var(--wag-green); font-weight: 600; }
+</style>

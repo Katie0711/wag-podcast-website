@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props as { entry: Awaited<ReturnType<typeof getCollection<"episodes">>>[number] };
 const { Content } = await render(entry);
-const dateFmt = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" });
+const dateFmt = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
 
 const hostNames: Record<string, string> = { angelina: "Angelina", scarlett: "Scarlett", annabella: "Annabella" };
 const hostList = entry.data.hosts.map((h) => hostNames[h]);
@@ -82,13 +82,40 @@ const related = allEpisodes
 
 const canonicalUrl = `https://thewagpodcast.com/episodes/${entry.id}/`;
 
+// Generic, not hardcoded to any one episode: any future episode a Verdict
+// is sourced from automatically picks up this link, no per-episode wiring.
+const allVerdicts = await getCollection("verdicts");
+const sourcedVerdict = allVerdicts.find((v) => v.data.sourceEpisode === entry.id);
+
+// Real current WAG Awards Season 1 nominees -- kept as a small, explicit
+// list rather than a shared import, matching the "real content only, no
+// premature abstraction" pattern already used throughout this codebase.
+// Update when a new nominee is added in wag-awards/index.astro.
+const CURRENT_AWARDS_NOMINEES = new Set(["Ryan", "Aiden"]);
+
 // "What's Next" items -- every entry points at something real: the next
 // most-related episode(s) already computed above, the real Games hub when
 // this episode's own topics actually include games-challenges (never
-// linked when there's no genuine overlap), and the platform links this
-// episode actually has (falling back to the show-level ones).
+// linked when there's no genuine overlap), the real WAG Verdict this
+// episode's own dilemma became (when one exists), a real "vote for this
+// guest" link when the episode's own guest is a live WAG Awards nominee,
+// a real "submit a question" prompt on every Guys Answer Questions-format
+// episode (has a `guest`), and the platform links this episode actually
+// has (falling back to the show-level ones). Fixed 2026-08-07: Aiden's
+// own episode page linked nowhere toward him being a live Awards
+// nominee -- this makes that connection automatic for any future guest
+// episode too, not just this one.
 const whatsNextItems = [
+  ...(sourcedVerdict
+    ? [{ icon: "⚖️", label: sourcedVerdict.data.status === "current" ? "Cast your Verdict vote" : "See how the Verdict landed", href: "/verdict/" }]
+    : []),
+  ...(entry.data.guest?.name && CURRENT_AWARDS_NOMINEES.has(entry.data.guest.name)
+    ? [{ icon: "🏆", label: `Vote for ${entry.data.guest.name} in WAG Awards`, href: "/wag-awards/" }]
+    : []),
   ...related.slice(0, 2).map((r) => ({ icon: "🎬", label: r.data.title, href: `/episodes/${r.id}/` })),
+  ...(entry.data.guest?.name
+    ? [{ icon: "💭", label: "Submit a question for the next installment", href: "/questions-featured/" }]
+    : []),
   ...(entry.data.topics.includes("games-challenges")
     ? [{ icon: "😂", label: "Play: WAG Games", href: "/games/" }]
     : []),

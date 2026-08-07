@@ -1,0 +1,73 @@
+---
+// Reusable infrastructure only, per Katie's explicit instruction:
+// do not fabricate challenge content. This route, its taxonomy,
+// schema, sponsor placement, and Beehiiv wiring are real and ready --
+// the LIVE flag below is what's not: flip it to true once a real
+// challenge exists to publish, no other code changes needed.
+//
+// Taxonomy a real challenge needs (document once here, not invented
+// data): { slug, title, season: "spring"|"summer"|"fall"|"winter"|
+// "holiday", theme, episodeSlug (the real episode it's from),
+// pollOptions? (if it's a votable challenge, reuses PollWidget exactly
+// like WAG Awards/Predicted It), startDate, endDate }. When real
+// content exists, this becomes a getCollection-backed array like
+// `predictions` in wag-predicted-it, not a hardcoded list -- multiple
+// concurrent/rotating seasonal challenges is the real use case.
+export const prerender = false;
+
+const LIVE = false;
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import EqBars from "../../components/EqBars.astro";
+import SponsorSlot from "../../components/SponsorSlot.astro";
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Seasonal Challenges — WAG Podcast",
+  description: "Real seasonal challenges from WAG Podcast, rotating with the calendar.",
+  author: { "@type": "Organization", name: "WAG Podcast" },
+  publisher: { "@type": "Organization", name: "The Wild Adventure Girls", url: "https://wildadventuregirls.com" },
+};
+---
+
+<BaseLayout
+  title="Seasonal Challenges — WAG Podcast"
+  description="Real seasonal challenges from WAG Podcast, rotating with the calendar."
+  ogImage="/images/studio/wag-studio-53.jpg"
+>
+  {LIVE && <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />}
+  {!LIVE && <meta name="robots" content="noindex" />}
+
+  <section class="sc-hero">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Seasonal Challenges", href: "/seasonal-challenges/" }]} />
+      <p class="eyebrow"><EqBars size="sm" /> Seasonal Challenges</p>
+      <h1>Coming <span class="text-accent">soon.</span></h1>
+      <p class="lede">A real, rotating challenge tied to what WAG is actually filming this season — not live yet. Check back once the first one's real.</p>
+    </div>
+  </section>
+
+  <section class="sc-sponsor">
+    <div class="container container--narrow" data-reveal>
+      <SponsorSlot
+        fallbackHref="/watch/"
+        fallbackLabel="🎬 Catch up on the latest WAG Podcast episode"
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .sc-hero { padding: 32px 0 20px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--wag-green); margin-top: 14px; }
+  .sc-hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); }
+  .text-accent {
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede { font-size: 1.05rem; max-width: 60ch; color: var(--ink-soft); }
+  .container--narrow { max-width: 680px; }
+  .sc-sponsor { padding: 12px 0 40px; }
+</style>
