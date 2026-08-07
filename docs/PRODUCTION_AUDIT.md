@@ -8,9 +8,9 @@ Ecosystem-wide (wildadventuregirls.com + thewagpodcast.com), not a single-repo d
 
 ---
 
-## 🔴 URGENT — found during this audit pass (2026-08-07)
+## ✅ RESOLVED — apex domain reachability (2026-08-07)
 
-**`wildadventuregirls.com` (bare apex domain) is unreachable.** Verified via 3 independent network paths (this session's shell, Anthropic's WebFetch infra, the sandboxed browser) plus a direct-IP connection bypassing DNS entirely — all fail to reach `75.2.60.5:443`. `www.wildadventuregirls.com` works perfectly (redirects via Netlify's proper CDN in ~0.25s). The site's own `astro.config.mjs` declares the **bare/non-www domain as canonical** — meaning the domain Google has indexed and that most people type may currently be dead, while `www` (non-canonical) works. This is a DNS/domain-registrar issue, not something fixable in code — needs Katie or Netlify support to check the apex A-record. Not confirmed how long this has been down; a full crawl of the same domain succeeded earlier in this same session, so this is likely recent, not longstanding.
+Earlier this session, `wildadventuregirls.com` (bare apex) appeared unreachable via this session's shell, Anthropic's WebFetch, and the sandboxed browser, while `www.wildadventuregirls.com` worked fine — flagged as urgent. **Confirmed resolved**: Katie reported her own internet had been down; WebFetch now successfully loads the real page (verified title + content). This sandbox's own `curl` still can't reach the apex IP directly, which points to this specific sandbox environment's network path as the actual cause, not a genuine production/DNS outage. No action needed on the domain itself — leaving the diagnostic method here since it's a real, reusable way to verify domain reachability independent of any single environment.
 
 **`robots.txt` on wildadventuregirls.com points at the www sitemap, not canonical non-www.** `Sitemap: https://www.wildadventuregirls.com/sitemap-index.xml` — real 301-redirects fine today, but it's routing crawlers through an extra hop to a non-canonical host on every single crawl. Also references `video-sitemap.xml`, which doesn't exist as a real generated file (only resolves via the www→apex redirect chain, not served directly) — worth confirming this reference is intentional/real or stale.
 
@@ -36,7 +36,7 @@ Ecosystem-wide (wildadventuregirls.com + thewagpodcast.com), not a single-repo d
 
 **Evidence:** FAQPage schema present and content-matched (not duplicated between visible copy and schema) on Growing Up, Segments, FAQ, Guys Answer Questions, Who's Most Likely To, and all episode pages with real FAQs — verified via direct JSON-LD parse this session on thewagpodcast.com's newly-fixed pages.
 
-**Real gap:** no sitewide audit yet of *answer-first formatting* (does the visible copy actually lead with the direct answer before context, the way AI summarizers prefer) — this needs a real content-level pass, not just a schema-presence check.
+**Answer-first pass (2026-08-07):** sampled FAQ answers across `/faq/`, Guys Answer Questions, and wildadventuregirls.com's Investigations — the large majority already lead with the real answer before context (verified, not assumed). Found and fixed one real exception on Guys Answer Questions ("Do guys overthink texting..." led with "According to Aiden in installment 2, yes—" instead of the answer itself; reordered, same real content, no new claims). Two more on that same page ("What makes a girl attractive to guys?", "How do guys know if a girl likes them...") describe *where* the answer lives ("Installment 2 covers this") rather than stating the actual answer — left as-is rather than fabricated, since the real substance isn't available without pulling it from the episode itself. **Flagged as a content task, not a code task:** someone needs to watch installment 2 and write the real specific answer.
 
 **Permanent QA Checklist — AEO:**
 - [ ] Every real, recurring visitor question has a corresponding FAQ entry (visible AND in FAQPage schema, sourced from the same array — never let them drift)
