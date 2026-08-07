@@ -36,7 +36,7 @@ Ecosystem-wide (wildadventuregirls.com + thewagpodcast.com), not a single-repo d
 
 **Evidence:** FAQPage schema present and content-matched (not duplicated between visible copy and schema) on Growing Up, Segments, FAQ, Guys Answer Questions, Who's Most Likely To, and all episode pages with real FAQs — verified via direct JSON-LD parse this session on thewagpodcast.com's newly-fixed pages.
 
-**Real gap:** no sitewide audit yet of *answer-first formatting* (does the visible copy actually lead with the direct answer before context, the way AI summarizers prefer) — this needs a real content-level pass, not just a schema-presence check.
+**Answer-first pass (2026-08-07):** sampled FAQ answers across `/faq/`, Guys Answer Questions, and wildadventuregirls.com's Investigations — the large majority already lead with the real answer before context (verified, not assumed). Found and fixed one real exception on Guys Answer Questions ("Do guys overthink texting..." led with "According to Aiden in installment 2, yes—" instead of the answer itself; reordered, same real content, no new claims). Two more on that same page ("What makes a girl attractive to guys?", "How do guys know if a girl likes them...") describe *where* the answer lives ("Installment 2 covers this") rather than stating the actual answer — left as-is rather than fabricated, since the real substance isn't available without pulling it from the episode itself. **Flagged as a content task, not a code task:** someone needs to watch installment 2 and write the real specific answer.
 
 **Permanent QA Checklist — AEO:**
 - [ ] Every real, recurring visitor question has a corresponding FAQ entry (visible AND in FAQPage schema, sourced from the same array — never let them drift)
