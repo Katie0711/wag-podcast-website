@@ -40,7 +40,7 @@ const { quizKey, questions, results } = Astro.props;
     <div class="quiz-progress" data-quiz-progress>
       <div class="quiz-progress-bar" data-quiz-progress-bar style="width: 0%"></div>
     </div>
-    <p class="quiz-step-label" data-quiz-step-label>Question 1 of {questions.length}</p>
+    <p class="quiz-step-label" data-quiz-step-label role="status" aria-live="polite">Question 1 of {questions.length}</p>
     {questions.map((question, i) => (
       <div class="quiz-question" data-quiz-question data-question-index={i} hidden={i !== 0}>
         <h2 class="quiz-q-text">{question.q}</h2>
@@ -55,7 +55,7 @@ const { quizKey, questions, results } = Astro.props;
     ))}
   </div>
 
-  <div class="quiz-result" data-quiz-result hidden>
+  <div class="quiz-result" data-quiz-result hidden role="status" aria-live="polite">
     <p class="quiz-result-eyebrow">You're most like</p>
     <img class="quiz-result-photo" data-quiz-result-photo src="" alt="" />
     <h2 class="quiz-result-name" data-quiz-result-name></h2>
