@@ -57,6 +57,10 @@ Every capture-consent interaction follows the same shape: the interactive elemen
 6. `npm run build`, then verify in-browser: click through the full interaction end to end (automation clicks can be unreliable in this environment — verify with real JS-triggered clicks and check network requests, not just visual screenshots).
 7. Commit, push to the shared feature branch — **do not merge to `main` without explicit approval.**
 
+## Distribution
+
+See `docs/DISTRIBUTION.md` for the reusable per-interaction launch checklist (YouTube, socials, newsletter, cross-linking, backlinks, and how real interaction results become future content). A feature isn't complete until this has been filled in and actioned.
+
 ## Extension points (built, not yet activated)
 
 - **Community Chooses** (the real forward-looking "audience picks what WAG makes next" format, distinct from the favorite-segment poll): needs zero new shared-architecture code — `PollWidget`/`poll-vote.ts` already support any N options. Only real content is missing: a genuine upcoming production decision from Katie to attach it to. Do not build a page for this ahead of that.
