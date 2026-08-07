@@ -194,7 +194,9 @@ Earlier this session, `wildadventuregirls.com` (bare apex) appeared unreachable 
 
 **Evidence:** extensively audited in prior sessions — real account facts (plan, DNS/DMARC, subscribe-form theme, segment/automation gating) documented in the operator's memory system, not re-derived here. Tag-per-interaction pattern confirmed architecturally sound (`docs/ARCHITECTURE.md` §Beehiiv integration).
 
-**Not yet re-verified this pass:** whether every consent checkbox that promises a future email still has a live, correctly-tagged segment behind it now that 6 new interactions exist (Verdict/Match/Favorite-Segment/Questions-Featured/Awards all need this checked against the live Beehiiv dashboard, not just the code).
+**Cross-checked against the live Beehiiv dashboard (2026-08-07):** all 6 real interaction tags exist and match `ALLOWED_TRANSACTIONAL_TAGS` exactly (no orphans, nothing missing). But only 2 of 5 checkbox-promises had a matching segment (Verdict, Questions Featured) — **3 real gaps found and fixed**: created `WAG Match Result Recipients`, `Favorite Segment Poll Update Recipients`, and `WAG Awards New Category Recipients` segments, matching the existing pattern exactly (`subscriber_tag = '<tag id>'`, dynamic).
+
+**Real remaining question, not a code task:** WAG Match's checkbox promises "email me my WAG Match result" — a per-subscriber transactional send, not a future broadcast. The segment now exists to receive it, but no automation or manual process exists yet to actually *send* the result email. This needs a decision before the coordinated interaction-platform launch: build a real Beehiiv automation triggered by the `wag-match` tag, or handle it manually at low volume initially. Flagging for Katie, not building blind.
 
 **Permanent QA Checklist — Beehiiv:**
 - [ ] Every "email me when X happens" checkbox has a matching, verified-live Beehiiv segment before the feature ships (not just planned in code)
