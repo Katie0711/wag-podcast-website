@@ -1,6 +1,18 @@
-# WAG Legal Readiness Report
+# WAG Legal Readiness Report — Final
 
-Prepared 2026-08-07. Covers wildadventuregirls.com and thewagpodcast.com as they actually exist in production today, including the interaction platform that launched this same day. **This report is for Katie's review and eventual attorney review — nothing described here has been published or changed on either live site.**
+Prepared 2026-08-07, finalized after a second pass covering long-term future-proofing. Covers wildadventuregirls.com and thewagpodcast.com as they actually exist in production today, including the interaction platform that launched this same day. **This report is for Katie's review and eventual attorney review — nothing described here has been published or changed on either live site.**
+
+## Final Pass — What Changed and Why
+
+The first pass closed the gaps created by today's interaction-platform launch (see Yellow items below, all now drafted). A second pass future-proofed the documents against WAG's next 5–10 years without inventing features or bloating the text:
+
+- **Added a "Future Products and Services" section to both documents**, scoped deliberately narrow: interactive experiences, memberships, digital products, community features, software tools that support the platform, educational resources, and physical products. An earlier draft of this section named specific unlaunched internal product concepts (by name) and used buzzwords like "AI-assisted features" in a business-offerings list — Katie caught this directly ("I wouldn't want the legal documents reading like 'we may launch software, AI, robotics, VR, satellites'") and it was corrected before this final version: the language now describes natural extensions of a media company, not a speculative technology wishlist.
+- **Expanded User Submissions into one consolidated section** covering future content formats (photos, video, artwork, Adventure Map submissions, nominations, etc.) rather than repeating the same license grant in multiple places — this is also a readability improvement, not just a coverage one.
+- **Strengthened Intellectual Property** to protect WAG's actual creative and technical work in its interactive features and named future-concept products (Discovery Platform, Adventure Map, Passport/collection systems). This is intentionally worded to protect real, ownable expression — software, written rules, distinctive design, branding — not to claim ownership over generic, legally unprotectable ideas like "a quiz" or "a voting poll." Claiming the latter would have made the clause *less* credible and *less* enforceable, not more protective; this is the one place this pass pushed back on the literal request in favor of what actually holds up.
+- **COPPA posture reaffirmed, unchanged** — see the existing reasoning below. Nothing about the interaction platform or future-proofing changes this conclusion.
+- **Email compliance reaffirmed with real evidence, not re-derivation** — every checkbox promise across all 5 live interactions was verified end-to-end against real production Beehiiv data during today's launch (real subscriptions created, real tags applied, real automations live) — see `CHANGELOG.md` and `LAUNCH_BLOCKERS.md` for the actual verification record. No promise found that the platform can't keep.
+
+---
 
 **Important context:** WAG already has a real, non-generic Privacy Policy and Terms of Service (last updated July 27, 2026, live at `/privacy/` and `/terms/`, shared across both domains). They are genuinely well-constructed — not boilerplate — and already correctly cover Netlify Forms, Beehiiv/WAG Insider, children's privacy, teen visitors, sponsored content, IP, AI/scraping restrictions, and liability for physical activities. **The real gap is not "no legal documents exist" — it's that neither document has been updated for the interaction platform that launched today.** This report identifies exactly what's covered, what needs a real addition, and why.
 
@@ -96,4 +108,4 @@ WAG's content was historically positioned closer to a children's-content brand; 
 
 ## Recommended Next Step
 
-Review the two drafted documents below (full updated text, ready to compare against the live pages). Approve, request changes, or send both to counsel as-is. **Nothing gets published until you say so.**
+This report, the final Privacy Policy draft, and the final Terms of Service draft together form the attorney-review package — see the accompanying Executive Summary for a one-page overview of what changed, why, and what still deserves counsel's attention. Approve, request changes, or send the package to counsel as-is. **Nothing gets published until you say so.**

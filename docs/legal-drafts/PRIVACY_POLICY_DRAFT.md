@@ -28,7 +28,7 @@ This may include:
 
 Please do not submit sensitive personal information through our Site forms or interactive features.
 
-We do not require visitors to create an account to access the Site, and the Site does not currently collect payment information directly.
+We do not require visitors to create an account to access the Site, and the Site does not currently collect payment information directly. If we introduce accounts, profiles, saved progress, or similar features in the future, we will update this section to describe what account information is collected and how it is used.
 
 ## Interactive Features
 
@@ -41,6 +41,12 @@ When you use an Interactive Feature:
 - **If you check a consent box** to be emailed about an Interactive Feature (for example, "email me when this Verdict is revealed" or "email me the next WAG Match quiz"), your email address and your consent choices are sent to Beehiiv, our email service provider, and tagged so we know which promise to keep. See "WAG Insider and Email Communications" below.
 
 **Participation in an Interactive Feature is voluntary, free, and does not require a purchase.** Interactive Features are entertainment and engagement tools, not sweepstakes, contests, or prize drawings — see our Terms of Service for more detail.
+
+## Future Products and Features
+
+WAG is a growing media company. Over time, we may introduce natural extensions of the Site — for example, additional interactive experiences, memberships, digital products, community features, software tools that support the platform, educational resources, or physical products.
+
+This Privacy Policy is written to apply to those future offerings using the same categories described here — information you provide, information collected automatically, and information handled by our service providers. Nothing in this Policy should be read as announcing or promising a specific new product. When we do introduce one that collects information in a materially different way than described here, we will update this Policy before or at the time it becomes available.
 
 ## Local Storage
 
@@ -281,4 +287,4 @@ The Wild Adventure Girls, Inc.
 
 ---
 
-*Changes from the live version, for reviewer reference: added "Interactive Features" and "Local Storage" sections; added "Interactive Feature Data Storage" (Netlify Blobs) section; named Ahrefs Analytics alongside Google Analytics; named Beehiiv explicitly in the Service Providers list; added the IP-address/rate-limiting paragraph; extended Children's Privacy, Teen Visitors, Data Retention, and Cookies sections to explicitly cover Interactive Features and local storage. Everything else is the existing, already-live language, unchanged.*
+*Changes from the live version, for reviewer reference (three passes): (1) added "Interactive Features" and "Local Storage" sections; added "Interactive Feature Data Storage" (Netlify Blobs) section; named Ahrefs Analytics alongside Google Analytics; named Beehiiv explicitly in the Service Providers list; added the IP-address/rate-limiting paragraph; extended Children's Privacy, Teen Visitors, Data Retention, and Cookies sections to explicitly cover Interactive Features and local storage. (2) Added a "Future Products and Features" section and a forward-looking sentence on accounts/profiles. (3) Deliberately kept the future-proofing language tight — natural media-company extensions (interactive experiences, memberships, digital products, community features, supporting software tools, educational resources, physical products) rather than an exhaustive or speculative-sounding list; removed explicit product-codename references. Everything else is the existing, already-live language, unchanged.*
