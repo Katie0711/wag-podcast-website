@@ -6,17 +6,17 @@
 
 ## Current milestone
 
-Interaction platform (6 shared-architecture interactions: Verdict, Match, Favorite Segment, Questions Featured, WAG Awards, Seasonal Challenges scaffold) is **built, verified pre-launch, and waiting on Katie's merge decision.** Nothing in the platform is live in production yet.
+**🟢 Interaction Platform V1 is LIVE in production (2026-08-07).** Both repos merged and deployed per Katie's explicit GO. All 5 live interactions (Verdict, Match, Favorite Segment, Questions Featured, WAG Awards) verified end-to-end on real production URLs — real votes, real quiz completions, real free-text submissions, real Beehiiv consent (9 tags confirmed correct across all 5 flows, including the new per-choice tags), real GA4 events. wildadventuregirls.com's reciprocal cross-links and the `/speaking/` filter fix confirmed live and working. Seasonal Challenges correctly stayed gated (`LIVE = false`, `noindex`) — not published. Roadmap phase moves to **Observe → Learn → Optimize → Expand** — see `ROADMAP.md`.
 
 ## Branch state
 
 **thewagpodcast-website**
-- `main` — production. Does not contain the interaction platform (confirmed via `git ls-tree`: zero files under `src/pages/api/`).
-- `feature/wag-match-quiz` — contains all 6 interactions. `feature/wag-verdict-mvp` is an ancestor of this branch (already merged into it), so this is the one branch to merge, not two.
+- `main` — production, **now contains the full interaction platform** (merged from `feature/wag-match-quiz` 2026-08-07, commit `3bcfdb1`). All 5 live interaction pages + APIs confirmed live and working.
+- `feature/wag-match-quiz` — fully merged, superseded. Safe to delete once Katie confirms nothing else is pending on it.
 
 **wildadventuregirls-website**
-- `main` — production.
-- `fix/share-menu-stuck-open` — contains the reciprocal cross-links to the podcast site's interactions (homepage, girl profile pages, podcast page, speaking page, brand-partnerships), the `/speaking/` filter-pill production-bug fix, and the robots.txt sitemap fix.
+- `main` — production, **now contains the reciprocal cross-links and both hotfixes** (merged from `fix/share-menu-stuck-open` 2026-08-07, commit `a7dbf3a`).
+- `fix/share-menu-stuck-open` — fully merged, superseded.
 
 ## Production state (verified, not assumed)
 
@@ -35,13 +35,13 @@ Full production audit (17 categories, `docs/PRODUCTION_AUDIT.md`) closed to laun
 
 ## Immediate next tasks
 
-1. Katie's merge/launch decision (see Outstanding CEO Decisions below) — everything else in the interaction platform is ready and waiting on this.
-2. Once merge decision is made: execute `docs/LAUNCH_CHECKLIST.md` top to bottom.
-3. Resume the 5-page SEO optimization plan (paused for this doc system + launch checklist work) — see `ROADMAP.md` → Next.
+1. **Legal readiness (launch-critical, in progress 2026-08-07)** — Katie requested a full legal audit of both sites (every API/interaction/cookie/localStorage/analytics touchpoint), a rewritten Privacy Policy + Terms of Service, and a Legal Readiness Report (Green/Yellow/Red), to be presented for approval before integration. Note: this request arrived after the code launch was already live per her own explicit GO — flagged to her directly, not silently absorbed.
+2. Post-launch analyst posture: watch real usage (votes/submissions increasing, Beehiiv signups arriving, no API errors, GA4 receiving events) for the first 48–72 hours per Katie's explicit instruction — see `CEO_DECISIONS.md`.
+3. Resume the 5-page SEO optimization plan once legal work and initial observation window are handled — see `ROADMAP.md` → Next.
 
 ## Launch blockers
 
-None. Full master list in `docs/LAUNCH_BLOCKERS.md` (0 blocking, 7 acceptable-risk, 17 complete — including `BEEHIIV_API_KEY` in Netlify Production, confirmed live by Katie 2026-08-07). Only Katie's explicit go-ahead to merge both feature branches remains (see `docs/LAUNCH_CHECKLIST.md`).
+None remaining — launch is complete. Full history in `docs/LAUNCH_BLOCKERS.md`.
 
 ## Production blockers
 

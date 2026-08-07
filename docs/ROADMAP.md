@@ -42,11 +42,17 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 
 ## Current
 
-### Interaction Platform — launch
-- **Purpose:** deploy all 6 interactions plus wildadventuregirls.com's reciprocal cross-links to real production traffic.
-- **Business value:** the entire point of the build above — nothing above generates value until it's live.
-- **Dependencies:** Katie's explicit merge/deploy decision (see `docs/LAUNCH_CHECKLIST.md`); Netlify production `BEEHIIV_API_KEY` confirmed set.
-- **Status:** 🚧 Ready and waiting. This is the single active blocker on everything downstream of it.
+### Interaction Platform V1 — Observe phase
+- **Purpose:** watch real usage of the 5 live interactions (Verdict, Match, Favorite Segment, Questions Featured, WAG Awards) before building anything new. Per Katie's explicit instruction: no new interaction work unless a real bug appears, for the first 48–72 hours minimum.
+- **Business value:** real data (completion rates, Beehiiv conversion by interaction, return visits, YouTube click-through) is the actual next source of truth — not more internal speculation.
+- **Dependencies:** none — launched 2026-08-07, both repos merged and verified live.
+- **Status:** ✅ Launched. 🚧 Now in Observe phase — see `CEO_DECISIONS.md` for the 7-item post-launch analytics priority list.
+
+### Legal readiness (launch-critical, added 2026-08-07)
+- **Purpose:** full legal audit of both sites' real data-collection behavior (APIs, cookies, localStorage, analytics, Beehiiv), rewritten Privacy Policy + Terms of Service matching actual behavior, and a Green/Yellow/Red Legal Readiness Report.
+- **Business value:** substantially reduces real business risk (email collection, minors' privacy, submission ownership, liability) ahead of legal counsel review.
+- **Dependencies:** none technical — this is an audit + drafting task.
+- **Status:** 🚧 In progress. Requested after the code launch was already live; flagged to Katie directly rather than silently absorbed into the sequencing.
 
 ### YouTube channel optimization
 - **Purpose:** full channel audit-and-fix pass + binge-path end screens/cards, following the approved playlist/packaging strategy.
