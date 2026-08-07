@@ -8,6 +8,15 @@ const platforms = [
   { name: "Apple Podcasts", href: "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489", note: "Same weekly episodes, audio-only." },
   { name: "YouTube", href: "https://www.youtube.com/@WAGPodcast", note: "The original video-first version, if audio ever leaves you wanting the reactions too." },
 ];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Listen — WAG Podcast",
+  description: "Where to listen to WAG Podcast: Spotify and Apple Podcasts for audio-only episodes, released weekly.",
+  url: "https://thewagpodcast.com/listen/",
+  about: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast" },
+};
 ---
 
 <BaseLayout
@@ -15,6 +24,7 @@ const platforms = [
   description="Where to listen to WAG Podcast: Spotify and Apple Podcasts for audio-only episodes, released weekly."
   ogImage="/images/studio/wag-studio-333.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <section class="listen-hero">
     <div class="hero-photo">
       <picture>

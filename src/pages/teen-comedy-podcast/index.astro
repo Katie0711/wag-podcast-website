@@ -29,6 +29,15 @@ const funnyEpisodes = [
     url: "https://wildadventuregirls.com/podcast/episodes/our-most-controversial-teen-hot-takes-gwezmpb3r3m",
   },
 ];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Teen Comedy Podcast — WAG Podcast",
+  description: "Looking for a genuinely funny podcast for teens? WAG Podcast is a weekly video podcast built around real comedy segments — dares, roasts, and hot takes.",
+  url: "https://thewagpodcast.com/teen-comedy-podcast/",
+  about: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast" },
+};
 ---
 
 <BaseLayout
@@ -36,6 +45,7 @@ const funnyEpisodes = [
   description="Looking for a genuinely funny podcast for teens? WAG Podcast is a weekly video podcast built around real comedy segments — dares, roasts, and hot takes."
   ogImage="/images/studio/wag-studio-274.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <section class="comedy-hero">
     <div class="hero-photo">
       <picture>

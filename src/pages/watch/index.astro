@@ -24,12 +24,21 @@ const hasMoreEpisodes = recentEpisodes.length > 3;
 const clips = await getPodcastClips(6);
 const stories = (await getCollection("episodes")).sort((a, b) => +b.data.publishDate - +a.data.publishDate);
 
-const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
 
 function truncate(text: string, max = 160) {
   const clean = text.replace(/\s+/g, " ").trim();
   return clean.length > max ? clean.slice(0, max).replace(/\s+\S*$/, "").trim() + "…" : clean;
 }
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Watch — WAG Podcast",
+  description: "WAG Podcast is filmed weekly and posted to YouTube first. Watch the newest episode, catch up on recent ones, and see real moments from the show.",
+  url: "https://thewagpodcast.com/watch/",
+  about: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast" },
+};
 ---
 
 <BaseLayout
@@ -37,6 +46,7 @@ function truncate(text: string, max = 160) {
   description="WAG Podcast is filmed weekly and posted to YouTube first. Watch the newest episode, catch up on recent ones, and see real moments from the show."
   ogImage="/images/studio/wag-studio-111.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <section class="watch-hero">
     <div class="hero-photo">
       <picture>

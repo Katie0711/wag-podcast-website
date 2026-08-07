@@ -14,6 +14,15 @@ const whyVideo = [
   { title: "Filmed for YouTube first, not audio first", desc: "Most podcasts are audio shows with a camera added later. WAG Podcast is shot as video from the start; Spotify and Apple Podcasts get the audio cut after." },
   { title: "Real segments built around visuals", desc: "Squad Dares, Heads Up with cancelled celebs, Who's Most Likely To — every one depends on seeing faces, not just hearing voices." },
 ];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Video Podcasts for Teens — WAG Podcast",
+  description: "Looking for a real video podcast for teens, not an audio show with a webcam added? WAG Podcast is filmed for YouTube first, weekly and unscripted.",
+  url: "https://thewagpodcast.com/video-podcasts-for-teens/",
+  about: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast" },
+};
 ---
 
 <BaseLayout
@@ -21,6 +30,7 @@ const whyVideo = [
   description="Looking for a real video podcast for teens, not an audio show with a webcam added? WAG Podcast is filmed for YouTube first, weekly and unscripted."
   ogImage="/images/studio/wag-studio-416.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <section class="video-hero">
     <div class="hero-photo">
       <picture>
