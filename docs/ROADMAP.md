@@ -1,68 +1,122 @@
-# WAG Master Roadmap
+# WAG Strategic Roadmap
 
-The single source of truth for where the company's technical roadmap stands. Update this file as work happens — don't let status live only in chat history. Any future session (human or AI agent) should be able to read this file and know exactly what's real, what's in flight, and what's next, without reconstructing it from old conversations.
+Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE.md`), not day-to-day status (that's `MASTER_STATUS.md`), not the "why" behind decisions (that's `CEO_DECISIONS.md`), not speculative ideas (that's `FUTURE_OPPORTUNITIES.md`). This file answers one question per initiative: where does it stand, and what does it depend on.
 
-**Legend:** ✅ Completed &nbsp; 🚧 In Progress &nbsp; ⏸ Blocked &nbsp; 💡 Opportunity &nbsp; 🛠 Technical Debt &nbsp; 📈 Growth Experiment &nbsp; 💰 Revenue Opportunity &nbsp; 🤖 Future AI Agent Opportunity
-
----
-
-## ✅ Completed
-
-- 6-interaction platform built on shared architecture: WAG Verdict, WAG Match, Vote for Your Favorite WAG Segment, Questions Featured, WAG Predicted It (extended), WAG Awards Season 1. All live-tested locally end-to-end (real votes/submissions hitting real Netlify Blobs + Beehiiv-ready endpoints).
-- Shared components: `VoteWidget`, `PollWidget`, `QuizWidget`, `ConsentCheckboxPair` (generalized), `SponsorSlot`, `WhatsNext`, `ShareSheet`, `Breadcrumb`.
-- Shared APIs: `/api/interaction-consent`, `/api/poll-vote`, `/api/question-submit` (Verdict's original pair kept separate, untouched, verified pre-launch — corrected 2026-08-07: not actually deployed to production `main` yet, same as the rest of the platform; see Beehiiv finding below).
-- Beehiiv fully wired: real tags per interaction, real segments backing every "email me when X happens" promise, subscribe-form theme and both automations confirmed live/published.
-- Abuse protection: shared rate limiter (`src/lib/rateLimit.ts`) live on all 3 public POST endpoints — verified with a real 429 after the limit.
-- Uniform analytics: `next_action_click` tracking fires on every interaction page via the shared `WhatsNext` component (one change, live everywhere).
-- `docs/ARCHITECTURE.md` — one-page navigation index for the whole interaction platform.
-- `docs/DISTRIBUTION.md` — reusable per-interaction launch-copy template, worked example for WAG Match.
-- WAG Ecosystem Build Spec PDF — delivered to Katie, covers philosophy/architecture/status/roadmap as of build time.
-- Wild Adventure Girls audit round 1: all 5 live interactions cross-linked from the main site (girl profile pages, hosts hub, podcast page, homepage); "Interactive Sponsorships" added as real listed sponsor inventory on brand-partnerships.
-
-## 🚧 In Progress
-
-- Distribution framework: template built; per-interaction copy only drafted for WAG Match so far.
-- WildAdventureGirls.com continuous audit (treated as ongoing, not one-time).
-
-## ⏸ Blocked (needs Katie)
-
-- **Production launch decision — LAUNCH REQUIREMENT: both repos ship together.** Nothing built this week is live to real users. All 6 interactions sit on the unmerged `feature/wag-match-quiz` branch (thewagpodcast-website) pending final review. Confirmed 2026-08-07: wildadventuregirls-website's reciprocal cross-links to these interactions (homepage, girl profile pages, podcast page, speaking page, brand-partnerships page) are *also* unmerged, on `fix/share-menu-stuck-open`. Katie's explicit call: "the two websites should launch as one ecosystem, not as two independent projects" — do not merge one repo's branch without the other; the Launch Readiness Review only formally covered thewagpodcast-website and should be treated as half the real picture until wildadventuregirls-website gets the same review.
-- **Community Chooses** — real forward-looking audience-decision format, fully reserved and architecturally ready (`PollWidget` needs zero new code), waiting on a real upcoming decision from Katie to attach it to.
-- **Seasonal Challenges** — infrastructure-only, `LIVE = false`, waiting on real challenge content.
-- **wagmediapartners.com conflict** — decision needed from Katie (carried from earlier in the project).
-
-## 💡 Opportunities
-
-- Sponsor-facing one-pager for the new interactive inventory — infrastructure exists, sales collateral doesn't yet.
-- Convert real interaction results into distributable content once real votes accumulate ("X% of fans said...").
-- Cross-brand reuse: the entire interaction engine (Quiz/Poll/Consent/Sponsor/Analytics) is brand-agnostic and ready to theme for HorseSmart Kids or any future brand with zero new component code.
-- **WAG Discovery/Field Map (2026-08-07, Katie's concept, deliberately not started).** Evolve the existing Adventure Map beyond a static illustrated map into a real product connecting adventures, investigations, mysteries, destinations, videos, articles, evidence, challenges, collectibles/badges, and a future digital/physical WAG Passport. Proposed main-site participation loop — Discover → Investigate → Explore → Collect → Return — deliberately distinct from the podcast site's Vote → Discuss → Compare → Participate → Return, keeping the two sites' identities separate per standing instruction. Explicitly deferred until after the interaction-platform launch, evaluated then against the CEO/business-value filter, not built now.
-
-  **Honest pre-read against that filter, captured now so it doesn't need re-deriving later:** genuinely strong on IP and monetization — a real Passport is a concrete physical-product/licensing/tourism-partnership angle in a way most "digital product" ideas aren't, and a badge/collect loop is a real, structural reason to return that the current static map doesn't have. It also has strong SEO/AEO fit *if* built from WAG's real completed investigations rather than invented ones — exactly the content-authenticity discipline already standing for this project. Two real things worth resolving before greenlighting, not reasons to reject: (1) a persistent "collection" that survives across visits/devices without accounts is a genuine architecture question — localStorage-only badges vanish on a new device, which undercuts the whole "Collect" premise, so this may need a lightweight identity layer, not just new UI; (2) only 3 real investigations exist today (Bigfoot Oregon, Lake Worth Monster, Haunted Hotel Texas) — a "collect across many destinations" mechanic needs enough real content behind it to not feel thin at launch, which ties this concept's real timeline to WAG's own production pace, not just engineering time.
-
-## 🛠 Technical Debt
-
-- Shared episode-date formatter — UTC/local off-by-one risk flagged; Verdict's own reveal-date already forces `timeZone: "UTC"` explicitly, but the general episode `publishDate` formatting hasn't been audited/fixed the same way yet. Not yet located precisely — next session should grep both repos for every `toLocaleDateString` call on a content-collection date and confirm each one either forces UTC or has a documented reason not to.
-- No admin/moderation view for Questions Featured submissions — currently readable only by querying Netlify Blobs directly.
-
-## 📈 Growth Experiments (not started)
-
-- None launched yet — depends on production go-live.
-
-## 💰 Revenue Opportunities
-
-- Interactive Sponsorships (Verdict/Match/Awards/Community/Seasonal) — real inventory, no sales collateral yet, no sponsor sold yet.
-- HorseSmart Kids — flagged by Katie as potentially a full company on its own (membership, curriculum, parent/trainer platforms, AI coach, certification, marketplace), deliberately deferred but kept visible.
-
-## 🤖 Future AI Agent Opportunities
-
-- Business Intelligence agent ("what happened this week?" — wins/losses/SEO opportunities/broken pages/sponsorship opportunities) — explicitly deferred, design data sources to support it later.
-- AI layer across interactions (summaries, recommendations, personalization, moderation) — not building yet, keep architecture ready.
-
-## Long-term systems named but not yet built
-
-Launch System (checklist → soft launch → internal → family → beta → public → 30/90-day review), Business Dashboard (CEO cockpit across YouTube/websites/interactions/Beehiiv/revenue/financials), Business Intelligence Agent, Content Production System (episode → transcript → article → quiz → newsletter → shorts → socials → sponsor), Knowledge Base, Content Calendar, Sponsor CRM, Product Pipeline, Community Layer (profiles/badges/streaks/leaderboards). Full detail lives in the operator's own memory system (`wag_five_pillars_and_long_term_roadmap`) — check there before assuming any of these are further along than listed here.
+**Buckets:** Completed → Current → Next → Future → Icebox. Every major initiative gets purpose, business value, dependencies, and status.
 
 ---
 
-*Keep this file synchronized with reality — update it in the same commit as the work it describes, not as an afterthought.*
+## Completed
+
+### Interaction Platform — build
+- **Purpose:** shared, reusable architecture (quiz/poll/vote/consent/sponsor/analytics primitives) powering 6 audience-participation formats.
+- **Business value:** first-party audience growth, sponsorship inventory, reusable engine for future brands.
+- **Dependencies:** none remaining — code-complete.
+- **Status:** ✅ Built and verified pre-launch. Not yet deployed to production — see Current.
+
+### Shared conversion framework
+- **Purpose:** uniform cross-linking/share/analytics treatment (`EpisodeActions`, `WhatsNext`, `ShareSheet`) across every episode and interaction page, both sites.
+- **Business value:** every content asset now actively drives traffic to every other asset — no dead ends.
+- **Dependencies:** none.
+- **Status:** ✅ Shipped to production on both sites.
+
+### Both sites — foundational build and SEO/technical base
+- **Purpose:** wildadventuregirls.com and thewagpodcast.com fully built, live, indexed, with analytics, structured data, and technical SEO foundations in place.
+- **Business value:** the owned-audience/discoverability base everything else compounds on.
+- **Dependencies:** none.
+- **Status:** ✅ Both live in production. Continuous audit work is ongoing (see Current).
+
+### Production Audit (17 categories)
+- **Purpose:** one-time, permanent-QA-producing pass across SEO/AEO/GEO/AI-discoverability/crawl-budget/structured-data/accessibility/analytics/performance/security/Beehiiv.
+- **Business value:** converts one-off findings into reusable checklists so failure classes aren't rediscovered from scratch.
+- **Dependencies:** none.
+- **Status:** ✅ Closed to launch-blocker status per Katie's explicit scoping instruction (2026-08-07). 3 categories intentionally left partial — see `PRODUCTION_AUDIT.md`.
+
+### Permanent documentation system
+- **Purpose:** this file plus `MASTER_STATUS.md`, `CEO_DECISIONS.md`, `FUTURE_OPPORTUNITIES.md`, `DATA_MODEL.md`, `CHANGELOG.md`, `ARCHITECTURE.md`, `PRODUCTION_AUDIT.md`.
+- **Business value:** institutional knowledge survives even if a conversation disappears.
+- **Dependencies:** none.
+- **Status:** ✅ Built 2026-08-07. Maintenance is now standing practice, not a one-time task.
+
+---
+
+## Current
+
+### Interaction Platform — launch
+- **Purpose:** deploy all 6 interactions plus wildadventuregirls.com's reciprocal cross-links to real production traffic.
+- **Business value:** the entire point of the build above — nothing above generates value until it's live.
+- **Dependencies:** Katie's explicit merge/deploy decision (see `docs/LAUNCH_CHECKLIST.md`); Netlify production `BEEHIIV_API_KEY` confirmed set.
+- **Status:** 🚧 Ready and waiting. This is the single active blocker on everything downstream of it.
+
+### YouTube channel optimization
+- **Purpose:** full channel audit-and-fix pass + binge-path end screens/cards, following the approved playlist/packaging strategy.
+- **Business value:** recommendation-system leverage — more Suggested/Browse placement from the existing catalog, no new content required.
+- **Dependencies:** none — independent of the interaction-platform launch.
+- **Status:** 🚧 In progress.
+
+### Wild Adventure Girls continuous SEO/AEO/GEO audit
+- **Purpose:** ongoing (not one-time) technical and content audit of wildadventuregirls.com.
+- **Business value:** sustained search/AI-discoverability health as the site grows.
+- **Dependencies:** none.
+- **Status:** 🚧 In progress, treated as standing practice.
+
+---
+
+## Next
+
+### 5-page SEO optimization plan
+- **Purpose:** sharpen packaging on 5 real pages against validated real search demand (Guys Answer Questions hub, Who's Most Likely To, Hot Takes, Dating Red Flags, and a deliberate non-build decision on "Is It Cheating If...?").
+- **Business value:** real, evidenced search-demand capture using content WAG already has — no fabrication.
+- **Dependencies:** none — plan is fully specified, paused only for the launch-checklist and documentation work.
+- **Status:** ⏭ Queued, plan finalized, ready to execute.
+
+### Sponsor-facing one-pager for interactive inventory
+- **Purpose:** sales collateral for the real sponsor inventory the interaction platform creates.
+- **Business value:** turns built infrastructure into an actual sales conversation.
+- **Dependencies:** interaction platform launch (need real inventory to sell, ideally real early performance data).
+- **Status:** ⏭ Not started.
+
+### Distribution framework completion
+- **Purpose:** per-interaction launch copy for all 6 interactions (only WAG Match has a worked example today).
+- **Business value:** consistent, repeatable go-to-market motion per interaction instead of ad hoc copy each time.
+- **Dependencies:** interaction platform launch.
+- **Status:** ⏭ Template built, 5 of 6 copy sets remaining.
+
+---
+
+## Future
+
+See `FUTURE_OPPORTUNITIES.md` for full detail on each of these — not duplicated here.
+
+- WAG Discovery/Field Map (Adventure Passport)
+- WAG Knowledge Graph
+- Internal CEO Dashboard
+- Business Intelligence Agent
+- Sponsor Dashboard / Sponsor Engine
+- AI Traffic Dashboard
+- HorseSmart Kids
+- Interactive Books / physical products
+- AI Discovery Assistant
+- Creator Operating System (long-horizon optionality only)
+
+Also named but not yet scoped: Launch System (checklist → soft launch → internal → family → beta → public → 30/90-day review), Content Production System (episode → transcript → article → quiz → newsletter → shorts → socials → sponsor), Knowledge Base, Content Calendar, Sponsor CRM, Product Pipeline, Community Layer (profiles/badges/streaks/leaderboards).
+
+---
+
+## Icebox
+
+- **Admin/moderation view for Questions Featured** — currently readable only by querying Netlify Blobs directly. Revisit if/when submission volume makes that painful (per Katie's explicit "don't build the UI until then" call).
+- **Growth experiments** — none launched yet; depends entirely on production go-live, nothing to iceboxed here specifically, just not startable yet.
+- **AI layer across interactions** (summaries, recommendations, personalization, moderation) — architecture kept ready, not building until a real need appears.
+
+---
+
+## Outstanding decisions (see `CEO_DECISIONS.md` for the reasoning)
+
+- Interaction Platform launch — Katie's call, pending.
+- wagmediapartners.com long-term disposition — pending.
+- HorseSmart Kids timing — deliberately not evaluated yet.
+
+---
+
+*Keep this file synchronized with reality — update it in the same commit as the work it describes. Implementation detail belongs in `ARCHITECTURE.md`, not here.*

@@ -1,6 +1,10 @@
 # WAG Interaction Platform — Launch Readiness Review
 
+**This is a temporary document.** It exists only while preparing this specific launch. Once the interaction platform actually launches, archive this file (move to `docs/archive/LAUNCH_READINESS_REVIEW_2026-08-interaction-platform.md` or similar) and start a fresh, empty one for the next launch — don't let a stale readiness review linger as if it were still live guidance. `MASTER_STATUS.md` is the permanent always-current document; this one has an expiration date.
+
 Final report before the merge decision, per Katie's 2026-08-07 request. Covers the 5 live interactions (Verdict, Match, Vote for Your Favorite WAG Segment, Questions Featured, WAG Awards) plus Seasonal Challenges (intentionally still scaffolding-only). Read alongside `PRODUCTION_AUDIT.md` — this document is the launch-specific synthesis, that one is the permanent category-by-category reference.
+
+**Note (2026-08-07):** this review's Verdict "production-verified" framing has since been corrected — Verdict was never actually deployed to production `main`. See `MASTER_STATUS.md` and `PRODUCTION_AUDIT.md` §17 for the corrected, current picture.
 
 ---
 

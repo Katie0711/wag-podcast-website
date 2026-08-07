@@ -6,6 +6,8 @@ Ecosystem-wide (wildadventuregirls.com + thewagpodcast.com), not a single-repo d
 
 **How to use this doc:** before shipping any new page, run it through every "Permanent QA Checklist" below. When you find a new failure mode in production, add it to the relevant checklist immediately — don't just fix the instance.
 
+**Standard for every claim in this file:** this document always reflects production, never staging, never assumptions. If something has only been tested locally or in a dev/staging branch, say so explicitly — don't call it "verified" without stating where. If it's been verified in true production, state the real evidence (a URL loaded, a log checked, an API response read) — see the 2026-08-07 Beehiiv correction below for what this looks like in practice.
+
 ---
 
 ## ✅ RESOLVED — apex domain reachability (2026-08-07)
