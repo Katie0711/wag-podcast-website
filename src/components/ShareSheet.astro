@@ -100,6 +100,12 @@ const enc = encodeURIComponent;
     background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--radius-sm);
     box-shadow: var(--shadow); padding: 6px; gap: 2px;
   }
+  /* `display: flex` above has equal specificity to (and comes after, so
+     wins over) the browser default `[hidden]{display:none}` -- without
+     this, toggling the `hidden` attribute in JS silently does nothing
+     and the menu never actually closes. This is the live bug: the share
+     menu stays open once opened, on both mobile and desktop. */
+  .share-menu[hidden] { display: none; }
   .share-item {
     display: block; padding: 9px 12px; border-radius: 8px; font-size: .92rem;
     color: var(--ink-soft); text-decoration: none; transition: background .12s ease;
