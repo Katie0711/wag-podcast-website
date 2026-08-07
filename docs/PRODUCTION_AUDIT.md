@@ -12,15 +12,15 @@ Ecosystem-wide (wildadventuregirls.com + thewagpodcast.com), not a single-repo d
 
 Earlier this session, `wildadventuregirls.com` (bare apex) appeared unreachable via this session's shell, Anthropic's WebFetch, and the sandboxed browser, while `www.wildadventuregirls.com` worked fine — flagged as urgent. **Confirmed resolved**: Katie reported her own internet had been down; WebFetch now successfully loads the real page (verified title + content). This sandbox's own `curl` still can't reach the apex IP directly, which points to this specific sandbox environment's network path as the actual cause, not a genuine production/DNS outage. No action needed on the domain itself — leaving the diagnostic method here since it's a real, reusable way to verify domain reachability independent of any single environment.
 
-**`robots.txt` on wildadventuregirls.com points at the www sitemap, not canonical non-www.** `Sitemap: https://www.wildadventuregirls.com/sitemap-index.xml` — real 301-redirects fine today, but it's routing crawlers through an extra hop to a non-canonical host on every single crawl. Also references `video-sitemap.xml`, which doesn't exist as a real generated file (only resolves via the www→apex redirect chain, not served directly) — worth confirming this reference is intentional/real or stale.
+**✅ FIXED — `robots.txt` sitemap www-mismatch (2026-08-07).** Both `Sitemap:` lines pointed at `www.wildadventuregirls.com` while the site's own canonical (confirmed by `astro.config.mjs` and the generated sitemap itself) is non-www. Clean, deterministic fix — both lines now point at `https://wildadventuregirls.com/...`, shipped directly to `main`. `video-sitemap.xml` was also confirmed real this pass (a genuine Astro endpoint, 11 real video entries, verified via WebFetch) — not stale, just needed the same host fix.
 
 ---
 
-## 1. SEO — 🟡
+## 1. SEO — 🟡 (launch-blocker closed; broader pass intentionally not expanded further)
 
-**Evidence this pass:** canonical tags, title/meta description patterns, and internal-linking were extensively audited in prior sessions (see `ROADMAP.md` history — 33 episode titles rewritten, meta description length fixes, keyword-map-to-page audits). Not re-verified line-by-line this pass; spot checks (canonical tag presence, title suffix logic) confirm the established patterns are intact in `BaseLayout.astro` on both sites.
+**Evidence this pass:** canonical tags, title/meta description patterns, and internal-linking were extensively audited in prior sessions (see `ROADMAP.md` history — 33 episode titles rewritten, meta description length fixes, keyword-map-to-page audits). Not re-verified line-by-line this pass; spot checks (canonical tag presence, title suffix logic) confirm the established patterns are intact in `BaseLayout.astro` on both sites. Fresh spot-check on the 5 live interactions found and fixed one real issue (Questions Featured's title was 78 chars, cut to 57).
 
-**Real gap found this pass:** the robots.txt/sitemap www-mismatch above.
+**Per Katie's 2026-08-07 scoping instruction:** the robots.txt mismatch was the one deterministic launch blocker here and it's fixed. This category stays 🟡 as an honest marker that a full line-by-line re-pass hasn't happened — not because it's blocking anything. Do not treat this as an open invitation to keep auditing; the audit has served its purpose and further SEO work should come from real production behavior, not more internal review.
 
 **Permanent QA Checklist — SEO:**
 - [ ] `<link rel="canonical">` present, absolute URL, matches the site's declared `site:` config domain exactly (protocol + www/non-www)
