@@ -57,6 +57,10 @@ Every capture-consent interaction follows the same shape: the interactive elemen
 6. `npm run build`, then verify in-browser: click through the full interaction end to end (automation clicks can be unreliable in this environment — verify with real JS-triggered clicks and check network requests, not just visual screenshots).
 7. Commit, push to the shared feature branch — **do not merge to `main` without explicit approval.**
 
+## Roadmap
+
+See `docs/ROADMAP.md` — the single source of truth for what's completed, in progress, blocked, technical debt, and long-term opportunities. Update it alongside the work, not after.
+
 ## Distribution
 
 See `docs/DISTRIBUTION.md` for the reusable per-interaction launch checklist (YouTube, socials, newsletter, cross-linking, backlinks, and how real interaction results become future content). A feature isn't complete until this has been filled in and actioned.

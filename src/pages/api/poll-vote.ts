@@ -6,12 +6,17 @@
 // so the CAS logic exists exactly once.
 import type { APIContext } from "astro";
 import { getStore } from "@netlify/blobs";
+import { checkRateLimit, rateLimitResponse } from "../../lib/rateLimit";
 
 export const prerender = false;
 
 const MAX_RETRIES = 5;
 
-export async function POST({ request }: APIContext): Promise<Response> {
+export async function POST({ request, clientAddress }: APIContext): Promise<Response> {
+  const ip = clientAddress || "unknown";
+  const rl = await checkRateLimit(ip, "poll-vote", 30, 300);
+  if (!rl.allowed) return rateLimitResponse();
+
   let body: { pollKey?: string; choice?: string; validChoices?: string[] };
   try {
     body = await request.json();

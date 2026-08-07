@@ -5,10 +5,15 @@
 // genuinely need CAS because many people increment the same key.
 import type { APIContext } from "astro";
 import { getStore } from "@netlify/blobs";
+import { checkRateLimit, rateLimitResponse } from "../../lib/rateLimit";
 
 export const prerender = false;
 
-export async function POST({ request }: APIContext): Promise<Response> {
+export async function POST({ request, clientAddress }: APIContext): Promise<Response> {
+  const ip = clientAddress || "unknown";
+  const rl = await checkRateLimit(ip, "question-submit", 5, 3600);
+  if (!rl.allowed) return rateLimitResponse();
+
   let body: { question?: string; name?: string };
   try {
     body = await request.json();

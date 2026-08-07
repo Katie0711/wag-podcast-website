@@ -6,6 +6,7 @@
 // flow. `transactionalTag` is server-validated against a whitelist so
 // the client can never write an arbitrary tag into Beehiiv.
 import type { APIContext } from "astro";
+import { checkRateLimit, rateLimitResponse } from "../../lib/rateLimit";
 
 export const prerender = false;
 
@@ -13,10 +14,14 @@ const BEEHIIV_PUBLICATION_ID = "pub_5d446dad-4905-4dae-b67e-19192e2f63f0";
 const BEEHIIV_API_BASE = "https://api.beehiiv.com/v2";
 
 // Add this interaction's transactional tag here when it needs one --
-// create the matching tag in Beehiiv first (see docs/interaction-architecture.md).
+// create the matching tag in Beehiiv first (see docs/ARCHITECTURE.md).
 const ALLOWED_TRANSACTIONAL_TAGS = new Set(["wag-match", "favorite-segment", "questions-featured", "wag-awards", "seasonal-challenges"]);
 
-export async function POST({ request }: APIContext): Promise<Response> {
+export async function POST({ request, clientAddress }: APIContext): Promise<Response> {
+  const ip = clientAddress || "unknown";
+  const rl = await checkRateLimit(ip, "interaction-consent", 10, 3600);
+  if (!rl.allowed) return rateLimitResponse();
+
   let body: {
     email?: string;
     transactional?: boolean;
