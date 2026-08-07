@@ -42,7 +42,7 @@ const {
   support = [], proofLine,
 } = Astro.props;
 
-const dateLabel = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" }).format(date);
+const dateLabel = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" }).format(date);
 
 // Sized and weighted to actually read at a glance, not just decorate a
 // colored square -- 3 bold soundwave arcs for Spotify (its real mark),

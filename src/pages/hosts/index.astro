@@ -32,6 +32,22 @@ const hosts = [
     profileUrl: "https://wildadventuregirls.com/girls/angelina/",
   },
 ];
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Hosts — WAG Podcast",
+  description: "Meet the three hosts of WAG Podcast: Angelina, Scarlett, and Annabella — real sisters and a cousin, not a cast.",
+  url: "https://thewagpodcast.com/hosts/",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: hosts.map((h, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: { "@type": "Person", name: h.name, description: h.role, url: h.profileUrl },
+    })),
+  },
+};
 ---
 
 <BaseLayout
@@ -39,6 +55,7 @@ const hosts = [
   description="Meet the three hosts of WAG Podcast: Angelina, Scarlett, and Annabella — real sisters and a cousin, not a cast."
   ogImage="/images/studio/wag-studio-137.jpg"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
   <section class="hosts-hero">
     <div class="hero-photo">
       <picture>
