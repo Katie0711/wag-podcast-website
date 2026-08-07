@@ -82,6 +82,8 @@ Earlier this session, `wildadventuregirls.com` (bare apex) appeared unreachable 
 
 ## 6. Internal-Link Audit — ✅ (folded into Crawl-Budget above — same underlying data, same script)
 
+**Pre-launch check on the unmerged interaction platform (2026-08-07):** ran the same BFS crawler against the local dev build of `feature/wag-match-quiz` (all 6 interactions included). Result: Verdict, Match, Favorite Segment, Questions Featured, and WAG Awards are all at depth 1 (directly linked from the homepage) — clean, launch-ready. Seasonal Challenges is correctly unreachable, matching its own `LIVE = false` gate — not a bug, intentional.
+
 ---
 
 ## 7. Sitemap Audit — ✅
