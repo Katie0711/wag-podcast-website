@@ -41,7 +41,7 @@ Full production audit (17 categories, `docs/PRODUCTION_AUDIT.md`) closed to laun
 
 ## Launch blockers
 
-None technical. The only blocker is Katie's explicit go-ahead to merge both feature branches (see `docs/LAUNCH_CHECKLIST.md`).
+None. Full master list in `docs/LAUNCH_BLOCKERS.md` (0 blocking, 7 acceptable-risk, 17 complete — including `BEEHIIV_API_KEY` in Netlify Production, confirmed live by Katie 2026-08-07). Only Katie's explicit go-ahead to merge both feature branches remains (see `docs/LAUNCH_CHECKLIST.md`).
 
 ## Production blockers
 

@@ -6,11 +6,9 @@ One list. Nothing launches until every item below is ✅ Complete, 🟡 Acceptab
 
 ---
 
-### 🔴 BLOCKING (1)
+### 🔴 BLOCKING (0)
 
-| Blocker | Owner | Status | Evidence | Risk | Recommendation |
-|---|---|---|---|---|---|
-| Production `BEEHIIV_API_KEY` set in Netlify | Katie | 🔴 Blocking | Beehiiv-side infrastructure (tags, segments, automations) confirmed real and correctly configured via direct API checks this session. Cannot confirm the Netlify **production** environment variable itself — no dashboard/CLI access from this environment. | If unset, every consent checkbox on every live interaction silently 503s (`"Beehiiv is not configured yet"`) — real subscribers get a broken form, not an error they'd report. | Check Netlify → Site settings → Environment variables → confirm `BEEHIIV_API_KEY` exists on the **production** context (not just deploy previews) before or immediately after merge. Single 30-second check. |
+None remaining.
 
 ---
 
@@ -28,10 +26,11 @@ One list. Nothing launches until every item below is ✅ Complete, 🟡 Acceptab
 
 ---
 
-### ✅ COMPLETE (16)
+### ✅ COMPLETE (17)
 
 | Blocker | Owner | Status | Evidence |
 |---|---|---|---|
+| Production `BEEHIIV_API_KEY` set in Netlify | Katie | ✅ Complete | Confirmed directly by Katie 2026-08-07: Netlify shows a real value (ending `5o6U`) set identically across all 4 live deploy contexts — Production, Deploy Previews, Branch deploys, and Preview Server & Agent Runners. (Local development via Netlify CLI is empty, which is expected and irrelevant to production.) This was the one item this session's environment couldn't check directly — now closed. |
 | All 6 interactions built, verified pre-launch | Claude | ✅ Complete | `feature/wag-match-quiz` (thewagpodcast-website) — build succeeds clean, all pages render, verified live in browser this session. |
 | Reciprocal cross-links from wildadventuregirls.com | Claude | ✅ Complete | `fix/share-menu-stuck-open` (wildadventuregirls-website) — homepage, girl profiles, podcast page, speaking page, brand-partnerships all link to the 5 live interactions. |
 | Beehiiv tags/segments/automations real and correct | Claude | ✅ Complete | Direct Beehiiv API checks: all 6 interaction tags exist and match the server whitelist exactly; both automations (`Verdict Reveal Notification`, `WAG Insider Welcome`) published/live; all 6 dynamic segments recalculated and confirmed accurate. |
@@ -53,6 +52,6 @@ One list. Nothing launches until every item below is ✅ Complete, 🟡 Acceptab
 
 ## Summary
 
-**1 blocking item** (Netlify production API key — a check only Katie can perform), **7 acceptable-risk items** (all deliberately scoped, documented, none require code changes to launch), **16 complete items** with real evidence.
+**0 blocking items.** **7 acceptable-risk items** (all deliberately scoped, documented, none require code changes to launch). **17 complete items** with real evidence.
 
-**Go/No-Go once the one 🔴 item is confirmed: GO.**
+**Go/No-Go: GO.** No remaining blockers — the merge/deploy decision is Katie's alone from here.
