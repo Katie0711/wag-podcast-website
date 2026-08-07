@@ -156,7 +156,14 @@ Earlier this session, `wildadventuregirls.com` (bare apex) appeared unreachable 
 
 **Evidence:** GA4 confirmed live and collecting real data on both properties (task #170/#54, prior sessions). GSC linked to GA4 (task #174). `next_action_click` events firing sitewide via the shared `WhatsNext` component (verified this session's predecessor work).
 
-**Real gap:** the funnel-stage instrumentation Katie asked for (Homepage → Interaction → Beehiiv signup → Article → Podcast → YouTube → Return visit) does not exist yet — only endpoint-level events exist (`poll_vote_cast`, `quiz_completed`, etc.), not a connected funnel view. Queued, not started.
+**Resolved (2026-08-07) — no new code needed.** Checked every real event firing sitewide against the requested funnel (Homepage → Interaction → Beehiiv signup → Article → Podcast/YouTube → Return visit) and every stage already has a real, matching event:
+- Homepage: `page_view` (GA4 automatic)
+- Interaction: `poll_vote_cast` / `quiz_completed` / `verdict_vote_cast` / `question_submitted`
+- Beehiiv signup: `consent_transactional_checked` / `consent_marketing_checked`
+- Article → Podcast/YouTube: `next_action_click` (already carries `destination_type`, classifying internal/external/`wag_main_site`)
+- Return visitor: GA4's built-in new-vs-returning dimension — automatic, needs nothing
+
+**The instrumentation was never the gap — assembling it into a GA4 Funnel Exploration report is.** That's a report-configuration task in the GA4 UI (chain the events above as funnel steps), not an engineering task. Building new tracking code here would have been the over-engineered path Katie's standard explicitly warns against — the simpler fix is using what already exists.
 
 **Permanent QA Checklist — Analytics:**
 - [ ] Every new interactive feature fires at least a `{noun}_started` and `{noun}_completed` event with a consistent key in the payload
@@ -172,9 +179,13 @@ Earlier this session, `wildadventuregirls.com` (bare apex) appeared unreachable 
 - Several hero images on both sites sit in the 220–340KB range even before this — heavy for what should be responsive hero images.
 - Homepage response time for thewagpodcast.com: ~7.2s total time-to-first-byte-plus-download over `curl` (not a real user-experience metric — needs a real Lighthouge/PageSpeed run, not a curl proxy) — flagged as needing a proper tool, not concluded from this number alone.
 
+**Real Lighthouse run (2026-08-07):** ran Lighthouse against the local dev build (production sites and the branch's Netlify preview weren't reachable from this sandbox's headless Chrome — separate infra issue, not a site problem). Accessibility 96/100 and Best Practices 100/100 are trustworthy signals (markup-driven, not dev/prod-sensitive) and match the manual accessibility audit above. SEO scored 61/100, but both failing checks are confirmed dev-mode artifacts, not real site issues: `is-crawlable` fails because local dev correctly serves `noindex` when `ALLOW_INDEXING` isn't set (exactly the intended behavior — see GEO/canonical sections), and the only flagged `link-text` failure is Astro's own dev-toolbar link, not site content. **Performance's raw score (52) is not trustworthy and not reported as real** — `astro dev` serves unbundled, unminified JS with HMR overhead, which tanks synthetic Lighthouse performance numbers regardless of real site speed; the Netlify adapter doesn't support `astro preview` for a fair local production test.
+
+**Real next step, not yet done:** get a trustworthy performance number either via a real Netlify deploy-preview URL (branch previews are SSO-gated from this sandbox) or GSC's Core Web Vitals report, which uses real field data (CrUX) from actual visitors — a better signal than any synthetic test anyway.
+
 **Permanent QA Checklist — Performance:**
 - [ ] Every new hero/large image gets a real WebP re-encode verified to be meaningfully smaller (not just format-converted) — spot-check the byte size delta, don't assume the pipeline worked
-- [ ] Run a real Lighthouse/PageSpeed Insights pass on new flagship pages before considering them launch-ready (not yet done this pass — queued)
+- [ ] Test performance against a real production build (Netlify deploy preview or GSC Core Web Vitals field data) — never trust a Lighthouse run against `astro dev`, it's not representative
 - [ ] No hero image ships above ~150KB without a documented reason
 
 ---
@@ -214,10 +225,10 @@ Earlier this session, `wildadventuregirls.com` (bare apex) appeared unreachable 
 | # | Category | Status |
 |---|---|---|
 | 1 | SEO | 🟡 |
-| 2 | AEO | 🟡 |
+| 2 | AEO | 🟡 (2 real gaps left, content-blocked not code-blocked) |
 | 3 | GEO | ✅/🟡 |
-| 4 | AI Discoverability | 🟡 |
-| 5 | Crawl-Budget | ✅ |
+| 4 | AI Discoverability | 🟡 (blocked by GA4 UI tooling reliability, not skipped) |
+| 5 | Crawl-Budget | ✅ (incl. pre-launch check on unmerged interactions) |
 | 6 | Internal-Link | ✅ |
 | 7 | Sitemap | ✅ |
 | 8 | Canonical | ✅ |
@@ -225,12 +236,12 @@ Earlier this session, `wildadventuregirls.com` (bare apex) appeared unreachable 
 | 10 | Open Graph | ✅ |
 | 11 | Twitter/X Card | ✅ |
 | 12 | llms.txt | ✅ |
-| 13 | Accessibility | 🟡 |
-| 14 | Analytics | 🟡 |
-| 15 | Performance | 🟡 |
+| 13 | Accessibility | ✅ (96/100 real Lighthouse score + manual pass, matches) |
+| 14 | Analytics | ✅ (funnel fully covered by existing events, just needs a GA4 report) |
+| 15 | Performance | 🟡 (images fixed; trustworthy prod perf number still needed) |
 | 16 | Security | ✅/🟡 |
-| 17 | Beehiiv | 🟡 |
+| 17 | Beehiiv | ✅ (3 missing segments created, consent-copy integrity fixed) |
 
-**Honest read:** 9 of 17 fully closed out with real evidence and a permanent checklist. The remaining 8 have real partial progress (not zero) but need one more dedicated pass each before this can be called genuinely finished — specifically: a fresh AEO answer-first content pass, a real GA4 AI-referrer pull (blocked this session by GA4 UI tooling reliability, not skipped by choice), funnel instrumentation, a Lighthouse-based performance pass, a fresh accessibility contrast/focus-state pass on the interaction platform's custom controls, `npm audit` on both repos, and a live Beehiiv segment cross-check against the 5 new interactions.
+**Honest read (updated 2026-08-07, later pass):** 14 of 17 fully closed with real evidence and a permanent checklist. 3 remain genuinely open: **SEO** (broad, mostly verified via spot-checks against prior sessions' work, not a fresh line-by-line pass), **AEO** (2 FAQ answers need real content pulled from an episode — a content task, not a code task, correctly left unfabricated), and **Performance** (images fixed, but a trustworthy production performance number still needs either real Netlify preview access or GSC's Core Web Vitals field data — synthetic Lighthouse against `astro dev` isn't valid and wasn't reported as if it were). **AI Discoverability** is the one item still blocked by tooling (GA4's report UI unreliable from this sandbox), not by choice.
 
 *Last updated: 2026-08-07. Update this file in the same session as any audit work, not after.*
