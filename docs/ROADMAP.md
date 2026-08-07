@@ -10,7 +10,7 @@ The single source of truth for where the company's technical roadmap stands. Upd
 
 - 6-interaction platform built on shared architecture: WAG Verdict, WAG Match, Vote for Your Favorite WAG Segment, Questions Featured, WAG Predicted It (extended), WAG Awards Season 1. All live-tested locally end-to-end (real votes/submissions hitting real Netlify Blobs + Beehiiv-ready endpoints).
 - Shared components: `VoteWidget`, `PollWidget`, `QuizWidget`, `ConsentCheckboxPair` (generalized), `SponsorSlot`, `WhatsNext`, `ShareSheet`, `Breadcrumb`.
-- Shared APIs: `/api/interaction-consent`, `/api/poll-vote`, `/api/question-submit` (Verdict's original pair kept separate, untouched, already production-verified).
+- Shared APIs: `/api/interaction-consent`, `/api/poll-vote`, `/api/question-submit` (Verdict's original pair kept separate, untouched, verified pre-launch — corrected 2026-08-07: not actually deployed to production `main` yet, same as the rest of the platform; see Beehiiv finding below).
 - Beehiiv fully wired: real tags per interaction, real segments backing every "email me when X happens" promise, subscribe-form theme and both automations confirmed live/published.
 - Abuse protection: shared rate limiter (`src/lib/rateLimit.ts`) live on all 3 public POST endpoints — verified with a real 429 after the limit.
 - Uniform analytics: `next_action_click` tracking fires on every interaction page via the shared `WhatsNext` component (one change, live everywhere).
@@ -26,7 +26,7 @@ The single source of truth for where the company's technical roadmap stands. Upd
 
 ## ⏸ Blocked (needs Katie)
 
-- **Production launch decision** — nothing built this week is live to real users. All 6 interactions sit on the unmerged `feature/wag-match-quiz` branch pending final review.
+- **Production launch decision — LAUNCH REQUIREMENT: both repos ship together.** Nothing built this week is live to real users. All 6 interactions sit on the unmerged `feature/wag-match-quiz` branch (thewagpodcast-website) pending final review. Confirmed 2026-08-07: wildadventuregirls-website's reciprocal cross-links to these interactions (homepage, girl profile pages, podcast page, speaking page, brand-partnerships page) are *also* unmerged, on `fix/share-menu-stuck-open`. Katie's explicit call: "the two websites should launch as one ecosystem, not as two independent projects" — do not merge one repo's branch without the other; the Launch Readiness Review only formally covered thewagpodcast-website and should be treated as half the real picture until wildadventuregirls-website gets the same review.
 - **Community Chooses** — real forward-looking audience-decision format, fully reserved and architecturally ready (`PollWidget` needs zero new code), waiting on a real upcoming decision from Katie to attach it to.
 - **Seasonal Challenges** — infrastructure-only, `LIVE = false`, waiting on real challenge content.
 - **wagmediapartners.com conflict** — decision needed from Katie (carried from earlier in the project).
