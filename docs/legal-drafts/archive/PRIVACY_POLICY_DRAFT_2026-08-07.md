@@ -1,4 +1,8 @@
-# Privacy Policy (Draft — not published)
+# Privacy Policy (Draft — archived, published 2026-08-07)
+
+**Archived reference copy.** This draft was published to production on 2026-08-07 as `wildadventuregirls-website/src/pages/privacy/index.astro`. The live page is now the source of truth — edit it directly for future changes, not this file. Kept here for drafting history only.
+
+---
 
 **Last updated: [date of publication]**
 

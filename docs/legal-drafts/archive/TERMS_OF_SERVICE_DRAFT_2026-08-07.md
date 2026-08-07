@@ -1,4 +1,8 @@
-# Terms of Service (Draft — not published)
+# Terms of Service (Draft — archived, published 2026-08-07)
+
+**Archived reference copy.** This draft was published to production on 2026-08-07 as `wildadventuregirls-website/src/pages/terms/index.astro`. The live page is now the source of truth — edit it directly for future changes, not this file. Kept here for drafting history only.
+
+---
 
 **Last updated: [date of publication]**
 

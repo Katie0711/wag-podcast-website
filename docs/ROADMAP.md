@@ -38,6 +38,12 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 - **Dependencies:** none.
 - **Status:** ✅ Built 2026-08-07. Maintenance is now standing practice, not a one-time task.
 
+### Legal foundation V1
+- **Purpose:** full legal audit of both sites' real data-collection behavior (APIs, cookies, localStorage, analytics, Beehiiv), an updated Privacy Policy + Terms of Service matching actual behavior (targeted additions to the existing baseline, not a rewrite), and a Green/Yellow/Red Legal Readiness Report + Executive Summary for attorney review.
+- **Business value:** substantially reduces real business risk (email collection, minors' privacy, submission ownership, liability, IP protection) ahead of legal counsel review, while keeping the documents accurate and readable rather than speculative or bloated.
+- **Dependencies:** none technical — this was an audit + drafting task.
+- **Status:** ✅ Published to production 2026-08-07 (`wildadventuregirls.com/privacy/`, `/terms/`). Full package archived in `docs/legal-drafts/archive/`; `LEGAL_READINESS_REPORT.md` and `EXECUTIVE_SUMMARY.md` kept active for future reference. **Treated as Version 1, not final** — re-review and update these documents when WAG materially expands: paid memberships, software/apps, mobile apps, user accounts, ecommerce, or major international growth. Requested after the code launch was already live; flagged to Katie directly rather than silently absorbed into the sequencing.
+
 ---
 
 ## Current
@@ -47,12 +53,6 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 - **Business value:** real data (completion rates, Beehiiv conversion by interaction, return visits, YouTube click-through) is the actual next source of truth — not more internal speculation.
 - **Dependencies:** none — launched 2026-08-07, both repos merged and verified live.
 - **Status:** ✅ Launched. 🚧 Now in Observe phase — see `CEO_DECISIONS.md` for the 7-item post-launch analytics priority list.
-
-### Legal readiness (launch-critical, added 2026-08-07)
-- **Purpose:** full legal audit of both sites' real data-collection behavior (APIs, cookies, localStorage, analytics, Beehiiv), rewritten Privacy Policy + Terms of Service matching actual behavior, and a Green/Yellow/Red Legal Readiness Report.
-- **Business value:** substantially reduces real business risk (email collection, minors' privacy, submission ownership, liability) ahead of legal counsel review.
-- **Dependencies:** none technical — this is an audit + drafting task.
-- **Status:** 🚧 In progress. Requested after the code launch was already live; flagged to Katie directly rather than silently absorbed into the sequencing.
 
 ### YouTube channel optimization
 - **Purpose:** full channel audit-and-fix pass + binge-path end screens/cards, following the approved playlist/packaging strategy.

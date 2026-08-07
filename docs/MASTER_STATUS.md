@@ -8,6 +8,8 @@
 
 **🟢 Interaction Platform V1 is LIVE in production (2026-08-07).** Both repos merged and deployed per Katie's explicit GO. All 5 live interactions (Verdict, Match, Favorite Segment, Questions Featured, WAG Awards) verified end-to-end on real production URLs — real votes, real quiz completions, real free-text submissions, real Beehiiv consent (9 tags confirmed correct across all 5 flows, including the new per-choice tags), real GA4 events. wildadventuregirls.com's reciprocal cross-links and the `/speaking/` filter fix confirmed live and working. Seasonal Challenges correctly stayed gated (`LIVE = false`, `noindex`) — not published. Roadmap phase moves to **Observe → Learn → Optimize → Expand** — see `ROADMAP.md`.
 
+**🟢 Legal foundation V1 is COMPLETE and published (2026-08-07).** Updated Privacy Policy and Terms of Service are live on wildadventuregirls.com (`/privacy/`, `/terms/` — both sites' canonical, single-source legal pages) with a real "Last updated: August 7, 2026" date. Covers the Interactive Platform, Beehiiv, Netlify Blobs/Forms, Ahrefs, a tightly-scoped Future Products section, and strengthened IP/User Submissions language. Full package (drafts, Legal Readiness Report, Executive Summary) archived — see `docs/legal-drafts/archive/` and `LEGAL_READINESS_REPORT.md`. Treated as Version 1, not final — see `ROADMAP.md` for the re-review trigger.
+
 ## Branch state
 
 **thewagpodcast-website**
@@ -35,9 +37,8 @@ Full production audit (17 categories, `docs/PRODUCTION_AUDIT.md`) closed to laun
 
 ## Immediate next tasks
 
-1. **Legal readiness (launch-critical, in progress 2026-08-07)** — Katie requested a full legal audit of both sites (every API/interaction/cookie/localStorage/analytics touchpoint), a rewritten Privacy Policy + Terms of Service, and a Legal Readiness Report (Green/Yellow/Red), to be presented for approval before integration. Note: this request arrived after the code launch was already live per her own explicit GO — flagged to her directly, not silently absorbed.
-2. Post-launch analyst posture: watch real usage (votes/submissions increasing, Beehiiv signups arriving, no API errors, GA4 receiving events) for the first 48–72 hours per Katie's explicit instruction — see `CEO_DECISIONS.md`.
-3. Resume the 5-page SEO optimization plan once legal work and initial observation window are handled — see `ROADMAP.md` → Next.
+1. Post-launch analyst posture: watch real usage (votes/submissions increasing, Beehiiv signups arriving, no API errors, GA4 receiving events) for the first 48–72 hours per Katie's explicit instruction — see `CEO_DECISIONS.md`.
+2. Resume the 5-page SEO optimization plan now that legal work is complete — see `ROADMAP.md` → Next.
 
 ## Launch blockers
 
