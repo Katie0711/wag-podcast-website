@@ -25,13 +25,24 @@ Larger strategic opportunities beyond pure software — tracked only when real e
 | [Interactive Books / Physical Products](FUTURE_OPPORTUNITIES.md#interactive-books--physical-products) | Real investigation content has no physical-product path yet | Source/IP preservation already done; adjacent slime-book project already in motion | Med biz (licensing/sales); Low-Med audience | Low data · High IP · Low software · Low membership | Medium — real content + real production quality is the moat, not the format | Med | Long | Low | Deliberately Deferred | Discovery Platform matures and real investigation volume grows |
 | [AI Discovery Assistant](FUTURE_OPPORTUNITIES.md#ai-discovery-assistant) | No on-site way to help visitors navigate to the right content | Natural extension of real AEO/GEO investment already made | Low-Med audience (navigation aid); no direct sponsor | Low data · Low IP · High software · Low membership | Low — only as good as the Knowledge Graph underneath it | High | Long | Low | Deliberately Deferred | Real content volume + Knowledge Graph exist |
 | [Long-Term Channel Architecture Review](FUTURE_OPPORTUNITIES.md#long-term-channel-architecture-review) | Whether the split main/podcast-channel structure is the right long-term call | Prompted by observing Rock Squad's single-channel structure — not evidence, a question to test | High biz if wrong (hard to reverse once channels have real history) | — (this is an analysis, not a system) | — | Low (analysis effort) | Med | Low (deliberately) | Deliberately Deferred | Enough real history on both channels to compare meaningfully |
-| [Creator Operating System](FUTURE_OPPORTUNITIES.md#creator-operating-system-long-horizon-optionality-only) | Whether the internal platform could ever be licensable to other creators | Purely optionality — explicitly not today's business per `CEO_DECISIONS.md` | Very High if ever pursued; zero near-term | — | Very high if it happens — the two-brand-proven-platform bar is a real one | Very High | Very Long | Very Low | Deliberately Deferred | Two proven brands (WAG + HorseSmart Kids) running on the platform, plus a deliberate decision to pursue external customers |
+| [Creator Operating System](FUTURE_OPPORTUNITIES.md#creator-operating-system-long-horizon-optionality-only) | Whether the internal platform could ever be licensable to other creators | Purely optionality — explicitly not today's business per `CEO_DECISIONS.md`. New evidence 2026-08-08: neither LOL Podcast nor Rock Pod (both larger than WAG) has anything resembling this interaction architecture — a real, external data point that the differentiation is genuine, not just a self-assessment. Evidence-only per Katie's 2026-08-08 directive — do not build or pitch anything from this. | Very High if ever pursued; zero near-term | — | Very high if it happens — the two-brand-proven-platform bar is a real one | Very High | Very Long | Very Low | Deliberately Deferred | Two proven brands (WAG + HorseSmart Kids) running on the platform, plus a deliberate decision to pursue external customers |
 
 ---
 
 ## Emerging, not yet a full entry
 
 Named by Katie 2026-08-08 as part of the long-term "WAG Intelligence" vision — real direction, no evidence yet beyond the direction itself, so not promoted to a full row: **Opportunity Engine** (surfaces "what should WAG work on next" from real cross-source data), **Publishing Intelligence**, **cross-platform attribution** (early building block already logged in `SOFTWARE_INCUBATOR.md`), **WAG internal API/data layer**, **AI agent team**, **creator playbooks**, **future creator membership**, **future commercial creator software**, **searchable business knowledge**, **unified data warehouse/analytics**. These stay here, unpromoted, until real repeated evidence (not the stated direction alone) justifies a full row — same discipline as the Software Incubator.
+
+## Flywheel opportunities identified
+
+Per Katie's standing directive (2026-08-08): while working, ask whether something naturally becomes a website interaction, article, email, sponsor opportunity, recurring segment, book, merch, software, first-party data, or reusable asset. Logged here only when a real, specific instance surfaces — not a generic list of "things that could theoretically flow into other formats."
+
+| Date | What surfaced | Could naturally become | Status |
+|---|---|---|---|
+| 2026-08-08 | A Verdict/Match/Awards/Community Chooses result turning into a follow-up piece of content ("here's what you all picked") | Article or recurring segment | Identified as a real gap (no confirmed instance found yet), not yet tested — watch for the next real interaction cycle with a genuinely interesting result |
+| 2026-08-08 | LOL Podcast's live "LOL Slime" product line, found during Phase F research | Direct competitive input to the already-planned Slime Book project | Logged for handoff to the WAG Publishing Engine project once that work resumes |
+
+---
 
 ## The sequencing rule this registry protects
 

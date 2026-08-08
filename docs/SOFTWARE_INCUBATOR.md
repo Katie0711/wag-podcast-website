@@ -108,3 +108,19 @@ Do not advance a level because it sounds exciting — evidence earns advancement
 ---
 
 *Update this file only when a real, repeated pattern is genuinely observed during actual work — never as a standalone brainstorming exercise. If a phase produces nothing worth logging here, say so in the Phase Summary and move on.*
+
+---
+
+# Business Assets Ledger
+
+**A cumulative record of durable, long-term business assets WAG has actually created — not a running list of everything shipped.** Per Katie's standing directive (2026-08-08): at the close of any meaningful phase, ask "did we create a long-term business asset?" Only log entries that genuinely increase WAG's long-term enterprise value. Categories she named: proprietary audience data, packaging intelligence, operating systems, automation, first-party audience insights, sponsor inventory, reusable IP, competitive intelligence, documented workflows, authority signals, software specifications. Don't force entries — a phase that ships real work but creates no durable asset beyond that work is a valid, honest outcome.
+
+| Date | Asset | Category | Why it's durable | Source phase |
+|---|---|---|---|---|
+| 2026-08-08 | WAG Packaging Intelligence (proprietary title-pattern reasoning system, not a list of examples) | Packaging intelligence | Reusable against every future title decision, not tied to any single episode or competitor — compounds with each new pattern logged | Phase F: Competitive Intelligence |
+| 2026-08-08 | Competitive Intelligence system with a confirmed Rule-of-3 flag (dating/relationship-status hooks) | Competitive intelligence | Validated, evidence-backed packaging direction that would take a competitor real research effort to replicate independently | Phase F: Competitive Intelligence |
+| 2026-08-08 | CEO Dashboard v0.1 (centralized cross-system operating reference) | Operating system (early) | First real step toward closing the recurring manual-cross-system-checking pattern; compounds as more real pulls get folded in | Post-Phase F strategic directive |
+| — | Interaction platform (Verdict, Match, Awards, Predicted It, Questions Featured, Games) | Reusable IP / first-party audience data | Neither direct competitor researched has an equivalent; genuinely un-copyable in a week — logged retroactively here since it predates this ledger, but the underlying asset is real and ongoing | Interaction platform build (pre-ledger) |
+| — | Consent-split first-party data architecture (transactional vs. marketing, per-interaction tagging) | Proprietary audience data | Produces queryable audience segments most competitors' generic newsletter forms don't — logged retroactively | Interaction platform build (pre-ledger) |
+
+*Two entries above are logged retroactively because they're real, already-existing durable assets that predate this ledger's creation — not backfilled speculation. Going forward, only log at genuine phase close, evaluated against the question above, not on a schedule.*
