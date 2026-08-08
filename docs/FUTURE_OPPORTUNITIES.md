@@ -200,6 +200,18 @@ Major opportunities identified but deliberately not built yet. Capturing these h
 
 ---
 
+### Adventure Map auto-pin on publish (flywheel completeness)
+
+**Concept:** when a new main-channel WAG video publishes, the Adventure Map should be able to pick up a reasonable real location and add a pin automatically, rather than staying purely manual. Raised by Katie 2026-08-08 as part of completing the publishing flywheel.
+
+**Real foundation already in place:** the `videos` collection already has an optional `location: z.string().optional()` field, and several real entries already use it (`"Fort Worth, TX"`, `"Oregon"`, `"Los Angeles, CA"`, `"Anaheim, CA"`). If a new/matched video entry has a real `location` string, geocoding it (a small free geocoding API call, or a lookup table of locations WAG has already used) into map coordinates and placing a pin is genuinely feasible with what already exists — no new content model needed, same "use the existing relationship" principle as the rest of the flywheel work.
+
+**What's not yet solved:** live-fetched main-channel videos with no matching `videos` collection entry have no `location` at all — there's nothing to geocode until either an entry gets written or Katie supplies one directly (matching her own "it can pick a reasonable place, or you can ask me" framing — the "ask me" path is the honest fallback when no real location signal exists yet).
+
+**Timing:** not built this pass — scoped and captured so it isn't lost. Real next step: build the geocode-and-pin logic keyed off the existing `location` field once a video/article `location` exists, with a clear "ask Katie" path when it doesn't.
+
+---
+
 ### Long-Term Channel Architecture Review
 
 **Concept:** A deliberate, data-driven review of whether WAG should keep operating a dedicated podcast YouTube channel (@WAGPodcast, separate from the main girls' channel) or whether a different long-term channel structure serves the ecosystem better. Prompted by observing that Rock Squad publishes their podcast on their main channel rather than a dedicated one — not a signal to copy, but a real structural question worth answering with WAG's own evidence rather than assumption.
