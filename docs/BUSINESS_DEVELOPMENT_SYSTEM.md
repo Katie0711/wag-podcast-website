@@ -37,6 +37,45 @@ Status values match the rest of this ecosystem's docs: **Live**, **Real gap (not
 
 ---
 
+## Track 3: The wider ecosystem (research pass 2, 2026-08-08 — document-don't-act pass, per Katie's explicit instruction)
+
+Real findings only, organized by category. No accounts created, no outreach made. Each entry: what it is / how it works / eligibility / claimed-vs-auto / business, sponsor, and AI-entity value / difficulty / priority.
+
+### Agencies
+- **Underscore Talent** — strongest real match found. A digital-first talent agency with an explicit kids/family growth division (roster includes Vlad and Niki, The Royalty Family). Agencies like this recruit directly by scouting successful channels rather than taking cold submissions — WAG's real profile (1.2M+ subs, 1B+ views, decade of history) is plausibly already on their radar or reachable via warm intro. **Eligible:** likely. **Claimed/auto:** neither — relationship-based. **Value:** high business (real representation/deal flow) and sponsor value; low direct AI-entity value. **Difficulty:** medium (needs a real warm intro, not a form). **Priority: high** — the single best-fit agency found.
+- **pocket.watch / clock.work** — real, active kids-content studio + its COPPA-compliant ad-buying arm (real clients: Nintendo, Paramount, Mattel). Relevant to WAG as a potential **ad/sponsorship revenue channel** (clock.work buys kids-audience ad inventory), not talent representation. **Priority: medium** — worth knowing exists, not an immediate target.
+- **Adolescent Content** — real Gen Z creative agency/production house, functions more as an incubator for younger creators than representation for an established channel WAG's size. **Priority: low** for WAG specifically.
+- Movers+Shakers, NewGen, The Z Link — all real, active Gen Z/creator-economy agencies, but **no documented teen/family niche** (general Gen Z/Millennial focus). Useful market context, not a targeted fit. **Priority: low.**
+- "Jive PR + Digital" as a family/kids specialist — **not confirmed real** for that niche; don't pursue on that premise.
+
+### Media & press coverage
+Real, currently-active outlets that cover this exact space: **Tubefilter** (creator-economy daily news), **Digiday** (creator-economy trend coverage), **Kidscreen** (kids-entertainment trade coverage, increasingly folding in creator-economy stories), **The Toy Book** (kids-brand licensing/deal coverage). Realistic pitch angles per their actual coverage patterns: milestone/growth stories (real subscriber/view numbers), format-evolution stories (a decade-old teen channel building a podcast), and brand-partnership case studies — not generic "about us" releases. **Value:** this is the single highest-leverage lever identified across all research this session (real press mentions are the strongest measured AI-citation correlate found). **Difficulty:** medium (real pitching, no shortcuts). **Priority: high.**
+
+### Speaking / conferences
+- VidCon, VidSummit — WAG's existing real history, unchanged.
+- **Podcast Movement** — real, active, moving to NYC Sept 14–18, 2026; directly relevant given WAG Podcast's own growth. **Priority: medium-high** — a genuinely good fit given the podcast focus.
+- **Kidscreen Summit** — real, ran Feb 2026, but Brunico Communications has announced it's discontinuing its US events portfolio starting 2027 — likely no future edition to target. **Priority: n/a, don't plan around it.**
+- **ANA Creator Marketing Conference** and **Cannes Creator Economy Summit** — real, but brand/agency-heavy, higher-tier entry points. **Priority: low for now**, worth reconsidering as WAG's profile grows.
+
+### Industry organizations
+- **FOSI (Family Online Safety Institute)** — real; partnered with YouTube in March 2026 to launch a Creator Safety Center. A thought-leadership/safety body, not a BD channel, but directly relevant given WAG's teen audience and minors-on-camera profile. **Priority: medium** — more of a credibility/safety-alignment signal than a growth lever.
+- **YouTube NextUp** — real program, but capped at ~100K subscribers. **WAG is not eligible** (1.2M+ subs) — confirmed ineligible, not worth pursuing.
+- **Digital Content Next (DCN)** — real trade association for premium digital publishers; marginal fit today, relevant only if WAG builds a substantial owned-media/direct-ad-sales business later. **Priority: low, revisit later.**
+- No credible dedicated teen/family creator trade body was found beyond FOSI's safety focus — this category is genuinely thin, not underexplored.
+
+### Business listings / structured entities
+- **IMDb** — real, and now accepts YouTube/online releases as listings. Carries real weight with Google's Knowledge Panel. This is a genuinely new, actionable Tier-2 entity-authority opportunity — separate from Wikidata, likely lower-friction. **Eligible:** plausibly yes. **Claimed:** creator-initiated submission. **Value:** real AI/entity-authority value, moderate business value. **Difficulty:** low-medium. **Priority: medium-high — worth Katie's review alongside the Wikidata decision.**
+- **Crunchbase** — real, but investor/funding-oriented; relevant mainly if WAG ever raises capital or wants acquirer visibility. **Priority: low** for now.
+- **Google Business Profile** — built for local/physical businesses, not a natural fit for a YouTube-first national brand. **Priority: very low.**
+
+### MCNs / creator networks
+Real research confirms MCNs (Studio71, ScaleLab, InterSpace Distribution) still function in 2026, but have shifted from basic revenue-share toward Content ID/rights management and brand-deal facilitation. For a channel at WAG's scale with real direct sponsor relationships already, the classic MCN value prop is weaker than for a smaller channel — WAG likely already has more direct leverage than an MCN would add. **Priority: low, document and move on, not a real gap.**
+
+### Software pattern recognized during this pass
+Tracking 15+ external opportunities across 6 categories by hand, in a markdown table, is itself the exact shape of a future **Authority Tracker** (one of the software patterns already named in `FUTURE_OPPORTUNITIES.md`/[[wag_brand_authority_system_framework]]). Noting it because it's real and visible now — not building it. This doc stays the manual version until that's worth doing.
+
+---
+
 ## What's confirmed (2026-08-08 research, complete)
 
 Discovery platforms (CreatorIQ/Aspire/Traackr-class tools) and agencies are the dominant real channels brands use to source creators, ahead of organic/AI search — this is why Track 2 exists at all, not as a hedge. Of the four platforms checked, only **Aspire** has a real, actionable, self-serve creator signup today; CreatorIQ is enterprise-only with nothing for WAG to do; Traackr and HypeAuditor most likely already index WAG passively from public data, with no signup path either way. Wikidata is genuinely borderline for WAG right now — real notability policy exists, but no precedent was found of a comparable creator-brand item surviving without an underlying Wikipedia article, so it's a "build more press first" item, not a "do it now" item.
