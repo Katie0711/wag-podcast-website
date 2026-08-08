@@ -44,6 +44,12 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 - **Dependencies:** none technical — this was an audit + drafting task.
 - **Status:** ✅ Published to production 2026-08-07 (`wildadventuregirls.com/privacy/`, `/terms/`). Full package archived in `docs/legal-drafts/archive/`; `LEGAL_READINESS_REPORT.md` and `EXECUTIVE_SUMMARY.md` kept active for future reference. **Treated as Version 1, not final** — re-review and update these documents when WAG materially expands: paid memberships, software/apps, mobile apps, user accounts, ecommerce, or major international growth. Requested after the code launch was already live; flagged to Katie directly rather than silently absorbed into the sequencing.
 
+### 5-page SEO optimization plan
+- **Purpose:** sharpen packaging on 5 real pages against validated real search demand (Guys Answer Questions hub, Who's Most Likely To, Hot Takes, Dating Red Flags, and a deliberate non-build decision on "Is It Cheating If...?").
+- **Business value:** real, evidenced search-demand capture using content WAG already has — no fabrication.
+- **Dependencies:** none.
+- **Status:** ✅ Implemented and build-verified 2026-08-07. Guys Answer Questions hub has the real unused FAQ entries + Dating Red Flags reciprocal link; Who's Most Likely To has the strengthened how-to-play section + game cross-links; Hot Takes names the real specific takes and has its FAQ schema. "Is It Cheating If...?" deliberately not built (no real source material beyond Dating Red Flags' shared YouTube title — see the original plan for the full reasoning).
+
 ---
 
 ## Current
@@ -69,12 +75,6 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 ---
 
 ## Next
-
-### 5-page SEO optimization plan
-- **Purpose:** sharpen packaging on 5 real pages against validated real search demand (Guys Answer Questions hub, Who's Most Likely To, Hot Takes, Dating Red Flags, and a deliberate non-build decision on "Is It Cheating If...?").
-- **Business value:** real, evidenced search-demand capture using content WAG already has — no fabrication.
-- **Dependencies:** none — plan is fully specified, paused only for the launch-checklist and documentation work.
-- **Status:** ⏭ Queued, plan finalized, ready to execute.
 
 ### Sponsor-facing one-pager for interactive inventory
 - **Purpose:** sales collateral for the real sponsor inventory the interaction platform creates.
