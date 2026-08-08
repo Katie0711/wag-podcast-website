@@ -1,8 +1,10 @@
-# WAG CEO Dashboard (v0.1)
+# WAG CEO Cockpit (v0.1)
 
-**For Katie only. Internal, not published, not linked from any live page.** Purpose: stop re-deriving the same handful of business questions by manually re-checking YouTube Studio, GA4, Search Console, Beehiiv, Spotify, website interactions, sponsor inquiries, internal documentation, and competitive intelligence every time. This is a living document, not software — it evolves only when real repeated work justifies a new section. See `SOFTWARE_INCUBATOR.md` for the eventual live-dashboard entry this may graduate into.
+**One module inside WAG OS** (see `WAG_OPERATING_SYSTEM_MAP.md`) — not a standalone dashboard. Its one job: answer "what do I need to know to run WAG today?" **For Katie only. Internal, not published, not linked from any live page.** This is Version 0.1 as an internal operational tool, not an enterprise application — it evolves only when real repeated work justifies a new section.
 
-**Standing rule while working (per Katie, 2026-08-08):** every time information gets pulled from more than one system to answer a question, ask — should this become a widget here? Is this becoming a repeated workflow? What would make the decision faster next time? Update this file when the answer is yes. Don't force sections ahead of real need.
+**Standing rule while working (per Katie, 2026-08-08):** every time information gets pulled from more than one system to answer a question, ask — should this become a Cockpit widget? Is this becoming a repeated workflow? What would make the decision faster next time? Update this file when the answer is yes. Don't force sections ahead of real need.
+
+**Future modules named but not built (long-term vision, per Katie 2026-08-08 — do not build ahead of real need):** a Morning Brief (what changed overnight — new uploads, subscriber/traffic/email growth, sponsor inquiries, AI/search changes, alerts), a Priority Engine (a prioritized decision list, not a task list — what deserves attention today and why), and an Opportunity Engine (surfaces evidence-backed opportunities as they appear, not a running idea list). All three are real future shapes for what this file already does by hand — they get built only once a section here has actually been used repeatedly enough to earn it.
 
 Each section below: the real answer as of its last check, where it came from, and what's still genuinely unknown (marked TBD, not guessed).
 

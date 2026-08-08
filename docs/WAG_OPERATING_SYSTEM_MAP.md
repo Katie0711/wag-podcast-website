@@ -1,6 +1,10 @@
-# WAG Operating System — Map
+# WAG OS
 
-**Not a new system. An index of the ones that already exist**, so a brand-new Claude session (or eventually a specialized agent — see `WAG_AGENT_ARCHITECTURE.md`) can orient by reading the company's own documentation instead of depending on this conversation. Per Katie's 2026-08-08 directive: the company owns the knowledge, Claude reads it, works, and writes it back. See `docs/ARCHITECTURE.md` for the codebase map — this is the *business* map, one level up.
+**WAG OS is not software today. It is the operating system for running WAG** — the living, connected set of documents below, not a new build. Named directly per Katie (2026-08-08): "the dashboard is just one module inside it" — this map, `CEO_COCKPIT.md`, and every other living doc are WAG OS. This page is an index of documents that already exist, not a new system, so a brand-new Claude session (or eventually a specialized agent — see `WAG_AGENT_ARCHITECTURE.md`) can orient by reading the company's own documentation instead of depending on this conversation. The company owns the knowledge; Claude reads it, works, and writes it back. See `docs/ARCHITECTURE.md` for the codebase map — this is the *business* map, one level up.
+
+**The flywheel this exists to serve:** run WAG → improve WAG OS → WAG OS helps run WAG even better. The media company creates the operating system; the operating system makes the media company stronger. Neither replaces the other.
+
+**The guardrail (Katie's own words, 2026-08-08 — the standing check on all of this):** *"If you ever find yourself spending more time designing WAG OS than improving WAG itself, stop and return to the roadmap. WAG OS should always evolve as a by-product of running WAG, never replace running WAG."* Document and evolve WAG OS through real work — it is never itself the work.
 
 **Explicitly not a rebuild.** These stay as separate, purpose-built docs. This page just makes the connections between them visible.
 
@@ -10,7 +14,7 @@
 
 | Document | Owns | Feeds into |
 |---|---|---|
-| `CEO_DASHBOARD.md` | The current real answer to cross-system questions (YouTube/GA4/GSC/Beehiiv/Spotify/interactions/sponsor inquiries/docs/competitive intel) | Everything below — it's the fastest orientation point |
+| `CEO_COCKPIT.md` | The current real answer to cross-system questions (YouTube/GA4/GSC/Beehiiv/Spotify/interactions/sponsor inquiries/docs/competitive intel) | Everything below — it's the fastest orientation point |
 | `MASTER_STATUS.md` (ecosystem) | Single source of truth for what's live, in progress, and blocked, across both repos | `ROADMAP.md`, Phase Summaries |
 | `ROADMAP.md` | Strategic bucket view (Completed → Current → Next → Future → Icebox) | `MASTER_STATUS.md` |
 | `CEO_DECISIONS.md` | The *why* behind strategic calls | Every doc below that references "per Katie's decision" |
@@ -30,7 +34,19 @@
 - **Evidence flows one direction:** `COMPETITIVE_INTELLIGENCE.md` and `PRODUCT_JOURNAL.md` are raw observation logs. `WAG_PACKAGING_INTELLIGENCE.md` and `SOFTWARE_INCUBATOR.md` are where raw observations become reasoning/decisions once there's enough of them (Rule of 3, readiness level 2+).
 - **Decisions flow the other direction:** `CEO_DECISIONS.md` is upstream of everything — any doc citing "per Katie's decision" traces back there.
 - **Status is centralized, content isn't:** `MASTER_STATUS.md` and `ROADMAP.md` don't duplicate any other doc's content — they only ever summarize and link out.
-- **The Dashboard is the shortcut, not a duplicate:** `CEO_DASHBOARD.md` pulls the single most-needed fact from each of the above rather than re-explaining it — always cites back to the source doc.
+- **The Cockpit is the shortcut, not a duplicate:** `CEO_COCKPIT.md` pulls the single most-needed fact from each of the above rather than re-explaining it — always cites back to the source doc.
+
+## Named, not built (long-term vision only)
+
+Katie named several future WAG OS modules on 2026-08-08 that are explicitly **not to be built** — they're the vision the living docs above are already, quietly, building the evidence base for:
+
+- **Packaging Coach** — drop in a title/thumbnail/hook, get back strengths/weaknesses/cold-audience-friendliness/comparison against past WAG winners and validated competitors. Depends entirely on `WAG_PACKAGING_INTELLIGENCE.md` accumulating enough real patterns first.
+- **Brand Intelligence** — "does this feel like WAG, are we drifting, does this match our positioning." No doc owns this yet; would need a documented brand-consistency baseline before it's more than a gut check.
+- **Knowledge Engine** — nothing important disappearing into chat history, everything organized/connected/searchable/reusable/compounding. This map, plus [[wag_stateless_claude_source_of_truth]], is the current, manual version of that goal.
+- **Publishing Intelligence** (expanded) — always knowing the newest video/podcast/article/interaction/email/book-progress and flagging what's missing. `PUBLISHING_BLUEPRINT.md` is the current manual version.
+- **Sponsor Intelligence** (expanded) — active leads/outreach/case studies/authority/agency opportunities in one place. `BUSINESS_DEVELOPMENT_SYSTEM.md` plus the sponsor-inquiry tracking gap already logged in `CEO_COCKPIT.md` are the current state.
+
+None of these get built ahead of the same activation gate `WAG_AGENT_ARCHITECTURE.md` already applies: real repetition, clear inputs/outputs, measurable value.
 
 ## Data-model thinking (per Katie's 2026-08-08 directive)
 

@@ -29,11 +29,11 @@ Nine roles, evaluated — not built — against real evidence over time. Each ma
 
 ### 1. Chief of Staff / Orchestrator
 **Job:** reads shared company state, knows current priorities, identifies blockers, delegates, summarizes outcomes. **Does not edit everything itself** — coordination only.
-Would read: `MASTER_STATUS.md`, `ROADMAP.md`, `CEO_DASHBOARD.md`. Would write: task assignments, blocker summaries.
+Would read: `MASTER_STATUS.md`, `ROADMAP.md`, `CEO_COCKPIT.md`. Would write: task assignments, blocker summaries.
 
 ### 2. Growth Intelligence
 **Job:** monitors YouTube, website, Beehiiv, Spotify/Apple, GA4, Search Console, interactions. Answers: what's growing, what's declining, what changed, what's worth investigating.
-Would read/write: `CEO_DASHBOARD.md` directly — this is the role most likely to make that document's "should this be a widget" question concrete first.
+Would read/write: `CEO_COCKPIT.md` directly — this is the role most likely to make that document's "should this be a widget" question concrete first.
 
 ### 3. Packaging
 **Job:** owns title/thumbnail/hook intelligence using WAG's own historical results plus validated competitors (LOL Podcast, Rock Pod, future additions). **Improves `WAG_PACKAGING_INTELLIGENCE.md` — it does not just generate titles.**
@@ -49,7 +49,7 @@ Would read: `SEARCH_CONSOLE_BASELINE.md`, GSC/GA4 data. Would write: dated, evid
 
 ### 6. Sponsor / Business Development
 **Job:** maintains sponsor intelligence, creator-discovery research, press opportunities, agency relationships, authority signals, case studies, sponsor-page readiness.
-Would read/write: `BUSINESS_DEVELOPMENT_SYSTEM.md`. Also the natural owner of the sponsor-inquiry tracking gap `CEO_DASHBOARD.md` just surfaced (no such system currently exists).
+Would read/write: `BUSINESS_DEVELOPMENT_SYSTEM.md`. Also the natural owner of the sponsor-inquiry tracking gap `CEO_COCKPIT.md` just surfaced (no such system currently exists).
 
 ### 7. Audience Intelligence
 **Job:** looks across interaction results, email behavior, content performance, and audience preference signals. **This is the future bridge toward the Audience Graph** already named in `WAG_OPPORTUNITY_REGISTRY.md`.
@@ -69,7 +69,7 @@ Lives in the `wag-publishing-engine` repo, never the website repos. Specialized 
 
 ## Shared company memory
 
-Agents must not rely on isolated chat memory. Real decisions, evidence, blockers, opportunities, and results have to land in shared structured records — the actual `docs/` files already listed above, not an agent's private context window. **The eventual shared surface for this is the WAG Operating System / CEO Dashboard** (`CEO_DASHBOARD.md`, currently v0.1 and manually maintained) — until that matures, the existing docs folder *is* the shared source of truth, and any agent work has to write back into it the same way manual work already does.
+Agents must not rely on isolated chat memory. Real decisions, evidence, blockers, opportunities, and results have to land in shared structured records — the actual `docs/` files already listed above, not an agent's private context window. **The eventual shared surface for this is WAG OS / the CEO Cockpit** (`CEO_COCKPIT.md`, currently v0.1 and manually maintained) — until that matures, the existing docs folder *is* the shared source of truth, and any agent work has to write back into it the same way manual work already does.
 
 ## Isolation and parallel work
 
@@ -112,7 +112,7 @@ The orchestrator has to know, at all times: which agent owns which domain, which
 
 ## Relationship to the CEO Dashboard
 
-Every time an agent would need to repeatedly pull information from multiple systems to do its job, that's the same signal `CEO_DASHBOARD.md` already tracks: treat it as evidence for a dashboard widget, not a reason to build agent-side plumbing that duplicates it. Long-term, the dashboard becomes the shared operational surface for humans *and* agents — one source of truth, not two.
+Every time an agent would need to repeatedly pull information from multiple systems to do its job, that's the same signal `CEO_COCKPIT.md` already tracks: treat it as evidence for a Cockpit widget, not a reason to build agent-side plumbing that duplicates it. Long-term, the Cockpit becomes the shared operational surface for humans *and* agents — one source of truth, not two.
 
 ## Activation gate — do not over-engineer
 
