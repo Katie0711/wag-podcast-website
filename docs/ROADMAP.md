@@ -66,6 +66,12 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 - **Dependencies:** none — independent of the interaction-platform launch.
 - **Status:** 🚧 In progress.
 
+### Competitive intelligence system (WAG Podcast)
+- **Purpose:** ongoing, weekly-rhythm study of WAG's true direct competitors (LOL Podcast, Rock Pod, plus any other teen podcast that genuinely clears the direct-competitor bar) — titles, thumbnails, hooks, retention devices, community-building, and business growth — distilled into principles WAG can adapt, not copy. Full system defined in `COMPETITIVE_INTELLIGENCE.md`.
+- **Business value:** pattern recognition across a deliberately small, deep competitor set (3–5, not 20) surfaces durable audience-psychology principles; the "Rule of 3" (3+ competitors independently converging on an idea) is treated as strong signal. Includes a standing "WAG Wins" section so this doesn't quietly become chasing.
+- **Dependencies:** none.
+- **Status:** 🚧 System and tracking doc built 2026-08-08. First real research pass not yet run — pending sequencing against other open workstreams.
+
 ### Wild Adventure Girls continuous SEO/AEO/GEO audit
 - **Purpose:** ongoing (not one-time) technical and content audit of wildadventuregirls.com.
 - **Business value:** sustained search/AI-discoverability health as the site grows.
