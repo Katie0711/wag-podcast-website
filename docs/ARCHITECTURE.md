@@ -10,6 +10,8 @@ This site's homepage (`src/pages/index.astro`) already followed this pattern (`g
 
 **Standing test for any future page:** is this surface dynamic (latest uploads, latest episodes, recent articles — should auto-update) or editorial (cornerstone pages, curated guides, flagship resources — should stay intentionally selected until there's a real reason to change)? Automate the former, protect the latter.
 
+**Scheduled rebuild — status: complete, verified end-to-end (2026-08-08).** `.github/workflows/scheduled-rebuild.yml` triggers a Netlify build every 3 hours via a build hook, so freshness no longer depends on someone happening to push a commit. Real build hook created in Netlify (`wag-podcast-site` → Build hooks → `scheduled-rebuild`), `NETLIFY_BUILD_HOOK_URL` added as a GitHub Actions secret on this repo, and a manual "Run workflow" trigger confirmed the full chain works: GitHub Action → Netlify build hook → real production deploy (`main@ed61d50`, "Deploy triggered by hook: scheduled-rebuild", published in 26s). Not a theoretical fix — watched it actually happen.
+
 ## Where each interaction lives
 
 | Interaction | Page | Engine | API | Beehiiv tag | Storage key |
