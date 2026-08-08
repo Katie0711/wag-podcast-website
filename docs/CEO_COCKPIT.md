@@ -22,7 +22,9 @@ Each section below: the real answer as of its last check, where it came from, an
 - **WAG Podcast channel:** 3.8M+ views to date, weekly upload cadence. *Source: `src/pages/sponsor/index.astro`, current published figure.*
 - **Parent brand (Wild Adventure Girls) channel:** subscriber count is live-fetched at build time (`getSubscriberCount()` in `wildadventuregirls-website/src/lib/youtube.ts`), fallback shown is 1.2M+; lifetime views 1B+. *Source: `wildadventuregirls-website/src/pages/sponsor` and `about` pages.*
 - **Packaging data (real, from the 2026-08-05 Packaging Optimization phase):** channel average CTR 2.6%; new-viewer CTR only 1.7% on 73% of all impressions — the single most load-bearing real finding behind the repackaging recommendations. *Source: YouTube Studio pull, 27 episodes, 2026-08-05.*
-- **TBD:** no live pull this session — next real check should confirm whether Phase 2A (title/thumbnail changes, task #267) has shipped and what it moved.
+- **Real-time channel stats, checked live 2026-08-08:** WAG Podcast — 3,161 subscribers (+3.1K in 365 days), 3.8M views / 16.0K total watch hours in the last 365 days. *Source: YouTube Studio, live pull.*
+- **Ads monetization milestone (real, tracked):** long-form watch time is **3,822.2 of the 4,000 hours** required for standard ads eligibility (95.6%, ~177 hours short) — the fan-funding tier (Gifts/Supers/Shopping) is already active and AdSense is linked, ads specifically are just not yet eligible. Shorts drive 99.1% of views/12,100.7 of the 16.0K total watch hours but don't count toward this threshold. Not a bug, not a setting to flip — a real, close milestone. **Recheck periodically; flag when it clears.**
+- **TBD:** no live pull this session on whether Phase 2A (title/thumbnail changes, task #267) has shipped and what it moved.
 
 ## GA4
 
