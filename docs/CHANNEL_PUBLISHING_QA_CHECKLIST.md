@@ -59,8 +59,8 @@
 | I Never Thought This Would Get Me Suspended! | Best for viewer (already existed, correctly configured, kept as-is) | Growing Up | Real formative-mistake story | ✅ Done — Video already existed and worked, added the missing Playlist |
 | My Most Embarrassing Story (I Was a Stalker?!) | Best for viewer (already existed, correctly configured, kept as-is) | Dating & Red Flags | Real ex/dating story, red-flags framing | ✅ Done — Video already existed and worked, added the missing Playlist |
 | The Time We Almost Died... | Best for viewer (already existed, correctly configured, kept as-is) | Scary Nights & Near-Misses | Exact franchise match | ✅ Done — Video already existed and worked, added the missing Playlist |
-| I Tried Every Viral Glow Up Tip (I Regret This) | — | — | Beauty-trend testing, no matching playlist — don't force one | 🔲 Not started |
-| Why Is Everyone Breaking Up? 💔 | (check availability) | Dating & Red Flags | Real breakup/relationship topic | 🔲 Not started |
+| I Tried Every Viral Glow Up Tip (I Regret This) | Best for viewer (already existed, correctly configured, kept as-is) | — | Beauty-trend testing, no matching playlist — don't force one | ✅ Done — Video already existed and worked, no playlist fit confirmed |
+| Why Is Everyone Breaking Up? 💔 | Most recent upload ("Best for viewer" not available for this video) | Dating & Red Flags | Real breakup/relationship topic | ✅ Done — was blank Subscribe-only |
 | I Got in a Bad Accident (My Car is Totaled 💔) | (check availability) | Scary Nights & Near-Misses | Real accident/near-miss story | 🔲 Not started |
 | The TikTok We Wish We Never Saw! | — | — | Reaction/culture content, no matching playlist | 🔲 Not started |
 | What We Didn't Show You From the Haunted Hotel | — | — | Investigation-adjacent content, no matching playlist exists yet | 🔲 Not started |
