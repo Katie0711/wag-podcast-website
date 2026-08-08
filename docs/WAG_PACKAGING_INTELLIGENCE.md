@@ -2,6 +2,12 @@
 
 **Proprietary reasoning about why titles/packaging work — not a list of example titles.** Per Katie's explicit correction (2026-08-08): the Title Library in `COMPETITIVE_INTELLIGENCE.md` stays as the raw evidence log (real titles, real sources, organized by trigger). This document is where that evidence gets turned into documented intelligence WAG can apply to any future title decision, proven or competitor-sourced.
 
+## Two separate categories of study — do not conflate (confirmed by Katie, 2026-08-08)
+
+**Direct competitors** (`COMPETITIVE_INTELLIGENCE.md`) — teen-audience podcasts that clear the doc's own scope test (currently LOL Podcast, Rock Pod). We compare real audience/business overlap here: are we losing or winning the same viewer.
+
+**Packaging & Systems Intelligence sources** (this document) — exceptional creators studied for repeatable frameworks regardless of audience overlap: Ryan Trahan, Aarak, MrBeast, and any future creator worth studying this way. We are not comparing audiences with these creators — WAG doesn't compete with MrBeast for the same viewer. We're extracting repeatable systems: storytelling structure, hooks, pacing, packaging mechanics, production systems, business architecture, company-building. A pattern from this category earns an entry here the same way a competitor pattern does — real evidence, all 10 fields, never assumed to transfer without reasoning through *why*.
+
 **Required fields for every entry (use exactly this list — don't skip a field, mark it "insufficient evidence" if genuinely unknown rather than guessing):**
 
 1. Why it works
