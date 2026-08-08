@@ -6,6 +6,7 @@
 import type { APIContext } from "astro";
 import { getStore } from "@netlify/blobs";
 import { checkRateLimit, rateLimitResponse } from "../../lib/rateLimit";
+import { screenSubmission } from "../../lib/moderation";
 
 export const prerender = false;
 
@@ -34,8 +35,19 @@ export async function POST({ request, clientAddress }: APIContext): Promise<Resp
   const store = getStore("wag-featured-questions");
   const key = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 
+  // Lightweight safety net, not a moderation platform: flags for
+  // Katie's manual review, never rejects. A flagged submission still
+  // saves and still counts as received -- see moderation.ts for why.
+  const { flagged, reasons } = screenSubmission(`${question} ${name ?? ""}`);
+
   try {
-    await store.setJSON(key, { question, name, submittedAt: new Date().toISOString() });
+    await store.setJSON(key, {
+      question,
+      name,
+      submittedAt: new Date().toISOString(),
+      moderationStatus: flagged ? "flagged" : "unreviewed",
+      moderationReasons: reasons,
+    });
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
       headers: { "Content-Type": "application/json" },

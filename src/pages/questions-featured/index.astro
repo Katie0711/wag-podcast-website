@@ -70,6 +70,7 @@ const faqSchema = {
       <div class="submit-card" data-question-form data-submit-key={SUBMIT_KEY} data-vote-key={SUBMIT_KEY}>
         <label class="qf-label" for="qf-question">Your question</label>
         <textarea id="qf-question" data-question-text class="qf-textarea" maxlength="500" rows="4" placeholder="What's a question you'd actually want a guy to answer honestly?"></textarea>
+        <p class="qf-guidance">Skip phone numbers, addresses, or anyone's last name — this could end up read on camera.</p>
         <label class="qf-label" for="qf-name">Your name (optional)</label>
         <input id="qf-name" type="text" data-question-name class="qf-input" maxlength="60" placeholder="Leave blank to stay anonymous" />
         <button type="button" class="qf-submit-btn" data-question-submit>Submit my question</button>
@@ -208,6 +209,7 @@ const faqSchema = {
     background: var(--bg); color: var(--ink); font: inherit; font-size: .96rem; resize: vertical;
   }
   .qf-textarea:focus, .qf-input:focus { outline: none; border-color: var(--wag-green); }
+  .qf-guidance { font-size: .78rem; color: var(--ink-muted); margin: 6px 0 0; }
   .qf-submit-btn {
     font-family: var(--font-display); font-size: 1rem; padding: 12px 24px; border-radius: var(--radius-sm);
     border: none; background: var(--wag-pink); color: var(--wag-white); cursor: pointer; margin-top: 18px;
