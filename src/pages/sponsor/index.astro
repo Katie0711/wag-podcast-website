@@ -23,7 +23,8 @@ const brandPartners = [
 // growth number reads as unimpressive next to the real story, which is
 // "new and fast-growing," not a specific subscriber count.
 const podcastStats = [
-  { num: "3.7M+", label: "Views" },
+  { num: "3.7M+", label: "Views to Date" },
+  { num: "Weekly", label: "New Episode, Every Week" },
 ];
 const teamStats = [
   { num: "1.2M+", label: "Subscribers" },
@@ -43,6 +44,44 @@ const audienceStats = [
 // the About page and Segments hub -- not invented for this page.
 const contentPillars = ["Trending Pop Culture", "Friendship & Relationships", "Real Talk", "Party Games & Dares", "Growing Up Stories", "Comedy"];
 
+// Real, already-published, already-fact-checked case studies -- same
+// source as wildadventuregirls.com/brand-partnerships (the 2026 Brand
+// Playbook), condensed here so a buyer doesn't have to leave this site
+// to see proof, not just names. These are real Wild Adventure Girls
+// (parent brand) partnerships, not WAG Podcast-specific ones -- framed
+// that way honestly, same distinction this page already draws between
+// "WAG Podcast" and "the team behind it" in the stat strip above. No
+// photo here is claimed as a still from the campaign itself -- real
+// studio photography, real campaign facts, not conflated as the same
+// image.
+const caseStudies = [
+  {
+    brand: "Nintendo",
+    headline: "A real, paid integration with one of the biggest names in gaming.",
+    body: "When Nintendo needed an authentic voice to reach real teen girls, they came to the WAG team — a real integration built around one of their titles, delivered across Instagram Reel + Story and YouTube Shorts, not a scripted ad read.",
+    quote: "It's been a pleasure working together!",
+    quoteAuthor: "Samantha, Senior Manager, Golin (Nintendo America)",
+    photo: "/images/studio/wag-studio-191.jpg",
+    photoAlt: "Angelina, Scarlett, and Annabella filming in the real WAG studio",
+  },
+  {
+    brand: "UpFaith & Family — Heartland Season 17",
+    headline: "A promotional campaign that grew into a live event.",
+    body: "A Heartland Season 17 promotional campaign that expanded into hosting the real Heartland Fan Fest in person — a real, in-person moment with the girls, not just a video mention.",
+    quote: "Working with The Wild Adventure Girls on the “Heartland” Season 17 promotional campaign has been an outstanding experience. They brought creativity and excitement to the project, which culminated in the successful hosting of the “Heartland” Fan Fest.",
+    quoteAuthor: "Zoie Taylor, Coordinator, Streaming Services (UpFaith & Family)",
+    photo: "/images/studio/wag-studio-221.jpg",
+    photoAlt: "The real WAG Podcast set, checkerboard floor and neon sign",
+  },
+  {
+    brand: "Epic",
+    headline: "100+ videos licensed to a platform reaching real classrooms nationwide.",
+    body: "Over 100 real videos licensed to Epic, a platform with real distribution reaching approximately 90% of U.S. public schools.",
+    photo: "/images/studio/wag-studio-274.jpg",
+    photoAlt: "A real behind-the-scenes moment from a WAG Podcast shoot day",
+  },
+];
+
 // Available ad/partnership formats -- described as offerings, not
 // claimed past campaigns. Standing rule: never write copy implying WAG
 // doesn't take brand deals -- this frames it as available, not absent.
@@ -51,6 +90,21 @@ const formats = [
   { name: "Sponsored segments", desc: "A brand woven into one of the show's real recurring segments — Squad Dares, 3-Second Roast, and others." },
   { name: "Product integration", desc: "A product used, tested, or reacted to on camera as part of an episode, the same way WAG features products elsewhere." },
   { name: "Co-branded episode", desc: "A full episode built around a brand, product, or campaign, credited clearly to the partner." },
+];
+
+// Real, live sponsorship inventory -- not a future promise. Every
+// interaction listed here already has a working SponsorSlot in
+// production (unfilled slots render a WAG-owned fallback CTA; the
+// moment a sponsor is sold, the real placement goes live with zero
+// template changes needed). Kept as its own featured format, not
+// folded into the four episode-based ones above, since it's a
+// structurally different kind of inventory -- owned, interactive,
+// first-party -- not just another ad placement.
+const interactionInventory = [
+  { name: "WAG Verdict", desc: "A brand presence on the weekly real-dilemma vote — real participation, real audience attention, every week." },
+  { name: "WAG Match", desc: "Sponsor the quiz that tells a fan which real WAG host they're most like — high completion, high replay." },
+  { name: "WAG Awards", desc: "Attach a brand to a real, ongoing fan-voted category." },
+  { name: "Questions Featured", desc: "A brand presence on the real fan-submission format that feeds new Guys Answer Questions episodes." },
 ];
 
 // Every answer here is a real, already-established fact -- matching the
@@ -144,7 +198,9 @@ const faqSchema = {
   <nav class="jumpnav" aria-label="Sponsor page sections">
     <div class="container jumpnav-inner">
       <a href="#audience">Audience</a>
+      <a href="#sponsorships">Sponsorships</a>
       <a href="#brands">Brands</a>
+      <a href="#case-studies">Case Studies</a>
       <a href="#formats">Partnership Formats</a>
       <a href="#brand-safety">Brand Safety</a>
       <a href="#faq">FAQ</a>
@@ -169,6 +225,24 @@ const faqSchema = {
     </div>
   </section>
 
+  <section class="inventory-section" id="sponsorships">
+    <div class="inventory-glow" aria-hidden="true"></div>
+    <div class="container" data-reveal>
+      <p class="eyebrow"><EqBars size="sm" /> Owned, First-Party Inventory</p>
+      <h2>Beyond the episode — a real interactive platform.</h2>
+      <p class="inventory-intro">WAG Podcast isn't just a video feed. Every episode connects to a real, live interactive platform — polls, quizzes, and fan-voted formats fans actually return to, every week. This is sponsorship inventory no other podcast has, because no other podcast built it.</p>
+      <div class="inventory-grid">
+        {interactionInventory.map((item, i) => (
+          <div class={`inventory-card accent-${i % 2 === 0 ? "pink" : "green"}`}>
+            <span class="inventory-live">● Live Now</span>
+            <h3>{item.name}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="brand-section" id="brands">
     <div class="container brand-lede" data-reveal>
       <p class="eyebrow"><EqBars size="sm" /> Brands Who Trust Us</p>
@@ -178,9 +252,33 @@ const faqSchema = {
 
   <Marquee items={brandPartners} />
 
-  <div class="container brand-footnote">
-    <p>For the full case studies, audience data, and past campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a></p>
-  </div>
+  <section class="case-studies-section" id="case-studies">
+    <div class="container" data-reveal>
+      <p class="eyebrow"><EqBars size="sm" /> Proof, Not Just Logos</p>
+      <h2>What partnering with the WAG team has actually looked like.</h2>
+      <p class="case-studies-intro">These are real Wild Adventure Girls partnerships — the parent brand behind WAG Podcast — not podcast-specific ad buys. For the full case studies and campaign results, see <a href="https://wildadventuregirls.com/brand-partnerships/">Work With WAG →</a></p>
+      <div class="case-studies-grid">
+        {caseStudies.map((c) => (
+          <div class="case-study-card">
+            <picture class="case-study-photo">
+              <img src={c.photo} alt={c.photoAlt} loading="lazy" />
+            </picture>
+            <div class="case-study-body">
+              <p class="case-study-brand">{c.brand}</p>
+              <h3>{c.headline}</h3>
+              <p class="case-study-text">{c.body}</p>
+              {c.quote && (
+                <blockquote class="case-study-quote">
+                  <p>“{c.quote}”</p>
+                  <cite>— {c.quoteAuthor}</cite>
+                </blockquote>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <section class="photo-break">
     <picture>
@@ -189,6 +287,25 @@ const faqSchema = {
     </picture>
     <div class="photo-break-scrim"></div>
     <p class="photo-break-caption">Every episode, filmed live in their own studio — checkerboard set, neon sign, real reactions.</p>
+  </section>
+
+  <section class="video-proof-section">
+    <div class="container video-proof-inner" data-reveal>
+      <div class="video-proof-text">
+        <p class="eyebrow"><EqBars size="sm" /> See The Real Energy</p>
+        <h2>Not a sizzle reel — an actual episode.</h2>
+        <p>This is real, unscripted WAG Podcast — the same energy a sponsored segment or product integration would run inside. Watch a few minutes and you'll see exactly what a brand is stepping into.</p>
+      </div>
+      <div class="video-proof-embed">
+        <iframe
+          src="https://www.youtube.com/embed/mCfeIZst5qQ"
+          title="WAG Podcast — Dating Red Flags: Would You Still Date Him If...?"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
   </section>
 
   <section class="reach-section" id="reach">
@@ -379,7 +496,7 @@ const faqSchema = {
   .jumpnav a:hover{ color:#fff; }
   .jumpnav a:hover::after{ right:0; }
 
-  .audience-section{ position:relative; padding: 64px 0 56px; overflow:hidden; }
+  .audience-section{ position:relative; padding: 64px 0 56px; overflow:hidden; background: var(--bg-alt); border-top:1px solid var(--line); }
   .audience-glow{
     position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen; opacity:.35;
     background: radial-gradient(ellipse 45% 60% at 90% 0%, var(--wag-pink) 0%, transparent 70%);
@@ -394,13 +511,66 @@ const faqSchema = {
   .audience-stat .stat-label{ font-size:.95rem; color: var(--ink-muted); text-transform:uppercase; letter-spacing:.04em; font-weight:600; }
   .audience-note{ margin-top:36px; font-size:1.02rem; color: var(--ink-soft); }
 
-  .brand-section{ padding: 24px 0 0; border-top:1px solid var(--line); }
+  /* Flagship section per Katie's explicit "highest priority, not an
+     afterthought" instruction -- a distinct, premium dark chapter (not
+     part of the black hero/stat-strip stack above, so it reads as its
+     own moment rather than blending into one long black column). */
+  .inventory-section{ position:relative; padding: 64px 0 60px; overflow:hidden; background: var(--wag-black); }
+  .inventory-glow{
+    position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen; opacity:.5;
+    background:
+      radial-gradient(ellipse 40% 70% at 95% 0%, var(--wag-green) 0%, transparent 70%),
+      radial-gradient(ellipse 35% 60% at 0% 100%, var(--wag-pink) 0%, transparent 70%);
+  }
+  .inventory-section .eyebrow{ color: var(--wag-green); margin-bottom:.6em; position:relative; }
+  .inventory-section h2{ position:relative; font-size: clamp(1.7rem, 3vw, 2.5rem); max-width:22ch; margin-bottom:.5em; color:#fff; }
+  .inventory-intro{ position:relative; font-size:1.05rem; max-width:68ch; color:#C4C4D2; margin-bottom:32px; }
+  .inventory-grid{ position:relative; display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
+  .inventory-card{
+    position:relative; padding:22px 22px 20px; border-radius: var(--radius); background: #14141C;
+    border:1px solid #2A2A38; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .inventory-card.accent-pink:hover{ border-color: var(--wag-pink); box-shadow: 0 16px 36px rgba(255,22,200,.22); transform: translateY(-3px); }
+  .inventory-card.accent-green:hover{ border-color: var(--wag-green); box-shadow: 0 16px 36px rgba(165,235,14,.2); transform: translateY(-3px); }
+  .inventory-live{
+    display:inline-block; font-family: var(--font-display); font-size:.7rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.04em; color: var(--wag-green); margin-bottom:.7em;
+  }
+  .inventory-card h3{ font-size:1.08rem; margin-bottom:.35em; color:#fff; }
+  .inventory-card p{ font-size:.9rem; margin:0; color:#B4B4C4; }
+  @media (max-width: 640px){ .inventory-grid{ grid-template-columns: 1fr; } }
+
+  .brand-section{ padding: 56px 0 0; }
   .brand-lede{ padding-bottom:28px; }
   .brand-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
   .lede-text{ font-size:1.1rem; max-width:66ch; color: var(--ink-soft); }
-  .brand-footnote{ padding: 22px 24px 56px; }
-  .brand-footnote p{ font-size:.98rem; color: var(--ink-soft); margin:0; }
-  .brand-footnote a{ color: var(--wag-pink); font-weight:600; }
+
+  .case-studies-section{ padding: 40px 0 64px; background: var(--bg-alt); }
+  .case-studies-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
+  .case-studies-section h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:26ch; margin-bottom:.5em; }
+  .case-studies-intro{ font-size:1rem; max-width:70ch; color: var(--ink-soft); margin-bottom:32px; }
+  .case-studies-intro a{ color: var(--wag-pink); font-weight:600; }
+  .case-studies-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:22px; }
+  .case-study-card{
+    display:flex; flex-direction:column; border-radius: var(--radius); overflow:hidden;
+    background: var(--bg); border:1px solid var(--line); box-shadow: var(--shadow-sm);
+  }
+  .case-study-photo{ display:block; width:100%; aspect-ratio: 4/3; overflow:hidden; }
+  .case-study-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .case-study-body{ padding:20px 22px 24px; display:flex; flex-direction:column; gap:.5em; }
+  .case-study-brand{
+    font-family: var(--font-display); text-transform:uppercase; letter-spacing:.04em;
+    font-size:.76rem; font-weight:700; color: var(--wag-pink); margin:0;
+  }
+  .case-study-body h3{ font-size:1.05rem; margin:0 0 .2em; }
+  .case-study-text{ font-size:.92rem; color: var(--ink-soft); margin:0; }
+  .case-study-quote{
+    margin:.6em 0 0; padding-left:14px; border-left:3px solid var(--wag-green);
+  }
+  .case-study-quote p{ font-size:.9rem; font-style:italic; margin:0 0 .3em; color: var(--ink); }
+  .case-study-quote cite{ font-size:.8rem; font-style:normal; color: var(--ink-muted); }
+  @media (max-width: 900px){ .case-studies-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px){ .case-studies-grid{ grid-template-columns: 1fr; } }
 
   .photo-break{ position:relative; width:100%; aspect-ratio: 3.2/1; overflow:hidden; }
   .photo-break img{ width:100%; height:100%; object-fit:cover; object-position: center 30%; display:block; }
@@ -411,19 +581,34 @@ const faqSchema = {
     font-size:.88rem; font-weight:600; color:#fff;
   }
 
-  .reach-section{ padding: 56px 0 8px; }
+  .video-proof-section{ position:relative; padding: 60px 0; overflow:hidden; }
+  .video-proof-inner{ display:grid; grid-template-columns: .8fr 1.1fr; gap:48px; align-items:center; }
+  .video-proof-text .eyebrow{ color: var(--accent); margin-bottom:.5em; }
+  .video-proof-text h2{ font-size: clamp(1.5rem, 2.8vw, 2.1rem); margin-bottom:.4em; max-width:16ch; }
+  .video-proof-text p{ font-size:1rem; color: var(--ink-soft); margin:0; max-width:42ch; }
+  .video-proof-embed{
+    position:relative; width:100%; aspect-ratio:16/9; border-radius: var(--radius-lg);
+    overflow:hidden; box-shadow: var(--shadow);
+  }
+  .video-proof-embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  @media (max-width: 860px){
+    .video-proof-inner{ grid-template-columns: 1fr; }
+    .video-proof-text p{ max-width:none; }
+  }
+
+  .reach-section{ padding: 56px 0 64px; background: var(--bg-alt); }
   .reach-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
   .reach-copy{ font-size:1.05rem; max-width:66ch; margin-bottom:1.2em; }
   .pillar-pills{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:12px; }
   .pillar-pills li{
-    padding:.55em 1.2em; border-radius:999px; border:1.5px solid var(--line); background: var(--bg-alt);
+    padding:.55em 1.2em; border-radius:999px; border:1.5px solid var(--line); background: var(--bg);
     font-family: var(--font-display); text-transform:uppercase; letter-spacing:.03em; font-weight:600; font-size:.82rem;
     transition: border-color .2s ease, color .2s ease;
   }
   .pillar-pills li.pill-pink:hover{ border-color: var(--wag-pink); color: var(--wag-pink); }
   .pillar-pills li.pill-green:hover{ border-color: var(--wag-green); color: var(--wag-green); }
 
-  .formats-section{ padding: 48px 0 64px; }
+  .formats-section{ padding: 56px 0 64px; }
   .formats-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
   .formats-section h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:22ch; margin-bottom:.4em; }
   .formats-intro{ font-size:1.02rem; max-width:64ch; margin-bottom:1.6em; }
@@ -445,12 +630,12 @@ const faqSchema = {
     .formats-grid{ grid-template-columns: 1fr; }
   }
 
-  .safety-section{ padding: 48px 0 8px; border-top:1px solid var(--line); }
+  .safety-section{ padding: 56px 0 16px; border-top:1px solid var(--line); background: var(--bg-alt); }
   .safety-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
   .safety-section h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:22ch; margin-bottom:.5em; }
   .safety-copy{ font-size:1.05rem; max-width:66ch; margin:0; }
 
-  .faq-section{ padding: 48px 0 8px; }
+  .faq-section{ padding: 56px 0 16px; }
   .faq-section .eyebrow{ color: var(--accent); margin-bottom:.5em; }
   .faq-section h2{ font-size: clamp(1.6rem, 3vw, 2.3rem); max-width:22ch; margin-bottom:1em; }
   .faq-list{ max-width:72ch; }
@@ -460,7 +645,7 @@ const faqSchema = {
   .faq-item h3{ font-size:1.08rem; margin-bottom:.4em; }
   .faq-item p{ font-size:.98rem; color: var(--ink-soft); margin:0; }
 
-  .sponsor-cta{ padding: 56px 0 88px; border-top:1px solid var(--line); margin-top:8px; }
+  .sponsor-cta{ padding: 64px 0 88px; margin-top:8px; background: var(--bg-alt); }
   .cta-inner{ display:grid; grid-template-columns: .9fr 1fr; gap:56px; align-items:start; }
   .cta-copy .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--accent); margin-bottom:.6em; }
   .cta-copy h2{ font-size: clamp(1.8rem, 3.2vw, 2.6rem); max-width:16ch; margin-bottom:.4em; }
