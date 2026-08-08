@@ -1,0 +1,20 @@
+name: Scheduled rebuild
+
+# Podcast episodes are fetched live from YouTube at build time, not on
+# every page view -- a new upload only shows up on the site once a
+# build actually runs. Without this, thewagpodcast.com only rebuilds
+# when someone pushes a commit, which means a real new episode could
+# sit unreflected on the site for days. Same pattern already proven on
+# wildadventuregirls-website's scheduled-rebuild.yml -- mirrored here
+# to close the same gap on this repo.
+on:
+  schedule:
+    - cron: "0 */3 * * *" # every 3 hours, on the hour
+  workflow_dispatch: {} # allows manually running it from the Actions tab too
+
+jobs:
+  trigger-netlify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build hook
+        run: curl -X POST -fsS "${{ secrets.NETLIFY_BUILD_HOOK_URL }}"
