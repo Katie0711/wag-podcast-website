@@ -1,6 +1,10 @@
 # WAG Business Development System
 
-**Purpose:** one real, honest map of every channel that generates or closes sponsor opportunities — not a wishlist. Per Katie's explicit framing: the sponsor pages are where an opportunity *closes*; everything else in this doc is where opportunities *get generated*. They're complementary tracks, built in parallel, not sequenced.
+**Purpose:** one real, honest map of every channel that generates or closes sponsor opportunities — not a wishlist. Per Katie's explicit framing (2026-08-08): the sponsor pages are where an opportunity *closes* (the funnel: creator-discovery platform → agency recommendation → referral → brand hears about WAG → sponsor page → decision to contact); everything else in this doc is where opportunities *get generated*. Complementary tracks, built in parallel, not sequenced.
+
+**Long-term destination — the WAG Brand Authority System:** this doc is the seed of a broader eventual system covering sponsor discovery + media/press + speaking + creator platforms + entity authority + strategic relationships + software opportunities + AI discoverability — not just where brands discover creators, but where journalists, conference organizers, podcast hosts, and industry leaders discover companies to feature. Not building that system now; this doc grows into it over time. See [[wag_brand_authority_system_framework]] (memory) for the standing framework this doc implements.
+
+**Standing discipline for anything added to Track 2 below:** document, don't act. For each real external opportunity found, record what it is, how it works, who it's for, whether WAG is eligible, whether profiles are claimed or auto-generated, business value, sponsor value, AI/entity value, implementation difficulty, and priority — then stop. No account creation, no outreach, until Katie reviews and greenlights.
 
 Status values match the rest of this ecosystem's docs: **Live**, **Real gap (not started)**, **Research in progress**, or **Needs Katie** (requires her business identity/credentials/decision — not something built into the codebase).
 
