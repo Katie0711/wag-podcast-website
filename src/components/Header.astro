@@ -3,7 +3,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/about/", label: "About" },
   { href: "/hosts/", label: "Hosts" },
-  { href: "/verdict/", label: "Verdict" },
+  { href: "/verdict/", label: "Vote" },
   { href: "/watch/", label: "Watch" },
   { href: "/listen/", label: "Listen" },
   { href: "/sponsor/", label: "Sponsor" },
@@ -24,7 +24,11 @@ const currentPath = Astro.url.pathname;
           const active = item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href);
           return (
             <li>
-              <a href={item.href} aria-current={active ? "page" : undefined}>{item.label}</a>
+              <a
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                data-nav-label={item.label}
+              >{item.label}</a>
             </li>
           );
         })}
@@ -115,6 +119,29 @@ const currentPath = Astro.url.pathname;
     });
   }
 
+  // Per-label nav click tracking -- specifically added so the "Vote" label
+  // (renamed from "Verdict" 2026-08-08) can be measured against real GA4
+  // click-through data over the next 1-2 weeks rather than kept on
+  // opinion alone. Covers every nav item since the cost is the same
+  // either way, not just this one link.
+  function initNavTracking() {
+    document.querySelectorAll<HTMLAnchorElement>(".nav-list a[data-nav-label]:not([data-nav-tracked])").forEach((link) => {
+      link.dataset.navTracked = "true";
+      link.addEventListener("click", () => {
+        if (typeof (window as any).gtag === "function") {
+          (window as any).gtag("event", "nav_click", {
+            label: link.dataset.navLabel,
+            destination: link.getAttribute("href"),
+          });
+        }
+      });
+    });
+  }
+
   initMobileNav();
-  document.addEventListener("astro:page-load", initMobileNav);
+  initNavTracking();
+  document.addEventListener("astro:page-load", () => {
+    initMobileNav();
+    initNavTracking();
+  });
 </script>
