@@ -4,7 +4,14 @@
 
 **Standing rule while working (per Katie, 2026-08-08):** every time information gets pulled from more than one system to answer a question, ask — should this become a Cockpit widget? Is this becoming a repeated workflow? What would make the decision faster next time? Update this file when the answer is yes. Don't force sections ahead of real need.
 
-**Future modules named but not built (long-term vision, per Katie 2026-08-08 — do not build ahead of real need):** a Morning Brief (what changed overnight — new uploads, subscriber/traffic/email growth, sponsor inquiries, AI/search changes, alerts), a Priority Engine (a prioritized decision list, not a task list — what deserves attention today and why), and an Opportunity Engine (surfaces evidence-backed opportunities as they appear, not a running idea list). All three are real future shapes for what this file already does by hand — they get built only once a section here has actually been used repeatedly enough to earn it.
+**The four questions the Cockpit should eventually answer (Katie's frame, 2026-08-08 — this supersedes the looser "Morning Brief / Priority Engine / Opportunity Engine" module list as the organizing structure):**
+
+1. **What happened?** (Morning Brief — overnight uploads, traffic, subscribers, email, sponsor inquiries, search changes, publishing activity.)
+2. **What should Katie focus on today?** (Priorities, blocked work, highest-ROI opportunities, risks, recommended decisions — a decision list, not a task list.)
+3. **How healthy is WAG?** (Growth, audience, publishing, SEO, sponsors, BD, website health, automation status.)
+4. **What are we learning?** (Packaging, audience behavior, competitor patterns, business/software opportunities, long-term trends.)
+
+None of these four are built as sections yet — every section below is still manually maintained. Add a section under whichever of the four questions it answers once real repeated need earns it, per the standing rule above. Long-term end state (not being built today): one place Katie opens each morning to know what happened, what needs attention, what's healthy or not, and what's being learned — every future addition to this file should be a small step toward that, never a rebuild.
 
 Each section below: the real answer as of its last check, where it came from, and what's still genuinely unknown (marked TBD, not guessed).
 
