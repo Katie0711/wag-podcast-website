@@ -61,7 +61,8 @@ const caseStudies = [
     body: "When Nintendo needed an authentic voice to reach real teen girls, they came to the WAG team — a real integration built around one of their titles, delivered across Instagram Reel + Story and YouTube Shorts, not a scripted ad read.",
     quote: "It's been a pleasure working together!",
     quoteAuthor: "Samantha, Senior Manager, Golin (Nintendo America)",
-    photo: "/images/studio/wag-studio-191.jpg",
+    photo: "/images/studio/wag-studio-191-card.jpg",
+    photoWebp: "/images/studio/wag-studio-191-card.webp",
     photoAlt: "Angelina, Scarlett, and Annabella filming in the real WAG studio",
   },
   {
@@ -70,14 +71,16 @@ const caseStudies = [
     body: "A Heartland Season 17 promotional campaign that expanded into hosting the real Heartland Fan Fest in person — a real, in-person moment with the girls, not just a video mention.",
     quote: "Working with The Wild Adventure Girls on the “Heartland” Season 17 promotional campaign has been an outstanding experience. They brought creativity and excitement to the project, which culminated in the successful hosting of the “Heartland” Fan Fest.",
     quoteAuthor: "Zoie Taylor, Coordinator, Streaming Services (UpFaith & Family)",
-    photo: "/images/studio/wag-studio-221.jpg",
+    photo: "/images/studio/wag-studio-221-card.jpg",
+    photoWebp: "/images/studio/wag-studio-221-card.webp",
     photoAlt: "The real WAG Podcast set, checkerboard floor and neon sign",
   },
   {
     brand: "Epic",
     headline: "100+ videos licensed to a platform reaching real classrooms nationwide.",
     body: "Over 100 real videos licensed to Epic, a platform with real distribution reaching approximately 90% of U.S. public schools.",
-    photo: "/images/studio/wag-studio-274.jpg",
+    photo: "/images/studio/wag-studio-274-card.jpg",
+    photoWebp: "/images/studio/wag-studio-274-card.webp",
     photoAlt: "A real behind-the-scenes moment from a WAG Podcast shoot day",
   },
 ];
@@ -265,6 +268,7 @@ const faqSchema = {
         {caseStudies.map((c) => (
           <div class="case-study-card">
             <picture class="case-study-photo">
+              <source srcset={c.photoWebp} type="image/webp" />
               <img src={c.photo} alt={c.photoAlt} loading="lazy" />
             </picture>
             <div class="case-study-body">
