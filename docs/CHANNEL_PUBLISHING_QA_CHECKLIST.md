@@ -48,12 +48,12 @@
 | Guys Answer Questions Every Girl Secretly Wants to Ask... | Most recent upload (already existed as a curated specific video, kept as-is) | Guys Answer Questions (already existed) | **Same real finding as "Teens Answer the Questions":** already had a genuine curated end screen (specific video "Guys Answer Questions Girls are Too Afraid to Ask" + the Guys Answer Questions playlist, exactly matching my own predicted playlist). Also had the same broken unconfigured second Video element — removed. **This is now a confirmed, recurring pattern across at least 2 videos, not a one-off.** | ✅ Done — cleaned up, not built from scratch |
 | This Was The Worst Day of My Life... | Best for viewer (already existed, correctly configured, kept as-is) | Growing Up | "Worst day" real-life story format | ✅ Done — Video already existed and worked, added the missing Playlist |
 | They Said WHAT?! (Playing Cancelled Celebs Heads Up) | Best for viewer (already existed, correctly configured, kept as-is) | WAG Game Night | Real party-game format | ✅ Done — Video already existed and worked, added the missing Playlist |
-| Who Gets Their First Kiss This Summer? | (check availability) | WAG Predicted It | Explicit prediction-format episode | 🔲 Not started |
-| I Went to the WORST Camp of My Life! | (check availability) | Growing Up | Real-life embarrassing/formative story | 🔲 Not started |
-| Hot Takes That Might Get Us Cancelled! | (check availability) | Hot Takes & Opinions | Exact franchise match | 🔲 Not started |
-| My Prom Night Was a Complete Disaster… | (check availability) | First Kiss & Milestone Nights | Real milestone-night format | 🔲 Not started |
-| Stuck in the Woods with Bigfoot! *NO WAY OUT* | (check availability) | Scary Nights & Near-Misses | Real scary-overnight format | 🔲 Not started |
-| Only Girls Will Understand Why This Happened | (check availability) | Growing Up | Real relatable-story format | 🔲 Not started |
+| Who Gets Their First Kiss This Summer? | Best for viewer | WAG Predicted It | Explicit prediction-format episode | ✅ Done — built fresh, no duplicate/broken elements found on verification |
+| I Went to the WORST Camp of My Life! | Best for viewer (already existed, correctly configured, kept as-is) | Growing Up | Real-life embarrassing/formative story | ✅ Done — Video already existed and worked, added the missing Playlist |
+| Hot Takes That Might Get Us Cancelled! | Best for viewer | Hot Takes & Opinions | Exact franchise match | ✅ Done — was blank Subscribe-only |
+| My Prom Night Was a Complete Disaster… | Best for viewer | First Kiss & Milestone Nights | Real milestone-night format | ✅ Done — was blank Subscribe-only |
+| Stuck in the Woods with Bigfoot! *NO WAY OUT* | Best for viewer | Scary Nights & Near-Misses | Real scary-overnight format | ✅ Done — was blank Subscribe-only |
+| Only Girls Will Understand Why This Happened | Most recent upload ("Best for viewer" not available for this video) | Growing Up | Real relatable-story format | ✅ Done — was blank Subscribe-only |
 | He Said WHAT?! (I Went On the WORST Date of My Life!) | (check availability) | Dating & Red Flags | Worst-date stories | 🔲 Not started |
 | I Got Grounded for Life After Snicking Out! | (check availability) | Growing Up | Real parents/grounded story | 🔲 Not started |
 | I Never Thought This Would Get Me Suspended! | (check availability) | Growing Up | Real formative-mistake story | 🔲 Not started |
