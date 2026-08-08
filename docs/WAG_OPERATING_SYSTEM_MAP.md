@@ -25,6 +25,7 @@
 | `PRODUCT_JOURNAL.md` | Dated notes on real patterns/surprises/friction | `SOFTWARE_INCUBATOR.md` (a repeated journal note often becomes an Incubator entry) |
 | `WAG_OPPORTUNITY_REGISTRY.md` | Structured index of larger strategic opportunities + the Flywheel log | `FUTURE_OPPORTUNITIES.md` (full prose detail) |
 | `PUBLISHING_BLUEPRINT.md` | How content actually moves through the ecosystem | `WAG_AGENT_ARCHITECTURE.md`'s Publishing agent role |
+| `CHANNEL_PUBLISHING_QA_CHECKLIST.md` | The repeatable 9-item standard every YouTube upload runs through (end screens, cards, chapters, playlists, descriptions, pinned comments, website links, playlist links, CTAs), across both `@WAGPodcast` and `@TheWildAdventureGirls` | `PUBLISHING_BLUEPRINT.md`, `WAG_AGENT_ARCHITECTURE.md`'s Publishing agent role |
 | `SEARCH_CONSOLE_BASELINE.md` | Standing SEO/AEO/GEO technical baseline | `internal/content-refresh-tracker.md` (wildadventuregirls-website) |
 | `WAG_AGENT_ARCHITECTURE.md` | Design-only spec for future specialized agents | Every doc above (each proposed role reads/writes specific real docs, named in that spec) |
 | `wag-publishing-engine/docs/WAG_KNOWLEDGE_HANDOFF.md` | Brand/audience/IP knowledge for the separate books project | Kept deliberately isolated from the website repos |
