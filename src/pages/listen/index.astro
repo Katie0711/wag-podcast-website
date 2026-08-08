@@ -1,30 +1,93 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import EqBars from "../../components/EqBars.astro";
-import { insiderHref } from "../../lib/insiderLink";
+import PlatformBar from "../../components/PlatformBar.astro";
+import WhatsNext from "../../components/WhatsNext.astro";
+import { getPodcastEpisodes } from "../../lib/youtube";
+import { getCollection } from "astro:content";
 
+// Real, live data -- same hybrid pattern used on Home/Watch: the newest
+// episode is whatever YouTube actually has, joined to a matching
+// `episodes` collection entry by videoId when one exists (for real
+// per-episode Spotify/Apple deep links), never a hand-maintained guess.
+const liveEpisodes = await getPodcastEpisodes(4);
+const [latest, ...recentLive] = liveEpisodes;
+const curated = await getCollection("episodes");
+const latestCurated = latest ? curated.find((e) => e.data.videoId === latest.videoId) : undefined;
+
+const dateFmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+
+// This page's one job: turn someone who just finished an episode into a
+// follower on whatever platform they actually use. YouTube leads --
+// it's the platform this whole show is filmed for and where the
+// audience already is -- Spotify and Apple follow for the audio-only
+// crowd. Never demote YouTube to "also available here" language; that
+// undersold the platform this page should be pushing hardest.
 const platforms = [
-  { name: "Spotify", href: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb", note: "Full episodes, audio-only, new one every week." },
-  { name: "Apple Podcasts", href: "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489", note: "Same weekly episodes, audio-only." },
-  { name: "YouTube", href: "https://www.youtube.com/@WAGPodcast", note: "The original video-first version, if audio ever leaves you wanting the reactions too." },
+  {
+    name: "YouTube",
+    icon: "▶️",
+    href: "https://www.youtube.com/@WAGPodcast",
+    action: "Subscribe",
+    note: "Every episode, full video, reactions and all -- the way the show is actually filmed.",
+  },
+  {
+    name: "Spotify",
+    icon: "🎧",
+    href: "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb",
+    action: "Follow",
+    note: "Audio-only, same weekly episode, no screen required.",
+  },
+  {
+    name: "Apple Podcasts",
+    icon: "🍎",
+    href: "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489",
+    action: "Follow",
+    note: "Same weekly episode, built for your podcast app of choice.",
+  },
 ];
+
+const faqs = [
+  { q: "Where can I listen to WAG Podcast?", a: "WAG Podcast is on YouTube (video, first), Spotify, and Apple Podcasts (audio-only), all updated the same day, every week." },
+  { q: "How often does a new episode come out?", a: "Weekly -- a new episode goes up every week, video-first on YouTube." },
+  { q: "Is WAG Podcast free?", a: "Yes, on every platform -- YouTube, Spotify, and Apple Podcasts." },
+  { q: "Do I have to watch the video, or can I just listen?", a: "Either works. The show is filmed as video first, but every episode is also posted audio-only on Spotify and Apple Podcasts for listening without a screen." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 const pageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Listen — WAG Podcast",
-  description: "Where to listen to WAG Podcast: Spotify and Apple Podcasts for audio-only episodes, released weekly.",
+  description: "Follow WAG Podcast on YouTube, Spotify, and Apple Podcasts -- a new episode every week.",
   url: "https://thewagpodcast.com/listen/",
   about: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast" },
 };
+
+const whatsNextItems = [
+  ...(latest ? [{ icon: "▶️", label: "Watch the newest episode", href: `https://www.youtube.com/watch?v=${latest.videoId}`, external: true }] : []),
+  { icon: "🎬", label: "Browse all episodes", href: "/watch/" },
+  { icon: "⚖️", label: "Cast your Verdict vote", href: "/verdict/" },
+];
 ---
 
 <BaseLayout
   title="Listen — WAG Podcast"
-  description="Where to listen to WAG Podcast: Spotify and Apple Podcasts for audio-only episodes, released weekly."
+  description="Follow WAG Podcast on YouTube, Spotify, and Apple Podcasts -- a new episode every week."
   ogImage="/images/studio/wag-studio-333.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <section class="listen-hero">
     <div class="hero-photo">
       <picture>
@@ -34,26 +97,67 @@ const pageSchema = {
       <div class="hero-scrim"></div>
     </div>
     <div class="container hero-inner">
-      <p class="eyebrow"><EqBars size="sm" /> Listen</p>
-      <h1>Prefer <span class="text-accent">audio</span>? It's here too.</h1>
-      <p class="lede">WAG Podcast is filmed for video first, but every episode also goes up as audio-only on Spotify and Apple Podcasts — same conversation, no screen required.</p>
+      <p class="eyebrow"><EqBars size="sm" /> Listen &amp; Follow</p>
+      <h1>Follow WAG Podcast <span class="text-accent">everywhere</span> you watch and listen.</h1>
+      <p class="lede">One show, three platforms, a new episode every week. Pick where you actually are -- YouTube, Spotify, or Apple Podcasts -- and never wonder if you missed one again.</p>
     </div>
   </section>
 
+  {latest && (
+    <section class="latest-section">
+      <div class="container latest-inner" data-reveal>
+        <span class="latest-badge">● New This Week</span>
+        <a class="latest-card" href={`https://www.youtube.com/watch?v=${latest.videoId}`} target="_blank" rel="noopener">
+          <div class="latest-thumb">
+            <img src={latest.thumbnailUrl} alt={latest.title} loading="lazy" />
+            <span class="play-icon" aria-hidden="true">▶</span>
+          </div>
+          <div class="latest-body">
+            <span class="latest-date">{dateFmt.format(new Date(latest.publishedAt))}</span>
+            <h2>{latest.title}</h2>
+            <span class="latest-cta">Watch it now →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
   <section class="platforms">
     <div class="container" data-reveal="stagger">
-      {platforms.map((p) => (
-        <a class="platform-card" href={p.href} target="_blank" rel="noopener">
-          <h2>{p.name}</h2>
-          <p>{p.note}</p>
-          <span class="platform-cta">Open {p.name} →</span>
-        </a>
-      ))}
+      <p class="platforms-trust">3.8M+ views to date, a new episode every single week -- three platforms, one real show.</p>
+      <div class="platforms-grid">
+        {platforms.map((p) => (
+          <a
+            class="platform-card"
+            href={p.href}
+            target="_blank"
+            rel="noopener"
+            data-platform-cta
+            data-platform-name={p.name}
+          >
+            <span class="platform-icon" aria-hidden="true">{p.icon}</span>
+            <h2>{p.name}</h2>
+            <p>{p.note}</p>
+            <span class="platform-action">{p.action} on {p.name} →</span>
+          </a>
+        ))}
+      </div>
+      {latestCurated?.data.destinations && (
+        <div class="latest-platform-links">
+          <p>Or jump straight into this week's episode:</p>
+          <PlatformBar
+            spotifyUrl={latestCurated.data.destinations.spotify}
+            appleUrl={latestCurated.data.destinations.apple}
+            youtubeUrl={`https://www.youtube.com/watch?v=${latest?.videoId}`}
+          />
+        </div>
+      )}
     </div>
   </section>
 
   <section class="spotify-embed">
     <div class="container" data-reveal>
+      <p class="embed-label">Preview it right here, no account needed:</p>
       <iframe
         src="https://open.spotify.com/embed/show/3tl7szlcJ5eFDqS7cbw6Kb"
         title="WAG Podcast on Spotify"
@@ -65,57 +169,161 @@ const pageSchema = {
     </div>
   </section>
 
-  <section class="join">
-    <div class="container register-light join-inner" data-reveal>
-      <h2>Never miss a new episode.</h2>
-      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
-      <a class="btn btn-primary" href={insiderHref("listen")}>Join WAG Insider →</a>
+  {recentLive.length > 0 && (
+    <section class="recent-section">
+      <div class="container" data-reveal="stagger">
+        <p class="eyebrow">Still Deciding?</p>
+        <h2>Here's what you'd be following.</h2>
+        <div class="recent-grid">
+          {recentLive.map((ep) => (
+            <a class="recent-card" href={`https://www.youtube.com/watch?v=${ep.videoId}`} target="_blank" rel="noopener">
+              <div class="recent-thumb">
+                <img src={ep.thumbnailUrl} alt={ep.title} loading="lazy" />
+                <span class="play-icon" aria-hidden="true">▶</span>
+              </div>
+              <div class="recent-body">
+                <span class="recent-date">{dateFmt.format(new Date(ep.publishedAt))}</span>
+                <h3>{ep.title}</h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="faq-section">
+    <div class="container" data-reveal="stagger">
+      <h2>Quick Answers</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
+
+  <WhatsNext
+    items={whatsNextItems}
+    shareUrl="https://thewagpodcast.com/listen/"
+    shareTitle="WAG Podcast — Listen &amp; Follow"
+    insiderPage="listen"
+  />
 </BaseLayout>
 
+<script>
+  // Page-scoped platform-referral tracking -- we can't measure an
+  // actual off-site follow/subscribe, but a click-through to each
+  // platform from this specific page is the real, honest proxy for
+  // "did this page do its one job." Scoped here rather than added to
+  // the shared PlatformBar component, since no other page needs this
+  // yet (generalize only after a 2nd real need).
+  function initPlatformTracking() {
+    document.querySelectorAll<HTMLAnchorElement>("[data-platform-cta]:not([data-tracked])").forEach((link) => {
+      link.setAttribute("data-tracked", "true");
+      link.addEventListener("click", () => {
+        if (typeof (window as any).gtag === "function") {
+          (window as any).gtag("event", "platform_follow_click", {
+            platform: link.dataset.platformName,
+            source_page: "listen",
+          });
+        }
+      });
+    });
+  }
+  initPlatformTracking();
+  document.addEventListener("astro:page-load", initPlatformTracking);
+</script>
+
 <style>
-  .listen-hero{ position:relative; padding: 0 0 32px; }
+  .listen-hero{ position:relative; padding: 0 0 0; }
   .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
   .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 20%; display:block; }
   .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
-  .hero-inner{ max-width:68ch; }
+  .hero-inner{ max-width:70ch; }
   .eyebrow{ display:inline-flex; align-items:center; gap:10px; }
-  .listen-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:20ch; }
+  .listen-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:22ch; }
   .text-accent{
     background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .lede{ font-size:1.1rem; max-width:60ch; }
+  .lede{ font-size:1.1rem; max-width:62ch; }
 
-  .platforms{ padding: 48px 0 24px; }
-  .platforms .container{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
+  .latest-section{ padding: 0 0 8px; }
+  .latest-inner{ position:relative; }
+  .latest-badge{
+    display:inline-block; margin-bottom:12px; font-family: var(--font-display); text-transform:uppercase;
+    letter-spacing:.04em; font-size:.76rem; font-weight:700; color: var(--wag-green);
+  }
+  .latest-card{
+    display:flex; gap:20px; align-items:center; padding:16px; border-radius: var(--radius);
+    border:1px solid var(--line); background: var(--bg-alt);
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .latest-card:hover{ border-color: var(--wag-green); transform: translateY(-2px); }
+  .latest-thumb{ position:relative; flex-shrink:0; width:220px; aspect-ratio:16/9; border-radius: var(--radius-sm); overflow:hidden; }
+  .latest-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .play-icon{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; color:#fff; background: rgba(0,0,0,.25);
+  }
+  .latest-body{ display:flex; flex-direction:column; gap:4px; min-width:0; }
+  .latest-date{ font-size:.8rem; color: var(--ink-muted); }
+  .latest-body h2{ font-size:1.15rem; margin:0; }
+  .latest-cta{ font-weight:600; font-size:.88rem; color: var(--wag-green); }
+
+  .platforms{ padding: 40px 0 24px; }
+  .platforms-trust{ text-align:center; font-size:.95rem; color: var(--ink-soft); margin: 0 0 24px; }
+  .platforms-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:20px; }
   .platform-card{
     display:block; padding:24px 26px; border-radius: var(--radius); border:1px solid var(--line);
     background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   }
   .platform-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(165,235,14,.16); border-color: var(--wag-green); }
+  .platform-icon{ font-size:1.4rem; display:block; margin-bottom:.3em; }
   .platform-card h2{ font-size:1.2rem; margin-bottom:.4em; }
   .platform-card p{ font-size:.9rem; margin-bottom:1em; }
-  .platform-cta{ font-weight:600; font-size:.88rem; color: var(--wag-green); }
+  .platform-action{ font-weight:600; font-size:.88rem; color: var(--wag-green); }
+
+  .latest-platform-links{ margin-top:28px; text-align:center; }
+  .latest-platform-links p{ font-size:.9rem; color: var(--ink-muted); margin-bottom:10px; }
+  .latest-platform-links :global(.platform-bar){ justify-content:center; }
 
   .spotify-embed{ padding: 24px 0 8px; }
+  .embed-label{ font-size:.88rem; color: var(--ink-muted); margin-bottom:10px; }
   .spotify-embed iframe{ border-radius: var(--radius); border:1px solid var(--line); display:block; }
 
-  .join{ padding: 8px 0 72px; }
-  .join-inner{
-    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
-    display:flex; flex-direction:column; align-items:center; gap:14px;
-    position:relative;
-    background:
-      linear-gradient(var(--bg), var(--bg)) padding-box,
-      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
-    border: 2px solid transparent;
+  .recent-section{ padding: 48px 0 16px; }
+  .recent-section .eyebrow{ color: var(--accent); }
+  .recent-section h2{ font-size: clamp(1.5rem, 2.8vw, 2.1rem); margin-bottom:24px; }
+  .recent-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+  .recent-card{
+    display:block; border-radius: var(--radius); overflow:hidden; border:1px solid var(--line);
+    background: var(--bg-alt); transition: transform .2s ease, border-color .2s ease;
   }
-  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
-  .join-inner p{ max-width:52ch; margin:0; }
+  .recent-card:hover{ transform: translateY(-3px); border-color: var(--wag-green); }
+  .recent-thumb{ position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; }
+  .recent-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .recent-body{ padding:12px 14px 16px; }
+  .recent-date{ font-size:.76rem; color: var(--ink-muted); }
+  .recent-body h3{ font-size:.94rem; margin:.3em 0 0; line-height:1.35; }
+
+  .faq-section{ padding: 40px 0 8px; }
+  .faq-section h2{ font-size: clamp(1.5rem, 2.8vw, 2.1rem); margin-bottom:20px; }
+  .faq-list{ max-width:72ch; }
+  .faq-item{ padding:18px 0; border-bottom:1px solid var(--line); }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item:last-child{ border-bottom:none; }
+  .faq-item h3{ font-size:1.02rem; margin-bottom:.35em; }
+  .faq-item p{ font-size:.94rem; color: var(--ink-soft); margin:0; }
 
   @media (max-width: 760px){
-    .platforms .container{ grid-template-columns:1fr; }
+    .platforms-grid{ grid-template-columns:1fr; }
+    .recent-grid{ grid-template-columns:1fr; }
+    .latest-card{ flex-direction:column; align-items:stretch; }
+    .latest-thumb{ width:100%; }
   }
 </style>
