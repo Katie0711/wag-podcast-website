@@ -60,6 +60,7 @@ const {
     <span>{marketingLabel}</span>
   </label>
   <p class="consent-helper">Checking the first box only sends you this one result — nothing else. Checking the second adds you to WAG Insider.</p>
+  <p class="consent-privacy">By submitting, you agree to our <a href="https://wildadventuregirls.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
   <button type="button" class="consent-submit" data-consent-submit>Save my preferences</button>
   <p class="consent-status" data-consent-status role="status" aria-live="polite"></p>
 </div>
@@ -214,6 +215,9 @@ const {
   }
   .consent-checkbox:hover .consent-check-box { border-color: var(--wag-pink); }
   .consent-helper { font-size: .78rem; color: var(--ink-muted); margin: 4px 0 18px; }
+  .consent-privacy { font-size: .74rem; color: var(--ink-muted); margin: -12px 0 16px; }
+  .consent-privacy a { color: var(--ink-muted); text-decoration: underline; text-underline-offset: 2px; }
+  .consent-privacy a:hover { color: var(--wag-green); }
   .consent-submit {
     font-family: var(--font-display); font-size: 1rem; padding: 12px 24px; border-radius: var(--radius-sm);
     border: none; background: var(--wag-pink); color: var(--wag-white); cursor: pointer;
