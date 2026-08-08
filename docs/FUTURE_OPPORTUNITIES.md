@@ -2,6 +2,84 @@
 
 Major opportunities identified but deliberately not built yet. Capturing these here means they survive even if the conversation that found them doesn't. Each entry: concept, why it matters, dependencies, rough timing, and why it isn't being built today. Evaluate through the CEO Filter (`CEO_DECISIONS.md`) before greenlighting any of these — don't build reflexively just because it's listed.
 
+**The standing test for everything in this file (Katie, 2026-08-08):** don't just ask "what feature is missing?" — ask **"what would make WAG impossible to compete with in five years?"** Sometimes the answer is software, sometimes data, sometimes automation, sometimes brand, sometimes community. The entries below (added 2026-08-08) are a first pass at that question. **Explicit instruction: this list is for capture and discipline, not execution priority.** The highest-value work right now stays premium UX, automation, discoverability, owned-audience growth, sponsor value, and content intelligence — don't let this list distract from compounding what's already built.
+
+---
+
+### WAG Operating System (internal CEO dashboard, expanded scope)
+
+**Concept:** everything built so far is public-facing; there's no internal company view. One dashboard showing: newest videos, newest podcast, newsletter growth, YouTube growth, Spotify growth, revenue, sponsors, articles, rankings, AI referrals, Search Console, tasks, Claude/future AI agents. Supersedes/absorbs the earlier narrower "Internal CEO Dashboard" entry below with this fuller scope.
+
+**Why it matters:** the biggest missing thing per Katie directly — "eventually you need one dashboard." One of the biggest real software opportunities in the whole ecosystem.
+
+**Timing:** not now. Depends on real, sustained data across every source it would surface.
+
+---
+
+### Brand Bible
+
+**Concept:** not guidelines — everything. Voice, humor, editing, thumbnail philosophy, titles, community, comments, typography, colors, photography, sponsors, writing, AI rules — the complete, canonical reference for what WAG sounds/looks/feels like.
+
+**Why it matters:** "This protects WAG forever" (Katie, verbatim). As more people/tools/future AI agents touch WAG's output, this is what keeps it coherent without Katie personally reviewing everything.
+
+**Timing:** not scheduled — a real, substantial writing project when it happens, not a quick doc.
+
+---
+
+### Audience Graph
+
+**Concept:** proprietary intelligence on what WAG's actual audience loves — which personalities, games, topics, titles, thumbnails repeatedly land — built from years of WAG's own real engagement data, not assumptions.
+
+**Why it matters:** Katie's own framing: "I think this is bigger than the content graph." Nobody else has this data; it compounds every year and becomes a real moat, not just an operating convenience.
+
+**Dependencies:** sustained real engagement data across YouTube/Spotify/interactions/GA4 over time — nothing to build yet, this is a data-accumulation play before it's a software one.
+
+**Timing:** not scheduled.
+
+---
+
+### Sponsor Intelligence (self-serve sponsor booking)
+
+**Concept:** a brand visits the site, picks a campaign/inventory/interaction/YouTube/podcast slot, and gets estimated reach, demographics, CPM, case studies, and availability — books directly, without a human negotiating every deal from scratch.
+
+**Why it matters:** turns sponsorship from "sponsors contact us" into real productized software — the kind of infrastructure that increases enterprise value, not just revenue per deal.
+
+**Dependencies:** real sponsor history/case studies to show, real inventory data (`SponsorSlot.astro` is the seed of this), a first sold sponsor before self-serve booking makes sense.
+
+**Timing:** not scheduled — same "build when a sponsor actually sells" gate as the existing Sponsor Dashboard/Engine entry below, which this extends.
+
+---
+
+### Creator CRM
+
+**Concept:** real relationship tracking for guests, creators, brands — introductions, history, potential collaborations, sponsor relationships, all in one place instead of living in Katie's memory/inbox.
+
+**Why it matters:** Katie's framing: "a huge missed opportunity... this compounds forever." Every real guest/creator relationship is currently undocumented anywhere in the system.
+
+**Timing:** not scheduled.
+
+---
+
+### AI Reputation / AI Search as a tracked KPI
+
+**Concept:** extend the existing AEO/GEO work (see AI Traffic Dashboard entry below) into an explicit reputation metric: when someone asks ChatGPT/Perplexity/Gemini "best teen podcasts," "podcasts like LOL Podcast," or "teen girls podcast," does WAG actually appear?
+
+**Why it matters:** this is the AI-era equivalent of a branded-search ranking check — a real, trackable signal of whether the AEO/GEO investment is working, not just whether structured data is technically correct.
+
+**Dependencies:** same tooling gap as AI Traffic Dashboard below (no reliable automated way to query multiple AI assistants yet) — likely a periodic manual spot-check until that changes.
+
+**Timing:** not scheduled, but cheap enough to spot-check occasionally without waiting for full tooling.
+
+---
+
+### WAG Media Library
+
+**Concept:** every video, thumbnail, B-roll clip, photo, podcast clip, and sponsor asset eventually searchable in one place, instead of scattered across YouTube Studio, local files, and whatever's embedded in individual pages.
+
+**Why it matters:** real production/operational leverage as the content volume grows into the hundreds/thousands of assets Katie's "compounding" test references.
+
+**Timing:** not scheduled.
+
 ---
 
 ### Discovery / Field Map (WAG Passport)

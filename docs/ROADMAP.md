@@ -52,6 +52,18 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 
 ---
 
+### Content Freshness Model — both homepages fixed
+- **Purpose:** homepage "latest content" on both sites now genuinely auto-updates from live YouTube data the moment a real video publishes, instead of depending on a hand-written article existing first. See `ARCHITECTURE.md` (this repo) and `wildadventuregirls-website/docs/ARCHITECTURE.md` § Content Freshness Model for the full audit and per-surface status.
+- **Business value:** the site now reflects reality automatically on publish — directly serves the "automation-first" and "publishing flywheel" standard Katie set 2026-08-08, without touching either homepage's visual design.
+- **Dependencies:** none.
+- **Status:** ✅ Homepage hero + latest-content module fixed on both sites (2026-08-08), verified in build + browser. Watch hub/series pages, girl-profile grids, and category pages remain manual — audited, not converted this pass (see the per-repo ARCHITECTURE.md for what's left and why).
+
+### Verdict nav label
+- **Purpose:** replace "Verdict" (internal jargon) in the primary nav with a label a first-time visitor instantly understands.
+- **Business value:** lower cognitive cost to click into the flagship weekly interaction; "WAG Verdict" brand equity preserved on the page itself.
+- **Dependencies:** none.
+- **Status:** ✅ Shipped 2026-08-08 — nav now reads "Vote", page H1/eyebrow still say "WAG Verdict". Per-nav-item GA4 click tracking added so this specific change is measured against real data over 1-2 weeks before being treated as final (Katie's explicit instruction — evidence over opinion).
+
 ## Current
 
 ### Interaction Platform V1 — Observe phase
@@ -81,6 +93,18 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 ---
 
 ## Next
+
+### Sponsor page full review (Fortune-500 standard)
+- **Purpose:** rebuild the review of `/sponsor/` against the explicit bar Katie set: would a Fortune 500 brand land on it and think "we should get in now," not "this is a creator website." Premium/modern/high-end, not template- or AI-generated-looking.
+- **Business value:** directly increases sponsorship value — one of the nine core strategic assets.
+- **Dependencies:** none.
+- **Status:** ⏭ Next in Katie's explicit sequence (2026-08-08): nav label (done) → this → competitive intelligence first pass.
+
+### Competitive intelligence: first real pass
+- **Purpose:** run the first real research pass defined in `COMPETITIVE_INTELLIGENCE.md` — LOL Podcast and Rock Pod, focused on titles/thumbnails/hooks/recurring topic patterns/what repeatedly earns teen views. Add a third competitor only with verified real audience overlap.
+- **Business value:** pattern recognition (not imitation) feeding the Title Library and future packaging decisions.
+- **Dependencies:** none — system already built, just needs its first real cycle.
+- **Status:** ⏭ Third in sequence, after the Sponsor review — informs future content/packaging, doesn't block current site improvements (Katie's explicit reasoning).
 
 ### Sponsor-facing one-pager for interactive inventory
 - **Purpose:** sales collateral for the real sponsor inventory the interaction platform creates.

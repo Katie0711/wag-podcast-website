@@ -2,6 +2,14 @@
 
 One page to find anything. This is a map, not a tutorial — read the linked source file for real detail.
 
+## Content Freshness Model (ecosystem-wide standard, added 2026-08-08)
+
+**Published media freshness is automated; editorial content is additive.** A new YouTube upload (podcast or main channel) should surface on the relevant site without anyone touching a file. A written article is a genuine, separate, deliberately curated asset — it connects to the live upload automatically via the shared `videoId`/`youtubeId` field when one exists, and simply doesn't block anything when it doesn't. Do not build a new content system where the existing YouTube/content-collection join already solves the problem — this is the resolution to the earlier "should we build a unified content graph" question (see `FUTURE_OPPORTUNITIES.md` → WAG Knowledge Graph): the join key already exists, use it everywhere a cross-system link is needed.
+
+This site's homepage (`src/pages/index.astro`) already followed this pattern (`getPodcastEpisodes` → live YouTube Data API, joined to the `episodes` collection by `videoId`, graceful fallback when no article exists). The same fix was applied to wildadventuregirls.com's homepage 2026-08-08 — see that repo's `docs/ARCHITECTURE.md` § Content Freshness Model for its per-surface audit (several surfaces there are still manual; not every surface converts in one pass, and some — like hand-curated "related episodes" — are intentionally editorial, not a freshness gap).
+
+**Standing test for any future page:** is this surface dynamic (latest uploads, latest episodes, recent articles — should auto-update) or editorial (cornerstone pages, curated guides, flagship resources — should stay intentionally selected until there's a real reason to change)? Automate the former, protect the latter.
+
 ## Where each interaction lives
 
 | Interaction | Page | Engine | API | Beehiiv tag | Storage key |
