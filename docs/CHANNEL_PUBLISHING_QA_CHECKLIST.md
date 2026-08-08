@@ -54,9 +54,9 @@
 | My Prom Night Was a Complete Disaster… | Best for viewer | First Kiss & Milestone Nights | Real milestone-night format | ✅ Done — was blank Subscribe-only |
 | Stuck in the Woods with Bigfoot! *NO WAY OUT* | Best for viewer | Scary Nights & Near-Misses | Real scary-overnight format | ✅ Done — was blank Subscribe-only |
 | Only Girls Will Understand Why This Happened | Most recent upload ("Best for viewer" not available for this video) | Growing Up | Real relatable-story format | ✅ Done — was blank Subscribe-only |
-| He Said WHAT?! (I Went On the WORST Date of My Life!) | (check availability) | Dating & Red Flags | Worst-date stories | 🔲 Not started |
-| I Got Grounded for Life After Snicking Out! | (check availability) | Growing Up | Real parents/grounded story | 🔲 Not started |
-| I Never Thought This Would Get Me Suspended! | (check availability) | Growing Up | Real formative-mistake story | 🔲 Not started |
+| He Said WHAT?! (I Went On the WORST Date of My Life!) | Best for viewer (already existed, correctly configured, kept as-is) | Dating & Red Flags | Worst-date stories | ✅ Done — Video already existed and worked, added the missing Playlist |
+| I Got Grounded for Life After Snicking Out! | Best for viewer (already existed, correctly configured, kept as-is) | Growing Up | Real parents/grounded story | ✅ Done — Video already existed and worked, added the missing Playlist |
+| I Never Thought This Would Get Me Suspended! | Best for viewer (already existed, correctly configured, kept as-is) | Growing Up | Real formative-mistake story | ✅ Done — Video already existed and worked, added the missing Playlist |
 | My Most Embarrassing Story (I Was a Stalker?!) | (check availability) | Dating & Red Flags | Real ex/dating story, red-flags framing | 🔲 Not started |
 | The Time We Almost Died... | (check availability) | Scary Nights & Near-Misses | Exact franchise match | 🔲 Not started |
 | I Tried Every Viral Glow Up Tip (I Regret This) | — | — | Beauty-trend testing, no matching playlist — don't force one | 🔲 Not started |
