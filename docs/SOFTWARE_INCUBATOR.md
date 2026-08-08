@@ -15,6 +15,32 @@ Do not advance a level because it sounds exciting — evidence earns advancement
 
 ---
 
+## Dual-Use Image Sizing
+
+**Recurring problem:** a real WAG photo used at genuine hero/full-bleed scale on one page is reused, unresized, on a second page where it displays in a small card (~369-371px) — serving 180-500KB source files into a slot that needs ~60-160KB. Manually caught by checking real CSS grid math against real source dimensions, not by any automated signal.
+
+**Current workflow:** notice a heavy image → trace every page/component that references it → confirm real display width per use via CSS math → if dual-use, hand-generate an ~800px card-specific derivative (`.jpg` + `.webp`) with a Python/Pillow script → manually wire the new filename into the specific page that needs it, leaving the original untouched for its legitimate hero use.
+
+**Business value:** real, measurable — 75-78% file-size reduction per fixed image, on exactly the pages (sponsor/brand-partnerships) where load experience affects sponsor-page trust. **Time/cost saved:** the manual trace-and-fix took real, non-trivial effort per instance (checking usage across both repos, computing real display math, writing a one-off resize script) — a repeatable tool would cut that to minutes. **Revenue upside:** indirect (page-speed/trust, not a direct conversion lever). **Data value:** low — this is a hygiene problem, not a data-accumulation one. **Membership/product potential:** plausible — "does my creator site serve oversized dual-use images" is a genuinely generic problem other creator-led sites have too.
+
+**Frequency:** two real, independently-found instances in one session — thewagpodcast.com/sponsor/ (3 images) and wildadventuregirls.com/brand-partnerships/ (3 images), same exact shape both times (hero-scale source reused in a ~370px 3-column grid card). Per Katie's explicit readiness scale, two real occurrences moves this from Observation to **Repeated Problem.**
+
+**Who benefits:** Katie (page speed, sponsor-page trust); any future page author who'd otherwise repeat the same manual trace-and-fix.
+
+**WAG-specific or broadly useful:** broadly useful — this is a generic static-site image-sizing problem, not WAG-content-specific.
+
+**Software readiness: 2/5 — Repeated Problem.** Confirmed happened twice, in the same shape, independently. Not yet a 3 (Internal Tool Candidate) — two manual fixes is real evidence but not yet enough volume to justify build effort over continuing to fix instances by hand as found.
+
+**Dependencies for advancing to level 3:** a third real instance (or a case where the manual fix genuinely became a bottleneck) would justify a lightweight build-time check (e.g., a script that flags any image referenced by more than one page at more than 2x the smallest real display context) over continuing to catch these by manual inspection.
+
+**Evidence supporting the opportunity:** both fixes are real, committed, and verified (thewagpodcast.com commit `9f37487`, wildadventuregirls.com commit `7b5bad6`) — not hypothetical.
+
+**Reasons not to build yet:** two instances, both fixed by hand in well under an hour combined. The cost of building even a lightweight checker isn't clearly lower than continuing to catch these manually at current volume.
+
+**What would have to become true to advance:** a third independent instance, or evidence that manual fixes are being missed (an oversized dual-use image shipping to production undetected) — either would justify a real build decision.
+
+---
+
 ## Authority / Opportunity Tracker
 
 **Recurring problem:** tracking real external Brand Authority opportunities (creator-discovery platforms, agencies, press outlets, conferences, industry orgs, business listings) by hand, in a single markdown file, re-read top-to-bottom every time a status needs checking or a new opportunity needs adding.
