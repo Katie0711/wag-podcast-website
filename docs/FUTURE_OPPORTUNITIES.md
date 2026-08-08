@@ -30,6 +30,8 @@ Major opportunities identified but deliberately not built yet. Capturing these h
 
 **Why not now:** No real business need for graph queries yet — content volume doesn't justify the infrastructure. Building it speculatively would be exactly the kind of premature generalization the standing Reuse Rule warns against.
 
+**2026-08-08 concrete evaluation (thewagpodcast.com episode entity):** Katie asked whether the current architecture can evolve toward a unified content graph (episode ↔ YouTube/Spotify/Apple/article/interactions/guests/topics/related episodes/software/sponsorships) without a big new system. Real finding: the join key already exists and is already the documented convention — every `episodes` collection entry carries a required `videoId` field explicitly described in `content.config.ts` as "the real YouTube video ID -- same source of truth as the main site." The 2026-08-08 homepage fix (see `CHANGELOG.md`) is the first real usage of that key to connect a live-YouTube-sourced entity (the true newest upload) to its optional written-article counterpart. Recommendation: no new graph infrastructure needed now — the evolution path is "use `videoId` (and the existing `relatedEpisodes`/`topics`/`clips` fields) as the join key everywhere a cross-system link is needed," not a new data layer. Revisit an actual graph/query layer only if a future consumer (e.g. the Business Intelligence Agent above) needs traversal Astro's content collections genuinely can't do cheaply.
+
 ---
 
 ### Internal CEO Dashboard

@@ -27,6 +27,7 @@ interface Props {
   imageAlt: string;
   itemTitle: string;
   itemHref: string;
+  itemHrefExternal?: boolean;
   date: Date;
   headline: string;
   primaryLine: string;
@@ -34,12 +35,20 @@ interface Props {
   primaryCtaLabel?: string;
   support?: SupportPlatform[];
   proofLine?: string;
+  // Set only when a written article exists for this specific item --
+  // absent means no article yet, and the module renders exactly as it
+  // always has (no gap, no placeholder). This is what lets the calling
+  // page surface the newest real upload immediately without waiting on
+  // an article, while still linking to the deeper piece the moment one
+  // gets written.
+  secondaryHref?: string;
+  secondaryLabel?: string;
 }
 
 const {
-  image, imageFallback, imageAlt, itemTitle, itemHref, date, headline,
+  image, imageFallback, imageAlt, itemTitle, itemHref, itemHrefExternal = false, date, headline,
   primaryLine, primaryHref, primaryCtaLabel = "Never Miss the Next One →",
-  support = [], proofLine,
+  support = [], proofLine, secondaryHref, secondaryLabel = "Read the full story →",
 } = Astro.props;
 
 const dateLabel = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" }).format(date);
@@ -71,7 +80,7 @@ const platformColors: Record<SupportPlatform["icon"], string> = {
 
 <section class="lc" data-reveal>
   <div class="container lc-grid">
-    <a class="lc-media" href={itemHref}>
+    <a class="lc-media" href={itemHref} target={itemHrefExternal ? "_blank" : undefined} rel={itemHrefExternal ? "noopener" : undefined}>
       <img
         src={image}
         alt={imageAlt}
@@ -116,6 +125,7 @@ const platformColors: Record<SupportPlatform["icon"], string> = {
       )}
 
       {proofLine && <p class="lc-proof">{proofLine}</p>}
+      {secondaryHref && <a class="lc-secondary" href={secondaryHref}>{secondaryLabel}</a>}
     </div>
   </div>
 </section>
@@ -194,6 +204,7 @@ const platformColors: Record<SupportPlatform["icon"], string> = {
   .lc-support-benefit{ font-size:.8rem; color: var(--ink-muted); }
 
   .lc-proof{ font-size:.82rem; color: var(--ink-muted); margin:0; }
+  .lc-secondary{ display:inline-block; margin-top:2px; font-size:.86rem; font-weight:600; color: var(--wag-green); text-decoration:underline; text-underline-offset:2px; }
 
   @media (max-width: 860px){
     .lc-grid{ grid-template-columns:1fr; gap:26px; }

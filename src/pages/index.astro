@@ -5,6 +5,7 @@ import Marquee from "../components/Marquee.astro";
 import LatestContent from "../components/LatestContent.astro";
 import { insiderHref } from "../lib/insiderLink";
 import { getCollection } from "astro:content";
+import { getPodcastEpisodes } from "../lib/youtube";
 
 const tickerItems = [
   "New Episodes Every Week",
@@ -15,14 +16,21 @@ const tickerItems = [
   "Watch on YouTube, Spotify & Apple Podcasts",
 ];
 
-// Real, currently-latest episode -- resolved fresh on every build, never
-// hand-typed. Powers the LatestContent module below. Excludes anything
-// scheduled with a future publishDate, so an episode written ahead of its
-// real release doesn't briefly appear live as "the latest" the moment
-// it's deployed.
-const [latestEpisode] = (await getCollection("episodes"))
-  .filter((e) => e.data.publishDate.valueOf() <= Date.now())
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+// Hybrid freshness model, per Katie's explicit direction (2026-08-08):
+// the homepage must always reflect the true newest real upload the
+// moment it's published -- not wait on a written article -- while the
+// deliberately curated `episodes` article collection (the site's real
+// SEO/AEO/GEO/enterprise-value asset) stays exactly as selective as it
+// is today. `videoId` is the real join key between "what's actually on
+// YouTube" and "which of those earned a full written piece" -- already
+// the documented source-of-truth pattern in content.config.ts, just not
+// previously used here. No article match is a normal, expected state
+// (most uploads never get one, by design), not a gap to paper over.
+const [latestVideo] = await getPodcastEpisodes(1);
+const articles = await getCollection("episodes");
+const matchingArticle = latestVideo
+  ? articles.find((a) => a.data.videoId === latestVideo.videoId)
+  : undefined;
 
 const hosts = [
   { name: "Annabella", role: "The Wild Card", photo: "/images/annabella-thumb.jpg", photoWebp: "/images/annabella-thumb.webp" },
@@ -122,14 +130,15 @@ const exploreListSchema = {
     </div>
   </section>
 
-  {latestEpisode && (
+  {latestVideo && (
     <LatestContent
-      image={latestEpisode.data.heroImage}
-      imageFallback={latestEpisode.data.heroImage.replace("maxresdefault", "hqdefault")}
-      imageAlt={latestEpisode.data.title}
-      itemTitle={latestEpisode.data.title}
-      itemHref={`/episodes/${latestEpisode.id}/`}
-      date={latestEpisode.data.publishDate}
+      image={`https://img.youtube.com/vi/${latestVideo.videoId}/maxresdefault.jpg`}
+      imageFallback={`https://img.youtube.com/vi/${latestVideo.videoId}/hqdefault.jpg`}
+      imageAlt={matchingArticle?.data.title ?? latestVideo.title}
+      itemTitle={matchingArticle?.data.title ?? latestVideo.title}
+      itemHref={latestVideo.watchUrl}
+      itemHrefExternal={true}
+      date={matchingArticle?.data.publishDate ?? new Date(latestVideo.publishedAt)}
       headline="This is what your group chat's going to be about tomorrow."
       primaryLine="Every face. Every reaction. Nothing cut."
       primaryHref="https://www.youtube.com/@WAGPodcast"
@@ -138,6 +147,7 @@ const exploreListSchema = {
         { icon: "apple", platform: "Apple Podcasts", ctaLabel: "Listen on Apple Podcasts →", benefit: "Drops in your queue the second it's out — no need to remember.", href: "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489" },
       ]}
       proofLine="New episodes every week — from the team behind a 1.2M+ subscriber world."
+      secondaryHref={matchingArticle ? `/episodes/${matchingArticle.id}/` : undefined}
     />
   )}
 
