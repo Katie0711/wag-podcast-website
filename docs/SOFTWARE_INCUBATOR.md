@@ -2,7 +2,16 @@
 
 **This is an evidence log, not an ideas list.** Entries are added only when a repeated, observed problem justifies logging it — never speculative "wouldn't it be cool if" ideas. The goal: if WAG eventually builds internal tools, a creator membership, or commercial software, the decision is grounded in validated, repeated problems, not a backlog of interesting ideas. Do not build any of these now. Do not force an entry into a phase where nothing real emerged — say so instead.
 
-Each entry: recurring problem, current workflow, business value, frequency, who benefits, WAG-only vs. useful to other creators, software readiness (1–5, 1 = too early to even define, 5 = validated and scoped), dependencies, reasons not to build yet.
+Each entry: recurring problem, current workflow, frequency, business value, time/cost saved, revenue or conversion upside (if applicable), data value, who benefits, WAG-specific vs. broadly useful to creators/media companies, whether it could support a future membership/product, software readiness level, dependencies, evidence supporting the opportunity, reasons not to build it yet, and what would have to become true before it advances.
+
+**Readiness scale (Katie's, 2026-08-08 — use exactly this):**
+1. **Observation** — interesting pattern, insufficient evidence.
+2. **Repeated Problem** — happened enough times to document.
+3. **Internal Tool Candidate** — meaningful value from automation/tooling.
+4. **Proven Internal System** — WAG actively uses it and receives measurable value.
+5. **Validated Commercial Opportunity** — enough evidence exists to seriously evaluate membership, licensing, or SaaS.
+
+Do not advance a level because it sounds exciting — evidence earns advancement, nothing else does.
 
 ---
 
@@ -12,7 +21,7 @@ Each entry: recurring problem, current workflow, business value, frequency, who 
 
 **Current workflow:** research pass (WebSearch/WebFetch) → manually write findings into `BUSINESS_DEVELOPMENT_SYSTEM.md` as a table/prose entry → manually re-scan the whole doc later to find what's still open vs. resolved.
 
-**Business value:** real — this doc already prevented one premature recommendation (IMDb) and is the single source of truth for where Brand Authority effort should go next.
+**Business value:** real — this doc already prevented one premature recommendation (IMDb) and is the single source of truth for where Brand Authority effort should go next. **Time/cost saved:** real, but not measured — avoids re-deriving research each session. **Revenue upside:** indirect only (better-targeted BD effort, not a direct conversion path). **Data value:** high — the doc itself is becoming a proprietary map of WAG's real Brand Authority landscape. **Membership/product potential:** plausible — the tracker *shape* (not WAG's specific content) could be a template in a future creator membership.
 
 **Frequency:** observed 4 separate times in one session (discovery platforms, AEO/GEO mechanics, discovery-channel ranking, wider ecosystem categories) — a real, repeating pattern, not a one-off.
 
@@ -34,7 +43,7 @@ Each entry: recurring problem, current workflow, business value, frequency, who 
 
 **Current workflow:** each page/component gets its own small, page-scoped `<script>` block calling `gtag('event', ...)` with a bespoke event name (`platform_follow_click` on Listen, `next_action_click` in WhatsNext, `nav_click` in Header) — functionally similar patterns, written three separate times this session alone because each needed slightly different context (which platform, which source page, which destination type).
 
-**Business value:** real — this is literally how "did the Listen page rebuild work" gets answered with evidence instead of a guess.
+**Business value:** real — this is literally how "did the Listen page rebuild work" gets answered with evidence instead of a guess. **Time/cost saved:** low today (each script is small), but the re-wiring effort compounds as more pages need it. **Revenue upside:** indirect — better attribution improves which growth bets get more investment, not a direct revenue path itself. **Data value:** high long-term — real, first-party knowledge of which pages actually drive platform follows. **Membership/product potential:** low on its own; would only matter as part of a larger analytics offering, not standalone.
 
 **Frequency:** three real instances in a single session (Header nav, WhatsNext, Listen platform cards); the underlying need (know where clicks go) will recur every time a new conversion-focused page ships.
 
@@ -56,7 +65,7 @@ Each entry: recurring problem, current workflow, business value, frequency, who 
 
 **Current workflow:** a real number changes → manually search across pages/PDFs for every place it might be duplicated → manually verify each one → manually fix each one found.
 
-**Business value:** real — a stale or inconsistent stat on a sponsor-facing page is exactly the kind of small error that erodes the "trust, not just impress" standard Katie has set for these pages.
+**Business value:** real — a stale or inconsistent stat on a sponsor-facing page is exactly the kind of small error that erodes the "trust, not just impress" standard Katie has set for these pages. **Time/cost saved:** minor per-instance today (one script, a few minutes); **Revenue upside:** indirect — protects sponsor-page credibility, not a direct conversion lever. **Data value:** low — this is a consistency problem, not a data-accumulation one. **Membership/product potential:** none identified.
 
 **Frequency:** one real, observed instance this session — not yet a proven *repeated* pattern. Logging it now because the shape of the problem (one real fact, many surfaces) is exactly the kind of thing likely to recur as more real stats/case studies get added, not because it's already recurred multiple times.
 

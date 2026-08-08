@@ -1,5 +1,7 @@
 # WAG Future Opportunities
 
+**See `WAG_OPPORTUNITY_REGISTRY.md`** for the structured index of these same entries (evidence, business/audience/sponsor impact, moat, difficulty, priority, status, trigger) — this file stays the detailed prose write-up each registry row links back to.
+
 Major opportunities identified but deliberately not built yet. Capturing these here means they survive even if the conversation that found them doesn't. Each entry: concept, why it matters, dependencies, rough timing, and why it isn't being built today. Evaluate through the CEO Filter (`CEO_DECISIONS.md`) before greenlighting any of these — don't build reflexively just because it's listed.
 
 **The standing test for everything in this file (Katie, 2026-08-08):** don't just ask "what feature is missing?" — ask **"what would make WAG impossible to compete with in five years?"** Sometimes the answer is software, sometimes data, sometimes automation, sometimes brand, sometimes community. The entries below (added 2026-08-08) are a first pass at that question. **Explicit instruction: this list is for capture and discipline, not execution priority.** The highest-value work right now stays premium UX, automation, discoverability, owned-audience growth, sponsor value, and content intelligence — don't let this list distract from compounding what's already built.
