@@ -120,6 +120,22 @@ Major opportunities identified but deliberately not built yet. Capturing these h
 
 ---
 
+### Long-Term Channel Architecture Review
+
+**Concept:** A deliberate, data-driven review of whether WAG should keep operating a dedicated podcast YouTube channel (@WAGPodcast, separate from the main girls' channel) or whether a different long-term channel structure serves the ecosystem better. Prompted by observing that Rock Squad publishes their podcast on their main channel rather than a dedicated one — not a signal to copy, but a real structural question worth answering with WAG's own evidence rather than assumption.
+
+**Why it matters:** Channel architecture affects discoverability (YouTube's recommendation system treats split vs. combined channels very differently), sponsor value (audience size and focus per channel), operational complexity (two channels to grow vs. one), and long-term enterprise value (this is a foundational structural decision, not a cosmetic one — expensive to reverse once a channel has real subscriber history).
+
+**Scope when this review is actually run:** Compare, with real data — WAG's own analytics, audience behavior, sponsor value, YouTube recommendation behavior, discoverability, operational complexity, and long-term enterprise value across the current split-channel structure. Study multiple creator ecosystems, not just Rock Squad, to find the actual principles behind when creators successfully split channels versus keep everything together (audience size at time of split, content-type overlap, algorithm-era differences, etc.) rather than pattern-matching off one example.
+
+**Dependencies:** Enough real channel history/analytics on both the main WAG channel and @WAGPodcast to compare meaningfully — not evaluable from a cold start.
+
+**Timing:** Not scheduled. Explicitly deferred — Katie flagged this to capture, not to investigate now (2026-08-08). Continue executing the current dual-channel strategy until this is deliberately scheduled.
+
+**Why not now:** This is a structural, hard-to-reverse decision that deserves a proper multi-source analysis, not a quick opinion formed off a single competitor observation.
+
+---
+
 ### Creator Operating System (long-horizon, optionality only)
 
 **Concept:** If the internal platform (interaction engine + audience engine + analytics engine + sponsor engine) proves itself across WAG and HorseSmart Kids, it could eventually become licensable infrastructure for other creators.

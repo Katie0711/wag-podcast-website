@@ -94,6 +94,7 @@ Strategic roadmap only — not implementation notes (those live in `ARCHITECTURE
 
 See `FUTURE_OPPORTUNITIES.md` for full detail on each of these — not duplicated here.
 
+- Long-Term Channel Architecture Review (dedicated podcast channel vs. consolidated — flagged 2026-08-08, explicitly deferred)
 - WAG Discovery/Field Map (Adventure Passport)
 - WAG Knowledge Graph
 - Internal CEO Dashboard
