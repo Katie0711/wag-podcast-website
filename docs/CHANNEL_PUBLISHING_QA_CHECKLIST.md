@@ -10,7 +10,7 @@
 
 | # | Item | What "done" looks like | Real finding this pass (2026-08-08, `@WAGPodcast`) |
 |---|---|---|---|
-| 1 | **End screen** | Subscribe + a Video element (Best for viewer, or Most recent upload if unavailable) + a Playlist element where a genuine franchise fit exists | **Systemic gap, now confirmed on 33 real videos**: every sampled video had Subscribe only, no path to another video. 2 of 33 fixed this pass (see tracker below). |
+| 1 | **End screen** | Subscribe + a Video element (Best for viewer, or Most recent upload if unavailable) + a Playlist element where a genuine franchise fit exists | **Real, mixed picture — not uniformly blank.** Most sampled videos had Subscribe only; at least one already had a genuine curated setup. 4 of 33 verified done this pass (see tracker below), each individually checked before editing. |
 | 2 | **Cards** | N/A — see finding | **Cards is not an available feature in this channel's current Studio interface at all** — confirmed via direct URL, the Editor's full element list, and the overflow menu. Not "underused," genuinely absent. Mid-video redirection has to rely on items 3, 5, 6, 9 below instead. |
 | 3 | **Chapters** | Real timestamps in the description, each a genuine content beat (not padding) | Not yet audited this pass — real next step. Spot-checked description text shows a few videos already have timestamp lists (e.g. "I Thought Our Plane Was About to Crash…" has real chapter markers); most don't. |
 | 4 | **Playlists** | Video sits in every real playlist it genuinely belongs to (franchise + Most Recent Uploads) | 11 real playlists exist and are populated (see `wag_youtube_shows_project` history). Individual per-video membership not re-audited this pass. |
@@ -26,6 +26,7 @@
 
 ## The binge-path decision rule (item 1, in detail)
 
+0. **Check what's actually already there before touching anything.** Real finding (2026-08-08): not every video was blank. "Teens Answer the Questions Nobody Wants to Ask" already had a genuine, human-curated end screen (a specific video + the Growing Up playlist) — assuming blank-Subscribe-only and adding fresh elements on top would have exceeded YouTube's 4-element cap and/or created duplicates. Also found and removed a real broken element on that same video (an unconfigured Video slot with no option selected, which would render blank to viewers) — a genuine defect worth catching regardless of the binge-path work. **Always open the existing end screen and click through every element shown before adding anything.**
 1. **Video element, always.** Set to **Best for viewer** if that option is enabled for the specific video (it varies per-video — not a fixed channel-wide toggle, confirmed by testing two videos where availability differed). If disabled, use **Most recent upload** instead — same zero-guesswork principle, with the added benefit that it auto-refreshes as new episodes ship.
 2. **Playlist element, only when genuinely earned.** Add a Playlist element only when the video's real content matches an existing playlist's real theme — never a forced fit. Every match made this pass is logged in the tracker below with its reasoning.
 3. **Subscribe element stays, always.** Never removed, never repositioned to make room — it was already there and already correct.
@@ -41,8 +42,8 @@
 |---|---|---|---|---|
 | Is He Flirting… or Just Being Nice? | Best for viewer | Dating & Red Flags | Dating-ambiguity debate format | ✅ Done |
 | Is It Cheating If He Does THIS?! | Best for viewer | Dating & Red Flags | Cheating/red-flags debate, same real video also referenced as "Dating Red Flags" on-site | ✅ Done |
-| One Of Us Was Lying...(IMPOSTERS) | Most recent upload (check Best-for-viewer availability at time of edit) | WAG Game Night | Real party-game format | 🔲 Not started |
-| Teens Answer the Questions Nobody Wants to Ask | — | — | Mental health topic, no matching playlist theme — don't force one | 🔲 Not started |
+| One Of Us Was Lying...(IMPOSTERS) | Best for viewer | WAG Game Night | Real party-game format | ✅ Done — was blank Subscribe-only |
+| Teens Answer the Questions Nobody Wants to Ask | Most recent upload (already existed as a curated specific video, kept as-is) | Growing Up (already existed) | **Real finding: this video already had a genuine curated end screen** — Subscribe + a specific real video + Growing Up playlist. My own prediction (no playlist match) was wrong; whoever built the original end screen made a better call than my prediction. Also found and removed one real broken element (an unconfigured duplicate Video slot with no option selected — would have shown blank/nothing to viewers). | ✅ Done — cleaned up, not built from scratch |
 | Guys Answer Questions Every Girl Secretly Wants to Ask... | (check availability) | Guys Answer Questions | Exact franchise match | 🔲 Not started |
 | This Was The Worst Day of My Life... | (check availability) | Growing Up | "Worst day" real-life story format | 🔲 Not started |
 | They Said WHAT?! (Playing Cancelled Celebs Heads Up) | (check availability) | WAG Game Night | Real party-game format | 🔲 Not started |
