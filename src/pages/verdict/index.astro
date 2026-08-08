@@ -59,6 +59,13 @@ const revealDateFormatted = current.data.revealDate.toLocaleDateString("en-US", 
   timeZone: "UTC",
 });
 
+// Real, computed at request time (this page is already SSR, not
+// prerendered) -- gives the page a genuinely live-current feel without
+// inventing anything. Never shows a negative/zero count as "days left"
+// since the reveal date can pass before the next Verdict is published.
+const msUntilReveal = current.data.revealDate.getTime() - Date.now();
+const daysUntilReveal = Math.ceil(msUntilReveal / (1000 * 60 * 60 * 24));
+
 const faqs = [
   { q: "How does WAG Verdict work?", a: "Every week, WAG puts a real dilemma from the show to a vote. Cast your vote, see how everyone else is calling it, and find out what the girls actually decided when the next episode airs." },
   { q: "How do I vote?", a: "Tap either option above — no account or sign-in required. Your vote counts immediately." },
@@ -123,19 +130,14 @@ const faqSchema = {
       />
       <ConsentCheckboxPair
         voteKey={current.data.voteKey}
-        transactionalLabel="Email me when this Verdict is revealed"
-        marketingLabel="Also join WAG Insider for future votes, quizzes, episodes, and product news"
+        transactionalLabel="Don't let me miss the real reveal — email it to me"
+        marketingLabel="Also join WAG Insider so I never miss a vote, quiz, or new episode again"
       />
-      <p class="verdict-reveal-note">Verdict revealed {revealDateFormatted} — in the next episode. Real percentage above, real outcome then.</p>
-    </div>
-  </section>
-
-  <section class="verdict-sponsor">
-    <div class="container container--narrow" data-reveal>
-      <SponsorSlot
-        fallbackHref="/watch/"
-        fallbackLabel="🎬 While you're here — catch up on the latest WAG Podcast episode"
-      />
+      <p class="verdict-reveal-note">
+        Verdict revealed {revealDateFormatted} — in the next episode.
+        {daysUntilReveal > 0 && ` That's ${daysUntilReveal} day${daysUntilReveal === 1 ? "" : "s"} from now.`}
+        {" "}Real percentage above, real outcome then.
+      </p>
     </div>
   </section>
 
@@ -150,6 +152,15 @@ const faqSchema = {
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="verdict-sponsor">
+    <div class="container container--narrow" data-reveal>
+      <SponsorSlot
+        fallbackHref="/watch/"
+        fallbackLabel="🎬 While you're here — catch up on the latest WAG Podcast episode"
+      />
     </div>
   </section>
 

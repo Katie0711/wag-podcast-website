@@ -25,6 +25,12 @@ const initialYesPct = initialTotal > 0 ? Math.round((initialYes / initialTotal) 
     <button type="button" class="vote-btn vote-no" data-vote-choice="no">{optionNo}</button>
   </div>
 
+  {initialTotal > 0 && (
+    <p class="vote-social-proof" data-vote-social-proof>
+      {initialTotal.toLocaleString()} {initialTotal === 1 ? "person has" : "people have"} already voted — the split stays hidden until you cast yours.
+    </p>
+  )}
+
   <div class="vote-results" data-vote-results hidden role="status" aria-live="polite">
     <p class="vote-results-label">Here's how everyone else is calling it so far:</p>
     <div class="vote-bar">
@@ -51,12 +57,14 @@ const initialYesPct = initialTotal > 0 ? Math.round((initialYes / initialTotal) 
       const pctYesEl = widget.querySelector<HTMLElement>("[data-vote-pct-yes]")!;
       const pctNoEl = widget.querySelector<HTMLElement>("[data-vote-pct-no]")!;
       const countEl = widget.querySelector<HTMLElement>("[data-vote-count]")!;
+      const socialProofEl = widget.querySelector<HTMLElement>("[data-vote-social-proof]");
 
       const storageKey = `wag_voted_${voteKey}`;
       const alreadyVoted = localStorage.getItem(storageKey);
 
       function showResults() {
         buttonsEl.hidden = true;
+        if (socialProofEl) socialProofEl.hidden = true;
         resultsEl.hidden = false;
         widget.dispatchEvent(new CustomEvent("wag:voted", { bubbles: true }));
       }
@@ -124,6 +132,7 @@ const initialYesPct = initialTotal > 0 ? Math.round((initialYes / initialTotal) 
   .vote-yes { background: var(--wag-green); color: var(--wag-black); }
   .vote-no { background: transparent; color: var(--wag-pink); border-color: var(--wag-pink); }
   .vote-btn:not(:disabled):hover { transform: translateY(-2px); }
+  .vote-social-proof { font-size: .82rem; color: var(--ink-muted); text-align: center; margin: 14px 0 0; }
 
   .vote-results-label { font-size: .92rem; color: var(--ink-soft); margin: 0 0 10px; text-align: center; }
   .vote-bar {

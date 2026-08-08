@@ -1,0 +1,19 @@
+# WAG Product Journal
+
+Brief, dated notes on real patterns, surprises, and recurring workflows discovered during development — not a status log (see `CHANGELOG.md` for that) and not a strategy doc (see `ROADMAP.md`/`CEO_DECISIONS.md`). This is for the "huh, that's not what I expected" and "this keeps happening" observations worth remembering.
+
+---
+
+## 2026-08-08
+
+**Schema can silently fragment without anyone noticing.** The About page was emitting its own separate, incomplete `Organization` JSON-LD block (founder/foundingDate/award, missing url/logo/sameAs) alongside `BaseLayout`'s sitewide one (url/logo/sameAs, missing founder/foundingDate/award) — same `@id`, two different fact sets, on the same page. Nothing broke visually; nothing failed a build. It only surfaced because entity authority became an explicit focus this session. Pattern to watch: schema doesn't fail loudly when it drifts, so it needs the same "read the actual output" discipline as any other cross-cutting concern — checking a component in isolation isn't enough, need to check what a real page actually emits.
+
+**Real research reversed an assumption mid-session, and that was the correct outcome, not a failure.** Going in, the working assumption was that strengthening sponsor-page SEO/AEO content was the primary lever for brands discovering WAG. Real research (industry reports, platform mechanics, job-posting language) showed the opposite: creator-discovery platforms and agencies dominate real-world sourcing; organic/AI search is real but secondary. This didn't waste the sponsor-page work — it reframed its job (closes confidence, doesn't create first awareness) and correctly redirected the *next* round of effort toward the Business Development System instead. Worth remembering: when real research contradicts a working assumption, the right move is updating the assumption, not defending the sunk work.
+
+**Wikidata's real bar is more subtle than "notable or not."** Every comparable creator-brand Wikidata item found (Dude Perfect, Smosh, CoComelon) already has a Wikipedia article and qualifies through that route — none survive purely on independent-press citations without one. This wasn't obvious from reading Wikidata's own policy page alone; it only surfaced by checking real precedent. General pattern: policy text describes the theoretical bar, but real precedent shows the practical one, and they can differ meaningfully.
+
+**Stated priorities and actual page content can quietly drift apart.** Katie's own explicit priority order ranks YouTube subscriber growth above Spotify/Apple. The Listen page, before this session's rebuild, listed YouTube third with "prefer audio? it's here too" framing — actively undersold relative to its own stated importance. No one had done anything wrong on purpose; the page had just been built before that priority was stated as explicitly, and nothing forced a re-check against it later. General pattern: a stated priority needs an occasional deliberate audit against what's actually live, since pages don't automatically stay in sync with philosophy that gets refined after they're built.
+
+---
+
+*Add an entry only when something real and non-obvious actually happened during a session — a surprise, a confirmed pattern, or a workflow that kept repeating. If nothing meaningful emerged, skip the entry rather than padding it.*
