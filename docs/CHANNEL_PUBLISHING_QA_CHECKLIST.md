@@ -57,8 +57,8 @@
 | He Said WHAT?! (I Went On the WORST Date of My Life!) | Best for viewer (already existed, correctly configured, kept as-is) | Dating & Red Flags | Worst-date stories | ✅ Done — Video already existed and worked, added the missing Playlist |
 | I Got Grounded for Life After Snicking Out! | Best for viewer (already existed, correctly configured, kept as-is) | Growing Up | Real parents/grounded story | ✅ Done — Video already existed and worked, added the missing Playlist |
 | I Never Thought This Would Get Me Suspended! | Best for viewer (already existed, correctly configured, kept as-is) | Growing Up | Real formative-mistake story | ✅ Done — Video already existed and worked, added the missing Playlist |
-| My Most Embarrassing Story (I Was a Stalker?!) | (check availability) | Dating & Red Flags | Real ex/dating story, red-flags framing | 🔲 Not started |
-| The Time We Almost Died... | (check availability) | Scary Nights & Near-Misses | Exact franchise match | 🔲 Not started |
+| My Most Embarrassing Story (I Was a Stalker?!) | Best for viewer (already existed, correctly configured, kept as-is) | Dating & Red Flags | Real ex/dating story, red-flags framing | ✅ Done — Video already existed and worked, added the missing Playlist |
+| The Time We Almost Died... | Best for viewer (already existed, correctly configured, kept as-is) | Scary Nights & Near-Misses | Exact franchise match | ✅ Done — Video already existed and worked, added the missing Playlist |
 | I Tried Every Viral Glow Up Tip (I Regret This) | — | — | Beauty-trend testing, no matching playlist — don't force one | 🔲 Not started |
 | Why Is Everyone Breaking Up? 💔 | (check availability) | Dating & Red Flags | Real breakup/relationship topic | 🔲 Not started |
 | I Got in a Bad Accident (My Car is Totaled 💔) | (check availability) | Scary Nights & Near-Misses | Real accident/near-miss story | 🔲 Not started |
