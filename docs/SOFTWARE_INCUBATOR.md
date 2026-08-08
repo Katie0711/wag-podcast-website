@@ -13,6 +13,8 @@ Each entry: recurring problem, current workflow, frequency, business value, time
 
 Do not advance a level because it sounds exciting — evidence earns advancement, nothing else does.
 
+**Data model (not built — the shape, per Katie's 2026-08-08 directive):** an `Opportunity` object with fields `Recurring Problem`, `Evidence` (links to real instances/commits), `Frequency`, `Business Value`, `Readiness` (the 1–5 scale above), `Decision` (build/hold/dependencies). Owner/updates: whoever hits the recurring problem logs or updates the `Opportunity`; readiness only advances when a new real instance is logged. Consumed by: Phase Summaries (the "software opportunities discovered" field) and, eventually, a Product/Software Incubator agent role (see `WAG_AGENT_ARCHITECTURE.md`) if that's ever activated.
+
 ---
 
 ## Dual-Use Image Sizing
@@ -124,3 +126,5 @@ Do not advance a level because it sounds exciting — evidence earns advancement
 | — | Consent-split first-party data architecture (transactional vs. marketing, per-interaction tagging) | Proprietary audience data | Produces queryable audience segments most competitors' generic newsletter forms don't — logged retroactively | Interaction platform build (pre-ledger) |
 
 *Two entries above are logged retroactively because they're real, already-existing durable assets that predate this ledger's creation — not backfilled speculation. Going forward, only log at genuine phase close, evaluated against the question above, not on a schedule.*
+
+**Data model (not built — the shape, per Katie's 2026-08-08 directive):** an `Asset` object with fields `Owner` (who created/maintains it), `Created` (date), `Category` (from Katie's list above), `Business Value`, `Dependencies` (what it relies on), `Related Projects` (links to the phase/doc that produced it). Owner/updates: logged only at genuine phase close per the question above; never backfilled speculatively beyond the two retroactive entries already logged. Consumed by: the Phase Summary's "biggest business asset created" field and, per Katie's 2026-08-08 addition, the 5-year-acquisition-value question every Phase Summary now closes with.

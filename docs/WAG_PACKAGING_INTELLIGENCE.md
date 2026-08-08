@@ -17,6 +17,8 @@
 
 Only add an entry once a pattern has real, cited evidence behind it (WAG's own performance data, or a competitive intelligence pass) — this is not a brainstorm of theoretically-plausible patterns.
 
+**Data model (not built — the shape this becomes if it's ever software):** a `Package` object per real title decision, with fields `Title`, `Thumbnail`, `Hook`, `Pattern` (links to an entry in this doc), `Outcome`, `CTR`, `Retention`, `Emotion` (the trigger from field 2 above), `Status` (proposed/live/measured). Relationships: many `Package`s reference one `Pattern`; a `Pattern`'s fields 1–10 above get refined as more `Package`s using it accumulate real outcome data. Owner/updates: whoever ships a real title decision logs the `Package`; this doc's patterns get updated when enough `Package` outcomes exist to confirm or revise a field. No UI/code implied by this — just the shape, per Katie's 2026-08-08 directive.
+
 ---
 
 ## Pattern: Relationship / dating-status ambiguity
