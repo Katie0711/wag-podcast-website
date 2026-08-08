@@ -4,6 +4,8 @@
 
 **Long-term destination — the WAG Brand Authority System:** this doc is the seed of a broader eventual system covering sponsor discovery + media/press + speaking + creator platforms + entity authority + strategic relationships + software opportunities + AI discoverability — not just where brands discover creators, but where journalists, conference organizers, podcast hosts, and industry leaders discover companies to feature. Not building that system now; this doc grows into it over time. See [[wag_brand_authority_system_framework]] (memory) for the standing framework this doc implements.
 
+**Naming note (2026-08-08):** what was informally "off-site authority" is now **Brand Authority** — the broader, correct frame: off-site authority, press, media mentions, conferences, speaking, creator ecosystems, agency awareness, business development, entity authority, industry relationships, all as one thing, not scattered categories.
+
 **Standing discipline for anything added to Track 2 below:** document, don't act. For each real external opportunity found, record what it is, how it works, who it's for, whether WAG is eligible, whether profiles are claimed or auto-generated, business value, sponsor value, AI/entity value, implementation difficulty, and priority — then stop. No account creation, no outreach, until Katie reviews and greenlights.
 
 Status values match the rest of this ecosystem's docs: **Live**, **Real gap (not started)**, **Research in progress**, or **Needs Katie** (requires her business identity/credentials/decision — not something built into the codebase).
@@ -64,7 +66,7 @@ Real, currently-active outlets that cover this exact space: **Tubefilter** (crea
 - No credible dedicated teen/family creator trade body was found beyond FOSI's safety focus — this category is genuinely thin, not underexplored.
 
 ### Business listings / structured entities
-- **IMDb** — real, and now accepts YouTube/online releases as listings. Carries real weight with Google's Knowledge Panel. This is a genuinely new, actionable Tier-2 entity-authority opportunity — separate from Wikidata, likely lower-friction. **Eligible:** plausibly yes. **Claimed:** creator-initiated submission. **Value:** real AI/entity-authority value, moderate business value. **Difficulty:** low-medium. **Priority: medium-high — worth Katie's review alongside the Wikidata decision.**
+- **IMDb** — real, and now accepts YouTube/online releases as listings; carries real weight with Google's Knowledge Panel. **Correction (2026-08-08):** this was previously framed as medium-high priority and "worth Katie's review" — too fast. Per Katie's explicit standard, no listing recommendation goes out until eligibility and the correct submission path are actually confirmed, not just plausible. **Status: eligibility research not yet done — this is a real gap in this doc, not a ready recommendation.** Before recommending: confirm IMDb's actual content-type/notability requirements for a YouTube channel or podcast (not a scripted show), what counts as a qualifying "release" for a weekly ongoing show vs. a single title, and whether a submission at WAG's current profile would plausibly stick or get rejected/removed. Do not submit or recommend submitting until that's answered.
 - **Crunchbase** — real, but investor/funding-oriented; relevant mainly if WAG ever raises capital or wants acquirer visibility. **Priority: low** for now.
 - **Google Business Profile** — built for local/physical businesses, not a natural fit for a YouTube-first national brand. **Priority: very low.**
 
