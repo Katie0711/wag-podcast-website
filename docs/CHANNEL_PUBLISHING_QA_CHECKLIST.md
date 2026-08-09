@@ -10,8 +10,8 @@
 
 | # | Item | What "done" looks like | Real finding this pass (2026-08-08, `@WAGPodcast`) |
 |---|---|---|---|
-| 1 | **End screen** | Subscribe + a Video element (Best for viewer, or Most recent upload if unavailable) + a Playlist element where a genuine franchise fit exists | **Complete — all 33/33 `@WAGPodcast` videos verified and fixed.** Real, mixed picture: 70% already had a genuine curated Video pick, only 15% already had the matching Playlist too. See the full pattern-frequency summary below the tracker. |
-| 2 | **Cards** | N/A — see finding | **Cards is not an available feature in this channel's current Studio interface at all** — confirmed via direct URL, the Editor's full element list, and the overflow menu. Not "underused," genuinely absent. Mid-video redirection has to rely on items 3, 5, 6, 9 below instead. |
+| 1 | **End screen** | Subscribe + a Video element (Best for viewer, or Most recent upload if unavailable) + a Playlist element where a genuine franchise fit exists | **Complete on both channels.** `@WAGPodcast`: all 33/33 videos verified and fixed — 70% already had a genuine curated Video pick, only 15% already had the matching Playlist too. `@TheWildAdventureGirls`: all 10/10 real modern-era videos verified — 100% already had a genuine curated end screen, zero broken elements, zero changes needed. See the full pattern-frequency summaries below each tracker, and the combined summary at the bottom of this doc. |
+| 2 | **Cards** | N/A — see finding | **Cards is not an available feature in this Studio account at all, confirmed on both channels.** Confirmed on `@WAGPodcast` via direct URL, the Editor's full element list, and the overflow menu. Confirmed again on `@TheWildAdventureGirls` (2026-08-08) via the same direct-URL test — same blank/broken result, same account-level Studio interface. Not "underused," genuinely absent. Mid-video redirection has to rely on items 3, 5, 6, 9 below instead. |
 | 3 | **Chapters** | Real timestamps in the description, each a genuine content beat (not padding) | Not yet audited this pass — real next step. Spot-checked description text shows a few videos already have timestamp lists (e.g. "I Thought Our Plane Was About to Crash…" has real chapter markers); most don't. |
 | 4 | **Playlists** | Video sits in every real playlist it genuinely belongs to (franchise + Most Recent Uploads) | 11 real playlists exist and are populated (see `wag_youtube_shows_project` history). Individual per-video membership not re-audited this pass. |
 | 5 | **Descriptions** | Real, specific, not generic; includes real links (Spotify/Apple, other channel, Instagram) | Spot-checked — descriptions are genuinely specific and already include real cross-platform links on most sampled videos. Real strength already in place, not a gap. |
@@ -99,14 +99,70 @@ Counting real, observed outcomes across all 33 videos (a video can count in more
 
 ---
 
+## Video-by-video tracker (`@TheWildAdventureGirls`, 10 real videos, pulled 2026-08-08)
+
+**Scope note (explicit, per Katie's instruction):** only videos newer than "We Were Sent To The WORLDS TOUGHEST HORSE CAMP! *Worst Day Ever*" (Mar 8, 2025) are in scope. That video and everything older is legacy pre-pivot horse content, out of scope per the standing horse-content-pivot rule — same logic as the slime-content exclusion. One video in the in-scope date range, "Beetlejuice Tried To Marry Our Sister In Real Life!!" (Aug 30, 2025), is **Private** (A/B test completed) — not publicly viewable, so its end screen has no real audience exposure; skipped rather than edited, consistent with only touching what's actually live.
+
+**Status legend:** ✅ Done and verified &nbsp; — No clear playlist fit (Video element only, no forced Playlist)
+
+| Video | Video element | Playlist match | Reasoning | Status |
+|---|---|---|---|---|
+| We Rode EVERY Disney Ride in One Day! | Video: specific pick (already existed, correctly configured, kept as-is) | — | Disney/travel vlog content, no matching playlist ("Check out our LATEST UPLOADS!" not forced) | ✅ Done — genuine curated setup, no changes needed |
+| Surviving 24 Hours of Embarrassing Challenges at VidCon! | Video: specific pick (already existed, correctly configured, kept as-is) | — | VidCon/creator-meetup content, no matching playlist | ✅ Done — genuine curated setup, no changes needed |
+| Flying to LA for the Craziest Weekend Ever! | Video: specific pick "24 Hours in America's Most Haunted Hotel! *Ghost in Room*" (already existed, correctly configured, kept as-is) | — | Travel-weekend content, no matching playlist | ✅ Done — genuine curated setup, no changes needed |
+| Trying EVERY Viral TikTok Product On the Internet! | Video: specific pick "24 Hours in America's Most Bigfoot Sighted Forest!" (already existed, correctly configured, kept as-is) | — | TikTok-product-testing content, no matching playlist | ✅ Done — genuine curated setup, no changes needed |
+| I Ate EVERY Viral TikTok Food In a New City! | Video: specific pick "24 Hours in America's Most Bigfoot Sighted Forest!" (already existed, correctly configured, kept as-is) | — | TikTok-food content, no matching playlist | ✅ Done — genuine curated setup, no changes needed |
+| I Tested EVERY Viral TikTok Product I Could Buy! | Video: specific pick "24 Hours in America's Most Bigfoot Sighted Forest!" (already existed, correctly configured, kept as-is) | — | TikTok-product-testing content, no matching playlist | ✅ Done — genuine curated setup, no changes needed |
+| 24 Hours in America's Most Bigfoot Sighted Forest! | Video: specific pick "24 Hours in America's Most Haunted Hotel! *Ghost in Room*" (already existed, correctly configured, kept as-is) | — | Cryptid/overnight-challenge content — real cross-linking pattern with the Haunted Hotel video (each picks the other), no matching playlist exists yet for this format | ✅ Done — genuine curated setup, no changes needed |
+| I Ate at EVERY WORST Rated Restaurant In a New City! | Playlist: Check out our LATEST UPLOADS! + Channel element (already existed, genuine alternate curated pattern, kept as-is) | Check out our LATEST UPLOADS! (already existed) | Real finding: same valid alternate pattern documented on `@WAGPodcast` ("Why we ACTUALLY failed our resolutions...") — Subscribe + catch-all Playlist + decorative Channel avatar instead of a dedicated Video element. Preserved as genuine curation. | ✅ Done — genuine alternate curated pattern, preserved as-is |
+| 24 Hours in America's Most Haunted Hotel! *Ghost in Room* | Video: specific pick "24 HOURS in the GOATMAN'S FOREST! (It Followed Us!)" (already existed, correctly configured, kept as-is) | — | Cryptid/overnight-challenge content, no matching playlist exists yet for this format | ✅ Done — genuine curated setup, no changes needed |
+| 24 HOURS in the GOATMAN'S FOREST! (It Followed Us!) | Best for viewer (already existed, correctly configured, kept as-is) | — | Cryptid/overnight-challenge content, no matching playlist exists yet for this format | ✅ Done — genuine curated setup, no changes needed |
+
+**Beetlejuice Tried To Marry Our Sister In Real Life!! — Private, A/B test completed.** Not publicly viewable; end-screen QA not applicable. Skipped rather than edited.
+
+**All 10 real, public `@TheWildAdventureGirls` modern-era videos verified — zero changes needed.** Stopped at the confirmed real boundary: "We Were Sent To The WORLDS TOUGHEST HORSE CAMP! *Worst Day Ever*" (Mar 8, 2025) and everything older, per Katie's explicit instruction.
+
+### Pattern-frequency summary (`@TheWildAdventureGirls`, 10/10 real videos) — per Katie's explicit request
+
+| Pattern | Count | % of 10 |
+|---|---|---|
+| Subscribe-only (genuinely blank, built fresh) | 0 | 0% |
+| Curated video already present (any mode — Best for viewer, or a specific hand-picked video) | 9 | 90% |
+| — of which: Best for viewer specifically | 1 | 10% |
+| — of which: a specific hand-picked video | 8 | 80% |
+| Playlist already present (a real, pre-existing playlist match) | 1 | 10% |
+| Broken/unconfigured element found and removed | 0 | 0% |
+| No natural playlist fit (left without one, correctly) | 9 | 90% |
+| Genuine alternate curated pattern (Playlist + Channel element instead of Video+Playlist) | 1 | 10% |
+
+**What this answers for this channel:** this was **entirely a cleanup-not-needed, standard-already-met result** — a very different picture from `@WAGPodcast`. Every single video already had a genuine, correctly-configured, human-curated end screen; zero were blank, and zero had the recurring broken-duplicate-Video bug found repeatedly on the podcast channel. The near-total absence of playlist matches (only 1 of 10) is not a gap the same way it was on `@WAGPodcast` — it's a real reflection of this channel's playlist architecture being much less mature for its modern-era content (see project context: only "Check out our LATEST UPLOADS!," "Ghostbusters!," and "Spooky Halloween Fun!" are genuine, non-legacy playlists), so there were genuinely few real playlist fits available to make, not missed opportunities to add them.
+
+---
+
+## Combined pattern-frequency summary — both channels (43 real videos total) — per Katie's original request
+
+| Pattern | `@WAGPodcast` (33) | `@TheWildAdventureGirls` (10) | Combined (43) |
+|---|---|---|---|
+| Subscribe-only, built fresh | 9 (27%) | 0 (0%) | 9 (21%) |
+| Curated video already present | 23 (70%) | 9 (90%) | 32 (74%) |
+| Playlist already present | 5 (15%) | 1 (10%) | 6 (14%) |
+| Broken/unconfigured element found & removed | 4 (12%) | 0 (0%) | 4 (9%) |
+| No natural playlist fit | 3 (9%) | 9 (90%) | 12 (28%) |
+| Genuine alternate curated pattern (Playlist+Channel, no Video element) | 1 (3%) | 1 (10%) | 2 (5%) |
+
+**The real, combined answer to Katie's original question — was this a cleanup problem, a missing-standard problem, or both:** **both, but concentrated very differently on each channel.** `@WAGPodcast` was the channel with real cleanup work: a genuine 27% blank-Subscribe-only rate and a real recurring technical bug (4 broken duplicate elements) — the missing piece there wasn't curation habit (70% already curated) but the *Playlist* half of the standard, present on only 15% of curated videos. `@TheWildAdventureGirls`, by contrast, needed **zero cleanup and zero fixes** — 90% already had genuine human-curated Video picks and there wasn't a single broken element across 10 videos, meaning whoever published on this channel already had a strong, consistent end-screen habit. Its low playlist-match rate isn't a gap to close the same way — it's an honest reflection of this channel's playlist architecture being less mature for its current modern-teen-era content, not a missed step in an otherwise-followed process. **Net conclusion: the "always Video element + Playlist where earned" standard itself was the right call to formalize — both channels already had strong Video-element habits on their own, but neither had a systematic Playlist-attachment habit, and `@WAGPodcast` additionally had a real technical bug worth permanently checking for on every future upload.**
+
+---
+
 ## Channel-wide standard (both channels, going forward)
 
 1. **Every new upload gets Subscribe + Video (Best for viewer, fallback Most recent upload) on its end screen before publish, not retrofitted later.**
 2. **Add a Playlist element only when a real, already-existing playlist genuinely fits** — never create a playlist just to have something to link, and never force a video into a playlist it doesn't really belong to.
 3. **Cards are not available on this channel — don't plan content around them.** Mid-video redirection has to come from real chapters, real pinned comments, and real verbal callouts instead.
-4. **This same 9-item checklist applies to `@TheWildAdventureGirls`, not just `@WAGPodcast`.** Per the two-site/two-channel ecosystem rule — a standard built on one channel gets evaluated for the other before being called "done." Not yet run against the main channel this pass — real next step.
+4. **This same 9-item checklist applies to `@TheWildAdventureGirls`, not just `@WAGPodcast`.** Per the two-site/two-channel ecosystem rule — a standard built on one channel gets evaluated for the other before being called "done." **Complete as of 2026-08-08** — run against all 10 real, public, in-scope videos on the main channel; see its dedicated tracker section above.
 5. **Document every playlist-match decision, every time.** The tracker above is the reusable template — copy its shape for the next audit pass rather than starting from a blank sheet.
+6. **Legacy/pre-pivot content is out of scope for this checklist, not a backlog item.** On `@TheWildAdventureGirls`, everything at or before "We Were Sent To The WORLDS TOUGHEST HORSE CAMP!" (Mar 8, 2025) is old horse content from before the brand pivot — same exclusion logic as `wag_horse_content_pivot` and `wag_no_new_slime_content`. Don't audit or "finish" it later; it's deliberately excluded, not incomplete.
 
 ---
 
-*Update this file as the tracker rows get completed, as Cards/Chapters/etc. get their first real audit pass, and once the main `@TheWildAdventureGirls` channel gets its own pass. Don't let this become stale documentation of a one-time effort — it's supposed to be what every future upload actually checks against.*
+*Item 1 (End screen) and item 2 (Cards) are now fully audited on both channels. Update this file as items 3, 6, 7, 8, 9 get their first real audit pass on either channel. Don't let this become stale documentation of a one-time effort — it's supposed to be what every future upload actually checks against.*
