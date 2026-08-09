@@ -10,7 +10,7 @@
 
 | # | Item | What "done" looks like | Real finding this pass (2026-08-08, `@WAGPodcast`) |
 |---|---|---|---|
-| 1 | **End screen** | Subscribe + a Video element (Best for viewer, or Most recent upload if unavailable) + a Playlist element where a genuine franchise fit exists | **Real, mixed picture — not uniformly blank.** Most sampled videos had Subscribe only; at least one already had a genuine curated setup. 4 of 33 verified done this pass (see tracker below), each individually checked before editing. |
+| 1 | **End screen** | Subscribe + a Video element (Best for viewer, or Most recent upload if unavailable) + a Playlist element where a genuine franchise fit exists | **Complete — all 33/33 `@WAGPodcast` videos verified and fixed.** Real, mixed picture: 70% already had a genuine curated Video pick, only 15% already had the matching Playlist too. See the full pattern-frequency summary below the tracker. |
 | 2 | **Cards** | N/A — see finding | **Cards is not an available feature in this channel's current Studio interface at all** — confirmed via direct URL, the Editor's full element list, and the overflow menu. Not "underused," genuinely absent. Mid-video redirection has to rely on items 3, 5, 6, 9 below instead. |
 | 3 | **Chapters** | Real timestamps in the description, each a genuine content beat (not padding) | Not yet audited this pass — real next step. Spot-checked description text shows a few videos already have timestamp lists (e.g. "I Thought Our Plane Was About to Crash…" has real chapter markers); most don't. |
 | 4 | **Playlists** | Video sits in every real playlist it genuinely belongs to (franchise + Most Recent Uploads) | 11 real playlists exist and are populated (see `wag_youtube_shows_project` history). Individual per-video membership not re-audited this pass. |
@@ -71,8 +71,29 @@
 | Why we ACTUALLY failed our resolutions... | Playlist: Most Recent Uploads + Channel element (already existed, genuine curated setup, kept as-is) | — | Reaction/culture content — real finding: already had a different-but-valid curated pattern (Subscribe + "Most Recent Uploads" playlist + Channel branding element, no dedicated Video element). Preserved as genuine curation rather than forced into the Video+Playlist template. | ✅ Done — genuine alternate curated pattern, preserved as-is |
 | I Thought Our Plane Was About to Crash… | Video: specific pick "Exposing Guys' Biggest Red Flags" (already existed, correctly configured, kept as-is) | Scary Nights & Near-Misses | Real near-miss travel story | ✅ Done — Video already existed and worked (real human-picked specific video, not Best for viewer), added the missing Playlist |
 | We Might Have Just Solved Stranger Things | Most recent upload (already existed as a curated specific video, kept as-is) | WAG Predicted It (already existed) | **Real finding: already had a genuine curated end screen** — my own predicted playlist match ("WAG Predicted It") was exactly right, whoever built it made the same real call. Also found and removed the same recurring broken element (an unconfigured duplicate Video slot, no radio option selected) — now a confirmed pattern across 4+ videos this pass. | ✅ Done — cleaned up, not built from scratch |
+| Exposing Guys' Biggest Red Flags | Most recent upload (already existed, correctly configured, kept as-is) | Dating & Red Flags | Real fit — this is the same real video also selected as the specific pick inside "I Thought Our Plane Was About to Crash…"'s own end screen | ✅ Done — Video already existed and worked, added the missing Playlist |
+| The TRUTH about our worst first kiss... (it was a disaster) | Best for viewer (already existed, correctly configured, kept as-is) | First Kiss & Milestone Nights | Exact franchise match | ✅ Done — Video already existed and worked, added the missing Playlist |
+| We Predicted The ENDING of STRANGER THINGS! | Video: specific pick, a real Short "Her Prediction of STRANGER THINGS is CRAZY!" (already existed, correctly configured, kept as-is) | WAG Predicted It | Exact franchise match | ✅ Done — Video already existed and worked (real human-picked Short, not Best for viewer), added the missing Playlist |
 
-**Videos not individually listed above** (3 of 33) were on page 2 of the content list, not yet pulled into this tracker — real gap, flagged rather than guessed at.
+**All 33 real `@WAGPodcast` long-form videos now complete.** The 3 videos that were on page 2 of the content list (not pulled into earlier drafts of this tracker) are now included above.
+
+### Pattern-frequency summary (`@WAGPodcast`, 33/33 videos) — per Katie's explicit request
+
+Counting real, observed outcomes across all 33 videos (a video can count in more than one category, e.g. "curated video already present" + "broken element found"):
+
+| Pattern | Count | % of 33 |
+|---|---|---|
+| Subscribe-only (genuinely blank, built fresh) | 9 | 27% |
+| Curated video already present (any mode — Best for viewer, Most recent upload, or a specific hand-picked video/Short) | 23 | 70% |
+| — of which: Best for viewer specifically | 15 | 45% |
+| — of which: Most recent upload specifically | 4 | 12% |
+| — of which: a specific hand-picked video/Short | 4 | 12% |
+| Playlist already present (a real, pre-existing playlist match — not one I added) | 5 | 15% |
+| Broken/unconfigured element found and removed (the recurring duplicate-Video bug) | 4 | 12% |
+| No natural playlist fit (left without one, correctly) | 3 | 9% |
+| Genuine alternate curated pattern (Most Recent Uploads playlist + Channel element instead of Video+Playlist) | 1 | 3% |
+
+**What this answers, per Katie's question:** this was **mostly a missing-standard problem, not a cleanup problem.** 70% of videos already had a real, human-curated Video element — the channel's actual publishing habit already leaned toward setting up end screens, not leaving them blank. The gap was narrower and more specific: most of those curated videos were missing the *Playlist* element (23 curated vs. only 5 with a playlist already attached), meaning the habit of picking a good "watch next" video existed, but the habit of also linking the matching franchise playlist did not — a real, fixable, single-step standard. The blank-Subscribe-only case (27%) was the true cleanup work, concentrated in the batch of videos I processed without deep pre-existing curation. The broken-duplicate-Video bug (12%, 4 confirmed instances) is a smaller but real recurring technical issue worth flagging separately — likely from clicking "+ Element" twice during original publishing rather than a systemic habit gap.
 
 **How to resume:** open `@WAGPodcast` → Content → click into each 🔲 row's video → Editor → End screen → Edit, following the Video-element rule above, then add the Playlist element listed, verify no duplicate layers exist (a real failure mode hit twice this pass — always check the layer count on the right side of the timeline before saving), Save.
 
