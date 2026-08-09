@@ -65,11 +65,38 @@ WAG already has a real, validated 7-criteria green-light scorer from the 2026-08
 
 ---
 
+## Round 1 — real idea log (2026-08-08)
+
+**The spec stopped being theoretical this pass.** Per Katie's explicit instruction ("I don't want this to remain a specification... begin running real upcoming Wild Adventure Girls video ideas through the Greenlight System. Not one. Many."), 10 real candidate ideas were generated from `WAG_CONTENT_BUCKETS.md`'s idea generator and `WAG_STORYTELLING_SYSTEM.md`'s Episode Framework Library, then scored against the shared 7-criteria scorer. Outcomes were deliberately allowed to vary, not curated toward a clean "10 for 10" — a system that only ever says yes isn't a real filter. Full write-ups (Hook/Thumbnail concept/Escalation/Ending) for all 10 live in `WAG_CREATOR_PLAYBOOK.md` section 11; this log holds the scoring/decision record.
+
+| # | Idea | Bucket | Format | Score | Decision |
+|---|---|---|---|---|---|
+| 1 | We Tested EVERY Viral Skincare Product Under $10 | Viral-Testing | EVERY + budget-constraint container | 12/14 | Green |
+| 2 | We Went to the Worst-Rated Escape Room in Texas | Worst-Rated Places | Worst-rated container | 11/14 | Green |
+| 3 | 24 Hours At the Real Marfa Lights | Overnight Cryptid | 24-hour real-legend container | 12/14 | Green |
+| 4 | Who Knows Annabella Better: Her Sisters or Her Best Friend? | WAG Game Night (WAG Podcast) | Real-relationship-stakes pilot (Salish Matter mechanic) | 12/14 | Green, with a production-logistics note |
+| 5 | We Let TikTok Decide Everything We Ate for 24 Hours | Viral-Testing | "We Let ___ Decide" container | 10/14 | Fixable |
+| 6 | We Tried the Worst-Rated Ice Cream Shops In [Metro Area] | Worst-Rated Places | Worst-rated container | 10/14 | Fixable |
+| 7 | We Went Back to Investigate the Goatman's Bridge Legend | Overnight Cryptid | 24-hour real-legend container | 11/14 | Green |
+| 8 | We Survived On Only Viral $1 TikTok Snacks for a Week | Viral-Testing | "I Survived ___" container | 12/14 | Green |
+| 9 | Guys Answer Questions: What Do Guys Actually Think Is a Red Flag? | Guys Answer Questions (WAG Podcast) | Existing proven franchise | 13/14 | Green |
+| 10 | We Spent a Week Visiting a Different City Every Day | Travel/Event (flagged bucket) | None — no real container, just a premise | 4/14 | **Hold — do not film** |
+
+**Real reasoning behind the two non-green calls and the one reject:**
+
+- **#5 (Fixable):** the hook and curiosity are strong, but the format only works if "TikTok decides" is genuinely real and verifiable in the moment (a real trending-sort or a real randomizer on real current TikTok results), not a curated list dressed up as random. Fix before filming: lock the real, repeatable selection mechanic on camera as part of the hook itself, so the "letting TikTok decide" claim is honestly demonstrated, not just stated.
+- **#6 (Fixable):** solid bucket fit, but it's the second "worst-rated food" idea in this batch (see #2's category) and risks feeling repetitive if filmed back-to-back with the real, already-published restaurant episode. Fix before filming: space it out on the calendar, and verify the real current ratings at time of filming rather than assuming last year's worst-rated list still holds.
+- **#10 (Hold, do not film):** this is the idea most likely to *feel* exciting on paper — big scale, constant motion, MrBeast-adjacent energy — and it is exactly the trap this system exists to catch. It fails the Texas-based production constraint outright, it's the same Travel/Event bucket already flagged in `WAG_CONTENT_BUCKETS.md` as something to study rather than expand, and it has no real container (no rule-set, no real stakes-generating mechanic — just "we travel a lot"). Scoring this low and saying so plainly, even though it's a fun-sounding premise, is the system doing its job.
+
+**What this round taught, fed back into the living docs (see each doc's own "real use, round 1" note):** every green-lit idea this round came from the 3 already-proven buckets or an already-proven franchise; the one idea drawn from the flagged Travel/Event bucket scored lowest by a wide margin (4/14 vs. a 10-13/14 range everywhere else) — real, first confirming evidence (not yet a Rule-of-3) that the bucket flag from the prior pass was the right call, not just a cautious guess.
+
+---
+
 ## Software Incubator log entry (per WAG OS's own doc discipline)
 
 **Recurring problem:** creators (starting with WAG itself) spend significant time and money producing videos without a strong, evidence-based way to decide which ideas, packages, hooks, and formats deserve production. **Not** "creators need AI ideas" — the gap is decision quality before the camera turns on, not idea volume.
 
-**Readiness:** 1 (data model + manual use only, no software yet) — same activation gate as every other named-not-built WAG OS module: real repetition, clear inputs/outputs, measurable value, before any code gets written.
+**Readiness:** 2 (Repeated Problem — real, manual use has now started: 10 real ideas logged in one round, per the log above) — advancing further requires real *published* outcomes with performance data appended, not just more scored ideas. Same activation gate as every other named-not-built WAG OS module otherwise: real repetition, clear inputs/outputs, measurable value, before any code gets written.
 
 **Path to evaluate over time:** WAG uses this system first, on real upcoming episodes, and the record shape gets refined from real outcomes. Only consider commercializing (as its own product, or as an extension of the Packaging Coach concept already named in `WAG_OPERATING_SYSTEM_MAP.md`) if it becomes internally indispensable *and* real evidence suggests other creators share the same decision-quality gap — not before.
 
@@ -81,4 +108,4 @@ This entire document *is* the data-model note — the per-idea record above is t
 
 ---
 
-*Start applying this to real upcoming episodes once Katie has real ideas ready to run through it — this document is the shape, not yet a populated log.*
+*Round 1 is logged above (2026-08-08, 10 real ideas). Append Round 2 the same way once the girls pick which of these 9 real candidates (everything but #10) actually go into production, and append real performance data + a postmortem to each record once published — that's what turns this from a scored list into a system that actually learns.*

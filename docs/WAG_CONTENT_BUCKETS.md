@@ -78,4 +78,14 @@ If this ever becomes software: a `ContentBucket` object (Name, Container, Swappa
 
 ---
 
+## Real use, round 1 (2026-08-08)
+
+10 real candidate ideas were generated from these buckets and scored through `WAG_VIDEO_GREENLIGHT.md`. Real findings:
+
+- **The Travel/Event flag held up under a real test, not just caution.** One idea was deliberately drawn from the flagged bucket ("We Spent a Week Visiting a Different City Every Day") to see how it would actually score, rather than just asserting the flag was correct. It scored 4/14 — the lowest of all 10, and by a wide margin (next-lowest was 10/14). This is one real data point confirming the flag, not yet a Rule-of-3, but it's real evidence rather than an assumption now.
+- **Every idea drawn from the 3 core buckets (Viral-Testing, Worst-Rated Places, Overnight Cryptid) scored 10/14 or higher** — the buckets are earning their "real, repeatable" status through actual scoring, not just through prior-art counting.
+- **The idea generator's honesty discipline held up:** all 6 real, verifiable variables used (skincare products, an escape room, the Marfa Lights legend, an ice cream category, the Goatman's Bridge legend, a $1-snack constraint) were sourced as things to verify at filming time, not presented as already-confirmed facts — matching the generator's own stated rule.
+
+---
+
 *Update this doc once the full modern-era catalog (not just the 10-video QA sample) gets audited for buckets, and whenever a new bucket earns a second real instance.*

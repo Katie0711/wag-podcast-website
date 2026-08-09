@@ -114,4 +114,10 @@ Only add an entry once a pattern has real, cited evidence behind it (WAG's own p
 
 ---
 
+## Real use, round 1 (2026-08-08)
+
+The 10 real candidate ideas scored through `WAG_VIDEO_GREENLIGHT.md` drew on 5 distinct title frameworks (see the full formula library in `WAG_CREATOR_PLAYBOOK.md` section 6): the completeness-claim pattern above (3 ideas), the hyper-specific constraint pattern above (2 ideas), a new "We Let ___ Decide" framework (1 idea, FaZe Rug-sourced, not yet its own full 10-field entry — needs a second independent instance before promoting it here), the real-relationship-reveal mechanic from `WAG_STORYTELLING_SYSTEM.md` (1 idea), and WAG's own already-proven Guys Answer Questions franchise naming (1 idea). The one idea using no real framework at all — just a premise with no packaging device behind it — was also the round's lowest-scoring idea (4/14), a small but real signal that a title framework and a real container tend to travel together.
+
+---
+
 *Add a new pattern only when real evidence exists — from WAG's own performance data or a cited competitive intelligence pass. An entry with mostly "insufficient evidence" fields (like the dare/consequence pattern above) is a valid, honest way to flag something worth watching without pretending more is known than actually is.*

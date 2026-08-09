@@ -70,4 +70,14 @@ If this ever becomes software: an `EpisodeFramework` object (Name, Container/Rul
 
 ---
 
+## Real use, round 1 (2026-08-08)
+
+The Episode Framework Library stopped being theoretical the same day it was written: 10 real candidate ideas were scored through `WAG_VIDEO_GREENLIGHT.md` (full log there). Real findings from that first round:
+
+- **"Who Knows [Sister] Better?" — validated as worth a real pilot, not just a good idea on paper.** Its first scored candidate ("Who Knows Annabella Better: Her Sisters or Her Best Friend?") scored 12/14, in the same range as WAG's already-proven franchises — real, first evidence the Salish Matter mechanic transfers cleanly, pending an actual filmed outcome.
+- **Every green-lit idea this round used a real, statable container** (a rule-set, a real legend + location, a real relationship pairing) — the one idea with no real container (#10, a pure travel premise with nothing generating real stakes) scored dramatically lower (4/14) than everything else. First real confirmation that "container, not plot" isn't just a nice framing — it's the actual thing separating a fundable idea from a weak one.
+- **Not yet learned:** none of Round 1's ideas have been filmed yet, so nothing here is validated by real outcome data — only by internal consistency with WAG's own prior real-performance patterns. Update this section again once Round 1 (or a subset of it) actually publishes.
+
+---
+
 *Update this doc as new episodes test these frameworks and as new creators get studied. A framework earns a "proven" status once WAG has run it and the outcome data supports the mechanic — not before.*
