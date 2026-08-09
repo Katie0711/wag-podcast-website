@@ -78,4 +78,40 @@ Only add an entry once a pattern has real, cited evidence behind it (WAG's own p
 
 ---
 
+## Pattern: Hyper-specific constraint + escalating stakes
+
+**Evidence base:** Ryan Trahan (Packaging & Systems Intelligence source, 2026-08-08 research pass) — real, verified titles: "I Survived On $0.01 For 30 Days," "I Survived 50 Hours in Total Darkness," "I Tested 1-Star Restaurants Part 8/12," "I Visited 50 States in 50 Days – Day X." Single-source so far; log a second instance before treating as fully validated.
+
+1. **Why it works:** a hyper-specific number ("$0.01," "50 hours," not "a little money" or "a few days") makes the constraint feel real and verifiable rather than exaggerated — specificity itself is the credibility signal.
+2. **Emotional trigger:** curiosity about how someone survives an extreme, precisely-stated limit.
+3. **Psychological mechanism:** precision bias — specific numbers read as more truthful/less clickbait-y than round or vague ones, lowering the viewer's skepticism before they even click.
+4. **Cold-audience friendliness:** high — no cast knowledge required, the constraint alone carries the hook.
+5. **Dependence on existing fandom:** low — this is one of the more fandom-independent patterns logged in this doc so far.
+6. **Relationship to the thumbnail:** Ryan Trahan pairs this with one clean visual anchor object (a penny, a timer) and a restrained, non-exaggerated expression — the thumbnail confirms the constraint is real rather than amplifying it into a "shocked face."
+7. **Relationship to the hook:** the constraint/rule-set is stated almost immediately (his own documented "Game Plan" opening), not built up to.
+8. **Browse vs. search intent:** primarily browse/suggested — the specificity drives clickthrough once seen, not search discovery.
+9. **Comment potential:** insufficient evidence gathered this pass.
+10. **When NOT to use it:** when the real constraint can't survive being stated precisely — a vague or padded number undercuts the entire mechanism; don't round up or exaggerate a real number to make it sound more extreme, which would also break the content-authenticity rule.
+
+---
+
+## Pattern: Completeness claim + time-box
+
+**Evidence base:** two independent Packaging & Systems Intelligence sources (2026-08-08 research pass) — Airrack ("How Many Days Can I Secretly Live In ___?" run across 7/11, Disneyland, a grocery store, a mall, a waterpark) and FaZe Rug ("I Tested Every Store Open AFTER Midnight," "I Ate the Spiciest Food from EVERY Country in the World!," "Letting TikTok Decide My Diet For 24 Hours!"). Two independent instances — one short of this doc's own Rule-of-3, logged as strong-but-not-fully-validated.
+
+1. **Why it works:** "EVERY" or "how many days" makes an implicit promise of exhaustiveness or an escalating countdown — the viewer wants to see if the claim actually holds up.
+2. **Emotional trigger:** curiosity about a completeness/endurance claim, plus mild suspense as a time-box or day-count advances toward failure/discovery.
+3. **Psychological mechanism:** the same completeness-claim device WAG's own SEO/GEO audit found real evidence for in written content ("EVERY," "WORST") — this pattern is the video-title version of a mechanism already validated in a different medium, worth noting as cross-format confirmation.
+4. **Cold-audience friendliness:** high — same as the constraint pattern above, no cast knowledge required.
+5. **Dependence on existing fandom:** low.
+6. **Relationship to the thumbnail:** lower confidence — secondary sources describe "face + big text + high contrast" for both creators but this wasn't independently pixel-verified this pass.
+7. **Relationship to the hook:** the format is a swappable container (same rule, new location/category each time) — the hook's job is establishing the container fast, since the audience that already knows the format from a prior episode doesn't need it re-explained.
+8. **Browse vs. search intent:** insufficient evidence gathered this pass for search; likely browse-dominant given the completeness-claim framing skews toward curiosity-driven discovery.
+9. **Comment potential:** insufficient evidence gathered this pass.
+10. **When NOT to use it:** when "EVERY" isn't actually close to true — WAG already holds this line in written content (the "Is It Cheating If...?" cannibalization decision explicitly avoided fabricating scenario coverage); the same discipline applies to a video's real claim of completeness.
+
+**Real WAG fit already in place, not a new build:** WAG's own real titles — "I Ate at EVERY WORST Rated Restaurant In a New City!," "Trying EVERY Viral TikTok Product On the Internet!," "I Ate EVERY Viral TikTok Food In a New City!" — already use this exact pattern. This is a confirm-and-extend finding, not a new recommendation: the channel already has real, working prior art for the "New formats worth piloting" #2 entry in `WAG_STORYTELLING_SYSTEM.md`.
+
+---
+
 *Add a new pattern only when real evidence exists — from WAG's own performance data or a cited competitive intelligence pass. An entry with mostly "insufficient evidence" fields (like the dare/consequence pattern above) is a valid, honest way to flag something worth watching without pretending more is known than actually is.*

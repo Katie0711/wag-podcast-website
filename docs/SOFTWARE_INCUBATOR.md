@@ -109,6 +109,30 @@ Do not advance a level because it sounds exciting — evidence earns advancement
 
 ---
 
+## Video Greenlight System
+
+**Recurring problem:** every future video idea, title, thumbnail, or hook has historically been a one-off chat answer that evaporates once the conversation moves on — no persistent record of what was proposed, why, what it scored, or what actually happened once it published. Full spec lives in `WAG_VIDEO_GREENLIGHT.md`.
+
+**Current workflow:** the existing 7-criteria green-light scorer (built 2026-08-05, validated against 2 real known outcomes with a 12-point real separation) exists as a one-time artifact, not a running log — each new idea gets scored fresh in conversation rather than against an accumulating, queryable dataset of prior scored ideas and their real outcomes.
+
+**Business value:** real but early — the scorer itself is already validated; what's missing is the *habit* of logging every real idea through it and appending real performance data afterward, which is what would let the scoring methodology actually improve over time instead of staying frozen at its 2026-08-05 validation. **Time/cost saved:** not yet measurable — no ideas have been run through the full record shape yet. **Revenue upside:** indirect (better idea selection → higher-performing uploads), same causal chain as the packaging intelligence work. **Data value:** high long-term — this is exactly the kind of proprietary, compounding dataset (WAG's own scored-idea-to-real-outcome pairs) that generic AI idea generators can't replicate. **Membership/product potential:** plausible per the doc's own framing — the real commercial problem worth validating is "creators lack an evidence-based way to decide which ideas deserve production," not "creators need more ideas."
+
+**Frequency:** not yet a repeated pattern in practice — the record shape was just designed (2026-08-08), zero real ideas have been logged through it yet. Logging this now specifically so the Software Incubator discipline (log the shape before it's forgotten) applies even to a system that's still pre-first-use.
+
+**Who benefits:** Katie, directly, every time a new video is proposed; the girls, indirectly, by filming fewer weak ideas.
+
+**WAG-only or useful to other creators:** the record shape (idea → greenlight → package → produce → publish → measure → learn) is generic to any unscripted creator; the specific bucket/framework/pattern references inside each record are WAG-specific.
+
+**Software readiness: 1/5 — Observation.** The data model and scoring methodology are real and specified, but zero real instances have been logged through the full record yet — that's the actual evidence threshold for advancing to level 2.
+
+**Dependencies for advancing to level 2:** at least 2-3 real ideas run through the full record (greenlit or held, with reasoning), and ideally at least one carried through to a real published outcome with performance data appended.
+
+**Reasons not to build yet:** exactly zero real usage so far — building software around an unused process would be solving an imagined problem, not an observed one. Per Katie's own explicit instruction, use it manually first.
+
+**What would have to become true to advance:** real, repeated manual use on actual upcoming WAG videos, with outcomes tracked — the same bar every other entry in this log is held to.
+
+---
+
 *Update this file only when a real, repeated pattern is genuinely observed during actual work — never as a standalone brainstorming exercise. If a phase produces nothing worth logging here, say so in the Phase Summary and move on.*
 
 ---
@@ -123,6 +147,7 @@ Do not advance a level because it sounds exciting — evidence earns advancement
 | 2026-08-08 | Competitive Intelligence system with a confirmed Rule-of-3 flag (dating/relationship-status hooks) | Competitive intelligence | Validated, evidence-backed packaging direction that would take a competitor real research effort to replicate independently | Phase F: Competitive Intelligence |
 | 2026-08-08 | CEO Dashboard v0.1 (centralized cross-system operating reference) | Operating system (early) | First real step toward closing the recurring manual-cross-system-checking pattern; compounds as more real pulls get folded in | Post-Phase F strategic directive |
 | 2026-08-08 | Channel Publishing QA Checklist (9-item repeatable standard, both YouTube channels) | Documented workflow | Compounds over every future upload rather than being a one-time fix; the real end-screen gap found and fixed this pass is the evidence the checklist exists to prevent from recurring silently | Full channel audit-and-fix pass (#251/#252) |
+| 2026-08-08 | WAG Storytelling System + Episode Framework Library, WAG Content Bucket Framework + Idea Generator, WAG Video Greenlight data model | Packaging intelligence / documented workflow | Turns one-off creator research (Ryan Trahan, Airrack, FaZe Rug, Salish/Jordan Matter) into permanent, reusable systems that improve every future video idea rather than a report that's read once and forgotten; the closed IDEA→GREENLIGHT→...→IMPROVE loop is designed to compound as real ideas run through it | WAG hit-making system research pass (#301-304) |
 | — | Interaction platform (Verdict, Match, Awards, Predicted It, Questions Featured, Games) | Reusable IP / first-party audience data | Neither direct competitor researched has an equivalent; genuinely un-copyable in a week — logged retroactively here since it predates this ledger, but the underlying asset is real and ongoing | Interaction platform build (pre-ledger) |
 | — | Consent-split first-party data architecture (transactional vs. marketing, per-interaction tagging) | Proprietary audience data | Produces queryable audience segments most competitors' generic newsletter forms don't — logged retroactively | Interaction platform build (pre-ledger) |
 
