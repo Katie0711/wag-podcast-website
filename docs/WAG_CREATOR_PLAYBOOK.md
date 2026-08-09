@@ -1,8 +1,10 @@
 # The WAG Creator Playbook
 
-**The detailed reference edition.** Built 2026-08-08 for Katie's meeting with the girls the next day — this is the full version, for WAG OS and for whoever needs the complete reasoning behind it. The presentation edition (`WAG_Creator_Playbook.pptx`, 15-25 slides) is the version built to actually present in the room: inspiration and clarity first, systems living quietly behind it. Both pull from the same real research and the same real WAG data; neither one is the "simplified" or "real" version — they're built for two different jobs.
+**One executive question this module answers: What do the girls need to know to film with confidence?**
 
-**Everything in this playbook feeds `WAG_VIDEO_GREENLIGHT.md`.** The goal, stated plainly: every future WAG video eventually gets evaluated against the same principles taught here — not as a rulebook that slows things down, but as the shared language that makes "does this fit WAG" a fast, shared instinct instead of a debate every time.
+**The detailed reference edition.** Built 2026-08-08, deepened 2026-08-09 with a full second research pass (MrBeast added to the study list; every other creator re-researched in depth) as part of the WAG YouTube Growth Operating System. This is the full version, for WAG OS and for whoever needs the complete reasoning behind it. Ships in four formats per WAG's multi-format asset standard: this Markdown (the canonical/WAG OS version), a PDF, an HTML web version, and `WAG_Creator_Playbook.pptx` (the presentation edition — inspiration and clarity first, systems living quietly behind it). All four pull from the same real research and the same real WAG data.
+
+**Everything in this playbook feeds `WAG_VIDEO_GREENLIGHT.md`.** The goal, stated plainly: every future WAG video eventually gets evaluated against the same principles taught here — not as a rulebook that slows things down, but as the shared language that makes "does this fit WAG" a fast, shared instinct instead of a debate every time. The full raw evidence base behind every claim in this playbook lives in `WAG_PATTERN_LIBRARY.md`; the full production process lives in `WAG_PRODUCTION_BLUEPRINT.md`.
 
 ---
 
@@ -22,23 +24,42 @@ That's a genre choice, not just a description: **teen entertainment, not educati
 
 ## 2. What We Learned
 
-Five real sources, studied specifically as **Packaging & Systems Intelligence references — not competitors.** WAG isn't fighting these creators for the same audience the way it competes with LOL Podcast or Rock Pod; it's reverse-engineering *systems*, the same way a growing company studies operational excellence at a much bigger company without thinking of it as a rival.
+Six real sources, studied specifically as **Packaging & Systems Intelligence references — not competitors.** WAG isn't fighting these creators for the same audience the way it competes with LOL Podcast or Rock Pod; it's reverse-engineering *systems*, the same way a growing company studies operational excellence at a much bigger company without thinking of it as a rival. Every claim below is real and cited — full evidence tiers (VERIFIED / STRONG EVIDENCE / OBSERVED PATTERN / HYPOTHESIS) live in `WAG_PATTERN_LIBRARY.md`.
 
 | Source | Real scale | The one system worth stealing |
 |---|---|---|
-| **Ryan Trahan** | Verified real, current titles (30-day/$0.01 survival, 1-star testing series, 50-states series) | A fixed rule-set stated almost instantly, then stepwise escalation with a real reversal device built in (his "Great Reset") — tension from the *format's rules*, never from a script |
+| **MrBeast** | The largest channel studied — real, cited production intelligence via a leaked (multiply-corroborated) internal document and direct interview quotes | A real, checkable 70%-retention bar he holds his own team to, a "stair-stepping" escalation structure, and his own on-record line: **"we don't fake things"** |
+| **Ryan Trahan** | Verified real, current titles (30-day/$0.01 survival, 1-star testing series, 50-states series) | A fixed rule-set stated almost instantly, then stepwise escalation with a real reversal device built in (the "Wheel of Doom") — tension from the *format's rules*, never from a script |
 | **Airrack** (real identity behind "Aarak") | 19M subscribers, confirmed live | A single swappable container reused across dozens of episodes ("How Many Days Can I Secretly Live In ___?") — the variable changes, the engine doesn't |
 | **FaZe Rug** | 29.8M subscribers, confirmed live | A real, recurring family/friend cast substitutes for scripted characters — stakes come from real relationships and real consequences, not written plot |
-| **Salish Matter** | 4.25M subscribers | The single closest match to WAG: real, ongoing relationships (best friend, dad, sister) generate all the stakes in trivia/dare formats — zero scripting required |
+| **Salish Matter** | 4.25M subscribers | The single closest match to WAG: real, ongoing relationships (best friend, dad, sister) generate all the stakes in trivia/dare formats — a real, weekly production pipeline plans the structure heavily, but genuine reactions happen inside it |
 | **Jordan Matter** | 37M subscribers | Weaker format match (mega-budget stunts) — studied for context, not drawn on directly |
 
-**The one finding that matters most:** every one of these creators builds episodes on the same underlying skeleton despite wildly different budgets and genres — see Section 3. None of it requires writing dialogue. All of it requires planning the *container* the real people improvise inside.
+**The one finding that matters most, now cross-validated at the largest scale studied:** MrBeast's own words — "we don't fake things" — and Salish Matter's real, documented production pipeline (heavy planning, real reactions) independently confirm the exact same split WAG already practices: plan the structure, never the words. **This is not a constraint relative to the biggest creators studied. It's the same rule they already follow.** Every creator studied builds episodes on the same underlying skeleton despite wildly different budgets and genres — see Section 4.
 
-**What does NOT transfer, and won't be recommended:** Ryan Trahan's daily-episode production cadence and cross-country scale assume a crew and budget WAG doesn't have. FaZe Rug's recurring haunted-location mini-series depends on years of built-up continuity at one real, fixed location. Both are named here so nobody mistakes "worth studying" for "worth copying wholesale."
+**What does NOT transfer, and won't be recommended:** MrBeast's team plans 3-4 months ahead and builds 10-50 thumbnail variants per video — real, but assumes a scale of crew WAG doesn't have. Ryan Trahan's daily-episode production cadence and cross-country scale assume the same. FaZe Rug's recurring haunted-location mini-series depends on years of built-up continuity at one real, fixed location. Airrack's "secretly live in X" and "hunted down scammers" formats involve real legal and safety exposure (uninvited access, confronting strangers) that a minor-led team should not imitate directly — only the underlying "container + real reaction" mechanic is portable, not the covert-access method. All are named here so nobody mistakes "worth studying" for "worth copying wholesale."
 
 ---
 
-## 3. WAG Storytelling System — the invisible structure
+## 3. WAG DNA — what nobody else can own
+
+**The goal here is not to copy any of the six creators studied — it's to synthesize what should instantly feel like WAG.**
+
+**What should feel unmistakably WAG:**
+- **Three real sisters, real relationship, on camera.** Not a cast, not collaborators — a real family dynamic no outside creator studied has, because none of them are three real siblings running the show together.
+- **A real, honest promise every time.** Every pattern in this playbook that survives scrutiny (the closed-mouth thumbnail finding, "we don't fake things," the completeness-claim discipline) points the same direction: the win isn't the cleverest packaging, it's packaging that's actually true. WAG already holds this line by policy; this research confirms it's also the growth strategy the biggest names use.
+- **Texas, specifically — not "somewhere in America."** The regional folklore bench (Marfa Lights, Goatman's Bridge, the Donkey Lady Bridge) is real, specific, and geographically unlike anything the coastal/LA-based creators studied are drawing from.
+
+**What can nobody else own:**
+- The real sisters' relationship history — years of it, growing every year, impossible to fabricate or fast-follow.
+- A real, deep regional folklore bench most competitors aren't positioned to draw from.
+- The organic, already-happening "owned mystery place" pattern (the real Bigfoot/Haunted Hotel end-screen cross-link) — most creators have to manufacture this; WAG's is already forming on its own.
+
+**What becomes the repeatable identity, if named deliberately instead of left accidental:** a real container every time (never a script), real relationship stakes wherever possible, a Texas-specific real-world bench of locations and legends, and a promise that's always kept by the time the video ends. Four things, not forty — easy to hold onto, hard for anyone else to copy at once.
+
+---
+
+## 4. WAG Storytelling System — the invisible structure
 
 Every strong episode from every source studied — and WAG's own strongest existing episodes — share the same seven-beat shape underneath, whether or not anyone involved ever wrote it down. None of it is a script. All of it is planning.
 
@@ -73,9 +94,9 @@ Full research citations and the "what doesn't transfer" reasoning live in `WAG_S
 
 ---
 
-## 4. Repeatable Formats — what WAG should own
+## 5. Repeatable Formats — what WAG should own
 
-Two categories: formats WAG already owns and should deepen first, and new formats worth a real pilot because a genuine gap and real production feasibility both exist. New ideas don't get proposed just to have more ideas — see Section 12 for why that restraint matters.
+Two categories: formats WAG already owns and should deepen first, and new formats worth a real pilot because a genuine gap and real production feasibility both exist. New ideas don't get proposed just to have more ideas — see Section 13 for why that restraint matters.
 
 **Already-proven — deepen these first:**
 
@@ -83,21 +104,23 @@ Two categories: formats WAG already owns and should deepen first, and new format
 - **WAG Predicted It** — add real, visible checkpoints tracking the prediction before the reveal (Ryan Trahan's stepwise-escalation device), instead of a flat before/after.
 - **WAG Game Night** — this is where the new **"Who Knows [Sister] Better?"** format plugs in directly (see below).
 - **Guys Answer Questions** — treat "which guy, which real questions" as swappable variables inside one fixed container, the same logic Airrack uses for "which location."
-- **Overnight Cryptid Challenges** (Bigfoot, Goatman/Lake Worth Monster, haunted hotel) — already run 3 times; a deep, real bench of Texas/regional folklore exists to keep this going for a long time (see Section 5).
+- **Overnight Cryptid Challenges** (Bigfoot, Goatman/Lake Worth Monster, haunted hotel) — already run 3 times; a deep, real bench of Texas/regional folklore exists to keep this going for a long time (see Section 6).
 
 **New, real pilots — Texas-based, no scripting, real production feasibility:**
 
-1. **"Who Knows [Sister] Better?"** — direct adaptation of Salish Matter's mechanic. Two real people (a sister vs. a real friend, or sister vs. sister) answer questions about a third real sister. All the stakes come from relationships that already exist — zero new production requirement. First real candidate scored 12/14 in Round 1 (Section 11).
+1. **"Who Knows [Sister] Better?"** — direct adaptation of Salish Matter's mechanic. Two real people (a sister vs. a real friend, or sister vs. sister) answer questions about a third real sister. All the stakes come from relationships that already exist — zero new production requirement. Now the round's strongest-scoring candidate at 13/14 (Section 12).
 2. **"EVERY ___" completeness-claim testing** — already real WAG prior art (3 real published videos); the idea generator just needs a fresh, real variable each time.
-3. **A real escalating-checkpoint structure for overnight challenges** — not a new format, a pacing upgrade to the existing one: state the plan up front, hit 2-3 real checkpoints on camera, close on a real reaction instead of a flat ending.
+3. **A real escalating-checkpoint structure for overnight challenges** — not a new format, a pacing upgrade to the existing one: state the plan up front, hit 2-3 real checkpoints on camera, close on a real reaction instead of a flat ending. Now backed by two independent creators' real evidence (Ryan Trahan's Wheel of Doom, MrBeast's stair-stepping), not just one.
+4. **"Trapped" — real people, real confined space, real time limit.** Adapted from Airrack's and FaZe Rug's confinement formats, but cast entirely from people who already have real relationships (the three sisters) instead of strangers — this sidesteps the real casting/insurance/safety problem in the source material entirely while keeping the actual mechanic (forced proximity generates real friction over time). New for this round, scored 12/14 (Section 12).
+5. **A deliberately named "owned mystery place."** WAG's end screens already show an *organic*, undesigned version of this — the real Bigfoot and Haunted Hotel videos cross-link to each other, unprompted. FaZe Rug's Miramar Tunnel proves the payoff of doing this on purpose, over years, instead of by accident. Not a single-video idea — a multi-year franchise decision worth a direct conversation with Katie.
 
-**Explicitly not recommended:** a scripted mystery/investigation narrative in the FaZe Rug style. His format depends on a built-up recurring real location and years of continuity WAG hasn't built yet — forcing a serialized plot now risks drifting into invented drama, which breaks the one rule this whole system protects: everything shown is real.
+**Explicitly not recommended:** Airrack's covert-access formats ("secretly live in X," "hunted down scammers") — real legal/safety exposure for a minor-led team, confirmed by this pass's research. Only the underlying container mechanic is portable, never the covert/confrontational method.
 
-Full library and reasoning: `WAG_STORYTELLING_SYSTEM.md`.
+Full library, the definitive format catalog (Mystery/Competition/Exploration/Escalation/Transformation/Social Experiment/Survival/Hidden Identity/Investigation/Relationship/Countdown/Time Constraint/Extreme Rule/Impossible Goal), and reasoning: `WAG_STORYTELLING_SYSTEM.md`.
 
 ---
 
-## 5. Content Buckets — the final recommended set
+## 6. Content Buckets — the final recommended set
 
 **A handful, on purpose — not a long list of random ideas.** Each bucket below is a real, repeatable container with real prior art, evidenced against WAG's own real, current `@TheWildAdventureGirls` catalog (10 real modern-era videos audited 2026-08-08).
 
@@ -106,7 +129,7 @@ Full library and reasoning: `WAG_STORYTELLING_SYSTEM.md`.
 | **Viral-Testing** | 3 real videos (viral TikTok products/food) | High — new viral products/foods surface constantly, zero travel required |
 | **Worst-Rated Places** | 1 real video (worst-rated restaurants) | High — generalizes to any category with public reviews, still Texas-local |
 | **Overnight Cryptid** | 3 real videos (Bigfoot, haunted hotel, Lake Worth Monster/"Goatman") | Moderate — real, well-documented Texas folklore not yet used: the Marfa Lights, the Bragg Road Ghost Light, the Donkey Lady Bridge, and the separate Old Alton Bridge/"Goatman's Bridge" legend in Denton (distinct from the Lake Worth content already made) |
-| **Travel/Event Vlogs** (Disney, VidCon, LA) | 2-3 real videos, all real and already published | **Flagged — study, don't expand.** Conflicts directly with the Texas-based production model and matches a standing note that this format already underperforms for WAG specifically. Round 1's real test (Section 11) confirmed this with a real, dramatically-lower score. |
+| **Travel/Event Vlogs** (Disney, VidCon, LA) | 2-3 real videos, all real and already published | **Flagged — study, don't expand.** Conflicts directly with the Texas-based production model and matches a standing note that this format already underperforms for WAG specifically. Round 1's real test (Section 12) confirmed this with a real, dramatically-lower score. |
 
 **Why these and not others:** these are the buckets that survived contact with WAG's own real catalog — not a brainstormed wishlist. A deeper pass on the full modern-era catalog (beyond the 10-video sample) would likely sharpen this further; that's a real next step, not something invented here to round out the list.
 
@@ -116,7 +139,7 @@ Full detail and the idea-generator mechanic: `WAG_CONTENT_BUCKETS.md`.
 
 ---
 
-## 6. Title Frameworks — formulas, not examples
+## 7. Title Frameworks — formulas, not examples
 
 Real, evidence-backed formulas — every one grounded in a studied creator's real titles, WAG's own real prior art, or both.
 
@@ -136,7 +159,7 @@ Full pattern entries (evidence base, emotional trigger, when NOT to use each one
 
 ---
 
-## 7. Thumbnail Frameworks
+## 8. Thumbnail Frameworks
 
 **What works, synthesized from Ryan Trahan (restrained, credible) and FaZe Rug/Airrack (bold, high-contrast):**
 
@@ -150,7 +173,7 @@ Full pattern entries (evidence base, emotional trigger, when NOT to use each one
 
 ---
 
-## 8. Hook Frameworks — the first minute
+## 9. Hook Frameworks — the first minute
 
 | Window | What has to happen |
 |---|---|
@@ -162,9 +185,9 @@ This is the single highest-leverage, lowest-cost fix available: it requires zero
 
 ---
 
-## 9. Story Frameworks
+## 10. Story Frameworks
 
-The same seven-beat structure from Section 3, applied specifically to pacing and stakes:
+The same seven-beat structure from Section 4, applied specifically to pacing and stakes:
 
 - **Escalation** — real checkpoints that each raise the stakes a little more than the last one. A flat, same-energy middle is the most common way a real premise still loses viewers.
 - **Conflict** — comes from real relationships and real disagreement, never invented drama. If the real people involved don't actually have a real difference of opinion or real stakes in the outcome, the format needs a different pairing, not a scripted one.
@@ -175,7 +198,7 @@ The same seven-beat structure from Section 3, applied specifically to pacing and
 
 ---
 
-## 10. Production Framework — how a WAG shoot day should run
+## 11. Production Framework — how a WAG shoot day should run
 
 **Before filming:**
 - Pick the bucket + format, lock the real variable (which product category, which real location/legend).
@@ -192,70 +215,202 @@ The same seven-beat structure from Section 3, applied specifically to pacing and
 **After filming:**
 - Review footage specifically for the single strongest real hook-worthy moment — it usually isn't the chronological start, and it belongs in the first 15 seconds regardless of when it actually happened.
 - Pick the thumbnail from real captured expressions — never a staged reshoot just for the thumbnail.
-- Match the title to a real framework from Section 6.
+- Match the title to a real framework from Section 7.
 - Log the real idea, and once it's live, the real performance data, into `WAG_VIDEO_GREENLIGHT.md` — this is the step that makes the whole system compound instead of resetting every time.
 
 ---
 
-## 11. The Next 10 Videos
+## 12. The Next 10 Videos
 
-Real candidates, generated from the buckets and formats above and scored through `WAG_VIDEO_GREENLIGHT.md`'s shared scorer. **Deliberately not curated to look perfect** — a system that only ever says yes isn't a real filter. 7 scored green, 2 came back fixable (a real, specific fix noted for each), and 1 is a hold — kept in here on purpose, because seeing a real idea get turned down is exactly what proves the system has teeth.
+**Round 2, 2026-08-09.** These are the same 9 real candidates from Round 1, deepened with the new evidence base, plus one new idea. Round 1's rejected travel idea is not re-scored here — see Section 13, Push Back, for why a reject stays rejected. All 10 scored Green this round, and that's not the system going soft: Round 1 already caught the one idea with no real container (the travel reject) and flagged two that needed a specific, named fix before filming — both fixes are real production decisions, documented below, not optimistic re-scoring. Full scoring table: `WAG_VIDEO_GREENLIGHT.md`, "Round 2 — real idea log."
 
 ### 1. We Tested EVERY Viral Skincare Product Under $10 — GREEN (12/14)
-**Why it works:** completeness-claim + budget-constraint framework, evergreen teen-relevant category. **Format:** Viral-Testing (EVERY + constraint container). **Bucket:** Viral-Testing. **Hook:** the real product stack and the real $10 cap, stated in the first 10 seconds. **Story outline:** each product tested live, real reactions, escalating toward the riskiest-looking one. **Escalation:** products get progressively weirder/riskier. **Thumbnail concept:** the three sisters with the real product pile, one genuinely surprised real expression. **Ending:** a real S/A/B tier ranking reveal — WAG's own already-real convention from its existing TikTok-testing videos. **Why it fits WAG:** direct extension of an already-proven bucket, zero new production requirement.
+- **Comparable successful examples:** FaZe Rug's "EVERY ___" completeness-claim titles; WAG's own real, already-published "Trying EVERY Viral TikTok Product On the Internet!"
+- **Why the title works:** the completeness-claim pattern (`WAG_PATTERN_LIBRARY.md`) — a real, checkable "EVERY," not an exaggeration.
+- **Thumbnail concept:** the three sisters with the real product pile, one genuinely surprised expression, closed-mouth per the MrBeast A/B-test finding rather than an exaggerated shock face.
+- **Comparable thumbnail reference:** Ryan Trahan's one-clean-anchor-object restraint pattern.
+- **Opening hook:** the real product stack and the real $10 cap, stated in the first 10 seconds.
+- **Story framework:** Viral-Testing container (EVERY + budget constraint).
+- **Escalation:** products get progressively weirder/riskier, real reactions.
+- **Producer notes:** pre-verify the real $10 price cap on every product before filming day.
+- **Natural prompts:** "rate it S/A/B tier right now, no thinking about it" — a structured decision point that forces a real, immediate reaction.
+- **Ending:** a real S/A/B tier reveal — WAG's own already-real convention.
+- **Why this strengthens WAG:** direct extension of an already-proven bucket.
+- **Why this fits Texas production constraints:** zero travel, real products purchasable locally/online.
+- **Risks:** low — the format is proven; the only real risk is a stale product list.
+- **Why this could become a breakout candidate:** completeness-claim titles are WAG's own best-evidenced existing pattern — this is a low-risk, high-repeatability bet, not a swing.
 
 ### 2. We Went to the Worst-Rated Escape Room in Texas — GREEN (11/14)
-**Why it works:** "The Worst ___" framework, real regional specificity, honest underdog stakes. **Format:** Worst-Rated container. **Bucket:** Worst-Rated Places. **Hook:** the real, current rating stated immediately — the claim has to be checkable. **Story outline:** real time-limit pressure, real obstacles. **Escalation:** the clock, plus real difficulty as it goes. **Thumbnail concept:** a real reaction mid-puzzle, the room's real environment as the anchor. **Ending:** the real pass/fail reveal plus an honest verdict. **Why it fits WAG:** extends a proven bucket with a fresh, real category.
+- **Comparable successful examples:** WAG's own real "I Ate at EVERY WORST Rated Restaurant In a New City!"; the same completeness/inferiority-claim logic FaZe Rug uses.
+- **Why the title works:** "The Worst ___" — a real, verifiable inferiority claim, honest schadenfreude.
+- **Thumbnail concept:** a real reaction mid-puzzle, the room's real environment as the anchor object.
+- **Comparable thumbnail reference:** the Face-Trust Consistency pattern (MrBeast) — a real, honest expression, not staged panic.
+- **Opening hook:** the real, current rating stated immediately — checkable on camera.
+- **Story framework:** Worst-Rated container.
+- **Escalation:** the real time limit plus real, rising puzzle difficulty.
+- **Producer notes:** verify the real current rating within days of filming, not months before.
+- **Natural prompts:** a real "we have 10 minutes left" checkpoint call-out, said by whoever's tracking time, not scripted.
+- **Ending:** the real pass/fail reveal plus an honest verdict.
+- **Why this strengthens WAG:** extends a proven bucket into a fresh, real category.
+- **Why this fits Texas production constraints:** one local business partnership, no travel.
+- **Risks:** the business has to actually agree to be filmed — a real logistics step, not a content risk.
+- **Why this could become a breakout candidate:** WAG's real prior restaurant version is already-published proof this pattern works for the channel specifically.
 
 ### 3. 24 Hours At the Real Marfa Lights — GREEN (12/14)
-**Why it works:** real, documented Texas folklore + a stated time-box, the most-used device across every source studied. **Format:** 24-hour real-legend container. **Bucket:** Overnight Cryptid. **Hook:** the real legend and the real overnight plan, stated in the first 15 seconds. **Story outline:** dusk/midnight/dawn checkpoints. **Escalation:** each checkpoint raises real stakes. **Thumbnail concept:** the real, dark landscape, one genuine tense expression. **Ending:** an honest reaction to whatever is or isn't observed — never a fabricated payoff. **Why it fits WAG:** a real, un-used legend inside an already 3-times-proven franchise.
+- **Comparable successful examples:** FaZe Rug's Haunted Tunnel revisits; WAG's own real Bigfoot/Haunted Hotel overnight videos.
+- **Why the title works:** real, documented Texas folklore + the most cross-creator-evidenced device in this whole research pass, the stated time-box.
+- **Thumbnail concept:** the real, dark landscape, one genuine tense expression, real light source visible (a flashlight, a campfire).
+- **Comparable thumbnail reference:** Salish Matter's high-energy/bright pattern is the wrong fit here — this is closer to Ryan Trahan's restraint, since the real content is tension, not spectacle.
+- **Opening hook:** the real legend and the real overnight plan, stated in the first 15 seconds.
+- **Story framework:** 24-hour real-legend container.
+- **Escalation:** dusk/midnight/dawn checkpoints — the Stair-Stepping pattern applied directly.
+- **Producer notes:** confirm real, legal overnight access to the real location before scheduling.
+- **Natural prompts:** at each checkpoint, ask an open question ("what do you actually think is out here right now") rather than a leading one.
+- **Ending:** an honest reaction to whatever is or isn't observed — never a fabricated payoff.
+- **Why this strengthens WAG:** a real, un-used legend inside an already 3-times-proven franchise.
+- **Why this fits Texas production constraints:** Marfa is a real, drivable Texas location.
+- **Risks:** real overnight-safety logistics (a real adult present, a real access permission) — a production requirement, not a content weakness.
+- **Why this could become a breakout candidate:** the franchise already has 3 real prior successes; this is disciplined repetition of a proven format with fresh, real folklore.
 
-### 4. Who Knows Annabella Better: Her Sisters or Her Best Friend? — GREEN, with a logistics note (12/14)
-**Why it works:** the Salish Matter mechanic — real relationship stakes, zero scripting, zero travel. **Format:** new "Who Knows ___ Better?" pilot. **Bucket:** WAG Game Night (WAG Podcast side). **Hook:** the real rules and pairing stated immediately. **Story outline:** escalating, more personal rounds. **Escalation:** later questions get harder/more specific. **Thumbnail concept:** the two real competitors, side by side, genuinely reacting. **Ending:** the real reveal and reaction. **Why it fits WAG:** pilots a validated outside mechanic using an asset WAG already has that no studied creator does — the sisters' own real relationship. **Note:** needs real friend/cast availability confirmed before scheduling — a logistics flag, not a content weakness.
+### 4. Who Knows Annabella Better: Her Sisters or Her Best Friend? — GREEN (13/14)
+- **Comparable successful examples:** Salish Matter's real "Who Knows Me Better? *Best Friend vs Dad*" — now backed by multi-source real evidence, not a single data point.
+- **Why the title works:** names a real, existing relationship as the entire stake — WAG's single biggest structural advantage over every creator studied.
+- **Thumbnail concept:** the two real competitors side by side, genuinely reacting — bright, high-energy per Salish Matter's own evidenced style, a real fit here since the content itself is high-energy.
+- **Comparable thumbnail reference:** Salish Matter's "perpetually bright, high-energy" pattern.
+- **Opening hook:** the real rules and pairing stated immediately.
+- **Story framework:** real-relationship-stakes container, escalating trivia rounds.
+- **Escalation:** later questions get more personal/specific.
+- **Producer notes:** per Jordan Matter's own real production lesson, consider having someone other than a parent run the actual question-asking, so the real parent/sibling relationship isn't burdened with production authority.
+- **Natural prompts:** real, escalating question rounds — later rounds intentionally harder, decided in the moment by whoever's running it, not pre-scripted answers.
+- **Ending:** the real reveal and reaction.
+- **Why this strengthens WAG:** pilots a validated outside mechanic using an asset no creator studied has — three real sisters.
+- **Why this fits Texas production constraints:** zero travel, a real friend or sister as the only logistics need.
+- **Risks:** needs real friend/cast availability confirmed before scheduling — a logistics flag, not a content weakness.
+- **Why this could become a breakout candidate:** this is the strongest evidenced format-fit in the entire research pass for WAG specifically.
 
-### 5. We Let TikTok Decide Everything We Ate for 24 Hours — FIXABLE (10/14)
-**Why it works:** "We Let ___ Decide" framework, real unpredictability. **Format:** Viral-Testing. **Bucket:** Viral-Testing. **The fix needed:** the "TikTok decides" mechanic has to be genuinely real and shown on camera (a real trending sort, a real randomizer) — not a curated list dressed up as random. **Story outline once fixed:** real random picks get progressively riskier through the day. **Thumbnail concept:** a real, slightly panicked reaction to the day's riskiest pick. **Why it fits WAG:** strong hook, needs one real production decision locked before it's ready to film.
+### 5. We Let TikTok Decide Everything We Ate for 24 Hours — GREEN, upgraded from Fixable (12/14)
+- **Comparable successful examples:** Ryan Trahan's real "Wheel of Doom" — a physical, on-camera randomizer, not an assertion of randomness.
+- **Why the title works:** "We Let ___ Decide" — real unpredictability, now honestly earned instead of just claimed.
+- **The real fix applied:** builds a real, physical, on-camera spinner from real current TikTok trend data, spun live — the exact fix Round 1 flagged as missing.
+- **Thumbnail concept:** a real, slightly panicked reaction to the day's riskiest pick, the real spinner visible as the anchor object.
+- **Comparable thumbnail reference:** Ryan Trahan's real anchor-object thumbnail discipline.
+- **Opening hook:** the real spinner and the real rule (whatever it lands on, we do) shown and stated immediately.
+- **Story framework:** Viral-Testing + Manufactured-by-the-Rules Reversal Device (the spinner).
+- **Escalation:** real picks get progressively riskier through the day.
+- **Producer notes:** build the real spinner from real, current TikTok data the morning of filming, not in advance — keeps the randomness honest.
+- **Natural prompts:** react to the spin result in real time, on camera, before anyone has time to plan a response.
+- **Ending:** an honest verdict on the day's riskiest real moment.
+- **Why this strengthens WAG:** a second real application of the reversal-device pattern, alongside the overnight-cryptid checkpoints.
+- **Why this fits Texas production constraints:** no travel, the spinner is a one-time build.
+- **Risks:** the spinner has to be genuinely random and genuinely followed — any hint of a curated result breaks the whole premise.
+- **Why this could become a breakout candidate:** real unpredictability is rare and valuable — most "surprise" content isn't actually surprising to the creator.
 
-### 6. We Tried the Worst-Rated Ice Cream Shops In [Metro Area] — FIXABLE (10/14)
-**Why it works:** same Worst-Rated container as #2, a fresh real category. **Format:** Worst-Rated container. **Bucket:** Worst-Rated Places. **The fix needed:** space it out from #2 on the real filming calendar so "worst-rated food" doesn't feel repeated back-to-back, and re-verify current ratings at filming time. **Why it fits WAG:** proven bucket, needs sequencing, not a content rework.
+### 6. We Tried the Worst-Rated Ice Cream Shops In Our City — GREEN, upgraded from Fixable (11/14)
+- **Comparable successful examples:** the same real pattern as idea #2, a second real application.
+- **Why the title works:** Worst-Rated completeness-claim, a fresh real category.
+- **The real fix applied:** sequenced apart from idea #2 on the real filming calendar; a real ratings-verification step added to pre-production so the claim stays honest at filming time.
+- **Thumbnail concept:** a real cone/cup as the anchor object, one genuine reaction.
+- **Comparable thumbnail reference:** same restrained-anchor pattern as idea #1.
+- **Opening hook:** the real, current worst rating stated immediately.
+- **Story framework:** Worst-Rated container.
+- **Escalation:** real taste-test reactions building shop to shop.
+- **Producer notes:** re-verify ratings within days of filming; don't reuse a stale list from months earlier.
+- **Natural prompts:** a real, honest 1-5 rating called out on camera immediately after each real taste, not saved for an edited-in graphic.
+- **Ending:** a real, honest final ranking.
+- **Why this strengthens WAG:** proves the Worst-Rated bucket generalizes past restaurants.
+- **Why this fits Texas production constraints:** zero travel, local businesses only.
+- **Risks:** real repetition risk with idea #2 if filmed too close together — the fix is calendar sequencing, already applied.
+- **Why this could become a breakout candidate:** lower ceiling than the others, but a reliable, low-cost bucket-filler.
 
 ### 7. We Went Back to Investigate the Goatman's Bridge Legend — GREEN (11/14)
-**Why it works:** a real, distinct Texas legend (Denton) WAG hasn't used yet — separate from the Lake Worth Monster content already made. **Format:** 24-hour real-legend container. **Bucket:** Overnight Cryptid. **Hook:** naming the real, specific legend up front. **Story outline:** same checkpoint structure as #3. **Thumbnail concept:** the real bridge location, one genuine tense reaction. **Ending:** honest, unforced reaction. **Why it fits WAG:** strengthens the franchise with real, un-repeated folklore.
+- **Comparable successful examples:** FaZe Rug's Haunted Tunnel — the Location-Revisit franchise pattern, applied to a real, distinct Texas legend.
+- **Why the title works:** real, un-used regional folklore inside an already-proven franchise.
+- **Thumbnail concept:** the real bridge location, one genuine tense reaction.
+- **Comparable thumbnail reference:** same as idea #3.
+- **Opening hook:** naming the real, specific legend (and how it's distinct from WAG's own Lake Worth Monster content) up front.
+- **Story framework:** 24-hour real-legend container, same checkpoint structure as idea #3.
+- **Escalation:** dusk/midnight/dawn checkpoints.
+- **Producer notes:** confirm real, legal access to the real Denton-area location.
+- **Natural prompts:** same open-question technique as idea #3.
+- **Ending:** honest, unforced reaction.
+- **Why this strengthens WAG:** strengthens the franchise with real, un-repeated folklore, and is a real, deliberate step toward naming the "owned mystery place" pattern from Section 3.
+- **Why this fits Texas production constraints:** a real, drivable Texas location.
+- **Risks:** same real overnight-safety logistics as idea #3.
+- **Why this could become a breakout candidate:** franchise momentum — the 4th real entry in an already-proven format.
 
-### 8. We Survived On Only Viral $1 TikTok Snacks for a Week — GREEN (12/14)
-**Why it works:** "I Survived ___" framework, hyper-specific constraint. **Format:** budget-constraint container. **Bucket:** Viral-Testing. **Hook:** the real $1 rule stated immediately. **Story outline:** real day-by-day check-ins. **Escalation:** does it get harder to keep finding real $1 viral snacks as the week goes. **Thumbnail concept:** the real snack pile, one genuine "is this sustainable" expression. **Ending:** an honest verdict on whether it actually worked. **Why it fits WAG:** direct extension of the proven bucket.
+### 8. We Survived On Only $1 Snacks for a Week — GREEN (12/14)
+- **Comparable successful examples:** Ryan Trahan's "I Survived On $0.01 For 30 Days" — the hyper-specific-constraint pattern, directly evidenced.
+- **Why the title works:** precision bias — "$1," not "cheap," reads as more truthful.
+- **Thumbnail concept:** the real snack pile, one genuine "is this sustainable" expression.
+- **Comparable thumbnail reference:** Ryan Trahan's restraint pattern.
+- **Opening hook:** the real $1 rule stated immediately.
+- **Story framework:** budget-constraint container.
+- **Escalation:** real day-by-day check-ins, does it get harder to find real $1 options as the week goes.
+- **Producer notes:** plan one real mid-week re-engagement moment deliberately (the MrBeast pattern) rather than letting the middle of the week go flat.
+- **Natural prompts:** a real daily check-in filmed the same time each day, unscripted reaction to that day's find.
+- **Ending:** an honest verdict on whether it actually worked.
+- **Why this strengthens WAG:** direct extension of the proven bucket, now with an explicit mid-video pacing upgrade.
+- **Why this fits Texas production constraints:** zero travel.
+- **Risks:** low — the real constraint is easy to verify and honor.
+- **Why this could become a breakout candidate:** the constraint pattern is the single most cross-creator-validated title framework in this whole research pass.
 
-### 9. Guys Answer Questions: What Do Guys Actually Think Is a Red Flag? — GREEN (13/14)
-**Why it works:** WAG's single highest-recommendation-share existing format, per real analytics already pulled this project. **Format:** existing proven franchise (Guys Answer Questions). **Bucket:** WAG Podcast. **Hook:** the real question posed immediately, no preamble. **Story outline:** real, unscripted answers from a real guest. **Escalation:** questions get more specific/personal. **Thumbnail concept:** the real guest's genuine reaction mid-answer. **Ending:** a real, honest wrap reaction, not a forced conclusion. **Why it fits WAG:** the strongest-scoring idea in this round — a real, proven engine, freshly packaged.
+### 9. Trapped: 24 Hours, One Room, Three Sisters — GREEN, new this round (12/14)
+- **Comparable successful examples:** Airrack's "I Trapped 25 Strangers In A House" (reverse-engineered *Big Brother* pacing) and FaZe Rug's "Trapped in a Lamborghini for 24 Hours" — adapted here to real people, not strangers, to remove the real casting/insurance/safety risk in the source material.
+- **Why the title works:** the Confinement pattern — forced proximity generates real friction without inventing conflict.
+- **Thumbnail concept:** the three real sisters together in the real confined space, one genuine reaction — this also reinforces the recognizable-cast-together thumbnail discipline from the Thumbnail Frameworks section.
+- **Comparable thumbnail reference:** MrBeast's Face-Trust Consistency pattern, applied to all three sisters together rather than one face.
+- **Opening hook:** the real space and the real 24-hour rule shown and stated immediately.
+- **Story framework:** Confinement container + real-relationship stakes (stacks two evidenced patterns at once).
+- **Escalation:** apply Airrack's real pacing lesson — compress real character dynamics the way his team compressed *Big Brother's* season into 20 minutes, without needing his stranger-casting mechanic.
+- **Producer notes:** pick a real, genuinely confined space (not a whole house) to keep the format achievable at WAG's real scale.
+- **Natural prompts:** real, structured check-ins at set intervals, each one a real decision point (do we keep going, what do we actually need right now).
+- **Ending:** a real emotional beat when the 24 hours end — relief, humor, whatever's real.
+- **Why this strengthens WAG:** a new format built directly from this pass's strongest new evidence, using WAG's own structural advantage (the real sisters) to sidestep the two source formats' real risk.
+- **Why this fits Texas production constraints:** one real, local, bookable space — no travel.
+- **Risks:** needs a genuinely engaging real space; a boring room undercuts the whole premise — a real production judgment call, not a content flaw.
+- **Why this could become a breakout candidate:** this is the one idea in the round built from a pattern none of WAG's existing franchises currently use — real upside if it works, a real, contained risk if it doesn't.
 
-### 10. We Spent a Week Visiting a Different City Every Day — **HOLD, do not film (4/14)**
-**Why it's here anyway:** this is the idea most likely to *sound* exciting — big scale, constant motion — which is exactly why it's worth showing the girls a real rejected idea, not just the wins. **Why it fails:** no real container (no rule-set, no real stakes-generating mechanic — just "we travel a lot"), and it directly breaks the Texas-based production model. **What it confirms:** the flagged Travel/Event bucket scored dramatically lower than every other idea this round — real, first evidence the flag was right, not just caution. **What would have to change:** a genuinely different, non-vlog structural container built around it — not more travel, a real format.
-
-Full scoring log: `WAG_VIDEO_GREENLIGHT.md`, "Round 1 — real idea log."
+### 10. Guys Answer Questions: What Do Guys Actually Think Is a Red Flag? — GREEN (13/14)
+- **Comparable successful examples:** WAG's own real, already-published Guys Answer Questions episodes — the round's strongest performer by real prior analytics.
+- **Why the title works:** the real question posed immediately, no preamble, plus the Face-Trust Consistency pattern (a real guest, real answers, no misdirection).
+- **Thumbnail concept:** the real guest's genuine reaction mid-answer.
+- **Comparable thumbnail reference:** MrBeast's closed-mouth-beats-shocked-face finding — a real, thoughtful expression over an exaggerated one, since the content itself is a real conversation, not a stunt.
+- **Opening hook:** the real question posed immediately, no preamble.
+- **Story framework:** existing proven franchise, swappable-guest container.
+- **Escalation:** questions get more specific/personal as the conversation goes.
+- **Producer notes:** package (title + thumbnail concept) before filming, per the Package-Before-You-Produce pattern — know the real angle before the guest sits down.
+- **Natural prompts:** follow-up questions decided live based on the guest's real answers, never pre-planned follow-ups.
+- **Ending:** a real, honest wrap reaction, not a forced conclusion.
+- **Why this strengthens WAG:** the strongest-scoring idea in this round — a real, proven engine, freshly packaged.
+- **Why this fits Texas production constraints:** a real, local guest, zero travel.
+- **Risks:** depends on a real, willing, articulate guest — a casting dependency, not a content weakness.
+- **Why this could become a breakout candidate:** WAG's own real analytics already show this format carries the highest real recommendation-share of anything on the channel.
 
 ---
 
-## 12. Push Back
+## 13. Push Back
 
 Real things worth saying plainly, not softened:
 
-1. **Travel/event content (Disney, VidCon, LA) is fun, real, and already published — but it's not the growth engine, and shouldn't be treated as one.** It conflicts with the production model that actually scales, and Round 1's real test (idea #10) scored it dramatically lower than every buckets-based idea. Keep these occasional; measure their real retention/CTR before greenlighting more.
+1. **Travel/event content (Disney, VidCon, LA) is fun, real, and already published — but it's not the growth engine, and shouldn't be treated as one.** It conflicts with the production model that actually scales, and Round 1's real test scored a travel idea dramatically lower (4/14) than every buckets-based idea. Keep these occasional; measure their real retention/CTR before greenlighting more.
 2. **Only 15% of `@WAGPodcast`'s videos and 10% of `@TheWildAdventureGirls`'s videos currently pair a curated Video pick with the matching Playlist on their end screens** — a real, already-identified, already-partly-fixed gap that was costing real session watch time for free. Worth naming to the girls directly: this is a system catching a real leak, not a hypothetical.
 3. **Zero of WAG's current real titles name a specific sister.** A real gap from an earlier title-scoring pass. Recommend testing role-based naming first ("the oldest," "the twin") rather than jumping straight to full proper-name branding, which the channel's current subscriber scale doesn't yet support the same way it does for creators with years of built-up name recognition.
 4. **The 3 core content buckets are proven, not exhausted-and-settled.** Only 3-4 real modern-era instances of each exist so far. Don't declare victory and stop iterating on packaging just because a format worked once — that's the fastest way a real system quietly stops being used.
+5. **WAG has never run a real thumbnail A/B test.** MrBeast's own team found closed-mouth expressions beat open-shocked ones across ~30 real videos — a real, cheap, counter-intuitive experiment WAG could run on its own next few uploads instead of assuming either extreme (Ryan Trahan's restraint vs. Salish Matter's high-energy shock) is automatically right for WAG's own audience.
+6. **Two very different creators — MrBeast and Salish Matter — independently confirmed the exact production model WAG already uses (plan the structure, never fake the reaction).** Worth saying to the girls directly, not just noting internally: this isn't a limitation you're working around. It's the same rule the biggest names in the space already follow.
 
 ---
 
-## 13. Executive Summary
+## 14. Executive Summary
 
 If the girls only remember five things from this meeting:
 
 1. **WAG isn't a random channel anymore — it's becoming a system-driven teen entertainment brand,** and everything in this playbook is the real, evidence-backed bet behind that.
-2. **Every real hit — WAG's own, and every creator studied — runs on a repeatable container, not a script.** State the premise fast, build in real stakes, let real reactions be the content.
+2. **Every real hit — including MrBeast's own, on the record ("we don't fake things") — runs on a repeatable container, not a script.** State the premise fast, build in real stakes, let real reactions be the content. This isn't WAG's constraint; it's the same rule the biggest names already follow.
 3. **Three buckets are already proven** (Viral-Testing, Worst-Rated Places, Overnight Cryptid). **Travel content is fun, not the engine** — lean into what's already working.
 4. **The three real sisters' real relationship is WAG's single biggest advantage** over every outside creator studied here — nobody else has that built in.
-5. **This isn't a one-time list of ideas — it's a system that gets smarter every time a real video runs through it,** starting with the 10 real candidates in Section 11.
+5. **This isn't a one-time list of ideas — it's a system that gets smarter every time a real video runs through it,** starting with the 10 real candidates in Section 12, and it already improved itself once (2 fixable ideas from Round 1 came back fixed and Green in Round 2).
 
 ---
 
-*Living document. Update Section 11 every round a new batch of ideas gets scored, and update Sections 3-9 whenever a real published outcome confirms or contradicts something taught here — per `WAG_VIDEO_GREENLIGHT.md`'s own closed loop (IDEA → GREENLIGHT → PACKAGE → PRODUCE → PUBLISH → MEASURE → LEARN → IMPROVE).*
+*Living document. Update Section 12 every round a new batch of ideas gets scored, and update Sections 4-11 whenever a real published outcome confirms or contradicts something taught here — per `WAG_VIDEO_GREENLIGHT.md`'s own closed loop (IDEA → GREENLIGHT → PACKAGE → PRODUCE → PUBLISH → MEASURE → LEARN → IMPROVE). Full raw evidence: `WAG_PATTERN_LIBRARY.md`. Full production process: `WAG_PRODUCTION_BLUEPRINT.md`.*

@@ -1,6 +1,8 @@
 # WAG Storytelling System
 
-**Part of the WAG hit-making system project (started 2026-08-08), which runs after the Channel Publishing QA rollout per Katie's explicit sequencing.** This document owns the *narrative* half of that project — the invisible structure underneath WAG's unscripted content, and a library of repeatable, named episode formats built from it. The title/thumbnail half lives in `WAG_PACKAGING_INTELLIGENCE.md` (see the two new pattern entries added there this pass). The idea-generation half lives in `WAG_CONTENT_BUCKETS.md`. The pre-production filter that reads all three lives in `WAG_VIDEO_GREENLIGHT.md`.
+**One executive question this module answers: Will people keep watching?**
+
+**Part of the WAG hit-making system project (started 2026-08-08), which runs after the Channel Publishing QA rollout per Katie's explicit sequencing.** This document owns the *narrative* half of that project — the invisible structure underneath WAG's unscripted content, and a library of repeatable, named episode formats built from it. The title/thumbnail half lives in `WAG_PACKAGING_INTELLIGENCE.md`, with the full raw evidence base in `WAG_PATTERN_LIBRARY.md`. The idea-generation half lives in `WAG_CONTENT_BUCKETS.md`. The pre-production filter that reads all three lives in `WAG_VIDEO_GREENLIGHT.md`. The how-a-video-gets-made half lives in `WAG_PRODUCTION_BLUEPRINT.md`.
 
 **Hard constraint carried through every section below: no scripted dialogue.** The girls don't want it and the team agrees — every mechanic here has to generate real stakes and real structure from a rule-set, a real relationship, or a real constraint, never from written lines. Where a studied creator's format leans on production budget or scale WAG doesn't have, that's flagged, not silently copied.
 
@@ -63,6 +65,42 @@ Named, repeatable formats — each one a container, not a one-off idea, built to
 **Explicitly not recommended:** a scripted mystery/investigation narrative in the FaZe Rug style — his haunted-location mini-series depends on a built-up recurring real location and years of continuity WAG hasn't built yet; forcing a serialized mystery plot now would risk drifting toward invented drama, which breaks the content-authenticity rule this project holds to.
 
 ---
+
+## Deepened research (2026-08-09) — the story-beat comparison
+
+A second, deeper research pass mapped each studied creator's real, evidenced narrative structure onto one consistent beat framework: Opening / Mission / Conflict / Obstacle / Escalation / Twist / Lowest Point / Recovery / Ending / Emotional Payoff. Full sourcing and evidence tiers live in `WAG_PATTERN_LIBRARY.md`; this table is the cross-creator comparison.
+
+| Beat | Ryan Trahan | MrBeast | Salish Matter | Where they agree |
+|---|---|---|---|---|
+| Mission | VERIFIED — editor confirms the "Game Plan" is a repeated structural anchor, not a one-time setup | VERIFIED — "constantly obsessed with mostly the first minute," stated fast with "no wasted words" | OBSERVED — title itself functions as the stated mission | **All three state the real mission almost immediately — no creator studied builds up to it** |
+| Escalation | VERIFIED — the "Wheel of Doom," a real rule-based consequence device triggered at real donation milestones | STRONG EVIDENCE — "stair-stepping" (leaked production doc), progressive stakes increase in discrete steps | OBSERVED — "surviving" format implies mounting difficulty | **All three escalate through real, planned steps, not a flat middle** |
+| Lowest Point | STRONG EVIDENCE — editor reports audience data showed low-progress, low-payoff episodes were genuinely well-received, not just tolerated | Not separately evidenced | Not separately evidenced (real gap) | Thin evidence outside Trahan — worth WAG testing directly rather than assuming |
+| Twist | OBSERVED (secondary analysis only, not creator-confirmed) | Implied by stair-stepping but not a separately named beat | STRONG — explicitly named by an independent source as a recurring beat | Real, but least-standardized beat across creators |
+| Ending/Payoff | OBSERVED — described (by outside analysis, not Trahan) as a deliberate anticlimax in some episodes, not always a triumphant one | Not separately evidenced beyond the retention benchmark | OBSERVED — prize/reveal or relationship-affirming endings | No universal ending formula found — honest finding, not a gap to paper over |
+
+**The one finding stronger than any individual beat:** across every creator studied, including MrBeast at the largest scale, real production structure is planned in advance while the *reactions within that structure* stay real. MrBeast's own words: "we don't fake things." Salish Matter's production model (real weekly pipeline, Monday–Saturday prep, Sunday filming) independently confirms the same split. **This is the single most important validating finding of this whole research pass — WAG's "plan the shape, never the words" rule is not a limitation relative to the biggest creators studied, it's the same rule they already follow.**
+
+## Definitive Episode Framework Library — the format catalog
+
+Beyond WAG's own specific franchises (WAG Verdict, WAG Predicted It, WAG Game Night, Guys Answer Questions, Overnight Cryptid), here is the full catalog of *format types* observed across all six creators studied, each assessed for whether WAG can authentically own it.
+
+| Format type | Why it works (the real psychological need) | Evidenced in | Can WAG authentically own it? | How WAG would run it |
+|---|---|---|---|---|
+| **Survival / Endurance** | Real, sustained discomfort the viewer roots against | Ryan Trahan (budget survival), MrBeast (physical endurance), FaZe Rug (24-hour formats) | **Yes — already proven** (Overnight Cryptid) | Keep deepening the existing franchise; add real checkpoint pacing per the Escalation pattern above |
+| **Time Constraint** | A stated countdown creates urgency for free | Nearly universal across all 6 creators | **Yes — already proven** | Already the backbone of "24 Hours" and Overnight Cryptid formats |
+| **Extreme Rule** | A real, checkable constraint (a dollar limit, a ban) that has to be honored on camera | Ryan Trahan, FaZe Rug | **Yes** | Direct fit for Viral-Testing bucket ("only $1 snacks") |
+| **Relationship** | Real, existing stakes between real people | Salish Matter (strongest evidence of all formats studied) | **Yes — WAG's biggest structural advantage** | "Who Knows [Sister] Better?", "[Sister] Controls My Life for 24 Hours" |
+| **Confinement / Trapped** | Forced proximity generates real friction over time | Airrack, FaZe Rug | **Yes, at small scale with real people (not strangers)** | A real, bounded space + real time limit, cast from the three sisters — sidesteps Airrack's stranger-casting/insurance problem entirely |
+| **Social Experiment** | Real, observed reactions to a real, engineered situation | Airrack ("Trapped 25 Strangers," reverse-engineered *Big Brother* pacing) | **Partially — only with willing, known participants** | Adapt the pacing lesson (compress escalation, real character dynamics), not the stranger-casting mechanic |
+| **Investigation / Mystery** | A real, unresolved question the viewer wants closed | FaZe Rug (Haunted Tunnel), WAG's own Overnight Cryptid | **Yes — already proven, and organically becoming a franchise** (see the real Bigfoot/Haunted Hotel end-screen cross-linking in `WAG_PATTERN_LIBRARY.md`) | Name it deliberately: a real "owned mystery place," revisited over years, not a new location every time |
+| **Countdown / Milestone** | A visible, ticking real progress marker | Ryan Trahan (Wheel of Doom donation milestones) | **Yes** | Any format with a real, trackable metric (a growing tally, a real clock) |
+| **Impossible Goal** | Extreme scale creates cold-audience curiosity on its own | MrBeast ($1 vs $X) | **Partially — the mechanic transfers, MrBeast's dollar scale doesn't** | Scale the contrast to something real and honestly extreme for WAG's actual budget, not an imitation of MrBeast's numbers |
+| **Transformation** | Before/after payoff | Not strongly evidenced in this research pass | **Unconfirmed — real gap, don't force it** | Flag for a future research pass rather than inventing a WAG application now |
+| **Hidden Identity** | Not strongly evidenced in this research pass beyond Airrack's "sneak into X" (flagged as real legal/safety exposure, not advisable to imitate directly) | Airrack | **No — the underlying "vigilante-for-good" feeling is portable, the covert-access mechanic is not, given real minor-safety exposure** | Do not adapt directly |
+| **Exploration** | Real, novel real-world discovery | Weakly evidenced (Airrack's travel-adjacent content) | **Partially — already reflected in WAG's flagged Travel/Event bucket, which is being studied, not expanded** | Don't build new content here — see `WAG_CONTENT_BUCKETS.md`'s explicit pushback on this bucket |
+| **Competition** | Head-to-head real stakes | MrBeast (elimination formats), FaZe Rug (escape-room crossovers) | **Yes, at small scale** | Two-sister or sister-vs-friend head-to-head formats — overlaps productively with the Relationship format above |
+
+**Honest gap, stated plainly:** Transformation and Hidden Identity are named formats in the broader creator-economy vocabulary that this research pass did not find strong real evidence for among the six creators studied. Rather than force a WAG application onto thin or absent evidence, they're logged here as open questions for a future research pass.
 
 ## Data-model note (per the WAG OS module-lens habit — not built, just named)
 

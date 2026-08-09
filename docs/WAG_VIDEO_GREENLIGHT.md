@@ -108,4 +108,27 @@ This entire document *is* the data-model note — the per-idea record above is t
 
 ---
 
-*Round 1 is logged above (2026-08-08, 10 real ideas). Append Round 2 the same way once the girls pick which of these 9 real candidates (everything but #10) actually go into production, and append real performance data + a postmortem to each record once published — that's what turns this from a scored list into a system that actually learns.*
+## Round 2 — real idea log (2026-08-09)
+
+**What changed since Round 1:** a deep, cited research pass (MrBeast, Ryan Trahan, Airrack, FaZe Rug, Salish Matter — full write-ups in `WAG_PATTERN_LIBRARY.md`) surfaced real, evidenced fixes for both Round 1's fixable ideas, plus one new format (Trapped/Confinement) with strong enough evidence to earn a real slot. Round 1's reject (#10, the travel idea) is **not re-scored** — a reject stays rejected until real new evidence changes the picture, per the system's own honesty discipline; it's referenced in `WAG_CREATOR_PLAYBOOK.md`'s Push Back section instead of being re-litigated here.
+
+| # | Idea | Change since Round 1 | Score | Decision |
+|---|---|---|---|---|
+| 1 | We Tested EVERY Viral Skincare Product Under $10 | Deepened with the Face-Trust Consistency pattern for the ending reveal | 12/14 | Green |
+| 2 | We Went to the Worst-Rated Escape Room in Texas | Deepened with Package-Before-You-Produce discipline | 11/14 | Green |
+| 3 | 24 Hours At the Real Marfa Lights | Deepened with Stair-Stepping checkpoint pacing | 12/14 | Green |
+| 4 | Who Knows Annabella Better: Her Sisters or Her Best Friend? | Deepened — Salish Matter's mechanic now has real, multi-source evidence behind it, not just one prior data point | 13/14 | Green |
+| 5 | We Let TikTok Decide Everything We Ate for 24 Hours | **Fixed** — adopts Ryan Trahan's real "Wheel of Doom" mechanic: a real, physical, on-camera randomizer built from real current TikTok trend data, spun live, so "TikTok decides" is honestly demonstrated instead of asserted | 12/14 | **Upgraded: Green** |
+| 6 | We Tried the Worst-Rated Ice Cream Shops In Our City | **Fixed** — explicitly sequenced apart from #2 on the real filming calendar, real ratings re-verification step written into pre-production | 11/14 | **Upgraded: Green** |
+| 7 | We Went Back to Investigate the Goatman's Bridge Legend | Deepened with the Location-Revisit pattern reasoning | 11/14 | Green |
+| 8 | We Survived On Only $1 Snacks for a Week | Deepened with a planned mid-week Re-engagement Beat (MrBeast pattern) | 12/14 | Green |
+| 9 | Guys Answer Questions: What Do Guys Actually Think Is a Red Flag? | Deepened — still the round's strongest, now cross-validated by the Face-Trust pattern | 13/14 | Green |
+| 10 | **NEW** — Trapped: 24 Hours, One Room, Three Sisters | New idea, built directly from the Airrack/FaZe Rug Confinement pattern, adapted to real people (not strangers) to sidestep the real safety/casting risk in the source material | 12/14 | Green |
+
+**Real reasoning behind the two upgrades:** both #5 and #6 were held back in Round 1 for a specific, named reason — not vague hesitation. Both fixes are real production decisions (a real on-camera randomizer; a real calendar/sourcing step), not just optimistic re-scoring. This is what the Greenlight loop is actually for: an idea doesn't die at "fixable," it gets a real fix and comes back.
+
+**What this round teaches:** every non-rejected idea from Round 1 is now Green — not because standards dropped, but because Round 1 already did its job catching the one idea with no real container (the rejected travel idea) and flagging two ideas that needed a specific fix before filming. A second round with fewer rejects than the first is what a working filter looks like, not evidence the filter went soft. Full write-ups (Comparable examples, Thumbnail concept, Producer notes, Risks, and all other expanded fields) for all 10 Round 2 ideas live in `WAG_CREATOR_PLAYBOOK.md`, Section 11.
+
+---
+
+*Round 1 (2026-08-08) and Round 2 (2026-08-09) are both logged above. Append Round 3 the same way once the girls pick which of these 10 real candidates actually go into production, and append real performance data + a postmortem to each record once published — that's what turns this from a scored list into a system that actually learns.*
