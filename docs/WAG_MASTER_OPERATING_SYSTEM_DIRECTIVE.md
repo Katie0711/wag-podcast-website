@@ -613,6 +613,8 @@ Katie's full addendum is preserved in session history. Mapped, not built, per he
 
 **Binding constraint carried forward:** do not score Revenue, Main, or Podcast until each has enough real evidence to score honestly — activity counts (leads found, reports written, messages drafted) never substitute for outcomes. Bring this online progressively, per department, once real evidence exists — not now.
 
+**Refined restatement received same day, same substance, sharper on three points — no new mapping needed, just noting what's sharper:** (1) the manager-report format is now explicit — `what changed → why → evidence → corrective action → owner → expected result → follow-up date`, not just "report decline"; (2) real per-department KPI lists given for Main, Podcast, Revenue, Books, Licensing, Marketing/Social — these become the actual scoring inputs once each department has evidence to score; (3) the CEO Operating Scorecard is explicitly *not* a personal grade — an operating-leverage diagnostic only (decision-queue age, delegation leverage, bottlenecks), never a judgment of Katie. Still not built. Still gated on real evidence existing first.
+
 Returning to the Revenue build.
 
 ---
