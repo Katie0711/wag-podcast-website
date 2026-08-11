@@ -392,11 +392,109 @@ For every proposed system/agent/feature ask: What business problem does this sol
 
 If those questions cannot be answered, do not build it yet.
 
+## 42. Contracts / Agreement Operations
+
+*Addendum, 2026-08-11. Additive to everything above — nothing prior is replaced, summarized away, or reprioritized.*
+
+Build toward an attorney-approved WAG Agreement Library and contract workflow.
+
+Potential agreement categories include: Podcast Guest Appearance/Release, Video/Collaboration Appearance Release, Name/Image/Likeness/Voice releases, parent/guardian/minor releases where applicable, NDA/confidentiality agreements, independent contractor agreements, IP/work-product assignments where appropriate, creator collaboration agreements, sponsorship/brand agreements, content licensing agreements, distribution agreements, location/property releases where needed, book contributor/writer/illustrator agreements, music/media/third-party asset licenses, other attorney-approved forms WAG actually requires.
+
+AI must NOT invent legal forms and declare them legally sufficient. Templates should be attorney-approved, versioned, and linked to the project/person/asset/deal for which they were signed. Build toward rules that know which approved document is required before recording, publishing, licensing, paying, distributing or otherwise exploiting an asset.
+
+## 43. Rights / Chain-of-Title (expanded)
+
+For valuable WAG assets, eventually track: owner, copyright/rights status, contributors, releases, talent rights, music/assets, location rights, licenses, restrictions, derivative rights, evidence/supporting agreement, where/how WAG may monetize the asset.
+
+The system should eventually answer: Can WAG legally publish, clip, dub, translate, license, distribute, adapt into a book, create derivatives from, or otherwise monetize this asset — and what executed documents support that conclusion? Do not let AI inference substitute for actual legal documents.
+
+## 44. Licensing Operations
+
+Treat licensing as a real business function. For each license track where applicable: licensee, assets/titles, agreement, rights granted, rights retained, exclusivity, territory, language, media/platform, term, start/end, renewal, notice deadlines, payment terms, reporting obligations, usage restrictions, permitted edits, translation/dubbing rights, derivative rights, sublicensing, brand protections, termination, revenue, payment history, performance.
+
+Preserve the fact that WAG owns its educational video library and currently licenses educational content to Epic, with annual renewals and approximately 7 million quarterly views on Epic. Do not infer contractual rights from that statement. Actual executed agreements remain the source of truth for the scope of rights granted/retained.
+
+## 45. Accounts Receivable / Collections
+
+Build toward a real AR system so Katie never has to remember who owes WAG money. Track: customer/licensee/sponsor, contract/deal, invoice, amount, invoice date, due date, payment terms, paid amount, balance, status, days overdue, contacts, follow-ups, replies, promises to pay, escalation stage, next action, dispute, resolution.
+
+Create a controlled escalation workflow: upcoming → due → reminder → overdue → follow-up → alternate AP/contact escalation → Katie decision → attorney/collections escalation where warranted.
+
+AI may identify overdue accounts, prepare communication, recommend next steps and track responses. It must not autonomously threaten litigation, send legal demands, engage collection agencies, settle disputes, waive amounts, or make legal commitments without the required authority/approval.
+
+## 46. Contract Obligations
+
+Track both sides of every important agreement: What does WAG owe them? and What do they owe WAG? Track deliverables, payment, reporting, renewal, notice, usage, approvals, deadlines and other material obligations. Alert before deadlines, not after.
+
+## 47. Contract Intelligence
+
+Build toward structured extraction from executed agreements: parties → dates → rights → restrictions → money → deliverables → obligations → renewals → notice periods → termination → exclusivity → territories → responsible owner. Every material extracted fact should retain provenance to the executed source document/clause/page where technically possible. The executed agreement remains authoritative when AI extraction disagrees.
+
+## 48. International Growth / Localization (expanded)
+
+Expand the International/Localization gap (recorded in the gap analysis below) into a real future growth function covering: international YouTube demand, YouTube automatic dubbing, human/professional dubbing, multi-language audio, translated titles/descriptions, international licensing, localized books, foreign publishing rights, international distributors/platforms, territory economics, localization quality control.
+
+Do not automatically dub everything. Build toward evidence-based language/asset prioritization using geography, content/topic universality, historical performance, licensing evidence, market size, cost, translation difficulty and monetization potential. Evaluate the educational library separately because evergreen educational subjects may have materially different international potential from current teen-entertainment WAG.
+
+Before international exploitation, Rights/Chain-of-Title and existing licensing agreements must be checked for territory/language/exclusivity restrictions.
+
+## 49. Dubbing Experimentation
+
+Record YouTube's current automatic dubbing/multi-language capabilities as an opportunity for later testing. Design an experiment rather than a mass rollout: choose high-potential assets → select languages → review dub quality → publish → measure international reach/watch time/retention/revenue → compare against control/history → decide whether to expand or invest in professional dubbing.
+
+## 50. Payment / Deal Health
+
+Add future executive visibility for: money owed to WAG, overdue money, upcoming invoices, renewals, contract deadlines, deliverables owed by WAG, deliverables owed to WAG, unresolved disputes, high-risk counterparties. This should eventually feed Revenue Pulse (§7) and the Chief of Staff's Needs Katie queue (§1).
+
+## 51. Keep the Existing Architecture Intact
+
+These requirements (§42-50) are additional pieces of the already-approved WAG OS architecture. Do not lose or replace: WAG Main, WAG Podcast, Chief of Staff/Executive Operator, Revenue & Partnerships, Marketing/Growth, Social/Distribution, Campaigns, Owned Audience/CRM, Books/Amazon, Products/Commerce/Licensing, Collaborations/Relationships, PR/Speaking, Strategy, External Intelligence/R&D, Opportunity/Venture Lab, Finance/Capital Allocation, Operations, Brand Guardian, Legal/IP/Risk, Technology/Data/Security, company-wide learning loops, postmortems, Standards Board, Growth Missions, decision memory, agent evaluation, cost governance, Talent Management, Talent Development/Succession, Crisis/Reputation Response, Key-Person/Business Continuity, Entity/Accounting Architecture, International/Localization, Rights/Chain-of-Title, Distribution/Platform Dependency Risk, Educational Content/IP Library.
+
+Added to the master gap analysis as planned architecture, not immediate build work. When Contracts/Rights/AR implementation is eventually reached, first inventory what agreements, invoices, licensing records, rights documents and existing systems WAG already has — extend rather than duplicate. Do not build legal automation that exceeds AI authority — Katie and qualified counsel remain the authority for consequential legal decisions.
+
+## 52. Implementation Standard for §42-50
+
+*Addendum, 2026-08-11, same day.* Do not interpret §42-50 as a request merely to create tables, documents, dashboards or a collection of legal templates. The eventual WAG OS implementation must create operational workflows that connect events → requirements → evidence → decisions → actions → outcomes → learning. Examples of the intended standard:
+
+**Podcast guest booked** → identify required attorney-approved release → check whether current executed release exists → flag missing requirement before filming → link executed agreement to person + episode → record relevant rights/permissions → clear or block publication according to approved policy.
+
+**Collaboration planned** → identify required agreement/releases → check signatures → establish ownership/reuse/likeness rights from executed documents → flag ambiguity for human/counsel review → clear project.
+
+**Existing video considered for book/dubbing/licensing** → identify source asset → retrieve rights/chain-of-title evidence → inspect relevant existing licenses/restrictions → determine what rights appear available → escalate legal uncertainty rather than guessing → then allow commercial evaluation.
+
+**Licensing agreement executed** → record rights granted/retained → create obligations/deadlines → create invoicing/payment expectations → monitor reporting/payment/renewal → alert responsible department → escalate exceptions.
+
+**Invoice becomes overdue** → detect automatically → show amount/days overdue/history → recommend appropriate next communication → log communication → monitor response/payment → escalate according to approved policy → require Katie/counsel authorization for consequential legal action.
+
+**International opportunity detected** → identify asset/market/language → check rights availability → estimate opportunity/evidence → recommend low-cost validation experiment → measure result → determine whether to scale.
+
+## 53. Executive Visibility Standard
+
+These systems must ultimately feed the CEO/Chief-of-Staff operating layer (§1) rather than requiring Katie to hunt through departments. Katie should eventually be able to ask natural-language questions such as: Who owes WAG money? What's overdue? What contracts renew soon? What requires my signature? What guest/collab releases are missing? What obligations are due this month? What rights does WAG have for this video? Can this asset be dubbed/licensed/adapted? What rights have already been granted? Which educational assets are producing licensing value? Which assets should become books? What international opportunities are emerging? What needs my attention today?
+
+The Chief of Staff should proactively surface material exceptions through Needs Katie, rather than waiting for Katie to ask.
+
+## 54. Source-of-Truth Standard
+
+Never allow an AI summary of a contract to become the legal source of truth. Preserve: executed document → structured extraction → source citation/provenance → operational rule/action. If extracted data and the executed document conflict, the executed document wins and the discrepancy is flagged. Material legal interpretations should be escalated rather than guessed.
+
+## 55. Authority Standard
+
+AI employees may: detect, organize, extract, monitor, research, analyze, recommend, draft, remind, prepare.
+
+They may not autonomously: execute agreements, waive rights, grant licenses, modify material contractual terms, settle disputes, threaten litigation, initiate collections/legal proceedings, bind WAG financially or legally, make consequential legal interpretations where counsel is required.
+
+Those remain within Katie/counsel's authority according to the Company Constitution/capability system.
+
+## 56. Do Not Build This Now
+
+Record §42-55 as a complete operating model in the master architecture and gap analysis. Do not interrupt the currently approved sequence: Spotify/Apple capability research → dedicated WAG Podcast architecture → highest-ROI intelligence/business operating layer. When this area reaches implementation, first inventory WAG's actual existing contracts, releases, invoices, licensing agreements, counterparties and workflows before designing schemas or software — extend reality, do not invent a parallel WAG. Continue applying the standing security requirements (§24) to every new table, connector, secret, function and migration this eventually requires.
+
 ---
 
 ## Gap analysis (in progress) — organizational/risk functions not yet named in the org structure
 
-**Status: eight items recorded 2026-08-11, all classified MISSING (not built, not partially built) against the org structure in §2. This is a running installment of the full gap analysis promised above, not the complete pass — the complete implemented/partial/planned/missing/duplicated/contradictory review against all 41 sections is separate, larger work, deliberately not done in the same pass as active connector/data engineering per Katie's explicit instruction not to let gap analysis become an infrastructure detour.** Do not build any of these now unless a current dependency requires it.
+**Status: fifteen items recorded 2026-08-11, all classified MISSING (not built, not partially built) against the org structure in §2. This is a running installment of the full gap analysis promised above, not the complete pass — the complete implemented/partial/planned/missing/duplicated/contradictory review against all 56 sections is separate, larger work, deliberately not done in the same pass as active connector/data engineering per Katie's explicit instruction not to let gap analysis become an infrastructure detour.** Do not build any of these now unless a current dependency requires it.
 
 1. **Cast/Talent Management** — protects and *develops* the on-camera talent: contracts, likeness rights, age-appropriate work-hour/schedule protections, and (per Katie's 2026-08-11 addition) long-term development — strengths, hosting/speaking development, career growth, individual-vs-group opportunity, future leadership responsibility, continuity as the girls mature. Explicitly not reducible to scheduling or contracts alone.
 2. **Crisis & Reputation Response** — what WAG actually *does* when something goes wrong (controversy, platform demonetization, an incident involving a minor on camera). Distinct from Brand Guardian, which is a decision-time lens preventing problems, not a response plan for when one happens anyway.
@@ -406,6 +504,15 @@ If those questions cannot be answered, do not build it yet.
 6. **Talent Development & Succession** — see item 1; called out as its own line per Katie's explicit instruction not to fold it into scheduling/contracts. Long-term development and eventual leadership continuity are a distinct concern from the protective/legal side of Talent Management.
 7. **Rights / Asset Chain-of-Title** — a durable record proving what WAG can actually use, license, and monetize: ownership, usage rights, licenses, restrictions, derivative rights, supporting agreements and proof. Increasingly load-bearing as books, licensing, archive reuse, sponsorship creative, podcast content, and future IP expansion all depend on provable rights, not assumed rights. Directly feeds `WAG_EDUCATIONAL_IP_LIBRARY.md`'s licensing fields — that document assumes chain-of-title exists somewhere; this is where it would actually live.
 8. **Distribution / Platform Dependency Risk** — Strategy/Finance function tracking concentration risk across YouTube, Epic, Amazon, Spotify/Apple, sponsors, licensing partners, and future platforms/customers. Ties directly to the diversification and owned-asset strategy already named in the North Star (§39) and Owned Audience (§11) — this is the risk-side measurement that would tell WAG how exposed it actually is to any single dependency.
+9. **Contracts / Agreement Operations** (§42) — an attorney-approved, versioned Agreement Library linked to the project/person/asset/deal each document covers, with rules for which approved document is required before recording, publishing, licensing, paying, or distributing anything.
+10. **Licensing Operations** (§44) — licensing treated as its own business function with a full per-license field set (grantee, rights granted/retained, exclusivity, territory, term, renewal, payment, reporting), not folded generically into Rights/Chain-of-Title.
+11. **Accounts Receivable / Collections** (§45) — a real AR system with a controlled escalation workflow (upcoming → due → reminder → overdue → follow-up → escalation → Katie/counsel), so no one has to remember who owes WAG money.
+12. **Contract Obligations** (§46) — tracks both directions of every material agreement (what WAG owes vs. what WAG is owed) with deadline alerts before, not after.
+13. **Contract Intelligence** (§47) — structured extraction from executed agreements with provenance to the source document/clause, where the executed agreement always wins over any AI extraction.
+14. **Dubbing Experimentation** (§49) — a designed experiment (not a mass rollout) for testing YouTube's automatic dubbing on high-potential assets before any professional-dubbing investment decision.
+15. **Payment / Deal Health** (§50) — executive visibility across money owed, overdue amounts, renewals, and deadlines, feeding Revenue Pulse (§7) and the Chief of Staff's Needs Katie queue (§1).
+
+**Two items from the original eight are now substantially expanded by the §42-56 addendum, not superseded:** item 5 (International/Localization) is expanded in full by §48-49; item 7 (Rights/Chain-of-Title) is expanded in full by §43. Both original list entries stay as the short-form index; §43/§48-49 are the authoritative detail.
 
 **The conceptual boundaries between adjacent items, preserved explicitly per Katie's instruction so future work doesn't blur them:**
 - Brand Guardian protects the brand/content.
