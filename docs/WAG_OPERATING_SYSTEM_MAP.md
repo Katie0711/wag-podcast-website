@@ -68,6 +68,7 @@
 | `SEARCH_CONSOLE_BASELINE.md` | Standing SEO/AEO/GEO technical baseline | `internal/content-refresh-tracker.md` (wildadventuregirls-website) |
 | `WAG_AGENT_ARCHITECTURE.md` | Design-only spec for future specialized agents | Every doc above (each proposed role reads/writes specific real docs, named in that spec) |
 | `wag-publishing-engine/docs/WAG_KNOWLEDGE_HANDOFF.md` | Brand/audience/IP knowledge for the separate books project | Kept deliberately isolated from the website repos |
+| `WAG_REVENUE_PARTNERSHIPS_FOUNDATION.md` | Real inventory (not assumed): no sponsor CRM/spreadsheet exists anywhere in either repo, all 3 Netlify sponsor-form submissions are internal QA tests not real leads, Gmail is inaccessible this session and is the most likely real source of truth. Proposes a `partners`/`deals`/`deal_events`/`invoices` schema for Katie's review, explicitly not built yet | Gated on Katie reconnecting Gmail and confirming whether any external system (spreadsheet, accounting tool) already exists before schema is finalized |
 
 ## How they connect (without merging)
 
