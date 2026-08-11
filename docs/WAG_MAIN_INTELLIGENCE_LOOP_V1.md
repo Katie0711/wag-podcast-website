@@ -2,7 +2,7 @@
 
 **One executive question this module answers: can WAG OS, using WAG's own real data, make a materially better creative decision than gut instinct alone — and can it show its work?**
 
-**Status: v1, 2026-08-11. Real methodology + one real end-to-end test, run against actual WAG Main first-party data (50 ingested videos, real retention curves, real traffic sources) and an actual pending idea from `video_ideas`.** This is deliberately narrow — four specialists and one Greenlight pass, not five more departments — per Katie's instruction to prove the loop before expanding it. WAG Podcast gets its own version of this once this one demonstrates real judgment, built on Podcast-specific evidence, not copied logic.
+**Status: v1.1, 2026-08-11.** v1 proved the loop with retention *curves* alone. v1.1 (this revision) adds the retention-to-content alignment layer Katie asked for next — connecting the curve's timestamps to what was actually happening in the video, using a small real sample (2 videos), and re-runs the garage idea to check whether the recommendation gets more specific. This is deliberately narrow — not five more departments — per Katie's instruction to prove each layer before expanding it. WAG Podcast gets its own version of this loop once it demonstrates real judgment, built on Podcast-specific evidence, not copied logic.
 
 ---
 
@@ -91,6 +91,51 @@ Comparing video 26 (closest real comp) against video 33, *"Flying to LA for the 
 **Confidence justified:** MODERATE. Grounded in one real, correctly-segmented comparable video with genuine retention and traffic evidence — better than the idea's original citation (an unevidenced pre-pivot video), but still n=1 for this specific mechanism.
 
 **What remains unknown:** the actual on-screen cause of the 5-minute dip and both recovery spikes (needs transcript/story-beat review); whether Packaging or content is driving the lower Suggested traffic (needs Reporting API thumbnail/CTR data); whether this pattern holds across more than one confinement/challenge video (needs a second real data point).
+
+---
+
+---
+
+## v1.1 — Retention-to-Content Alignment (2026-08-11)
+
+### What data source is actually real here
+
+Full dialogue transcripts are **not accessible** with WAG's current OAuth scope: `captions.list` and `captions.download` both require `youtube.force-ssl` or `youtubepartner`, broader than the connector's `youtube.readonly` — confirmed directly against Google's own API docs, not assumed. Requesting that scope is a real security decision (a new, more powerful permission) that hasn't been made and isn't being made silently here.
+
+Instead, this pass uses a real source that's already ingested and requires no new scope: **WAG's own chapter markers**, written by WAG into both comparable videos' real descriptions (`yt_raw_observations.raw_response->'snippet'->>'description'`, `metric_source = 'youtube_data_api'`). These are WAG's own real, self-authored breakdown of each video's structure — genuine editorial data, not transcript, and not fabricated. 37 real segments were logged (19 for video 26, 18 for video 33) in a new `video_segments` table, each classified into Katie's taxonomy (story beat, escalation, reveal, rule change, etc.) based on WAG's own real chapter titles.
+
+### Real alignment: video 26 ("Surviving 24 Hours of Embarrassing Challenges at VidCon!")
+
+| Retention event (from the real curve) | Real timestamp | What WAG's own chapter marker says was happening |
+|---|---|---|
+| Retention bottoms out (`relativeRetentionPerformance` = 0.225, the low point of the whole video) | ~5:04 (ratio 0.23) | **"How Many Creators Can We Meet?"** — a passive, wandering, low-stakes beat, classified `story_beat` with no escalation or new rule attached |
+| Sharp recovery spike (relative performance climbs to 0.510) | ~6:31-7:09 (ratio 0.30-0.33) | Falls right at the transition from **"We Ran Into Famous YouTubers"** (`reveal`) into **"Free Stuff Challenge at VidCon"** (`rule_change`) — a new competitive mechanic starting |
+| Second, later spike (relative performance climbs from 0.286 to 0.470) | ~17:28 (ratio 0.79) | **"Escaping VidCon"**, classified `escalation` — a real climax/release beat |
+
+### Real alignment: video 33 ("Flying to LA for the Craziest Weekend Ever!", the channel's strongest comparable)
+
+Unlike video 26, this video's early stretch (0-25% of runtime) shows **no comparable dip** — `relativeRetentionPerformance` climbs steadily from 0.25 to 0.53 across exactly the segments **"Packing Was a HUGE Mistake"** (`story_beat`) → **"Airport Problems Begin"** (`escalation`) → **"The Wheel Changes Everything"** (`rule_change`) → **"This Was Disgusting"** (`reveal`) — a dense run of escalating, stakes-carrying beats with no passive/wandering segment in that window. Its strongest single peak (0.668, the highest relative-performance point in either video) falls within **"This Airbnb Was NOT What We Expected"** (`reveal`), right before a scene change to VidCon.
+
+### The real cross-video association (n=2 — stated as directional, not proof)
+
+1. **A passive/wandering beat with no escalation or rule change coincided with the one real retention low point found across both videos.** Evidence count: 1 for 1 (video 26's only such beat is exactly where it dips; video 33 has zero such beats in its equivalent window and shows no dip there). This is a real, specific, testable pattern — not a proven one.
+2. **A transition into something new — a rule change, a challenge starting, or a reveal right before a scene change — coincided with both videos' single strongest recovery spike.** Evidence count: 2 for 2, though the exact segment type differed (`rule_change` in video 26, `reveal`-into-`scene_change` in video 33), so the honest pattern is "a transition/anticipation moment," not one narrow segment type.
+3. **An escalation/climax beat late in the video coincided with a real late recovery** in video 26. Video 33 has no equivalent late escalation beat to compare against (its late chapters are `open_loop_payoff` — a resolution/cliffhanger, not escalation), so this association has no second data point to test against yet.
+
+**What would upgrade this from directional to real pattern:** the same alignment run against 5-10 more comparable videos. Two data points is enough to generate a specific, testable hypothesis — not enough to call it proven, and this document does not call it proven.
+
+### Re-running Video Idea #6 with this new layer
+
+**Original v1 recommendation** (curve data only): "restructure whatever occupies the 5-8 minute mark" and "front-load a real stake into the first 90 seconds."
+
+**v1.1 recommendation — materially more specific, using the same real evidence:**
+
+1. **Do not place a passive, low-stakes "how many/how much" wandering beat around the 5-minute mark of the garage video.** That's the exact structural position where the one real comparable with such a beat lost the most ground. If the garage concept needs a search/discovery beat at all (e.g. "how many things can we find in this garage"), move it earlier or later than the 20-25% mark, or attach a real rule/stake to it so it isn't passive.
+2. **Build a genuine rule-change or reveal moment to land around the 30-35% mark** (for a garage-lockdown video, this could be a real rule escalating the challenge, or the first genuine reveal of what's actually in the garage) — both real comparables show their strongest recovery exactly at this kind of transition, not before or after it.
+3. **Plan a real escalation/climax beat in the final quarter of the video** — for a confinement-format video, the literal "release/escape" moment (the reveal of whether they make it the full 24 hours, or an early rule-break) is a strong structural analog to video 26's "Escaping VidCon" beat, which produced its clearest late recovery.
+4. **Confidence stays MODERATE, not higher** — this is still n=2 for the cross-video pattern itself, even though the alignment within each video is real and specific. The recommendation is more actionable, not more certain.
+
+This is the standard Katie set: not "make the intro more engaging," but *where the drop happened → what was actually happening there → whether it repeats → what to change next time* — with the repeat-count stated honestly as 2, not inflated.
 
 ---
 
