@@ -536,6 +536,27 @@ Record §42-55 as a complete operating model in the master architecture and gap 
 
 ---
 
+## 58. Data Integrity / Retrieval Completeness Standard (added 2026-08-11)
+
+**The rule, stated once so it never needs restating per-connector: absence of retrieved evidence is never evidence of absence when the underlying retrieval was incomplete or failed.** "This search found nothing" and "this search couldn't finish" are different claims, and no WAG OS agent may collapse the second into the first.
+
+**Origin, kept here as the reason this is now permanent, not hypothetical:** the original Gmail recovery pass silently dropped a real, substantive sponsorship thread (Pop&Boom/PolyBuzz) because a handful of per-message fetches failed and the code discarded them with no error, no count, and no signal — the response was indistinguishable from "no such message exists." Katie caught it only because she personally remembered the deal. The fix (`gmail-recovery-search/reliability.ts`, `WAG_REVENUE_RECOVERY_PASS_FINDINGS.md` §12) is connector-specific; this section is the general rule every future connector must follow.
+
+**What every retrieval-based connector/tool must do, at minimum:**
+1. Record how many items the underlying source reported as matching (e.g. Gmail's list-call count) — not just how many were successfully retrieved.
+2. Record how many were successfully retrieved.
+3. Record how many failed, and preserve their identifiers (not their content) so a targeted retry is possible without re-running a broader, less bounded search.
+4. Distinguish a transient/technical failure (network error, API error, timeout) from a genuine non-match. A failure is never silently reclassified as "didn't match."
+5. Retry transient failures a small, bounded number of times before giving up — never an unbounded retry loop, never a single silent attempt.
+6. Expose a single, explicit completeness signal (e.g. `complete: true/false`) that every downstream consumer — human or agent — must check before treating a result set as exhaustive.
+7. When `complete` is false, any agent or report built on that result must say so explicitly ("retrieval was incomplete — N items could not be confirmed") rather than asserting a negative ("no such record exists," "nothing was found").
+
+**This is a data-integrity requirement, not a privacy or scope requirement.** Fixing retrieval completeness never means broadening what a tool is allowed to search, list, or access — Gate 1/Gate 2-style purpose-limiting boundaries (Email Intake Architecture, and any future connector's equivalent) stay exactly as scoped. Completeness and privacy are independent axes; this section governs only the first.
+
+**Applies beyond Gmail.** Any future connector — Spotify/Apple Podcasts, an accounting-system integration, a licensing-platform API (§ new Licensing Opportunity Intelligence work), a broadcaster/distributor connector, or anything else that retrieves a bounded result set from an external source — inherits this standard by default. A connector that cannot show its match count, fetch count, failure count, and a `complete` signal is not finished, regardless of how well its happy path works.
+
+---
+
 ## Gap analysis (in progress) — organizational/risk functions not yet named in the org structure
 
 **Status: fifteen items recorded 2026-08-11, all classified MISSING (not built, not partially built) against the org structure in §2. This is a running installment of the full gap analysis promised above, not the complete pass — the complete implemented/partial/planned/missing/duplicated/contradictory review against all 56 sections is separate, larger work, deliberately not done in the same pass as active connector/data engineering per Katie's explicit instruction not to let gap analysis become an infrastructure detour.** Do not build any of these now unless a current dependency requires it.

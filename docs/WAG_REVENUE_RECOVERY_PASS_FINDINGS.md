@@ -148,7 +148,11 @@ Applied to real inbound messages, not hypothetical:
 - Retry a failed individual fetch once before giving up, given the failures are known to be transient/client-side rather than server-side.
 - Log fetch failures to `activity_log` alongside the existing sanitized query/result-count summary, so a pattern of silent loss would be visible in aggregate even if no one happens to catch a specific miss by name, the way Katie did here.
 
-**Recommendation, not yet implemented:** add the three items above to `gmail-recovery-search`. This is a reliability/observability fix scoped to the tool's own fetch layer — it changes nothing about what the tool is allowed to search or return, and requires no change to the account scopes, the query-required design, or any other part of the Email Intake architecture's privacy model.
+**Status: implemented and verified, 2026-08-11 (same day as diagnosis).** All three items above are live in `gmail-recovery-search` (version 3), backed by a new pure, unit-tested module (`reliability.ts` / `reliability.test.ts`, 8 passing regression tests proving a simulated failed fetch can never silently disappear). The response now carries `messages_matched`, `messages_fetched`, `messages_failed`, `complete`, and `failed_message_ids` (opaque IDs + failure reason, never content); a `retry_ids` mode allows re-fetching specific previously-failed IDs without re-running Gate 1's search. This is a reliability/observability fix scoped to the tool's own fetch layer — it changes nothing about what the tool is allowed to search or return, and required no change to the account scopes, the query-required design, or any other part of the Email Intake architecture's privacy model.
+
+**Regression verification, run against the live fixed function:** the exact Pop&Boom query (`popboomlab.com OR from:alexzhang@popboomlab.com OR to:alexzhang@popboomlab.com`, `GMAIL_LEGACY_INTAKE`, `max_results:25`) was re-run. Result: `messages_matched: 16`, `messages_fetched: 16`, `messages_failed: 0`, `complete: true` — the full thread (`threadId 19f669167a66c816`) recovered in one pass, chronology matching Section 11 exactly. The fix is confirmed working on the real case that exposed the original bug, not just in unit tests.
+
+**The general principle this instantiates is now permanent WAG OS policy, not specific to Gmail:** absence of retrieved evidence is never evidence of absence when retrieval was incomplete or failed — every future connector inherits this requirement. Recorded in `WAG_MASTER_OPERATING_SYSTEM_DIRECTIVE.md` §58 and cross-referenced in `WAG_REVENUE_EMAIL_INTAKE_ARCHITECTURE.md`'s Gate 1 description.
 
 ## 13. Epic! — a second real licensing relationship, outside the Gmail recovery scope
 
@@ -164,6 +168,25 @@ Applied to real inbound messages, not hypothetical:
 **What's deliberately not reproduced here:** the source documents contain WAG's registered business filing address and phone number, and Epic's own corporate address. Per data minimization (Consolidated §21) and the standing girls/family-privacy practice, neither is reproduced in this document — they add no value to the Revenue schema (which needs company name, relationship type, and pricing model, not street addresses) and reproducing them here would be unnecessary exposure of otherwise-narrow business records.
 
 **What this changes about Section 1's framing:** the "one real, multi-year, structured licensing relationship found in this recovery" language describing Kidoodle should now be read as "the one such relationship found *through Gmail search specifically*" — Epic! is a second, real, comparably (here, larger) significant licensing relationship, found through a different and equally legitimate channel (Katie's direct provision). Revenue's real licensing business is evidently broader than the Gmail-only recovery pass alone would suggest — a genuine reason to eventually ask Katie whether other real business relationships exist outside both connected inboxes entirely, rather than assuming Gmail is a complete picture of WAG's commercial history.
+
+### 13a. Classification correction (added 2026-08-11, per Katie's explicit instruction): Epic's $345/video is NOT a benchmark
+
+**Katie flagged this directly, and it's recorded here so no future read of this document draws the wrong conclusion:** Epic's rate must never be treated as a WAG licensing benchmark, a market rate, a recommended rate, a comparable-transaction rate, or a starting point for any other licensing negotiation. It is a relationship-specific number, evidenced this way:
+
+| Field | Value |
+|---|---|
+| Counterparty | Epic |
+| Revenue type | Content licensing |
+| Pricing type | **Relationship-specific negotiated rate** |
+| Current observed Epic rate | $345/video |
+| Relationship characteristic | Long-term / recurring — real evidence of a licensing relationship spanning nearly 10 years, with Epic regularly adding/renewing WAG content roughly annually |
+| Pricing history | Periodically increased over the life of the relationship (per Katie; not independently re-derived from these two documents alone, which show only the current renewal) |
+| Market-benchmark eligibility | **NO** |
+| Reusable as another buyer's price | **NO** |
+
+**The distinction this system must hold at all times, restated for licensing specifically:** relationship-specific historical pricing (Epic's $345) is a different fact from current WAG asking price (Katie's `WAG_Partnership_Options.pdf` sponsorship rates), which is different again from observed external transaction evidence, which is different from an industry market benchmark, which is different from a Pricing Intelligence recommendation. None of the four may silently stand in for another. This extends the tiered-evidence discipline already standing for sponsorship pricing (Consolidated §16a) to licensing specifically, and adds a category §16a didn't yet need: **a real, dated, evidenced number that is valid only for describing one specific counterparty relationship — never generalized.**
+
+**Full spec for the proactive Licensing Opportunity Intelligence function this case motivates, the Pricing Intelligence rule for new licensing opportunities, and the larger "next 25 companies" strategic direction:** `WAG_REVENUE_PARTNERSHIPS_CONSOLIDATED_ARCHITECTURE.md` §35-36.
 
 ---
 
