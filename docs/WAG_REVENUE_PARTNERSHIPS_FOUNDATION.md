@@ -2,7 +2,7 @@
 
 **One executive question this module answers: who have we worked with, who are we talking to, what did we charge, what happened, who owes us money, who should we follow up with, what's active?**
 
-**Status: inventory complete, architecture proposed, nothing built yet.** Per Katie's explicit instruction (2026-08-11): inventory what already exists across real systems before designing schema, and extend existing infrastructure rather than immediately standing up a parallel CRM. This document is that inventory and the resulting proposal — implementation waits for Katie's review.
+**Status, updated 2026-08-11: inventory complete, architecture drafted but explicitly PAUSED pending a real historical business-memory recovery pass.** Per Katie's explicit instruction: inventory what already exists across real systems before designing schema, and extend existing infrastructure rather than immediately standing up a parallel CRM. Section 1-6 below is that first-pass inventory (real, still valid as a description of what's in WAG's *codebase and public-facing systems*). Katie corrected one framing after reviewing it: **Gmail being inaccessible from this Claude session is a session/connector limitation, not evidence that WAG lacks real email history** — that correction, the corrected target inbox, and the recovery plan it drives are in Section 7. **Do not build the Section 5 schema until the recovery pass in Section 7 has run and the schema has been revised against what it actually finds.**
 
 ---
 
@@ -57,12 +57,12 @@ No spreadsheet, no accounting software (QuickBooks/Wave/etc.), no separate CRM (
 ## 4. What requires Katie, what requires a connector, what can be done autonomously
 
 **Requires Katie directly (cannot be inferred or built around):**
-- Reconnect the Gmail integration (`thewildadventuregirls@gmail.com`) so real outreach/contract/invoice history can actually be searched, rather than continuing to work from a system that's known to be empty.
-- Confirm whether any spreadsheet, accounting tool, or informal tracking already exists outside these two repos (a Google Sheet, Notion, a folder of PDFs) — if so, that changes the inventory picture materially and should be checked before schema design, not after.
-- Supply (or confirm from memory) the real history behind Nintendo, UpFaith & Family/Heartland, and Epic — what was actually charged, when, what the deliverables were, current status — since none of that exists in any system reachable from here.
+- Reconnect the Gmail integration so real outreach/contract/invoice history can actually be searched, rather than continuing to work from a system that's known to be empty. **Corrected target, per Katie:** the canonical business inbox is `partners@wagstudios.co`, not `thewildadventuregirls@gmail.com`. See Section 7 — the Google identity currently connected in this environment (Calendar, Beehiiv) is `thewildadventuregirls@gmail.com`, so reconnecting Gmail specifically against `partners@wagstudios.co` is very likely a distinct, separate authorization step, not something that falls out of the existing connection.
+- Confirm whether any spreadsheet, accounting tool, or informal tracking already exists outside these two repos and outside what Section 7's connector inventory found — if so, that changes the picture and should be checked before schema design, not after.
+- Where a document (contract, invoice, signed agreement) exists only as a file — not in an email thread this environment can reach — Katie can provide it directly per her own instruction; see Section 7's controlled ingestion workflow for how it gets recorded without losing the original.
 
 **Requires a connector (technical work, not yet built):**
-- Once Gmail is reconnected, a structured pass to extract real sponsor/licensing threads (search by known counterparty names first — Nintendo, Epic, UpFaith & Family/Heartland — then broader terms) into a durable, queryable record, rather than re-searching email by hand every time this comes up. This is real, bounded work, not speculative.
+- Once Gmail is reconnected against `partners@wagstudios.co`, a bounded, representative extraction pass — not a full mailbox ingestion — per Section 7.
 
 **Can be done autonomously once the above exists:**
 - Design and build the actual schema (contacts, relationships, deals, campaigns, invoices/AR) once real data exists to design it *against* — building it now, against zero real rows, risks guessing at a shape that doesn't match how WAG's real deals actually work.
@@ -101,4 +101,48 @@ This keeps the sequencing Katie set: evidence foundation first, schema second, i
 
 ---
 
-*Cross-referenced in `WAG_OPERATING_SYSTEM_MAP.md`. Update this doc the same session any of Sections 2-4's findings change — particularly once Gmail is reconnected, since that is very likely to materially change Section 2's "no real history found" conclusion.*
+## 7. Correction, connector inventory, and the recovery plan (added 2026-08-11, after Katie's review)
+
+**Correction Katie made, preserved verbatim in substance:** Gmail being inaccessible from this Claude session is a limitation of this session's connector authorization, not evidence that WAG lacks real Gmail business history. Section 2-4 above should be read as "not found in the systems this session could reach" — never as "doesn't exist." This section replaces the earlier framing everywhere it appeared.
+
+**Connector inventory — checked directly, not assumed, before asking Katie to reconnect or supply anything manually:**
+
+| Connector | Status in this environment | What it's tied to | Relevance to Revenue & Partnerships |
+|---|---|---|---|
+| Gmail | Connected but requires reconnection this session (`search_threads` fails with a permissions error) | Unconfirmed which account — likely `thewildadventuregirls@gmail.com` based on the pattern below, not `partners@wagstudios.co` | The single most likely real source of truth for outreach/negotiation/contract/invoice history. **Needs Katie to reconnect specifically against `partners@wagstudios.co`**, the canonical business inbox per her instruction — not assumed to be the same reconnection as the personal account. |
+| Google Calendar | **Connected and working**, checked live via `list_calendars` | `thewildadventuregirls@gmail.com` — confirmed by real calendar names returned (family calendar, several homeschool classroom calendars, holidays) alongside the account's own primary calendar | Real, usable today for a targeted search of meeting history if/when specific counterparty names are known (e.g., "did WAG ever have a call with X") — not yet used, since Section 2's counterparty list is still thin. |
+| Beehiiv | **Connected and working**, checked live | Real WAG account — `get_current_user` confirms `thewildadventuregirls@gmail.com`, workspace "Catherine's Hiiv," publication "WAG Insider" | **Directly relevant and checked**: Beehiiv has a real Direct Sponsorships feature (`sponsorship_agreement_items`, `sponsorship_products`) built for exactly this. Checked live: **0 sponsorship agreement items exist** (consistent with every other finding in this doc), and the Products feature itself returned "not available on your current plan" — WAG's Scale-tier Beehiiv plan doesn't include it. Confirms rather than contradicts Section 2, and identifies a real, already-connected future inventory/offer surface once Katie decides it's worth the plan upgrade. |
+| Netlify | Connected, already used (Section 2's form-submission pull) | Both real WAG sites | Already fully mined — no further revenue-relevant data beyond the 3 QA-test submissions found. |
+| Adobe Creative Cloud / Express | Connected, asset/design tooling | Unconfirmed account scope | No evidence it's used as a contract/document repository; not checked further since nothing suggested it would be — worth a quick confirm from Katie only if she recalls storing signed agreements there. |
+| WAG Brain (Supabase) | Connected, primary system of record | WAG-owned | Already the intended home for the eventual schema (Section 5/8). |
+| Google Drive/Docs, accounting software (QuickBooks/Xero/etc.), a dedicated CRM (HubSpot/Airtable/etc.), e-signature tools (DocuSign/HelloSign) | **Not connected in this environment** | — | **Honest limitation, not a confirmed absence:** the connector-registry search tool (`search_mcp_registry`) returned zero results for every category tried, including generic terms like "slack" — this looks like the registry lookup itself isn't functioning in this environment right now, not real evidence these categories have no available connector. If Katie knows of a real system in one of these categories (a Drive folder of contracts, an accounting tool), the fastest path is her confirming it directly or providing the documents per Section 7's ingestion workflow below, rather than this environment continuing to probe a broken lookup tool. |
+
+**Nothing was connected or had its permissions broadened during this check** — every row above was read-only inspection of what already exists, per Katie's explicit instruction.
+
+**Source-of-truth hierarchy, to govern everything recovered from here forward (Katie's explicit standard):**
+1. **Executed contract/agreement** — authoritative for legal rights, obligations, and terms.
+2. **Invoice/accounting/payment record** — authoritative for billed/paid/outstanding money.
+3. **Email correspondence** — authoritative evidence of communications, negotiations, and relationship history (not terms, once a contract supersedes it).
+4. **Internal documents/CRM notes** — operational context only.
+5. **AI extraction/inference** — never a source of truth. An extracted fact is a pointer back to one of the four levels above, never a replacement for it.
+
+**Controlled document ingestion workflow (design, not yet built — applies the moment real documents start arriving, whether via Gmail or Katie directly):** every document retains, permanently, alongside whatever structured facts get extracted from it:
+- Original source (where it came from — which inbox, or "provided directly by Katie")
+- Document type (contract, invoice, proposal, email thread, note)
+- Counterparty
+- Date/version
+- Extracted structured facts (rate, term, deliverables — whatever the doc actually states)
+- Provenance back to the specific source/page/clause the fact came from, where possible
+- Confidence/verification state (verified against the original vs. AI-extracted-not-yet-confirmed)
+
+The original document is never discarded or summarized-over — an AI-written summary sits alongside it, never in place of it.
+
+**Bounded recovery scope, once Gmail is reconnected against `partners@wagstudios.co` — representative, not exhaustive:** completed sponsorships, licensing deals, inbound brand inquiries, outbound pitches, negotiations, quoted rates, accepted rates, declined/lost opportunities, deliverables, contracts, invoices, payments, late/nonpayment, renewals, repeat partners, important contacts, agencies/managers, platform/distribution relationships. Starting searches, in order: Epic, Kidoodle, Nintendo, UpFaith & Family/Heartland, then broader sponsor/brand-deal threads, licensing, invoices/payment follow-ups, renewals, inbound partnership inquiries, and proposals/rates wherever present. This is deliberately not a full-mailbox ingestion — enough representative real cases to design a schema against reality, not a complete archive.
+
+**Explicitly not the ceiling:** this recovery is seed evidence for the Internal Business Memory half of the Revenue & Partnerships department — see `WAG_REVENUE_PARTNERSHIPS_DEPARTMENT_ARCHITECTURE.md` for the full two-engine design (internal memory + external new-business intelligence) this evidence feeds into. WAG's historical deal volume does not define the ceiling of what this department is being built to do.
+
+**Next step, unchanged in substance, corrected in target:** Katie reconnects Gmail against `partners@wagstudios.co` (and/or provides documents directly for anything not in that inbox) → the bounded representative extraction above runs → Section 5's schema gets revised against what it actually finds, in the context of the fuller department design in the companion doc → only then does building begin.
+
+---
+
+*Cross-referenced in `WAG_OPERATING_SYSTEM_MAP.md`, alongside `WAG_REVENUE_PARTNERSHIPS_DEPARTMENT_ARCHITECTURE.md`. Update this doc the same session any of Sections 2-4's findings change — particularly once Gmail is reconnected, since that is very likely to materially change Section 2's "no real history found" conclusion.*
