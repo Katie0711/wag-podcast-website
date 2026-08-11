@@ -607,6 +607,14 @@ Katie's full 44-point directive is preserved verbatim in session history and gov
 
 Returning to the Revenue build.
 
+## 61. Performance Management, Department Health & CEO Scorecard (recorded 2026-08-11, not built)
+
+Katie's full addendum is preserved in session history. Mapped, not built, per her explicit instruction — real infrastructure to extend later already exists: `manager_reviews`, `predictions`, `outcomes`, `decision_overrides`, evidence tiers, `refresh_jobs`, `system_health`. No conflict with anything already recorded (§33 Agent/Manager Performance and §13 CEO Opportunity Queue already carry the same spirit; this addendum makes the mechanics explicit — status bands over false precision, decomposable scores, root-cause requirement on decline, anti-gaming discipline, a private/constructive CEO Operating Scorecard distinct from a department scorecard, and the standing rule not to score a department without enough real evidence yet).
+
+**Binding constraint carried forward:** do not score Revenue, Main, or Podcast until each has enough real evidence to score honestly — activity counts (leads found, reports written, messages drafted) never substitute for outcomes. Bring this online progressively, per department, once real evidence exists — not now.
+
+Returning to the Revenue build.
+
 ---
 
 ## Gap analysis (in progress) — organizational/risk functions not yet named in the org structure
