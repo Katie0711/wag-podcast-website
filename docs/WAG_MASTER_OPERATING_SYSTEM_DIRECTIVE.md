@@ -557,6 +557,58 @@ Record §42-55 as a complete operating model in the master architecture and gap 
 
 ---
 
+## 59. Multi-Department Parallel Build Directive (added 2026-08-11)
+
+**The reframe this section exists to record: WAG OS stops being scored by how much infrastructure it has and starts being scored by whether WAG's actual business is better because it exists.** Katie's own words, preserved as the standing success metric: *did WAG make better content, grow faster, create/recover more revenue, discover opportunities earlier, protect its IP, reduce wasted work, and make better decisions because this system exists?* Table/agent/doc counts are never the measure again.
+
+**Departments do not wait for each other to fully finish before the next one starts.** Revenue & Partnerships proves its first real opportunity-discovery cycle (Consolidated Architecture §38), and in parallel — not after — the smallest executable versions of WAG Main Intelligence and WAG Podcast Intelligence get finished. **WAG Main's already exists in substantial, real form** (Retention/Packaging/Format specialists + Greenlight v3, `WAG_MAIN_INTELLIGENCE_LOOP_V1.md`, built earlier this session with real yt_raw_observations data behind it) — "prepare the smallest executable version" for Main means confirming/closing real gaps against this standard, not rebuilding from scratch. WAG Podcast has real architecture (`WAG_PODCAST_...` docs) but has not yet been checked against this same "smallest executable, real data, real recommendation" bar — that check is the actual next Podcast work, not a new build.
+
+**The approved sequence after Revenue/Main/Podcast**, in order, one department proven before the next one starts in earnest (though early research/design work on the next may run in parallel with proving the current one, matching the Revenue/Main/Podcast parallelism above):
+
+1. Marketing/Social/Audience Growth
+2. Publishing/Books/Amazon
+3. Licensing/IP/International
+4. Legal/Rights/Contracts
+5. Finance/AR/Deal Health
+6. Collaborations/Talent/PR/Speaking
+7. Opportunity/R&D Intelligence
+8. The full Executive Chief of Staff layer — explicitly last, once enough real departments exist for it to actually synthesize something real rather than sit empty.
+
+**Every department, without exception, follows the same loop** — this is the discipline that makes "don't build giant departments at once" actually enforceable rather than a slogan:
+
+```
+minimum useful specialists → real data → real assignment → real recommendation
+→ Katie/manager evaluation → measured outcome → learning loop → expansion
+```
+
+No department skips straight to "expansion." Revenue's own build this session is the reference instance: schema proposed → corrected against real objections → migrated → three real workflows proven → methodology strengthened where a real gap was found → only now, a smallest-team activation proposal for Katie's review (Consolidated §38) — expansion has not happened yet, on purpose.
+
+**Reuse shared infrastructure rather than duplicating agents/functions between departments** — restated as a cross-department rule, not just a within-Revenue one (Consolidated §38's Brand-Fit/Pricing/Relationship reuse pattern is the template: one real function, multiple departments calling it, never a private copy per department). Before any new department stands up its own version of something a prior department already built (evidence-source/provenance patterns, approval-ledger patterns, verification-classification patterns, brand-routing patterns), check whether the existing one extends cleanly first.
+
+**Every department inherits these standing rules without restating them per-department:** evidence over guessing; first-party WAG data where available; current external research where required, sourced and tiered; continuous learning/freshness (§57); versioned methodologies; cross-department communication (§11-style routing, not silos); least privilege (§24, §58); Katie's approval for every consequential external action (§37, §34); auditable provenance for every material fact (§58, Revenue's `revenue_evidence_links` pattern); no silent autonomous business decisions, ever.
+
+---
+
+## 60. Permanent Company Learning/Memory/Execution Directive (recorded 2026-08-11, mapped, not expanded)
+
+Katie's full 44-point directive is preserved verbatim in session history and governs all future department builds. Per her explicit instruction not to turn this into another long report, this section is a mapping, not a restatement: **no material conflict found with anything already built.** Much of it is already real, not net-new:
+
+- **Memory-type taxonomy (canonical facts/predictions/outcomes/decisions/contradictions)** — already real Supabase tables (`canonical_facts`, `predictions`, `outcomes`, `decisions`, `decision_overrides`, `contradictions`), not yet documented as one named taxonomy. Documentation gap, not a build gap.
+- **Absence-of-evidence rule, company-wide** — already §58, written this same session from the Gmail miss.
+- **Freeze predictions before outcomes; decision journal; contradiction detection** — already §32 (Decision Memory) and the `predictions`/`outcomes` table split, which already structurally prevents rewriting a prediction after the fact.
+- **Agent/manager evaluation; freshness/always-ahead routing; versioned methodologies; no agent self-modifying authority** — already §33, §18, §57.
+- **Owned Audience as strategic asset; Venture Incubator; Competitive Business Intelligence; Production Ops; Capital Allocation** — already §11, §19, §17 + `competitors` table, §22, §20 respectively.
+- **Central Experiment Portfolio** — already real (`WAG_EXPERIMENT_REGISTRY.md`).
+- **Needs Katie sacred; AI prepares/Katie decides** — already §31, §37, and Revenue's §34/§37 (the most fully-built instance of this rule anywhere in WAG OS so far).
+
+**Genuinely new, not yet named anywhere:** an explicit NOW/NEXT/WATCH/IGNORE execution-priority system for executive output; profitability/unit-economics framing distinct from raw revenue; scenario planning as a named function. Recorded here for future build, not built now.
+
+**Wave sequencing (Revenue+Main+Podcast now, Marketing/Books/Licensing next, then Finance/Legal/Collaborations, then Opportunity/Incubator, executive layer last) supersedes and refines §59's ordering with the same substance** — both stay consistent; §59 is not contradicted, only sequenced into explicit waves.
+
+Returning to the Revenue build.
+
+---
+
 ## Gap analysis (in progress) — organizational/risk functions not yet named in the org structure
 
 **Status: fifteen items recorded 2026-08-11, all classified MISSING (not built, not partially built) against the org structure in §2. This is a running installment of the full gap analysis promised above, not the complete pass — the complete implemented/partial/planned/missing/duplicated/contradictory review against all 56 sections is separate, larger work, deliberately not done in the same pass as active connector/data engineering per Katie's explicit instruction not to let gap analysis become an infrastructure detour.** Do not build any of these now unless a current dependency requires it.
