@@ -141,7 +141,9 @@ The original document is never discarded or summarized-over — an AI-written su
 
 **Explicitly not the ceiling:** this recovery is seed evidence for the Internal Business Memory half of the Revenue & Partnerships department — see `WAG_REVENUE_PARTNERSHIPS_DEPARTMENT_ARCHITECTURE.md` for the full two-engine design (internal memory + external new-business intelligence) this evidence feeds into. WAG's historical deal volume does not define the ceiling of what this department is being built to do.
 
-**Next step, unchanged in substance, corrected in target:** Katie reconnects Gmail against `partners@wagstudios.co` (and/or provides documents directly for anything not in that inbox) → the bounded representative extraction above runs → Section 5's schema gets revised against what it actually finds, in the context of the fuller department design in the companion doc → only then does building begin.
+**Update, 2026-08-11 — both connectors live:** built as a real, WAG-owned OAuth connector pair (matching the YouTube connector pattern, not Claude's own session connector), per `WAG_REVENUE_EMAIL_INTAKE_ARCHITECTURE.md`'s design. `partners@wagstudios.co` and `thewildadventuregirls@gmail.com` are both authorized, `gmail.readonly` only, confirmed live via direct database query (`connectors` id=4/5, both `status=active`). Full detail in `WAG_OS_SECURITY_CHECKLIST.md` §26, including two real blockers found and fixed along the way (a missing redirect URI, the OAuth app's Testing-status test-user gate) and the Gmail API needing enabling (same class of gap as the Reporting API earlier). The bounded representative extraction described above has not started yet — connection was the prerequisite, not the recovery pass itself.
+
+**Next step:** the bounded representative extraction (Epic, Kidoodle, Nintendo, UpFaith & Family/Heartland, then broader sponsor/licensing/invoice sweeps) → Section 5's schema gets revised against what it actually finds, in the context of the fuller department design in the companion doc → only then does building begin.
 
 ---
 
