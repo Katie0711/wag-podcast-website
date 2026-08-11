@@ -227,7 +227,20 @@ Replaced the custom Bearer-comparison auth (Section 15, points 2–3) with Supab
 - The legacy `anon` JWT on `Authorization: Bearer` (the old auth style) → `401 INVALID_CREDENTIALS`, confirming the old path is fully closed, not just deprioritized.
 - All three functions spot-checked, not just one.
 - Every rejection response was inspected — none echoes the presented credential back. Combined with the source-tree grep and full git-history scan from Section 15, point 6, this confirms the credential never surfaces in a response, log, or error message.
-- **Not yet tested live:** presenting the real `wag_hq_backend` key and confirming acceptance — it doesn't exist yet. This is the next real test, to run the moment Katie creates it.
+**Fifth test completed, 2026-08-11, once Katie created the real key and saved it to `wag-hq/.env.local` (`SUPABASE_SECRET_KEY`, never pasted into chat):** the real `wag_hq_backend` key on `apikey` against `youtube-oauth-start` → `200 {"ok":true,...}`, confirming acceptance. The key was read from `.env.local` into a shell variable and passed directly to `curl`'s header — the value itself was never echoed, logged, or displayed at any point, satisfying the "never display or log the credential" requirement for this test run.
+
+## 21. First authenticated WAG Main sync — Done, 2026-08-11
+
+Immediately after the acceptance test above, ran `youtube-sync` for `WAG_MAIN` for real, same never-display credential handling. Result: `{"ok":true,"brand":"WAG_MAIN","videos_synced":10,"analytics_ok":true,"api_calls_used":5}`.
+
+Verified server-side (not just trusting the response):
+- `yt_sync_log`: one row, `status = "success"`, `videos_synced = 10`, `api_calls_used = 5`, ~5 seconds start-to-finish.
+- `connectors`: `last_successful_sync` updated, `status` still `active`, `revocation_status` still `active`.
+- `yt_channels`: bound to `UC-nIJ_VwZtHwNNQ0_O15Wpg` ("The Wild Adventure Girls") — first real channel-identity binding recorded.
+- `yt_videos`: 10 real, current videos ingested (titles, publish dates, durations) — most recent published 2026-08-09.
+- `yt_raw_observations`: 10 rows from `youtube_data_api` (views/likes/comments) and 7 from `youtube_analytics_api` (watch time/retention) — the other 3 videos are too recently published for YouTube Analytics to have processed yet, not a sync error.
+
+An earlier attempt at this same sync call returned a client-side connection failure (curl exit / HTTP 000) before reaching Supabase — confirmed via `yt_sync_log` and `connectors` showing no trace of that attempt before retrying, so no duplicate observation rows or accidental double-submission occurred. Consistent with this project's known transient network flakiness; not a functional issue with the connector.
 
 **Permanent rules recorded (also in the Constitution):** `wag_hq_backend` is backend infrastructure only, never handed to an AI employee, manager, or connector; it must never enter model context, browser/client code, logs, GitHub, or WAG Brain records; only explicitly-declared Edge Functions accept it; the centralized capability/permission layer remains the long-term answer for AI-employee authority, not this key.
 
