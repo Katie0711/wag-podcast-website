@@ -8,6 +8,8 @@ Every row below was verified against Google's current, official API reference do
 
 **Scope:** this matrix covers what is available to WAG as the channel *owner* via OAuth. WAG OS's connector currently requests exactly two scopes — `youtube.readonly` and `yt-analytics.readonly` — per Katie's 2026-08-10 directive. All three API surfaces below (Data, Analytics, Reporting) are reachable under these same two scopes for non-monetary data; none of the newly-identified fields require a new OAuth grant. This matrix does not cover the monetary/revenue scope (`yt-analytics-monetary.readonly`), which WAG OS deliberately does not request today.
 
+**Proven live, 2026-08-11:** the Reporting API's own `jobs.create` reference doc names `yt-analytics-monetary.readonly` in its authorization note, which read as a possible contradiction of the "no new scope" claim above. A real `jobs.create` call against `channel_reach_basic_a1` using only the existing `yt-analytics.readonly`-scoped token was made to settle it rather than leave it as documentation-only. Result: `200 OK`, real job created (`google_job_id: b4c38e98-744c-4a68-aa1d-22ce7f694b2a`) — the doc's scope note was a generic example, not a report-type-specific requirement. The "no new OAuth grant" claim above is now a tested fact, not an inference. Full detail in `WAG_OS_SECURITY_CHECKLIST.md` §24.
+
 ---
 
 ## Bucket legend
