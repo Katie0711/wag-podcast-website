@@ -2,7 +2,7 @@
 
 **One executive question this module answers: is the Revenue & Partnerships design actually complete, non-contradictory, and correctly sequenced — and if not, exactly where is it missing, duplicated, contradictory, or premature?**
 
-**Status: design only, 2026-08-11 — nothing built.** This document consolidates the three existing Revenue & Partnerships documents and has grown across three review passes the same day: (1) the original 14 requirement areas Katie specified as missing, closing with the gap analysis she asked for; (2) a named-relationship exclusion boundary plus Deal Economics/Pricing Intelligence, Market Rate Intelligence, Deal Review, Offer & Package Intelligence, and Deal Strategy (Sections 15-21), added before the historical recovery pass was allowed to run; (3) the brand-specific architecture — WAG Main and WAG Podcast are not interchangeable inventory — plus Cross-Brand Deal Strategy, brand routing, a shared Relationship Brain, property-aware Pricing Intelligence, cross-sell intelligence, company-level GM visibility, the content-org boundary, the long-term multi-property principle, and Campaign Architect (Sections 22-31).
+**Status: design only, 2026-08-11 — nothing built.** This document consolidates the three existing Revenue & Partnerships documents and has grown across four review passes the same day: (1) the original 14 requirement areas Katie specified as missing, closing with the gap analysis she asked for; (2) a named-relationship exclusion boundary plus Deal Economics/Pricing Intelligence, Market Rate Intelligence, Deal Review, Offer & Package Intelligence, and Deal Strategy (Sections 15-21), added before the historical recovery pass was allowed to run; (3) the brand-specific architecture — WAG Main and WAG Podcast are not interchangeable inventory — plus Cross-Brand Deal Strategy, brand routing, a shared Relationship Brain, property-aware Pricing Intelligence, cross-sell intelligence, company-level GM visibility, the content-org boundary, the long-term multi-property principle, and Campaign Architect (Sections 22-31); (4) the Revenue Outcome Reasoning Standard, the Pop&Boom/PolyBuzz case study turned into permanent learning, and the Katie-Retains-Final-Authority rule (Sections 32-34), added after the recovery pass surfaced a real missed opportunity and Katie corrected both the specific finding and the department's governing philosophy.
 
 ---
 
@@ -259,6 +259,113 @@ Concrete shape, per the standard Katie set: instead of proposing "Brand X — 60
 
 Today's active commercial properties are WAG Main and WAG Podcast. The architecture across Sections 22-30 is deliberately built so a **future WAG-owned property or IP asset** can plug into the same company-level Revenue GM, Relationship Brain, Pricing Intelligence, Legal/Rights, Finance, and Executive systems without rebuilding any of it — a new property gets its own brand-specific specialist (matching 22a/22b's shape) and slots into the existing shared layer, rather than triggering a parallel architecture.
 
+## 32. Revenue Outcome Reasoning Standard
+
+**Every declined or lost opportunity must preserve the true reason category, or WAG OS learns the wrong lesson from its own history.** A deal that dies on brand-fit grounds and gets recorded as a pricing failure will silently teach Pricing Intelligence (Section 16) to discount when it shouldn't, and will never teach Brand Guardian anything at all. Reason category is recorded as structured fact, tagged per opportunity, evidenced from the actual thread/document — never inferred from the deal's outcome alone.
+
+**The standard taxonomy — at minimum, one of:**
+
+1. Price too high (WAG's rate exceeded what the brand was willing to pay, evidenced by an actual objection or counter)
+2. Budget too low (the brand's stated or implied budget fell below WAG's minimum viable package)
+3. Timing (real scheduling/availability conflict, either side)
+4. No response / ghosted (a real thread that simply stopped, no explicit decline from either side)
+5. Poor brand fit (general positioning/tone/category mismatch, not rising to a hard disqualifier)
+6. Product inappropriate for WAG (the product/service itself conflicts with WAG's standards — Pop&Boom/PolyBuzz's case)
+7. Audience mismatch (the brand's target demographic doesn't overlap meaningfully with WAG's)
+8. Age/talent restriction (a hard, evidenced requirement — e.g. an 18+ product, an on-camera age minimum — that disqualifies WAG's cast structurally, distinct from a softer audience-mismatch judgment call; first surfaced by the Pop&Boom case, Section 33)
+9. Rights/exclusivity unacceptable (the brand required usage rights, exclusivity, or ownership terms WAG wasn't willing to grant at any price)
+10. Payment terms unacceptable (net terms, structure, or payment risk WAG wasn't willing to accept)
+11. Legal/risk concern (a real issue routed to Legal/Rights, Section 11, that killed or paused the deal)
+12. Production burden too high (the deliverable scope exceeded what WAG could realistically produce at the offered price/timeline)
+13. WAG declined strategically (the deal was viable on its own terms but conflicted with a broader WAG priority, positioning choice, or opportunity cost)
+14. Brand declined, reason unstated or unknown (the counterparty walked away or went quiet without giving WAG a reason — recorded honestly as unknown, never guessed at)
+
+**Explicit rule, stated because it's easy to get backwards: a high-paying deal that harms WAG's audience trust, positioning, or reputation is not a successful deal, and a deal WAG walked away from for brand-safety reasons is not a loss.** Brand Guardian (master directive §21) and Revenue evaluate sponsor fit together before any commercial progression — neither function alone owns the "should we do this" question when money and brand risk are both in play.
+
+## 33. Pop&Boom / PolyBuzz — permanent Revenue learning from a real case
+
+**Approved by Katie as WAG's first real sponsorship case study.** A real, fully-reconstructed thread (Gmail thread `19f669167a66c816`, `thewildadventuregirls@gmail.com`, Jul 15 – Aug 2, 2026, 16 messages) — not a hypothetical, not Katie's recollection alone. Preserved here in the shape every future opportunity should be recorded in (Section 33d), and turned into standing rules (33a-33c) so the lesson survives past this one case.
+
+### 33a. Agency ≠ underlying brand
+
+**Whenever outreach comes from an agency, management firm, network, or other intermediary, Revenue must identify the actual underlying brand/product/client before meaningful qualification, pricing, or creative development — never infer fit from the agency's name alone.** Pop&Boom described itself only as "a KOL agency" in its opening outreach; the real client and product (PolyBuzz, an AI companion-chatbot app) wasn't named until Katie asked directly. An agency name carries no brand-safety signal by itself.
+
+### 33b. Opportunity Evaluation Sequence — order of evaluation, not a suppression gate
+
+Before creative ideation or pricing effort begins, verify in this order: **sender legitimacy → actual company/client → actual product → audience/age fit → brand safety → WAG fit → rights/scope → THEN pricing/creative.** If a material fit issue exists, creative and pricing investment pauses while it's escalated — this sequence exists to catch a Pop&Boom-shape problem *before* the girls start concepting, not after.
+
+**This is an ordering rule, not an authority rule.** It governs what gets evaluated first so expensive creative/pricing effort isn't wasted on a deal that was never going to clear brand safety — it does **not** determine what Katie gets to see. That determination belongs entirely to Section 34, which governs regardless of where in this sequence an opportunity is currently sitting.
+
+At minimum, the audience/brand-safety check verifies: actual product/service, audience/age rating, whether the product is appropriate for WAG, talent age requirements, platform/content restrictions, known brand-safety concerns, and any obvious conflict with WAG standards. Pop&Boom's disqualifying fact (PolyBuzz is 18+ rated, requires on-camera talent to be 18+) was caught here — by Katie asking a direct question the agency hadn't volunteered — proving this check belongs as a standing step, not an ad hoc one.
+
+### 33c. Regression test for the future inbound-opportunity system
+
+Once Inbound Opportunity Intelligence (Section 20) is built, this historical case becomes its first regression test. A correct system, fed this real thread, should: identify POP&BOOM as an intermediary, not the underlying brand; resolve PolyBuzz as the actual product; flag the 18+/on-camera-age concern as a brand-safety issue; classify the eventual outcome as "product inappropriate for WAG" (Section 32, category 6/8) — never as a pricing rejection, since no pricing objection exists anywhere in the evidence; and, per Section 34, generate an executive opportunity card that reaches Katie rather than auto-declining. If a future build doesn't reach substantially this conclusion from the same evidence, its qualification logic needs improvement before it's trusted on live opportunities.
+
+### 33d. The permanent record shape
+
+Every future commercial opportunity — not just Pop&Boom — is preserved in this shape: **source → intermediary (if any) → underlying brand/product → qualification → fit assessment → pricing shared (yes/no, and how) → counterparty response → negotiation → outcome → reason (Section 32 taxonomy) → learning.** This case is the first entry in that record and the seed of WAG Revenue's initial training/evaluation set:
+
+| Field | Pop&Boom / PolyBuzz record |
+|---|---|
+| Source | Inbound, cold, via agency |
+| Intermediary | Pop&Boom ("a KOL agency") |
+| Underlying brand/product | PolyBuzz — AI companion/chatbot app, 40M+ downloads claimed |
+| Qualification | Real, coherent multi-week exchange; agency identity confirmed real, product identity confirmed only after Katie asked |
+| Fit assessment | Failed on audience/age-safety grounds — 18+ product, 18+ on-camera talent requirement, WAG's audience is family/teen |
+| Pricing shared | Yes — `WAG_Partnership_Options.pdf` + `WAG_Sponsor_OneSheeter2_V2.pdf` sent Jul 25, 2026, with organic-vs-paid-media rights explicitly separated |
+| Counterparty response to pricing | None — no objection, no acceptance, no counter; conversation moved straight to deliverable scoping |
+| Negotiation | None reached — died at the brand-safety question before a specific package/number was finalized |
+| Outcome | WAG declined |
+| Reason (Section 32) | Category 6/8 — product inappropriate for WAG / age-talent restriction. **Not** category 1/2 (price) |
+| Learning | Seeded Sections 33a-33c above, plus the Gate 1 diagnosis in the Recovery Pass Findings doc |
+
+## 34. Katie retains final authority over legitimate commercial opportunities (permanent authority rule)
+
+**Added 2026-08-11, directly correcting a real risk in how Section 33b could otherwise be read.** The Opportunity Evaluation Sequence exists to order *evaluation*, never to authorize *suppression*. This section is the governing rule whenever the two could conflict — it wins.
+
+### 34a. The legitimate-opportunity rule
+
+**Every legitimate or reasonably credible commercial opportunity is surfaced to Katie, even when an agent recommends declining it.** An opportunity gets one of five labels, reasoning stated, never a bare tag:
+
+- **STRONG FIT — pursue**
+- **POTENTIAL FIT — investigate**
+- **QUESTIONABLE FIT — caution**
+- **POOR FIT — recommend decline**
+- **HIGH RISK — recommend decline**
+
+A "recommend decline" label is a recommendation, not a decision. The opportunity still reaches Katie's queue.
+
+### 34b. Only obvious junk may be suppressed — and only with an audit trail
+
+Agents may automatically remove an item from Katie's primary opportunity queue **only** when confidently determined to be: obvious spam, phishing, impersonation/fraud, malware, mass irrelevant solicitation, or clearly non-commercial junk. Every suppression is logged with its classification and evidence, so a false positive can be reviewed later — suppression is never silent or unrecoverable. **When confidence is insufficient, the default is to surface, never to suppress.** This restates and narrows the anti-fraud classification framework already standing (VERIFIED/LIKELY_LEGITIMATE/NEEDS_VERIFICATION/SUSPICIOUS/SPAM, used throughout the Recovery Pass Findings) — only the SPAM tier, held with real confidence, may be auto-removed from the primary queue.
+
+### 34c. What Katie actually receives — the executive opportunity card
+
+Never raw email. Every legitimate opportunity becomes one card:
+
+Company/Brand · Agency/intermediary (if any) · Actual underlying client/product · What they want · Which property fits (WAG Main / WAG Podcast / Cross-Brand / Other, per Section 24) · Budget, if disclosed · Recommended WAG price/range (Section 16) · Pricing evidence (Section 16a's tiers) · Rights requested · Brand-fit assessment · Legitimacy verification · Risks/red flags · Opportunity/upside · Package or upsell angle (Sections 18/27) · Agent recommendation (pursue/investigate/caution/decline) and why · Recommended next action · **Katie decision: pending**, with drill-down to the actual source thread/document when she wants it.
+
+The Pop&Boom case, run through this format retroactively:
+
+> **LEGITIMATE OPPORTUNITY — CAUTION / RECOMMEND DECLINE.** Real agency and real campaign inquiry. Underlying product is an 18+ AI companion application. Requested YouTube/TikTok/Instagram campaign with paid-media rights. Potential commercial value exists, but a significant WAG audience/brand-fit concern is identified (18+ rating, on-camera talent must be 18+). Recommend declining unless Katie determines otherwise. **Final decision: Katie.** *(In the actual historical case, Katie reviewed and declined.)*
+
+### 34d. Agents advise, Katie governs — no exceptions
+
+No Revenue agent, Revenue GM, Brand Guardian, Campaign Architect, Pricing function, or other AI role may autonomously: accept a deal; decline a legitimate deal; send a binding counteroffer; agree to pricing; grant rights; agree to exclusivity; sign or accept contractual terms; commit WAG inventory; or permanently suppress a credible opportunity from Katie's view. These authority boundaries stay with Katie unless she explicitly changes them — this is Section 9's "all outreach requires approval" and the master directive's Human Authority Standard (§37), restated specifically for the decline/accept direction, which the original design had left implicit.
+
+### 34e. A weird deal can still be valuable — restructure before recommending decline
+
+**The evaluation mentality is detect → verify → understand → evaluate → improve/restructure → recommend → bring to Katie. It is never detect → agent doesn't like it → disappear.** Before recommending decline, the relevant function considers real alternatives, not just the original proposal as offered: could this fit WAG Podcast instead of WAG Main (Section 22b)? Could the campaign be modified? Could a specific problematic deliverable be removed while the rest proceeds? Could WAG offer something different from what was asked? Is this counterparty worth keeping warm for a future, better-fitting campaign even if this one doesn't work (Section 6, leakage/reactivation)? A "recommend decline" card should show that this was actually considered, not skipped.
+
+### 34f. Executive visibility
+
+The eventual CEO/Chief-of-Staff interface (extending the CEO Cockpit, master directive §1/§12) gives Katie a single **Opportunities Requiring My Decision** view — she should never need to ask Revenue whether anything interesting arrived. Legitimate opportunities are proactively surfaced there, prioritized by potential economic value, strategic value, brand fit, urgency/deadline, confidence, and risk — WAG Main, WAG Podcast, and cross-brand opportunities together in one view, while each property's individual pipeline (Section 22a/22b/28) stays intact underneath it.
+
+### 34g. What this does not replace
+
+This section governs *what reaches Katie and who decides*. It does not weaken or replace the existing fraud-filtering and qualification system (the VERIFIED/LIKELY_LEGITIMATE/NEEDS_VERIFICATION/SUSPICIOUS/SPAM framework, Section 33's evaluation sequence, or Section 16-19's pricing/deal intelligence) — those still do the real work of verifying, pricing, and assessing fit. Section 34 only settles who gets the final call once that work is done, and confirms that "the work isn't done yet" is never itself grounds to suppress a real opportunity from view.
+
 ---
 
 ## Gap analysis — missing, duplicated, contradictory, premature
@@ -274,7 +381,7 @@ Katie asked for this explicitly. A real answer, not a formality:
 - Brand-Fit Strategist (Department Architecture §4) and this document's Section 5 (Conflict/Exclusivity/Brand-Safety) cover adjacent but genuinely different questions — *does this fit* vs. *is this safe/conflict-free*. Correctly kept as two checks, but a future build should sequence them (fit before conflict-check) rather than run them as redundant parallel steps.
 - Section 6 (Leakage Detection) and Section 12 (Executive View) both surface things like unsold inventory and overdue invoices — this is intentional, not a real duplication: leakage detection produces the findings, the executive view surfaces them. Stated explicitly here so a future builder doesn't accidentally build two separate detection systems for the same thing.
 
-**Contradictory:** none found across any of the three passes. Sections 15-31 map cleanly onto the existing two-engine model, the existing authority boundary, and the existing 20-stage pipeline — nothing here required revising a previously-approved decision. One judgment call worth stating explicitly rather than leaving implicit: Section 30's Campaign Architect and Section 18's Offer & Package Intelligence could look redundant at a glance — they're not, and Section 30 states why (economics vs. creative concept, same split as Pricing Intelligence/Section 16 vs. Deal Strategy/Section 19).
+**Contradictory:** none found across any of the four passes, with one real near-miss worth naming rather than glossing over. Section 33b's Opportunity Evaluation Sequence, read on its own, could plausibly be misimplemented as a filter that quietly stops a poor-fit opportunity before Katie ever sees it — Katie caught exactly this risk and Section 34 was added specifically to foreclose it. The two sections are not contradictory as written (33b governs *order*, 34 governs *visibility and authority*, and 34g says so explicitly), but a future builder implementing 33b without also implementing 34 would produce the wrong system. Flagging this dependency here so Build Order (Section 13) treats them as one unit, never one without the other. Sections 15-31 otherwise map cleanly onto the existing two-engine model, the existing authority boundary, and the existing 20-stage pipeline — nothing there required revising a previously-approved decision. One older judgment call worth restating: Section 30's Campaign Architect and Section 18's Offer & Package Intelligence could look redundant at a glance — they're not, and Section 30 states why (economics vs. creative concept, same split as Pricing Intelligence/Section 16 vs. Deal Strategy/Section 19).
 
 **Premature — correct not to build yet, stated so nothing gets built ahead of its real dependency:**
 - Sections 1 (Commercial Inventory), 4 (Relationship Graph), and 8 (Opportunity Scoring) all describe real schema. None of it should be built before Build Order steps 1-4 actually run — designing any of it against zero real rows carries the same risk the Foundation doc already flagged for the original partner/deal schema.
@@ -282,4 +389,4 @@ Katie asked for this explicitly. A real answer, not a formality:
 
 ---
 
-*Cross-referenced in `WAG_OPERATING_SYSTEM_MAP.md` alongside the other three Revenue & Partnerships documents. Design only — nothing built, nothing connected. Awaiting Katie's review of the gap analysis above and the Section 13 build order before implementation begins.*
+*Cross-referenced in `WAG_OPERATING_SYSTEM_MAP.md` alongside the other Revenue & Partnerships documents, including `WAG_REVENUE_RECOVERY_PASS_FINDINGS.md`, which records the Pop&Boom/PolyBuzz case (Section 33) in full with source evidence. Design only — nothing built, nothing connected. Section 34's authority rule is also cross-referenced in `WAG_MASTER_OPERATING_SYSTEM_DIRECTIVE.md` §37. Awaiting Katie's review of the gap analysis above and the Section 13 build order before implementation begins.*

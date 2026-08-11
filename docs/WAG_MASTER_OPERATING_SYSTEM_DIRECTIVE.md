@@ -353,6 +353,8 @@ Katie remains ultimate authority. High-consequence actions should remain approva
 
 Agents can research, prepare and recommend without automatically receiving execution authority.
 
+**Deciding a legitimate commercial opportunity is gated the same way (added 2026-08-11).** An agent recommending a business opportunity be declined is not the same as the opportunity being declined — that decision, like accepting, countering, granting rights, or agreeing to exclusivity, stays with Katie. An agent may suppress from her view only what it can confidently classify as spam/phishing/fraud/malware/irrelevant solicitation, with an auditable record of the classification; everything else — including opportunities an agent thinks are a poor fit — is surfaced for her decision, not filtered out ahead of it. Full spec, including the executive-opportunity-card format and the Pop&Boom/PolyBuzz case that prompted this rule: `WAG_REVENUE_PARTNERSHIPS_CONSOLIDATED_ARCHITECTURE.md` §34.
+
 ## 38. Company Operating Questions
 
 The Executive layer should continuously answer five questions:
