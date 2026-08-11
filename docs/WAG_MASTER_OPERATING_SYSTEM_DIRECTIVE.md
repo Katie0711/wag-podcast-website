@@ -394,4 +394,25 @@ If those questions cannot be answered, do not build it yet.
 
 ---
 
+## Gap analysis (in progress) — organizational/risk functions not yet named in the org structure
+
+**Status: eight items recorded 2026-08-11, all classified MISSING (not built, not partially built) against the org structure in §2. This is a running installment of the full gap analysis promised above, not the complete pass — the complete implemented/partial/planned/missing/duplicated/contradictory review against all 41 sections is separate, larger work, deliberately not done in the same pass as active connector/data engineering per Katie's explicit instruction not to let gap analysis become an infrastructure detour.** Do not build any of these now unless a current dependency requires it.
+
+1. **Cast/Talent Management** — protects and *develops* the on-camera talent: contracts, likeness rights, age-appropriate work-hour/schedule protections, and (per Katie's 2026-08-11 addition) long-term development — strengths, hosting/speaking development, career growth, individual-vs-group opportunity, future leadership responsibility, continuity as the girls mature. Explicitly not reducible to scheduling or contracts alone.
+2. **Crisis & Reputation Response** — what WAG actually *does* when something goes wrong (controversy, platform demonetization, an incident involving a minor on camera). Distinct from Brand Guardian, which is a decision-time lens preventing problems, not a response plan for when one happens anyway.
+3. **Key-Person / Business Continuity** — keeps the company *operating* during disruption (e.g. Katie unreachable for an extended period). Distinct from the security incident-response runbook, which covers credential/system incidents specifically.
+4. **Entity / Accounting Architecture** — accounting/entity separation appropriate to diversifying revenue (AdSense, Epic licensing, future sponsorships, future books), each with potentially distinct tax/entity treatment.
+5. **International / Localization Strategy** — whether WAG content has real demand outside the US and how licensing/books/distribution would work internationally. Currently unaddressed anywhere in the directive.
+6. **Talent Development & Succession** — see item 1; called out as its own line per Katie's explicit instruction not to fold it into scheduling/contracts. Long-term development and eventual leadership continuity are a distinct concern from the protective/legal side of Talent Management.
+7. **Rights / Asset Chain-of-Title** — a durable record proving what WAG can actually use, license, and monetize: ownership, usage rights, licenses, restrictions, derivative rights, supporting agreements and proof. Increasingly load-bearing as books, licensing, archive reuse, sponsorship creative, podcast content, and future IP expansion all depend on provable rights, not assumed rights. Directly feeds `WAG_EDUCATIONAL_IP_LIBRARY.md`'s licensing fields — that document assumes chain-of-title exists somewhere; this is where it would actually live.
+8. **Distribution / Platform Dependency Risk** — Strategy/Finance function tracking concentration risk across YouTube, Epic, Amazon, Spotify/Apple, sponsors, licensing partners, and future platforms/customers. Ties directly to the diversification and owned-asset strategy already named in the North Star (§39) and Owned Audience (§11) — this is the risk-side measurement that would tell WAG how exposed it actually is to any single dependency.
+
+**The conceptual boundaries between adjacent items, preserved explicitly per Katie's instruction so future work doesn't blur them:**
+- Brand Guardian protects the brand/content.
+- Talent Management protects and develops the people.
+- Crisis Management responds when something actually goes wrong.
+- Business Continuity keeps the company operating during disruption.
+- Legal/IP (§23) tracks risk and legal obligations generally.
+- Rights/Chain-of-Title proves what WAG can actually use, license, and monetize specifically.
+
 *See the end of this document (added 2026-08-11, same day) for the gap analysis against everything already built and the resulting proposed phased implementation sequence.*
