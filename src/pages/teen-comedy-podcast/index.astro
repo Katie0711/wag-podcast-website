@@ -38,6 +38,30 @@ const pageSchema = {
   url: "https://thewagpodcast.com/teen-comedy-podcast/",
   about: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast" },
 };
+
+// The page's direct-answer content, as a real FAQ array -- same data
+// drives both the visible answer section below and the schema, so
+// they can't drift.
+const faqs = [
+  {
+    q: "Is WAG Podcast a comedy podcast for teens?",
+    a: "Yes — WAG Podcast is a teen comedy podcast. It's not a talk show with the occasional joke; the comedy is the format, built into recurring segments every single episode, filmed on video first and posted weekly on YouTube, Spotify, and Apple Podcasts.",
+  },
+  {
+    q: "What are WAG Podcast's comedy segments?",
+    a: "Squad Dares (one dares, the others must do it, no take-backs), 3-Second Roast (one-liner burns, no mercy), He Said What?! (real reactions to what the boys actually said), and Tell Me the Truth (no dodging, no lying, just the answer) — all recurring, all real.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
@@ -46,6 +70,7 @@ const pageSchema = {
   ogImage="/images/studio/wag-studio-274.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <section class="comedy-hero">
     <div class="hero-photo">
       <picture>
@@ -66,8 +91,15 @@ const pageSchema = {
   </section>
 
   <section class="answer">
-    <div class="container" data-reveal>
-      <p>Yes — WAG Podcast is a teen comedy podcast. It's not a talk show with the occasional joke; the comedy is the format, built into recurring segments every single episode, filmed on video first and posted weekly on YouTube, Spotify, and Apple Podcasts.</p>
+    <div class="container" data-reveal="stagger">
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h2>{f.q}</h2>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -125,7 +157,11 @@ const pageSchema = {
   .btn-outline:hover{ background: var(--ink); color: var(--bg); }
 
   .answer{ padding: 0 0 48px; }
-  .answer p{ font-size:1.1rem; max-width:68ch; }
+  .faq-list{ display:flex; flex-direction:column; }
+  .faq-item{ padding:20px 0; border-bottom:1px solid var(--line); max-width:70ch; }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item h2{ font-size:1.15rem; margin-bottom:.5em; }
+  .faq-item p{ font-size:1rem; color: var(--ink-soft); margin:0; }
 
   .bits{ padding: 8px 0 48px; }
   .bits .eyebrow{ margin-bottom:1em; }

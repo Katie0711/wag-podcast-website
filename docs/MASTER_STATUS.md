@@ -38,7 +38,8 @@ Full production audit (17 categories, `docs/PRODUCTION_AUDIT.md`) closed to laun
 ## Immediate next tasks
 
 1. Post-launch analyst posture: watch real usage (votes/submissions increasing, Beehiiv signups arriving, no API errors, GA4 receiving events) for the first 48–72 hours per Katie's explicit instruction — see `CEO_DECISIONS.md`.
-2. Resume the 5-page SEO optimization plan now that legal work is complete — see `ROADMAP.md` → Next.
+
+*(The 5-page SEO optimization plan previously listed here was already implemented and build-verified 2026-08-07 — see `ROADMAP.md` → Completed and `CHANGELOG.md` → 2026-08-07. This line was stale; corrected.)*
 
 ## Launch blockers
 

@@ -57,6 +57,33 @@ const collectionSchema = {
     })),
   },
 };
+
+// Real, already-established facts about the segments format -- same
+// array drives both the visible FAQ section below and the schema.
+const faqs = [
+  {
+    q: "How many recurring segments does WAG Podcast have?",
+    a: "Four right now: He Said What?!, Squad Dares, Tell Me the Truth, and the 3-Second Roast. Each one shows up across multiple episodes rather than being a one-off bit.",
+  },
+  {
+    q: "Does every segment have its own dedicated episode?",
+    a: "Not exactly. He Said What?! maps to three real, specific episodes linked above — Squad Dares, Tell Me the Truth, and the 3-Second Roast are recurring bits woven through episodes rather than built around one dedicated episode each.",
+  },
+  {
+    q: "Where can I watch these segments in action?",
+    a: "Any full WAG Podcast episode has a chance of featuring one — or watch the three He Said What?! examples linked above to see the format firsthand.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
@@ -65,6 +92,7 @@ const collectionSchema = {
   ogImage="/images/studio/wag-studio-53.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="seg-hero">
     <div class="hero-photo">
@@ -104,6 +132,20 @@ const collectionSchema = {
           )}
         </div>
       ))}
+    </div>
+  </section>
+
+  <section class="seg-faq">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> Questions</p>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h2>{f.q}</h2>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -153,6 +195,14 @@ const collectionSchema = {
     width:120px; height:68px; object-fit:cover; border-radius: var(--radius-sm); flex-shrink:0;
     border:1px solid var(--line);
   }
+
+  .seg-faq{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }
+  .seg-faq .eyebrow{ margin-bottom:16px; }
+  .faq-list{ display:flex; flex-direction:column; }
+  .faq-item{ padding:20px 0; border-bottom:1px solid var(--line); max-width:70ch; }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item h2{ font-size:1.08rem; margin-bottom:.5em; }
+  .faq-item p{ font-size:.96rem; color: var(--ink-soft); margin:0; }
 
   .seg-cta{ padding: 8px 0 8px; border-top:1px solid var(--line); padding-top:32px; }
   .seg-cta p{ font-size:1rem; margin:0; }

@@ -23,6 +23,30 @@ const pageSchema = {
   url: "https://thewagpodcast.com/video-podcasts-for-teens/",
   about: { "@type": "PodcastSeries", "@id": "https://thewagpodcast.com/#podcast" },
 };
+
+// The page's direct-answer content, as a real FAQ array -- same data
+// drives both the visible answer section below and the schema, so
+// they can't drift.
+const faqs = [
+  {
+    q: "Is WAG Podcast a real video podcast for teens?",
+    a: "Yes — WAG Podcast is a real video podcast for teens. It's released weekly on YouTube first, with audio-only versions following on Spotify and Apple Podcasts for anyone who'd rather just listen. If you've been searching for a teen podcast that's actually built for video instead of treating it as an afterthought, this is it.",
+  },
+  {
+    q: "Why does WAG Podcast film for video instead of just audio?",
+    a: "Party games, dares, and hot-take reveals only work on camera — the whole point is watching the reaction happen live. WAG Podcast is shot as video from the start; Spotify and Apple Podcasts get the audio cut after, not the other way around.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
@@ -31,6 +55,7 @@ const pageSchema = {
   ogImage="/images/studio/wag-studio-416.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <section class="video-hero">
     <div class="hero-photo">
       <picture>
@@ -41,7 +66,7 @@ const pageSchema = {
     </div>
     <div class="container hero-inner">
       <p class="eyebrow"><EqBars size="sm" /> Video Podcasts for Teens</p>
-      <h1>A podcast that's actually <span class="text-accent">made to be watched.</span></h1>
+      <h1>Looking for a <span class="text-accent">real video podcast</span> for teens?</h1>
       <p class="lede">Not an audio show with a camera bolted on — WAG Podcast is filmed for YouTube first, every week, by three teen girls.</p>
       <div class="hero-actions">
         <a class="btn btn-accent" href="/watch/">Watch an Episode →</a>
@@ -51,8 +76,15 @@ const pageSchema = {
   </section>
 
   <section class="answer">
-    <div class="container" data-reveal>
-      <p>Yes — WAG Podcast is a real video podcast for teens. It's released weekly on YouTube first, with audio-only versions following on Spotify and Apple Podcasts for anyone who'd rather just listen. If you've been searching for a teen podcast that's actually built for video instead of treating it as an afterthought, this is it.</p>
+    <div class="container" data-reveal="stagger">
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h2>{f.q}</h2>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -103,7 +135,11 @@ const pageSchema = {
   .btn-outline:hover{ background: var(--ink); color: var(--bg); }
 
   .answer{ padding: 0 0 48px; }
-  .answer p{ font-size:1.1rem; max-width:68ch; }
+  .faq-list{ display:flex; flex-direction:column; }
+  .faq-item{ padding:20px 0; border-bottom:1px solid var(--line); max-width:70ch; }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item h2{ font-size:1.15rem; margin-bottom:.5em; }
+  .faq-item p{ font-size:1rem; color: var(--ink-soft); margin:0; }
 
   .why{ padding: 8px 0 48px; }
   .why .eyebrow{ margin-bottom:1em; }

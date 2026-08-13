@@ -75,6 +75,33 @@ const collectionSchema = {
     })),
   },
 };
+
+// Real, already-established facts about this hub -- same drives both
+// the visible FAQ section below and the schema, so they can't drift.
+const faqs = [
+  {
+    q: "What kind of stories are in Growing Up?",
+    a: "Real coming-of-age mishap stories from WAG Podcast — getting grounded, getting suspended, prom night going sideways, and the other chaotic moments that come with actually being a teenager. Every story here is a real, verified WAG Podcast episode, not a summary.",
+  },
+  {
+    q: "Who tells these stories?",
+    a: "Angelina, Scarlett, and Annabella — the three teen girls who host every WAG Podcast episode. These are their own real stories, told on camera, not scripted or reenacted.",
+  },
+  {
+    q: "How often are new episodes added to this hub?",
+    a: "WAG Podcast releases a new episode every week, and this hub is updated whenever a new one fits the Growing Up theme — not every weekly episode does.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
 <BaseLayout
@@ -83,6 +110,7 @@ const collectionSchema = {
   ogImage="/images/studio/wag-studio-89.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <section class="topic-hero">
     <div class="hero-photo">
@@ -120,6 +148,20 @@ const collectionSchema = {
               <span class="episode-link">Watch the episode →</span>
             </div>
           </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-faq">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> Questions</p>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h2>{f.q}</h2>
+            <p>{f.a}</p>
+          </div>
         ))}
       </div>
     </div>
@@ -173,6 +215,14 @@ const collectionSchema = {
   }
   .episode-body p{ font-size:.9rem; color: var(--ink-soft); margin-bottom:1em; }
   .episode-link{ font-weight:600; font-size:.86rem; color: var(--wag-green); }
+
+  .topic-faq{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }
+  .topic-faq .eyebrow{ margin-bottom:16px; }
+  .faq-list{ display:flex; flex-direction:column; }
+  .faq-item{ padding:20px 0; border-bottom:1px solid var(--line); max-width:70ch; }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item h2{ font-size:1.08rem; margin-bottom:.5em; }
+  .faq-item p{ font-size:.96rem; color: var(--ink-soft); margin:0; }
 
   .topic-cta{ padding: 24px 0 8px; border-top:1px solid var(--line); padding-top:32px; }
   .topic-cta p{ font-size:1rem; margin:0; }
