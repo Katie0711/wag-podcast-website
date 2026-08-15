@@ -78,4 +78,27 @@ No agent autonomously sends external outreach, clicks inbound links, accepts ter
 
 ---
 
-**Stopping here.** No HubSpot account created, no purchase, no migration, no integration. Awaiting approval on the pilot scope (§5) before creating the free account.
+## 7. Pilot Acceptance Test (added 2026-08-15, per Katie's explicit requirement before any account is created)
+
+**What HubSpot must prove:** that it materially improves Sales/Outreach execution on the 2 real pilot cases — measurably clearer pipeline/next-action visibility and lower manual-tracking overhead than the current state (a mix of WAG Brain records and ad hoc follow-up). Not "does HubSpot work" — WAG Brain already proves the intelligence works; this tests only the execution layer.
+
+**What data goes into HubSpot:**
+- Aha World: 1 Company record, 1+ Contact record(s), 1 Deal record (real pipeline stage tracked as the negotiation progresses), activity/task log for meetings and follow-ups.
+- Kidoodle: 1 Company record, 1+ Contact record(s), activity/task log for the real follow-up cadence — **no Deal record** (not a prospecting pipeline item) and **no dollar amounts** entered anywhere in HubSpot.
+
+**What stays in WAG Brain, never entered in HubSpot:** opportunity-verification/spam-fraud classification and reasoning, pricing evidence and the 7-tier methodology, brand/audience-fit screening reasoning, the `revenue_approvals`/"needs Katie" gate and its audit trail, real invoice amounts and payment-confirmation evidence (Kidoodle's 3 invoices), employment-history tracking, evidence citations and provenance.
+
+**How duplication/sync is prevented:**
+- A company/contact is created in HubSpot only *after* it has already cleared WAG Brain's spam/fraud and brand-fit gates — HubSpot never becomes a second front door.
+- WAG Brain's `revenue_companies` row stores the HubSpot record ID as a simple reference field, not a duplicated copy of HubSpot's data.
+- No bidirectional automation is built for the pilot — any field that exists in both places gets a manual "last synced [date]" note where it matters, so drift is visible rather than silent.
+- Financial truth (invoice amounts, payment status) is **never** entered into HubSpot at all during the pilot, closing off the one duplication path that would matter most.
+
+**Decision criteria, evaluated after a bounded pilot window (recommend tying this to one `WAG_ACTIVE_PORTFOLIO.md` cycle, not open-ended):**
+- **ADOPT** — HubSpot demonstrably reduces manual tracking effort and/or produces at least one measurable execution improvement (faster follow-up compliance, clearer next-action visibility) on the 2 real cases, with no data-integrity or duplication problems found.
+- **MODIFY** — partial value (e.g., useful for internal activity tracking, but the free tier's branding or 1-pipeline/10-property limits genuinely block one specific real need) — keep using it narrowly, and evaluate the specific paid feature that would fix the specific blocker, not a blanket upgrade.
+- **REJECT** — no measurable improvement over the current WAG Brain + manual tracking baseline, or real evidence of duplication/drift risk, or the team simply doesn't end up using it during the pilot window.
+
+---
+
+**Stopping here.** No HubSpot account created, no purchase, no migration, no integration. Awaiting approval on the pilot scope (§5) and this acceptance test (§7) before creating the free account.

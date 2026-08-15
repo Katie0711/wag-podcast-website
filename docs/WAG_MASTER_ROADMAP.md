@@ -38,6 +38,10 @@ Everything outside these 5 remains in the destination architecture, activated wh
 - B2B Education outreach depends on: Publishing/Educational IP proving the model at Epic-scale first, or Katie directing otherwise.
 - Company Learning & Performance's future depends on: resolving whether it merges with Research & Evidence Governance (open, reconciliation report §C item 12).
 
+## Media & Audience — Concept/Packaging/Retention system + Relationship Ladder (added 2026-08-15)
+
+Reconciled from Katie's real packaging/audience research against existing architecture (`WAG_PACKAGING_INTELLIGENCE.md`, `WAG_PATTERN_LIBRARY.md`, `WAG_CREATIVE_FORMULA_V1.md`, Creator & Platform Intelligence's Proof 0/1) — not a rebuild. New canonical files: `WAG_CONCEPT_PACKAGING_SYSTEM.md` (premise-bucket taxonomy, curiosity-gap typology, Every-Bucket Test, Promise Chain, Outlier Multiple, anti-pattern detection — all feeding the existing Greenlight gate, not replacing it) and `WAG_RELATIONSHIP_LADDER.md` (6-stage Watch→Future ladder, Owned Audience). One real, unresolved minors-safety question carried forward from the source material, not decided here: whether question/topic submission ships moderated or as originally conceived open-anonymous — see Katie Decision Queue. Full reconciliation table: delivered directly to Katie 2026-08-15, referenced from both new files.
+
 ## Revenue & Partnerships — CRM/execution-layer question (added 2026-08-15)
 
 Separate from the Revenue Director/specialist-agent architecture (unchanged, still owns the intelligence): whether HubSpot's free CRM tier should become WAG's commercial-execution layer (companies, contacts, deals, pipeline, sales activity) while WAG Brain remains the company-intelligence layer (evidence, pricing methodology, spam/fraud verification, brand-fit screening). Full audit and 2-real-company pilot proposal: `WAG_REVENUE_HUBSPOT_PILOT_ARCHITECTURE.md`. **Status: research/proposal only, no account created, awaiting approval.**

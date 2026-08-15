@@ -85,6 +85,32 @@ Full department-by-department mapping into this structure, with real maturity pe
 
 **Preserve the standing distinction between departments, functions, workflows/skills, agents, and shared infrastructure. Not every box becomes an agent** — see §9 Agent Design Standard.
 
+## 4a. Brand Architecture — WAG Main / WAG Podcast hard separation (restored 2026-08-15)
+
+**A real section dropped silently in the v1.0→v1.1 rewrite, restored per Katie's explicit approval.** WAG Main and WAG Podcast **may share**: company infrastructure, people, Revenue/CRM, finance, technical systems, and cross-company intelligence (WAG Brain itself, security, backups). They **must retain separate**: audience models, competitive sets, content history, Greenlight decisions, experiments, performance models, title/thumbnail learnings where they diverge, format intelligence, and recommendations. This is enforced at the data-model level in WAG Brain (brand-scoped tables), not as a prompt-level reminder — Main performance intelligence must never silently become Podcast truth or vice versa.
+
+## 4b. WAG Main — Show/Property Blueprint
+
+**Mission:** real, unscripted teen adventure/investigation entertainment starring Angelina, Annabella, and Scarlett.
+**Audience:** WAG's existing teen audience, personality-forward, adventure-forward — not a cold audience arriving for a topic alone.
+**Show promise:** you're going on the adventure with the girls, not watching a documentary about one.
+**Accountable Director:** Media & Audience Director.
+**Outcome family:** audience growth, watch-time/retention, franchise formation, fandom depth (per the Relationship Ladder).
+**Major intelligence/capability groups:** Greenlight Manager v1, Packaging Intelligence, the Concept & Packaging System (`WAG_CONCEPT_PACKAGING_SYSTEM.md`), Retention/Format specialists (Main Intelligence Loop).
+**Source-of-truth boundary:** Main-scoped WAG Brain tables only — never merged with Podcast's.
+**Detail pointer:** `WAG_MAIN_INTELLIGENCE_LOOP_V1.md`, `WAG_FORMULA_V1_ROADMAP.md`, `WAG_MAIN_PROOF_1_SKINWALKER_PREP.md`.
+
+## 4c. WAG Podcast — Show/Property Blueprint
+
+**Mission:** real teen conversations — questions, topics, answers, discussions, takeaways — hosted, not staged.
+**Audience:** listeners/viewers seeking conversational, opinion-driven teen content, distinct from Main's adventure audience.
+**Show promise:** honest, unscripted answers to the questions teens actually have.
+**Accountable Director:** Media & Audience Director (same Director, separate brand-scoped intelligence per §4a).
+**Outcome family:** subscriber/listener growth, clip performance, sponsor-inventory value, eventual chart/platform presence.
+**Major intelligence/capability groups:** real product layer (clips, distribution, sponsor inventory) — live and ahead of its own 17-function specialist intelligence layer, which is still mostly DESIGNED only.
+**Source-of-truth boundary:** Podcast-scoped WAG Brain tables only.
+**Detail pointer:** `WAG_PODCAST_DEPARTMENT_ARCHITECTURE.md`, `ROADMAP.md` (thewagpodcast-website, domain sub-roadmap).
+
 ## 5. Media Intelligence Standard (Engine 1)
 
 Never optimize WAG by studying only WAG. Deep research beats superficial creator summaries. For every creator/show studied (Stokes Twins, Jordan Matter, Sidemen, Royalty Family, MrBeast, GroovyGavin, Sam & Colby, Watcher, Yes Theory, Dude Perfect, GMM, video podcasts, and ongoing discoveries), ask: what caused breakout, what existed before it, what changed, what was downstream rather than causal, what failed, what did they stop doing, what makes people return for the *people* when premises change, how do they title/thumbnail/hook, how fast do they establish stakes, what story structures repeat, how do they franchise, how often did they publish during real growth periods, do Shorts convert to long-form, how do collaborations and audience migration work, what production/team changes actually preceded growth, what business/IP extensions followed audience proof (not preceded it).
@@ -94,6 +120,8 @@ Never optimize WAG by studying only WAG. Deep research beats superficial creator
 Packaging Intelligence must be evidence-backed against current 2026 platform evidence, not invented character limits or aesthetic opinion. ViewStats-class tooling may be evaluated for competitor title/thumbnail change history specifically because that answers a question current-page web search cannot.
 
 Media Output loop, permanent: prediction → production → publication → exposure → CTR → traffic/discovery → audience → hook retention → story retention → personality/fandom response → economics → conclusion → learning.
+
+**WAG is not building a Title Agent or Thumbnail Agent that generates options (added 2026-08-15).** It's a continuously learning Concept + Packaging + Retention system. Packaging happens *before* filming, as part of Greenlighting — not a post-edit marketing task. Canonical workflow: world-class outlier/WAG learning/platform signal → underlying psychology → WAG-native premise → premise strength → curiosity gap → title → thumbnail → **Promise Chain** (title creates question → thumbnail adds new information/tension → opening confirms → story advances → payoff resolves) → hook → escalation/**Future-Payoff Strength** → story architecture → greenlight → film → edit → publish → measure → learn. Surface trigger words (SECRET, MISSING, EVERY, STOLEN) are not strategies — every recommendation traces surface formula → psychological mechanism → premise architecture → WAG-native translation, and may only use a trigger word when truthful to the footage. Full system: `WAG_CONCEPT_PACKAGING_SYSTEM.md`.
 
 ## 6. Revenue + Sales Standard (Engine 2)
 
@@ -126,6 +154,8 @@ YouTube remains a critical strategic asset — this is not an escape-YouTube pla
 **Commerce buy-vs-build:** do not rebuild commodity ecommerce infrastructure. Evaluate Shopify when real products require commerce (digital products and most subscription/membership implementations are already supported in its ecosystem). Build differentiated WAG experiences around proven commerce infrastructure.
 
 **Membership hypothesis (does not currently outrank Media, Sales, or Publishing):** one broader WAG family membership, not per-category subscriptions. Sell an experience/outcome — premium library, exclusive content, missions/experiments/challenges, printables, progression/badges, book-companion experiences, personalized recommendations, new drops — not "access to videos." Validate one vertical (Slime Lab is the likely first test) before a native app. Start web-first unless evidence says otherwise.
+
+**WAG Relationship Ladder (added 2026-08-15), separate but connected system:** Watch → Binge → Participate → Join → Stay Connected → Future. Real status today: Watch/Binge/Join/Stay-Connected are REAL and LIVE; Participate is the current center of gravity and the thinnest rung relative to the weight it needs to carry; Future is partly real (Slime Lab underway, Speaking & Events live, formal membership deliberately not built until Participate pulls real weight). The real asset isn't the email address — it's the permission; participation leads to email, doesn't replace it. Full system: `WAG_RELATIONSHIP_LADDER.md`. Media optimization should therefore weigh not only views but whether content deepens fandom, participation, and owned-audience capture.
 
 ## 8a. Digital Publishing & Discovery Intelligence (added 2026-08-15)
 

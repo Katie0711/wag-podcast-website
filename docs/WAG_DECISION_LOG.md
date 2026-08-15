@@ -1,6 +1,18 @@
-# WAG CEO Decisions
+# WAG Decision Log
+
+**RENAMED 2026-08-15** from `CEO_DECISIONS.md` (`git mv`, history preserved) — verified first that its content is genuine company/architecture decisions (software-buy-vs-build, cross-brand reuse rules, Main/Podcast product-philosophy separation, ecosystem-profitability principle), not narrow CEO-approval logging, before renaming.
 
 Decisions that affect the company's future, not tasks. Each entry: the decision, why it was made, and what it rules in/out going forward. Add a new entry whenever a real strategic call gets made — don't let it live only in chat.
+
+---
+
+### Kidoodle — confirmed UNPAID, real collections/escalation problem (2026-08-15)
+
+**Decision/fact:** Kidoodle has NOT paid. Katie confirms she has sent repeated follow-up emails and Kidoodle has ignored all of them. This is Katie-confirmed truth, not an inference from invoice state alone — do not manufacture a contractual "overdue by X days" status unless invoice/contract evidence establishes an actual due date/payment term.
+
+**Why it matters:** this changes the real next action from "wait for Katie to confirm payment" to "determine the proper escalation path." The Active Portfolio and Current State have been updated to reflect this — see `WAG_ACTIVE_PORTFOLIO.md`.
+
+**What it doesn't do:** authorize sending anything externally. Nothing goes out without Katie's approval — the next Revenue deliverable is a decision-ready escalation card and draft, not a resent email.
 
 ---
 
