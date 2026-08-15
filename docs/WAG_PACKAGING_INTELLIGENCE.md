@@ -108,11 +108,43 @@ Only add an entry once a pattern has real, cited evidence behind it (WAG's own p
 7. **Relationship to the hook:** the format is a swappable container (same rule, new location/category each time) — the hook's job is establishing the container fast, since the audience that already knows the format from a prior episode doesn't need it re-explained.
 8. **Browse vs. search intent:** insufficient evidence gathered this pass for search; likely browse-dominant given the completeness-claim framing skews toward curiosity-driven discovery.
 9. **Comment potential:** insufficient evidence gathered this pass.
-10. **When NOT to use it:** when "EVERY" isn't actually close to true — WAG already holds this line in written content (the "Is It Cheating If...?" cannibalization decision explicitly avoided fabricating scenario coverage); the same discipline applies to a video's real claim of completeness.
+10. **When NOT to use it — CORRECTED and sharpened 2026-08-09, this is no longer a minor caveat:** a real Studio pull found WAG's own "EVERY" titles split into two groups with a **250x real view gap** using the identical device — "I Ate at EVERY WORST Rated Restaurant In a New City!" (454,560 views) and "I Ate EVERY Viral TikTok Food In a New City!" (374,459 views) vs. "I Tested EVERY Viral TikTok Product I Could Buy!" (1,732 views) and "Trying EVERY Viral TikTok Product On the Internet!" (1,693 views). **The device is necessary but not sufficient — topic-level real demand is the actual variable separating the winners from the losers.** Before using this pattern, independently verify the underlying topic has real search/interest demand (a real, observed vidIQ keyword-score check found the two weak videos scored 25/100 "Very low volume" vs. 50/100 for a real strong performer in a different pattern) — don't assume the device transfers just because it worked once on a different topic.
 
-**Real WAG fit already in place, not a new build:** WAG's own real titles — "I Ate at EVERY WORST Rated Restaurant In a New City!," "Trying EVERY Viral TikTok Product On the Internet!," "I Ate EVERY Viral TikTok Food In a New City!" — already use this exact pattern. This is a confirm-and-extend finding, not a new recommendation: the channel already has real, working prior art for the "New formats worth piloting" #2 entry in `WAG_STORYTELLING_SYSTEM.md`.
+**CORRECTED, 2026-08-09 — the prior "real WAG fit already in place" claim below overstated the evidence and should not be treated as settled.** The specific video previously cited by name here as proof, "Trying EVERY Viral TikTok Product On the Internet!," is actually one of the channel's weakest recent uploads (1,693 views) — not confirming evidence. The real, corrected finding: WAG's food/restaurant "EVERY" titles are genuine, strong prior art; its product-testing "EVERY" titles are genuine, weak counter-examples using the identical device. This is a real, valuable finding in its own right (topic matters more than title mechanics), but it is not the uniform "confirm-and-extend" story previously written here. See `WAG_PATTERN_LIBRARY.md`'s corrected Completeness Claim pattern for the full real evidence.
 
 ---
+
+## Derral Eves Growth Methodology (2026-08-10)
+
+**Why he's worth citing, not generic-advice-worthy:** founder of Creatus (1999) and VidSummit (2013), one of YouTube's own certified "Audience Growth" consultants, author of the WSJ-bestselling *The YouTube Formula* (foreword by MrBeast). Real, named track record: ~27 channels taken from zero to 1M+ subscribers, credited with growing The Piano Guys to 1.8M+ subscribers. Sources: Wikipedia, his 2026 VidSummit keynote announcement, a Feb 2026 "How to Grow on YouTube in 2026" interview (recapped by Balasabas on Substack), and a Neal Schaffer podcast interview containing the most granular case-study material found.
+
+**How he diagnoses a stalled channel:** not generic content advice — his stated 2026 position is that channels stall from a lack of *clarity* (who it's for, what promise is being made), not content quality. His real, named case study (Neal Schaffer interview): an entrepreneur stuck at ~2,000 subscribers for years had an authenticity/delivery gap, not a content or SEO problem — he seemed like a different person on camera than on stage. Eves' first intervention was **environmental, not topical**: real-time audience feedback (live Zoom audience or livestreaming) before touching content topics at all. Reported result: 2,000 to 100,000+ subscribers in under 30 days, ~22-minute average watch time. (The specific creator's name wasn't recoverable from accessible sources — flagged as a real but partly unverified case study, not fabricated.)
+
+**His content-pillar framework — Hero / Hub / Help** (originally a Google/YouTube framework from 2014, which he builds on):
+- **Hero** — big tentpole, high-production spikes built for reach and new-audience discovery.
+- **Hub** — regular, scheduled content that builds a loyal, returning subscriber base.
+- **Help** — evergreen, search-driven content answering specific audience questions.
+
+**How this maps onto WAG's own real catalog, honestly, not forced:** WAG doesn't yet have a deliberate Hero/Hub/Help split — the real catalog (`WAG_CREATIVE_FORMULA_V1.md`'s 4 evidence-backed types) currently runs almost entirely as Hub-style regular content. The Legend/Overnight Investigation subtype (Haunted Hotel, Goatman's Forest — WAG's own real highest-effort, highest-payoff productions) is the closest thing to a real Hero candidate already in the catalog. No real Help-style evergreen/answer content has been deliberately built yet — flagged as a real, open gap rather than assumed to exist.
+
+**His diagnostic loop, stated across sources:** Try → Fail → Analyze → Adjust — publish, expect early misses, read the actual analytics, adjust. His VidSummit 2026 framing of the same idea: "What is one small tweak that could create a big peak?" — one informed change at a time, measured, fed into the next decision. This is the same discipline `WAG_ALGORITHM_DIAGNOSTIC.md`'s ranked, Studio-pull-per-hypothesis structure already follows — real convergence, not a coincidence worth ignoring.
+
+**Packaging note carried directly from his methodology:** thumbnails need to pass a fast "blink" legibility test (strong contrast, a small set of repeatable templates — face-and-object, face-and-face, three-panel); a title's promise has to be delivered on exactly, or the drop-off in the first ~30 seconds is a direct signal of over-promising. WAG's own flopped "EVERY Viral Product" videos are a live, real example of this — the title's completeness promise wasn't matched by a strong enough delivered payoff (see `WAG_CREATIVE_FORMULA_V1.md`'s Category Sweep Completionism finding).
+
+## Title Formula Library (competitor-sourced, 2026-08-10)
+
+Real, named templates drawn from WAG's own top performers plus the real competitor/aspirational channels evaluated in `WAG_MAIN_COMPETITIVE_LANDSCAPE.md` — not generic title advice.
+
+| Template | Source evidence | WAG application |
+|---|---|---|
+| "I/We [verb] EVERY [category] In [city]!" | WAG's own #1 & #3 post-pivot performers; SIS vs BRO ("We Tried EVERY Fast Food in 24 hours") | "I Tried EVERY Food Truck At [Local Event]!" |
+| "[Duration] In America's/[City]'s Most [Superlative] [Place]!" | WAG's own #2 post-pivot performer (Haunted Hotel) | "48 Hours In [City]'s Most Abandoned Mall!" |
+| "[Duration] [verb]ing ONLY [category]" | SIS vs BRO ("24 HOURS Eating ONLY...") | "24 Hours Eating ONLY Gas Station Food" |
+| "$[Amount] [Challenge Name]" / "[Duration] [Extreme Constraint]" | Norris Nuts ("$1000 FASHION MAKEOVER," "24hrs HANDCUFFED") | "$500 Thrift Flip Challenge — Winner Picks Dinner" |
+| Declarative supernatural/legend claim + location name | Sam and Colby | "The Ghost of [Local Landmark] Is Real — We Proved It" |
+| "We Tested [category]" claim-first framing | SIS vs BRO ("We Tested 1-Star Hotels") | "We Tested Every 1-Star Rated Nail Salon In [City]" |
+
+**Standing rule this table doesn't override:** every template above is a container, still subject to `WAG_CREATIVE_FORMULA_V1.md`'s corrected packaging rule — declarative/quantified is the default, but a real, unresolved question is the right call when the actual hook is ambiguity, not a claim to test.
 
 ## Real use, round 1 (2026-08-08)
 

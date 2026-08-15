@@ -4,6 +4,8 @@ Permanent reference. Built 2026-08-07 from a full manual triage of every "why pa
 
 **Bottom line from the 2026-08-07 pass: zero RED issues on either property.** Every category was GREEN (expected, working-as-intended) or YELLOW (real content/URLs Google hasn't finished crawling yet — not a defect).
 
+> **CORRECTION — 2026-08-13.** The "88 indexed, 495 not indexed" figure below (§ wildadventuregirls.com) cannot be reproduced or traced to any real Search Console property on the account as of this date. Live verification found: (1) no Search Console property for `wildadventuregirls.com` existed at all until it was added and auto-verified today via its existing Google Analytics tracking — before that, the property this section describes simply didn't exist under this account; (2) the only related legacy property, `sc-domain:thewildadventuregirls.com` (the old pre-cutover domain), shows just 2 total known URLs and ~0 real query volume — nowhere near 88/495. Where the original 88/495 numbers came from is unresolved; **do not cite them going forward.** The newly-added `https://wildadventuregirls.com/` property is verified, has its sitemap submitted (`sitemap-index.xml`, status: Success), and is linked to GA4 — but as a brand-new property it has no Performance/Indexing data yet ("processing, check again in a day or so" as of 2026-08-13). Real coverage/query numbers should be pulled fresh from that property once it populates, not backfilled from this file's old figures.
+
 ---
 
 ## Why this file exists
@@ -15,6 +17,8 @@ On 2026-08-07, Katie received 30+ Search Console email notifications ("New reaso
 ---
 
 ## wildadventuregirls.com
+
+**⚠️ See the 2026-08-13 correction note above — the property this data claims to describe did not exist under this account until 2026-08-13. Treat everything below as unverified/untraceable, kept only for historical record of what was previously reported.**
 
 Coverage as of 2026-08-07 (Search Console "Last update" for this data: 8/4/26 — a few days stale, matching the sitemap-read lag documented in `CHANGELOG.md`). 88 indexed, 495 not indexed across 7 reasons.
 
