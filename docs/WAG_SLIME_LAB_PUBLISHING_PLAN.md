@@ -37,11 +37,100 @@
 
 **REWORK:** the 2 blocked images (new photography required either way); the series name (see below — real collision found in the name I'd have otherwise proposed).
 
-## Series naming — real collision found, not resolved here
+## Series naming — recommendation set, not a decision
 
-Before recommending "Wobbie's Slime Lab" as the obvious next step, I checked it. **"Slime Lab" is not clean** — it's an actively-sold product name: SmartLab Toys' "It's Alive! Slime Lab" kit ships with its own 16-page companion lab book, Galt Toys and MindWare both sell "Slime Lab" science kits, and there's a real existing "Slime Lab" title at a children's bookstore. Separately, "Slime" alone is the title of a real, major bestselling book by David Walliams — reconfirming the original trademark research's own finding that the bare word "Slime" is heavily contested territory.
+**Important distinction, per Katie's explicit correction:** everything below is a *preliminary web-collision screen* (what shows up in ordinary search), not formal trademark clearance. No name should be filed or publicly committed to before a real trademark search — the same standard the original research already applied to reject 7 earlier candidates.
 
-**Recommendation, not a decision:** lean fully into Wobbie as the ownable identifier — the real, proven pattern in kids' publishing is mascot-led naming (Pete the Cat, Elephant & Piggie, Pinkalicious) rather than category-descriptive naming. Candidate directions, none trademark-cleared beyond a general web-usage screen (a real formal trademark search is a genuine next step, same rigor already applied to reject the original 7 names): **"Wobbie's Messy Science," "The Wobbie Files," "Team Wobbie," "Wobbie Knows Slime."** All keep the confirmed-clean "Wobbie" as the load-bearing word rather than "Slime Lab." **This is a real open decision for Katie, not decided here.**
+**Two real collisions found, one new this pass:**
+1. **"Slime Lab"** is an actively-sold product name — SmartLab Toys' "It's Alive! Slime Lab" kit ships its own 16-page companion book, Galt Toys and MindWare both sell "Slime Lab" kits, and there's a real existing "Slime Lab" title at a children's bookstore.
+2. **"Wobbie" itself has a real collision** — a published children's book character, "Wobbie the Wasp" (*The Adventures of Wobbie the Wasp: Family and Friends*, Rhyanne Ward, Amazon/Kindle). This changes the calculus: leading with the bare name "Wobbie" carries real risk, not just "Wobbie's Slime Lab."
+
+**Real competitive title found:** *The Book of Slime — A Kid's Guide on How to Make the Best Slimes of All Time* (Peanut Prodigy) is a direct, currently-selling comparable in this exact category.
+
+**Recommendation set, scored across the 7 dimensions requested:**
+
+| Candidate | Brandability | Extensibility (Book #2+) | Audience fit | Differentiation | Discoverability | WAG ecosystem fit | Prelim. trademark risk |
+|---|---|---|---|---|---|---|---|
+| ~~Wobbie's Slime Lab~~ | High | High | High | Low (2 collisions) | High | High | **High — reference/rejected** |
+| **Blorp's Slime Lab** *(leans on Wobbie's own catchphrase, not his name — "Blorp" is his one recurring word per the voice guide)* | High — invented word, distinctive | High — "Blorp" can front future books without repeating "Wobbie" | High | High — no collision found for "Blorp" as a search term | Medium — less familiar as a search term than "slime" | Medium — one step removed from the WAG name itself | **Low — no collision found in this pass** |
+| **WAG Slime Science** *(leans on the already-registered ® WILD ADVENTURE GIRLS trademark instead of an unproven character name)* | Medium | High — "WAG [Topic] Science" extends cleanly to future subjects | High — leverages existing real audience recognition | Medium | High — WAG already has real search presence | High — directly ties to protected, existing IP | **Lowest — rides an already-registered mark** |
+| **Wobbie & Friends: Slime Science** | Medium | Medium | High | Medium — still leads with "Wobbie" | Medium | High | **Medium — inherits the Wobbie-the-Wasp risk, softened by added words** |
+| **The Wobbie Files** | High | Medium | Medium | Medium | Medium | High | **Medium — same inherited risk** |
+
+**Revised same-day, per real new evidence:** a live 2026 U.S. trademark application exists specifically for "THE SLIME LAB" in Class 41, and Wag Labs, Inc. already holds real WAG-related pet-category trademark rights — both materially change this table. Full detail and the broader WAG Lab family strategy: `WAG_LAB_FAMILY_IP_PORTFOLIO.md`. **"Blorp's Slime Lab" (my recommendation above) still contains "Slime Lab" and inherits the live application's risk** — flagging this correction rather than letting it stand. "WAG Slime Science" avoids "Lab" entirely and now reads as the stronger candidate of the two, though it still requires the same formal clearance, not just a web screen, before Katie commits to anything.
+
+## The Catherine Swanson byline conflict — explained, with options
+
+**The issue:** the old Jimdo blog archive's founder bio byline reads "Catherine Swanson." This conflicts with the confirmed real name **Katie Swans**, already established as correct and permanent in this session's standing memory — a prior correction explicitly says not to "fix it back" to a Swanson-style spelling.
+
+**Why it matters:** a book byline is a real, public, printed commitment — getting it wrong is far more consequential than a typo in an old archived blog post nobody reads anymore. If "Catherine Swanson" was ever a legal or prior public name, using "Katie Swans" without knowing that context risks looking inconsistent; if it's simply an old website error, carrying it forward into a printed book would propagate a real mistake permanently.
+
+**My recommended options, ranked:**
+1. **Use "Katie Swans" for the book, matching every current WAG brand surface** — this is my default recommendation, since it's consistent with the confirmed-correct name everywhere else, and the old byline is 6+ years stale.
+2. **If "Catherine Swanson" was a real legal/former name still relevant to Katie's own story, use it deliberately as a small "the woman behind the name" detail in the welcome note** — only if Katie confirms this is true and wants it included; not assumed here.
+3. **Ask Katie directly which is accurate** — the fastest, lowest-risk path, since this is a fact only she can confirm, not something more research on my end can resolve.
+
+**Not deciding this — recommending option 1 as the default unless Katie says otherwise.**
+
+## Production requirements — real, not a naming workaround
+
+Per Katie's explicit correction: these are original photography/art requirements, not a "rename around the problem" list.
+
+| Item | Requirement |
+|---|---|
+| Starbucks Edible Slime | **New, unbranded photography required.** The existing image has the real Starbucks logo baked into the title-card graphic itself — cannot be cropped, filtered, or captioned around. Either a fresh shoot of the same real recipe (hot cocoa packet + marshmallow edible slime) without any Starbucks branding in frame, or selection of an existing unbranded take if one exists in the raw footage archive (unconfirmed). |
+| Disney Frozen Milkshake | **New photography required, harder constraint.** Real Disney movie stills of Elsa and Olaf are composited into the existing image — this is copyrighted character artwork, not a branding mention, and cannot go in a commercial book under any recipe name. Needs a fully new photo of the real milkshake recipe with zero Disney character imagery, regardless of what the recipe is renamed to ("Snow Queen Milkshake" or otherwise). |
+| Wobbie | **Professional illustration required.** The SVG character sheet is a proven, detailed concept (color system, proportions, goggles/patches locked) — ready to hand to an illustrator, not ready to print as-is. |
+| Book cover | **Professional photography of the girls + professional Wobbie illustration required.** The existing SVG mockup exists specifically to prove layout/color/sell-copy placement before commissioning real art — noted in the mockup's own caption. |
+
+## Definitive recipe map — real material only, gaps named honestly
+
+Using the front matter's real chapter/page structure and only the recipes with real, confirmed source material (17 audited Jimdo posts + 6 video-sourced recipes with real transcripts):
+
+| Chapter (pages) | Real candidates with confirmed source material | Status |
+|---|---|---|
+| Classic Slime (10–17) | Biggest Fluffy Slime (video-sourced, real transcript, already drafted as sample spread) | **Enough for the opener; needs 2–3 more simple recipes from the unreviewed 27** |
+| Sparkle & Shine (18–25) | Galaxy Slime, Gold Leaf Slime, Crunchy Mermaid Slime, Edible Mermaid Slime | **4 real candidates — likely enough** |
+| Edible Slime (26–33) | Gummy Bear Slime (video-sourced, drafted spread), Starbucks Edible Slime (production requirement above) | **Thin — needs 1–2 more from the unreviewed 27, ideally without a trademark blocker** |
+| Science Lab (34–43) | Heat Sensitive Color-Changing Slime, Glow-in-the-Dark Snow Cone Slime (video-sourced, drafted spread), Oobleck/Glow Stress Ball, plus real non-slime bonus experiments already confirmed on-brand for this chapter per its own TOC description ("volcanoes, oobleck, lava lamps, glow"): Volcano Eruption, Fireworks in a Jar, Homemade Lava Lamp, Underwater Volcano | **Strong — real depth already confirmed** |
+| Holiday Slime (44–51) | Super Crunchy Valentine's Day Slime (video-sourced, real transcript + real joke bit), Magical Pretend Play Easter Slime (video-sourced, richest real mini-narrative found) | **2 real, strong candidates; Disney Frozen Milkshake explicitly not recommended for this slot — not slime, not really holiday-themed, and carries the hardest production requirement above** |
+| Go Big — finale (52–57) | **No confirmed candidate yet** | **Real gap — the finale needs to be the single most "wow" recipe in the book; nothing in the reviewed 17 or the 6 video transcripts is clearly the right finale. Needs either a genuinely new/bigger real recipe or a deeper pull from the unreviewed 27.** |
+
+**Honest bottom line:** 4 of 6 chapters have solid-to-strong real material now. Edible Slime is thin and Go Big has no confirmed finale — both need more of the remaining 27 Jimdo posts pulled with full ingredient lists, which requires live access to the old Jimdo CMS this session doesn't have. Flagging as a real, specific next step, not fabricating a finale recipe to fill the gap.
+
+## Manuscript / book architecture
+
+Already real and proven, not invented fresh: the voice guide's exact 14-element page structure (chapter tag → hook question → title → 2 intro paragraphs → photo → banter box → Why It Works → page break → What You'll Need → Did You Know → Let's Get Started steps → Whoa Moment → optional second banter → Secret Slime Code puzzle → hidden Wobbie), repeated identically every spread per the voice guide's own explicit instruction not to vary it "for interest." Escalation-ordered chapters (easiest/fastest first, biggest/most-impressive last). **Where Wobbie and the girls appear, and why:** Wobbie gets one fragment-only callout per spread (never narrates, never explains — reacts physically); the girls' real banter appears in 2 (sometimes 3) short exchange boxes per spread, pulled from the real phrase bank and each girl's consistent lens (sensory narrator / dare-taker / reactor-jokester) established across the 6 real transcripts — this authentic-voice discipline is the book's real differentiator against comp titles and should not be diluted by inventing new dialogue that isn't grounded in the real transcript bank.
+
+## Greenlight / prediction record (draft — cannot write to live WAG Brain this session, Supabase access unavailable)
+
+- **Concept:** WAG's first Publishing/IP property, working title pending (see naming section)
+- **Premise strength:** High — real, proven voice system; real girls' authentic material; real recurring engagement mechanic (Secret Slime Code) with direct precedent in the brand's own content (the Easter video's countdown device)
+- **Real gaps before this can close:** series name (pending trademark clearance), 2 production-requirement photos, Edible Slime + Go Big chapter content, welcome-note final pass, byline decision
+- **Prediction, explicitly not frozen:** a well-executed version of this book, cross-promoted through WAG's existing real audience (Main + Podcast + WAG Insider's real "You Vote. We Go." participation base), has a real shot at outperforming a cold-start book with no existing audience — but this is a hypothesis to test, not a guaranteed outcome, and no specific sales number is being predicted without real comp-title sales data this pass doesn't have.
+- **What changes this recommendation:** a formal trademark search result on either naming direction; Katie's confirmation on the byline; the outcome of pulling the remaining 27 Jimdo posts.
+
+## Repeatable Publishing Pipeline — stage tracking (Book #1 as the proof)
+
+| Stage | Owner | Status | Next action | Decision required | Evidence | Output | Outcome/Learning |
+|---|---|---|---|---|---|---|---|
+| Concept | Publishing & IP Director | Done | — | — | Real slime content history, real market category exists | Concept confirmed | — |
+| Market validation | Publishing & IP Director | **In progress** | Deeper comp-title sales-rank research (this pass found *The Book of Slime* by Peanut Prodigy as a real direct comp; deeper positioning research still needed) | None yet | 1 real direct comp found | Partial | Pending |
+| Naming | Publishing & IP Director | **In progress** | Katie picks a direction or requests formal search | **Katie** | Recommendation set delivered, 2 real collisions found | Not final | Pending |
+| Preliminary trademark screen | Claude (web-level only) | Done for candidates screened so far | Screen final direction once chosen | — | This pass's findings + Katie's own counsel findings | Documented | Real risk avoided before commitment |
+| Attorney clearance | Katie / counsel | **Not started** | Engage counsel once a direction is picked | **Katie** | — | — | — |
+| Katie approval | Katie | Pending naming + clearance | — | **Katie** | — | — | — |
+| Filing decision | Katie / counsel | Not started | — | **Katie** | — | — | — |
+| Development (manuscript) | Publishing & IP Director | **In progress** | Fill Edible Slime + Go Big gaps, pull remaining Jimdo posts | None yet | Architecture + 3 sample spreads real and proven | Partial manuscript | Pending |
+| Launch | Publishing & IP Director | Not started | — | Depends on above | — | — | — |
+| Performance | Publishing & IP Director | Not started | — | — | — | — | Feeds IP Expansion Trigger |
+
+## Funnel, cross-promotion, and future IP — framework-level, not deep-dived this pass
+
+**Book → owned WAG experience funnel:** Book → QR/link → free WAG digital experience (a real recipe or Secret Slime Code extension online) → email capture via WAG Insider (already real, already the right list) → future product/membership signal — a hypothesis to prove with Book #1's real behavior, not build heavy infrastructure around yet, per Katie's explicit instruction not to invest in membership software before the book and owned-audience behavior are proven.
+**Cross-promotion:** real, existing channels only — Main and Podcast content can reference the book once real; WAG Insider is the real pre-launch list; no new channel needs to be built.
+**Future IP extensions, evidence-gated per the IP Expansion Trigger:** if Book #1 performs, the WAG Lab family concept (`WAG_LAB_FAMILY_IP_PORTFOLIO.md`) is the named next step — books #2–5 in other real WAG content categories (science, animals, experiments), not decided or committed here.
+**Distribution/economics, launch strategy, Amazon/discoverability strategy:** genuinely not researched in depth this pass — real next steps once naming and manuscript gaps close, not fabricated now.
 
 ## Recommended publishing-development plan
 

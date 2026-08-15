@@ -174,6 +174,26 @@ Per Katie's explicit framing: the objective isn't "make Skinwalker perform," it'
 - **Cultural sensitivity/accuracy:** "Skinwalker" specifically originates in real Navajo tradition and is treated by some as a serious, sensitive subject, not generic pop-cryptid content — worth a deliberate, respectful treatment decision before filming, not an assumption it's interchangeable with Bigfoot/Goatman.
 - **Production safety:** real overnight filming in a remote wooded location with ATVs at night carries real physical-safety considerations independent of the content questions above.
 
+## CULTURAL-TREATMENT RECOMMENDATION (added 2026-08-15, real Friday filming deadline)
+
+**Recommendation: PROCEED WITH GUARDRAILS.**
+
+**Why not CHANGE SUBJECT:** Skinwalker legends are already widely covered by mainstream media (History Channel's official series) and major creators (Sam and Colby's theatrical release) without those properties abandoning the subject — the real risk here is execution, not the topic's existence. **Why not plain PROCEED with no guardrails:** the subject has a real origin in Navajo spiritual tradition and is treated by some communities as sacred/serious, not generic pop-cryptid content interchangeable with Bigfoot or Goatman — proceeding identically to those two would be a real, avoidable misstep.
+
+**What WAG should avoid:**
+- Claiming or implying special insider knowledge of real Navajo spiritual beliefs, or presenting the legend as settled fact about a real living tradition.
+- Costumed, mocking, or caricatured depictions of the creature tied to real cultural imagery.
+- Treating the word itself as just another spooky trigger-word (per the packaging research's own finding — GroovyGavin's real practice keeps the word for semantic clarity, not shock value).
+- A tone that mocks or trivializes the subject's real cultural weight, even in service of comedy.
+
+**What respectful framing looks like:** treat it the same way WAG already treats its other investigations — a real, culturally-loaded legend people genuinely talk about, investigated honestly, with the girls' real reactions and an honest (not manufactured) verdict as the actual content — not a claim to prove or disprove anyone's real spiritual beliefs. This is consistent with the chassis already proven on Bigfoot/Goatman; the guardrail is tone and framing, not format.
+
+**Why this matters enough to state explicitly rather than leave as "open":** this is a minors-facing, family-brand production decision, not a legal question — the standard is respect, not clearance.
+
+## FILMING DURATION — remains UNKNOWN
+
+This session has no way to confirm real production duration — it depends on Katie's own scheduling, not anything researchable further. Recorded here as a real, named gap rather than assumed either way. The conditional 24-hour title territory (Pre-Research Hypothesis #7) stays unused until this is confirmed.
+
 ## PREDICTIONS — still DRAFT, not frozen
 No expectation is anchored to the Bigfoot/Goatman view counts — per the correction above, those numbers are not diagnostic until decomposed, and the data to decompose them doesn't exist yet. The real basis for a prediction here is the proven chassis itself (WAG's only proven lane) and the Browse/Suggested framing, not the historical view-count comparison. Confidence: **MODERATE** on the format/chassis working as it has before; genuinely **LOW** on any specific number, because no clean baseline exists for this subject-matter bucket with distribution-equal comparison. Continue preparing Skinwalker as the likely prospective Main Proof 1 candidate, per Katie's explicit instruction — this is not a downgrade.
 
