@@ -1,3 +1,5 @@
+**SUPERSEDED BY `WAG_MASTER_ROADMAP.md` and `WAG_CURRENT_STATE.md` (2026-08-15) — kept for provenance, not deleted. Full reconciliation of what changed and why: `WAG_COMPANY_OS_MIGRATION_PLAN.md` §4/§5.**
+
 # WAG Master Organization Status & Build Roadmap — v3
 
 **One executive question this module answers: across the whole company, what's actually operating vs. merely designed, what depends on what, and what's the next thing worth building?**

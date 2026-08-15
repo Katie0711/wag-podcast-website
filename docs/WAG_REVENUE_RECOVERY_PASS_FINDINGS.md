@@ -250,6 +250,28 @@ Built directly against the real evidence already in Recovery Pass Findings §1 a
 
 **What did not happen:** no contact with Aha World, no pricing committed, no package proposed to them.
 
+**Verification update, 2026-08-15 — independent research, no inbound link clicked, per the standing spam/fraud guard rule:** searched for "Aha World" directly (never through any link in the actual email thread). Found a real, currently-live company: **Aha World Ltd.**, published on both the Apple App Store and Google Play, with multiple real, actively-published titles (`Aha World: Avatar & Family Fun` / `Aha World: Doll Dress-Up Game`, `Aha Makeover: Idol Dress Up`) — an avatar/dress-up/customization game genuinely well-matched to WAG's teen-girl audience, which is a real positive brand-fit signal beyond just legitimacy. The real listed developer entity is **iHuman (SG) Pte. Ltd.** — a Singapore-registered publisher — which independently explains the earlier-flagged non-US WhatsApp country code (consistent with a real Singapore/Asia-based team, not a scam signal on its own). **This substantially upgrades the legitimacy read from NEEDS_VERIFICATION toward CONFIRMED-REAL-COMPANY.** What remains genuinely unconfirmed and cannot be resolved by web search alone: whether `creators02@ahaworld.com` specifically is this real company's actual authorized outreach inbox (would need DNS/email-header-level verification, or Katie confirming via a channel outside the email thread itself) — flagging this precisely rather than treating "the company is real" as proof "this specific sender is legitimate."
+
+**Corrected next-step recommendation, per the record's own stated gap:** the real blocker was never actually pricing — it's that **Aha World never specified deliverables, platform, or timeline**, so no package can be honestly priced yet (Consolidated §16a's rule against inventing rates without real deal parameters). The document's own original recommendation was correct and remains the real next step: **a scoping reply**, asking Aha World the same standard clarifying questions WAG asked Pop&Boom before ever quoting a number — not a pricing quote. Drafted below, **not sent**:
+
+> Subject: Re: Partnership Opportunity — WAG
+>
+> Hi [Luna/Jason — name to confirm before sending, given the observed inconsistency],
+>
+> Thanks for your interest in working with Wild Adventure Girls! Before I can put together the right package for you, I'd love a bit more detail:
+>
+> - What are you picturing for the collaboration — a single video, a series, social-only content, or something else?
+> - Which platform(s) — YouTube, Instagram, TikTok, or a mix?
+> - Any specific timeline you're working toward?
+> - Is there a budget range you're working within, so I can make sure what I put together actually fits?
+>
+> Once I have those details I can send over some options that make sense for both of us.
+>
+> Best,
+> Katie
+
+**Katie decision required, narrowed:** approve/edit this scoping reply for send (or decline to pursue at all) — not a pricing decision, since no real deal parameters exist yet to price against.
+
 ### 14c. First Pricing/Deal Economics evaluation + external market research
 
 **WAG's current rate sheet treated strictly as `current_wag_ask`** (already tagged this way in Section 9e's seed: Social Campaign $25K / Signature YouTube Partnership $45K / Signature+Social $65K / Premium Story Integration from $75K) — never as assumed market value, per Section 13a's standing rule.

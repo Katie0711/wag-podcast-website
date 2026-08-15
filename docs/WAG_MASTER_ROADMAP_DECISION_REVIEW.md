@@ -1,3 +1,5 @@
+**SUPERSEDED BY `WAG_MASTER_ROADMAP.md` and `WAG_CURRENT_STATE.md` (2026-08-15) — kept for provenance, not deleted. This document's corrections were carried forward as canonical (its retractions of v3 won over v3's original claims). Full reconciliation: `WAG_COMPANY_OS_MIGRATION_PLAN.md` §4/§5.**
+
 # WAG Master Roadmap — Decision Review
 
 **One executive question this module answers: after pressure-testing v3's sequencing, what should Katie actually decide next?**

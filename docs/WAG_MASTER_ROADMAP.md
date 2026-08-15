@@ -18,15 +18,49 @@ All 6 business engines and 18 organizational capabilities remain represented her
 
 **18 organizational capabilities**, full maturity/staging in `WAG_CURRENT_STATE.md`: WAG Main, WAG Podcast, Revenue & Partnerships, Audience Intelligence, Creator & Platform Intelligence, Marketing & Owned Audience, Website & Digital Growth (incl. Digital Publishing & Discovery Intelligence), Finance & BI, Publishing/Books/IP, Product/Membership/Commerce, Education/WAG Labs, B2B Education/Institutional Licensing, Rights/Licensing/Commercial Ops, Legal/Safety/Brand Risk/Minors Compliance, Operations & Production, Opportunity/Innovation/Future, Research & Evidence Governance, Company Learning & Performance.
 
-## Current build priority — 5 engines, sequencing not elimination
+## Current build priority — 4 execution tracks, WAG OS accelerates them (restated 2026-08-15)
 
-1. **Media & Audience** — WAG Main and WAG Podcast become category-leading shows via the permanent three-lens model: WAG internal truth × world-class creator intelligence × current platform intelligence.
-2. **Revenue & Partnerships / Sales** — the real inbound/outbound loop, Katie-approval-gated before any external action.
-3. **Publishing & IP** — WAG Slime Lab as Book #1 of a repeatable pipeline, starting now.
-4. **Owned Audience / Digital Publishing** — website, email, SEO/AEO/GEO, reducing dependence on rented platforms.
-5. **WAG OS / Operations / Intelligence** — builds only what materially accelerates the other 4.
+Katie's own framing, adopted verbatim: not 5 co-equal engines, but **4 parallel execution tracks, with WAG OS as the accelerant underneath them, not a peer track competing for attention.**
 
-Everything outside these 5 remains in the destination architecture, activated when dependency/value justifies it — not deleted, not forgotten.
+1. **Media Growth** — WAG Main and WAG Podcast become category-leading shows via the permanent three-lens model: WAG internal truth × world-class creator intelligence × current platform intelligence.
+2. **Revenue** — sales, partnerships, and licensing: the real inbound/outbound loop, brand/agency discovery, contact verification, spam/phishing guard, packages/pricing, outreach preparation, negotiation, close, invoice/collection, renewal — Katie-approval-gated before any external send, commitment, or spend.
+3. **Publishing/IP** — books starting now, not after WAG OS is complete. WAG Slime Lab as Book #1 of a repeatable pipeline.
+4. **Marketing / Owned Audience** — launches, social distribution, cross-property promotion, email, website growth, SEO/AEO/GEO, keyword/topic intelligence, episode-to-article publishing, book/product marketing, funnel optimization, and eventually paid acquisition where economics justify it.
+
+**WAG OS / Operations / Intelligence** builds only what materially accelerates these 4 — it is infrastructure for the company, not a 5th track competing with it for priority.
+
+Everything outside these 4 remains in the complete destination architecture, activated when dependency/value justifies it — not deleted, not forgotten. See "Full capability classification check" below for the explicit mapping Katie requested.
+
+## Full capability classification check (2026-08-15, per Katie's explicit request)
+
+Verified against the existing 6-engine / 18-capability destination architecture above — nothing in Katie's named list is missing or was deleted to shrink the org chart. Classified by type, not just presence:
+
+| Katie's named capability | Type | Where it already lives in this Roadmap |
+|---|---|---|
+| Main/Media | Business engine (WAG Entertainment/Media) + capability (WAG Main) | §2 Engine A; 18-capability list |
+| Podcast | Capability under the Media & Audience Director | 18-capability list (WAG Podcast) |
+| Revenue & Partnerships | Business function / Director-level department | 18-capability list; Blueprint §6 |
+| Outbound Sales | Specialist capability inside Revenue & Partnerships | Not a separate department — a function within Revenue's inbound/outbound pipeline (Blueprint §6) |
+| Marketing & Growth | Capability, split across two named rows | 18-capability list: "Marketing & Owned Audience" + "Website & Digital Growth" |
+| Publishing & IP | Business engine (Publishing) + Director-level department | §2 Engine C; 18-capability list; Blueprint §7 |
+| Owned Audience/Digital Publishing | Capability | 18-capability list: "Website & Digital Growth (incl. Digital Publishing & Discovery Intelligence)" |
+| Learning/WAG Labs | Business engine (WAG Learning/WAG Labs) + capability | §2 Engine B; 18-capability list: "Education/WAG Labs" |
+| Membership/Digital Products | Business engine (Digital Membership) + capability | §2 Engine D; 18-capability list: "Product/Membership/Commerce" |
+| Commerce/Physical Products | Business engine (Physical Products/Commerce) + capability | §2 Engine E; same "Product/Membership/Commerce" row |
+| Licensing/Distribution | Capability | 18-capability list: "Rights/Licensing/Commercial Ops" |
+| B2B Education | Business engine (B2B Education) + capability | §2 Engine F; 18-capability list: "B2B Education/Institutional Licensing" |
+| Audience Intelligence | Cross-cutting function | 18-capability list; Blueprint §4 cross-cutting functions |
+| Creator/Competitive/Platform Intelligence | Cross-cutting function | 18-capability list: "Creator & Platform Intelligence" |
+| Opportunity/Innovation Intelligence | Cross-cutting function (includes the permanent IP Expansion Trigger) | 18-capability list; Blueprint §7a |
+| Finance/Business Intelligence | Cross-cutting function | 18-capability list: "Finance & BI" |
+| Operations/Production | Capability | 18-capability list: "Operations & Production" |
+| Rights/Commercial Operations | Cross-cutting function | Same row as Licensing/Distribution above |
+| Legal/Compliance | Cross-cutting function | 18-capability list: "Legal/Safety/Brand Risk/Minors Compliance" |
+| Research/Evidence Governance | Cross-cutting function | 18-capability list |
+| Company learning | Capability, live open question | 18-capability list: "Company Learning & Performance" — flagged as possibly merging with Research/Evidence Governance, not yet resolved, not deleted |
+| Executive/Build-Manager coordination | Org-chart layer, not a capability | Blueprint §4 (Executive AI/Chief-of-Staff layer) + `WAG_BUILD_PROTOCOL.md` §9 (WAG OS Build Manager role spec) — sits above the 18 capabilities, coordinates them, is not one of them |
+
+Every item Katie named is present and correctly typed. Nothing was removed to make the near-term execution list smaller — the 4 active tracks are a build-priority sequencing layered on top of this complete structure, not a replacement for it.
 
 ## Dependency graph — real, named dependencies only
 

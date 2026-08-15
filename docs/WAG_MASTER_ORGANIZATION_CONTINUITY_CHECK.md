@@ -1,3 +1,5 @@
+**SUPERSEDED BY `WAG_CURRENT_STATE.md` (2026-08-15) — kept for provenance, not deleted. Full reconciliation: `WAG_COMPANY_OS_MIGRATION_PLAN.md` §5.**
+
 # Master Organization Continuity Check v2 (2026-08-12)
 
 **Status: STATUS/TRIAGE ONLY. Nothing built in this pass.** §64 (EXISTENCE ≠ OPERATIONAL) applied ruthlessly. Supersedes the v1 pass earlier today — this version incorporates Katie's full 20-point response: the intelligence-must-drive-outcomes standard, the corrected Revenue/Podcast/Rights/Legal framings, the restructured (not merged) Opportunity/Innovation view, and the explicit dependency-sequencing question (does an execution/production-calendar layer sit ahead of the prior top-5).

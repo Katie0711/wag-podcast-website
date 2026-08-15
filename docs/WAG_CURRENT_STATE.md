@@ -19,7 +19,7 @@
 | Revenue & Partnerships | BUILT→CONNECTED, TESTED on 2/13 specialist roles | 1 real WON deal (Epic, ~$50,025 cumulative), 1 real LOST (Pop&Boom), 1 real OPEN (Aha World); 19-table+1-view schema, RLS-secured |
 | Audience Intelligence | DESIGNED | One spec document, zero data collection built |
 | Creator & Platform Intelligence | TESTED | 2 real proofs run (Proof 0, Proof 1); real self-caught data-integrity bug fixed; not yet recurring |
-| Marketing & Owned Audience (Beehiiv, interactions) | CONNECTED, low volume / **CONTRADICTED (interaction platform deployment status)** | Real infra, near-zero real subscriber volume; interaction platform's actual production status is internally contradicted across 4 documents — see Migration Plan §8 (Claude Can Resolve From Evidence) |
+| Marketing & Owned Audience (Beehiiv, interactions) | BUILT→CONNECTED→TESTED, low volume | Real infra, near-zero real subscriber volume. **RESOLVED 2026-08-15:** the interaction-platform deployment contradiction is closed — `git ls-tree origin/main` confirms it's genuinely deployed (API routes + PollWidget/QuizWidget/VoteWidget all live on `origin/main`); the one doc that read otherwise (`PRODUCTION_AUDIT.md`) was a stale pre-merge snapshot, corrected in place |
 | Finance & BI | NAMED/DESIGNED | Real work exists only inside Revenue's AR/Collections slice |
 | Publishing / Books / IP | **NOT BUILT → being activated** | Katie's direct 2026-08-15 activation for Book #1 (WAG Slime Lab); real prior creative material exists but its source files are outside any accessible system — see Migration Plan's updated decision queue |
 | Educational IP (Epic!) | BUILT→CONNECTED→OPERATING (revenue) / BUILT (Library schema, empty) | Real, ~10-year licensing relationship; the organizing Library system is schema-only |
@@ -37,4 +37,4 @@
 
 **Product-level status, referenced not merged:** `MASTER_STATUS.md` (thewagpodcast-website), `MASTER_STATUS.md` (wildadventuregirls-website) — each site's own real, current status, out of scope for this company-level rollup.
 
-**Note on the interaction platform:** this is the one row in this table marked CONTRADICTED rather than given a single status — 4 real source documents disagree about whether it's actually deployed to production. This gets resolved by a one-command git check (Migration Plan §8, Claude Can Resolve From Evidence), not by a judgment call, and this file will be updated the moment that runs.
+**Note on the interaction platform:** previously CONTRADICTED across 4 source documents; resolved 2026-08-15 via the one-command git check the Migration Plan §8 named — see the row above.

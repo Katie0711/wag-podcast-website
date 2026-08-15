@@ -1,3 +1,5 @@
+**PARTIALLY SUPERSEDED (2026-08-15):** this doc's own 1–5 maturity scale is retired — §64 (NOT BUILT→BUILT→CONNECTED→TESTED→OPERATING→LEARNING) is now the sole maturity vocabulary company-wide, per `WAG_MASTER_ROADMAP.md`/`WAG_CURRENT_STATE.md`. The per-capability content below remains real and unarchived; only the scale itself is retired. Reasoning: `WAG_COMPANY_OS_MIGRATION_PLAN.md` §4.
+
 # WAG OS Roadmap
 
 **One executive question this module answers: where is the operating system itself growing, and where is it thin?**

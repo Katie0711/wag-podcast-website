@@ -12,11 +12,11 @@
 | File | Role |
 |---|---|
 | `WAG_COMPANY_BLUEPRINT.md` | Company constitution/destination |
-| `WAG_MASTER_ROADMAP.md` | Complete capability/build map with dependencies — **not yet consolidated, see reconciliation report Duplication #18** |
-| `WAG_CURRENT_STATE.md` | Factual maturity/status of every capability — **not yet consolidated, see reconciliation report Duplication #19** |
+| `WAG_MASTER_ROADMAP.md` | Complete capability/build map with dependencies — **consolidated 2026-08-15**, canonical |
+| `WAG_CURRENT_STATE.md` | Factual maturity/status of every capability — **consolidated 2026-08-15**, canonical |
 | `WAG_ACTIVE_PORTFOLIO.md` | Only the 3–5 active company outcomes currently consuming execution capacity |
-| `WAG_DECISION_LOG.md` | Important business/architecture decisions and why — **proposed: adopt `CEO_DECISIONS.md` rather than duplicate, pending Katie's confirmation** |
-| `WAG_ACCEPTANCE_TESTS.md` | End-to-end Definition of Done for major company capabilities — draft chains only exist so far, inside the reconciliation report |
+| `WAG_DECISION_LOG.md` | Important business/architecture decisions and why — **renamed from `CEO_DECISIONS.md` via `git mv`, history preserved, 2026-08-15** |
+| `WAG_ACCEPTANCE_TESTS.md` | End-to-end Definition of Done for major company capabilities — **extracted as its own standalone canonical file, 2026-08-15** |
 | `WAG_BUILD_PROTOCOL.md` | This file |
 | `WAG_EXECUTIVE_SNAPSHOT.md` | Regenerated, human-readable "what's going on right now" snapshot |
 | `WAG_SOURCE_OF_TRUTH_INDEX.md` | One-page lookup: where does authoritative truth for X actually live |
@@ -82,6 +82,16 @@ If the current conversation conflicts with an approved Blueprint/ADR/canonical f
 ## 16. Build Manager's permanent question
 
 At every major step: are we building the approved complete WAG system, or drifting toward today's most interesting conversation? If drift is occurring, flag it immediately.
+
+## 16a. Delivery-state discipline (added 2026-08-15, per Katie's explicit correction)
+
+**A file existing on disk is not "delivered." Claude reporting a filename is not Katie reviewing content.** These are two different real states, and conflating them is a real Definition-of-Done failure identical in kind to conflating capability-existence with operating maturity (§7). Company-wide, for every artifact — Publishing packages, Revenue opportunity cards, Media/Greenlight recommendations, research findings, agent output, anything — use the correct state, never a looser one to sound more finished:
+
+**CREATED** → artifact exists. **VERIFIED** → checked and confirmed to exist where claimed. **PRESENTED TO KATIE** → she has actually been given the contents or a directly accessible way to review it (in chat, as a sent file, or equivalent — not a path reference she has to go find). **REVIEWED** → she has actually reviewed it. **APPROVED / REDLINED / REJECTED** → her explicit decision. **IMPLEMENTED** → an approved decision has actually been executed. **TESTED** → the implementation has been verified. **OPERATING / LEARNING** → the real-world loop is functioning and producing outcome data.
+
+**The corollary rule on format:** a *technical* artifact (a schema, a migration plan, a reconciliation table) is correctly stored and linked/referenced — Katie doesn't need the raw file dumped on her. A *CEO decision* artifact must be surfaced as a concise-but-complete decision package presented directly (evidence, recommendation, risks, alternatives, exact decision needed) — never just a filename she has to go find and open herself. The underlying full document stays available for audit either way.
+
+**Future direction, recorded not built:** a CEO Inbox/Decision Queue view — "NEEDS KATIE — N: [department] → [one-line decision needed] → [package]" — so she never has to ask "where is the thing Claude says he delivered." Not software yet; a Blueprint-level destination-architecture note for when the executive/Chief-of-Staff layer is real enough to generate it.
 
 ## 17. Governance must not become its own project
 

@@ -17,7 +17,33 @@
 
 **Not moving:** all ~90 other real docs in `wag-podcast-website/docs/` (Packaging Intelligence, Competitive Intelligence, per-department research, `WAG_FORMULA_V1_ROADMAP.md`, `ROADMAP.md`, etc.) — these are product/department-level and stay exactly where they are, referenced from the new Source-of-Truth Index, not duplicated.
 
-## 2. What moves — file-by-file
+## 1a. Reference-impact scan (run 2026-08-15, per Katie's explicit "check whether any current documents, prompts, scripts or systems reference the existing paths")
+
+Searched the entire `wag-podcast-website` repo (excluding `docs/` itself, since the canonical files legitimately cross-reference each other in prose) for the 10 canonical filenames, across source code, `.github/workflows/`, `package.json` scripts, and `astro.config`. **Result: zero references found outside `docs/` and `CLAUDE.md`.** No Astro page, component, build script, or CI workflow reads any of these files programmatically — they are pure human/Claude-readable documentation, never consumed by code at build or runtime. The only file outside `docs/` that references them is `CLAUDE.md` (created 2026-08-15, this session's anti-drift preflight mechanism), which will need its own paths updated the moment these files move.
+
+## 2. Migration plan — SOURCE → DESTINATION → ACTION → LINK/REFERENCE IMPACT → ROLLBACK
+
+**Bounded to exactly the 10 files in Katie's approved structure. Not executed — stopped for approval per her explicit instruction.**
+
+| # | Source | Destination | Action | Link/reference impact | Rollback |
+|---|---|---|---|---|---|
+| 1 | `wag-podcast-website/docs/WAG_SOURCE_OF_TRUTH_INDEX.md` | `wag-company-os/00_index/WAG_SOURCE_OF_TRUTH_INDEX.md` | Copy to new repo, remove from source, one commit per repo citing the other's commit hash | Referenced in prose by other canonical docs (not code) and by `CLAUDE.md`'s preflight list — both need path updates | Copy file back to original path; revert `CLAUDE.md` |
+| 2 | `docs/WAG_COMPANY_BLUEPRINT.md` | `01_blueprint/WAG_COMPANY_BLUEPRINT.md` | Same | Same — most cross-referenced file of the 10 (every other canonical doc points to it) | Same |
+| 3 | `docs/WAG_MASTER_ROADMAP.md` | `02_roadmap/WAG_MASTER_ROADMAP.md` | Same | Same; also referenced by `WAG_COMPANY_OS_MIGRATION_PLAN.md` itself (this file) | Same |
+| 4 | `docs/WAG_CURRENT_STATE.md` | `03_current_state/WAG_CURRENT_STATE.md` | Same | Same | Same |
+| 5 | `docs/WAG_ACTIVE_PORTFOLIO.md` | `04_active_portfolio/WAG_ACTIVE_PORTFOLIO.md` | Same | Same | Same |
+| 6 | `docs/WAG_DECISION_LOG.md` | `05_decisions/WAG_DECISION_LOG.md` | Same (already renamed from `CEO_DECISIONS.md` via `git mv` within this repo, 2026-08-15 — this step is a second move, repo-to-repo) | Same | Same |
+| 7 | `docs/WAG_ACCEPTANCE_TESTS.md` | `06_acceptance_tests/WAG_ACCEPTANCE_TESTS.md` | Same | Same | Same |
+| 8 | `docs/WAG_ASSET_SYSTEM_REGISTRY.md` | `07_asset_registry/WAG_ASSET_SYSTEM_REGISTRY.md` | Same | Same | Same |
+| 9 | `docs/WAG_BUILD_PROTOCOL.md` | `08_build_protocol/WAG_BUILD_PROTOCOL.md` | Same | Same | Same |
+| 10 | `docs/WAG_EXECUTIVE_SNAPSHOT.md` | `09_snapshot/WAG_EXECUTIVE_SNAPSHOT.md` | Same | Same | Same |
+| — | 8 superseded docs (`WAG_MASTER_ORGANIZATION_ROADMAP_V3.md`, `WAG_MASTER_ROADMAP_DECISION_REVIEW.md`, `WAG_MASTER_ORGANIZATION_CONTINUITY_CHECK.md`, `WAG_OS_ROADMAP.md`, `WAG_AGENT_ARCHITECTURE.md`, `WAG_OS_ARCHITECTURE_PROPOSAL.md`, `WAG_OS_PHASE_0_BUILD_PROPOSAL.md`, `WAG_MASTER_OPERATING_SYSTEM_DIRECTIVE.md`) | `10_archive/` | Same | Each already carries a `SUPERSEDED BY` header (added 2026-08-15) pointing forward — those headers' target paths need updating too | Copy back, revert header edits |
+
+**Open question, not decided here:** 3 files created this session are genuinely company-level control artifacts (not property-specific) but don't have a named slot in Katie's approved 10-folder structure — `WAG_COMPANY_BLUEPRINT_RECONCILIATION_2026-08-15.md` (dated audit report, natural fit for `10_archive/`), `WAG_CONTENT_INTELLIGENCE_AUDIT_2026-08-15.md` and `WAG_AUTONOMY_GAP_TEST.md` (both live, non-archival governance artifacts). Per Katie's own rule ("the repository architecture should reflect function, not be distorted to match a backup-folder list"), these likely need one or two additional appropriately-named folders — not decided or executed here, flagged for her explicit call rather than assumed.
+
+**Every row above is identical in mechanics** — the only real per-file variation is the reference-impact note. `CLAUDE.md` is the one file requiring an actual content edit (its 6 file paths under `docs/` become 6 paths in the new repo, or it states the new repo name explicitly) — everything else's "impact" is prose cross-references between the canonical docs themselves, which Katie's own migration safety checklist (§10 below) already covers via a dedicated link-update pass.
+
+## 2a. What moves — file-by-file (original table, superseded by the table above for execution order; kept for the fuller original context)
 
 | # | File | Current location | New canonical location | Action |
 |---|---|---|---|---|

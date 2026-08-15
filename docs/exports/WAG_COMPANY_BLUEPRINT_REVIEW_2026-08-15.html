@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page {
+    size: letter;
+    margin: 2.2cm 2cm 2.4cm 2cm;
+    @frame footer_frame {
+      -pdf-frame-content: footerContent;
+      bottom: 1cm;
+      margin-left: 2cm;
+      margin-right: 2cm;
+      height: 1cm;
+    }
+  }
+  body { font-family: Helvetica, Arial, sans-serif; font-size: 10.5pt; line-height: 1.5; color: #1a1a1a; }
+  h1 { font-size: 20pt; margin-top: 0.9em; margin-bottom: 0.35em; color: #0d0d0d; border-bottom: 2px solid #c8102e; padding-bottom: 4px; }
+  h2 { font-size: 15pt; margin-top: 1.1em; margin-bottom: 0.3em; color: #0d0d0d; border-bottom: 1px solid #ccc; padding-bottom: 2px; }
+  h3 { font-size: 12.5pt; margin-top: 0.9em; margin-bottom: 0.25em; color: #0d0d0d; }
+  p { margin: 0.35em 0; text-align: justify; }
+  ul, ol { margin: 0.3em 0 0.3em 1.1em; padding-left: 0.7em; }
+  li { margin: 0.15em 0; }
+  table { border-collapse: collapse; width: 100%; margin: 0.6em 0 0.9em 0; font-size: 8.7pt; }
+  th, td { border: 0.75pt solid #999; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background-color: #f0f0f0; font-weight: bold; }
+  code { font-family: Courier, monospace; background-color: #f2f2f2; padding: 0 2px; font-size: 9.3pt; }
+  pre { font-family: Courier, monospace; background-color: #f5f5f5; border: 0.75pt solid #ccc; padding: 8px; font-size: 8.7pt; white-space: pre-wrap; }
+  hr { border: none; border-top: 0.75pt solid #bbb; margin: 1em 0; }
+  strong { color: #0d0d0d; }
+  .titlepage { page-break-after: always; }
+  .titlepage h1.doctitle { font-size: 27pt; border: none; margin-top: 3.2cm; margin-bottom: 0.15em; }
+  .titlepage .meta { font-size: 11.5pt; margin: 0.9em 0 0 0; line-height: 1.9; }
+  .titlepage .statusbox { margin-top: 1.6em; padding: 10px 14px; background-color: #fff4e5; border: 1.25pt solid #c8102e; font-size: 12.5pt; font-weight: bold; color: #c8102e; }
+  .titlepage .note { margin-top: 2.2em; font-size: 9.3pt; color: #444; line-height: 1.55; border-top: 0.75pt solid #ccc; padding-top: 0.9em; }
+  .toc { page-break-after: always; }
+  .toc h2 { border: none; font-size: 16pt; }
+  .toc ul { list-style: none; margin-left: 0.2em; padding-left: 0.6em; }
+  .toc a { text-decoration: none; color: #1a1a1a; }
+  #footerContent { font-size: 8pt; color: #666; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="titlepage">
+  <h1 class="doctitle">WAG Company Blueprint</h1>
+  <div class="meta">
+    <strong>VERSION:</strong> v1.1<br/>
+    <strong>LAST VERIFIED:</strong> 2026-08-15<br/>
+    <strong>OWNER:</strong> Katie Swans (CEO)<br/>
+    <strong>SOURCE FILE:</strong> docs/WAG_COMPANY_BLUEPRINT.md (wag-podcast-website repo)
+  </div>
+  <div class="statusbox">STATUS: DRAFT — AWAITING KATIE REVIEW</div>
+  <div class="note">This is a faithful, unedited export of the current canonical WAG_COMPANY_BLUEPRINT.md for offline review. No content has been rewritten, summarized, shortened, or reconciled to produce this PDF. The Markdown file in the wag-podcast-website repository remains the sole canonical source of truth; this PDF is a review copy only.</div>
+</div>
+
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <div class="toc">
+<ul>
+<li><a href="#operating-thesis">Operating Thesis</a></li>
+<li><a href="#1-vision-dna">1. Vision &amp; DNA</a></li>
+<li><a href="#2-business-architecture-six-value-engines">2. Business Architecture — Six Value Engines</a></li>
+<li><a href="#3-the-five-operating-engines-to-prioritize-now">3. The Five Operating Engines to Prioritize Now</a></li>
+<li><a href="#4-organizational-architecture-18-capabilities-under-5-directors-cross-cutting-functions">4. Organizational Architecture — 18 Capabilities Under 5 Directors + Cross-Cutting Functions</a></li>
+<li><a href="#4a-brand-architecture-wag-main-wag-podcast-hard-separation-restored-2026-08-15">4a. Brand Architecture — WAG Main / WAG Podcast hard separation (restored 2026-08-15)</a></li>
+<li><a href="#4b-wag-main-showproperty-blueprint">4b. WAG Main — Show/Property Blueprint</a></li>
+<li><a href="#4c-wag-podcast-showproperty-blueprint">4c. WAG Podcast — Show/Property Blueprint</a></li>
+<li><a href="#4d-the-8-cross-cuttingunassigned-capabilities-concise-definitions-added-2026-08-15">4d. The 8 Cross-Cutting/Unassigned Capabilities — concise definitions (added 2026-08-15)</a></li>
+<li><a href="#5-media-intelligence-standard-engine-1">5. Media Intelligence Standard (Engine 1)</a></li>
+<li><a href="#6-revenue-sales-standard-engine-2">6. Revenue + Sales Standard (Engine 2)</a></li>
+<li><a href="#7-publishing-ip-standard-engine-3">7. Publishing + IP Standard (Engine 3)</a></li>
+<li><a href="#7a-ip-expansion-trigger-permanent-company-wide-added-2026-08-15-clarified-2026-08-15">7a. IP Expansion Trigger — permanent, company-wide (added 2026-08-15, clarified 2026-08-15)</a></li>
+<li><a href="#7b-publishingip-full-vision-expansion-added-2026-08-15-per-katies-explicit-correctionexpansion">7b. Publishing/IP — Full Vision Expansion (added 2026-08-15, per Katie's explicit correction/expansion)</a></li>
+<li><a href="#8-owned-audience-commerce-standard-engine-4">8. Owned Audience + Commerce Standard (Engine 4)</a></li>
+<li><a href="#8a-digital-publishing-discovery-intelligence-added-2026-08-15">8a. Digital Publishing &amp; Discovery Intelligence (added 2026-08-15)</a></li>
+<li><a href="#9-agent-design-standard">9. Agent Design Standard</a></li>
+<li><a href="#10-intelligence-must-create-action">10. Intelligence Must Create Action</a></li>
+<li><a href="#11-finance-cannot-remain-a-blind-spot">11. Finance Cannot Remain a Blind Spot</a></li>
+<li><a href="#12-rights-asset-distribution-audit">12. Rights / Asset / Distribution Audit</a></li>
+<li><a href="#13-source-of-truth-architecture">13. Source-of-Truth Architecture</a></li>
+<li><a href="#14-software-buy-vs-build-rule">14. Software Buy-vs-Build Rule</a></li>
+<li><a href="#15-the-10m-strategic-model">15. The $10M+ Strategic Model</a></li>
+<li><a href="#16-items-that-must-not-disappear">16. Items That Must Not Disappear</a></li>
+<li><a href="#16a-ceo-decision-principles-restored-2026-08-15-reconstructed-not-recovered-verbatim">16a. CEO Decision Principles (restored 2026-08-15 — reconstructed, not recovered verbatim)</a></li>
+<li><a href="#17-permanent-executive-reporting-standard">17. Permanent Executive Reporting Standard</a></li>
+<li><a href="#18-final-operating-principle">18. Final Operating Principle</a></li>
+</ul>
+</div>
+
+</div>
+
+<h2 id="operating-thesis">Operating Thesis</h2>
+<p><strong>ATTENTION → FANDOM → OWNED AUDIENCE → REVENUE → IP → PRODUCTS → RECURRING/REPEAT REVENUE → LICENSING/DISTRIBUTION → MORE ATTENTION.</strong></p>
+<p>WAG's existing audience and YouTube distribution are a strategic advantage, not something to escape. WAG OS exists to make this machine faster, smarter, and more accountable. <strong>WAG OS is not the business.</strong> Architecture, agents, databases, research, and documentation must never become substitutes for growing WAG.</p>
+<p><strong>The permanent distinction, stated exactly as Katie framed it:</strong> Complete architecture. Narrow execution. This Blueprint shows the company WAG is becoming so no capability is forgotten. The execution roadmap (companion reconciliation, sections G–H) activates only what presently creates material value. Do not collapse the architecture because everything isn't being built today. Do not build everything because it exists in the architecture.</p>
+<h2 id="1-vision-dna">1. Vision &amp; DNA</h2>
+<p>WAG is a teen-entertainment media company built around three real sisters and cousins — Angelina (18), Annabella (16), and their cousin Scarlett (17) — telling real, unscripted stories: investigations, dares, relationships, hot takes, games, and adventures. Explicitly not educational content on the Entertainment side, and explicitly not built on the girls' horse-riding history (<code>wag_horse_content_pivot</code>, <code>wag_positioning_and_facts</code>) — both permanent repositioning decisions.</p>
+<p><strong>The girls are not interchangeable hosts.</strong> WAG is personality-forward, Gen Z, and adventure-forward. The audience should feel like they're going on adventures with Angelina, Bella, and Scarlett. Structure supports them; it does not manufacture reactions, personalities, conflict, or chemistry.</p>
+<p>The destination: a category-leading modern media, entertainment, publishing, IP, commerce, education, and licensing company capable of reaching <strong>$10M+ diversified annual revenue</strong> and growing beyond it. See §15.</p>
+<h2 id="2-business-architecture-six-value-engines">2. Business Architecture — Six Value Engines</h2>
+<p>What WAG creates audience, IP, and revenue <em>through</em> — distinct from the organizational capabilities that operate them (§9).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Engine</th>
+<th>What it is</th>
+<th>Real state today (citation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><strong>WAG Entertainment / Media</strong></td>
+<td>Main WAG programming, investigations, comedy, challenges, Shorts/social, collaborations, WAG Podcast, future shows/formats/franchises</td>
+<td>The only engine with real, live traction — real subscribers, real watch-time data, real sponsor inventory (unsold)</td>
+</tr>
+<tr>
+<td>B</td>
+<td><strong>WAG Learning / WAG Labs</strong></td>
+<td>Educational IP: slime, science, animals, experiments, hands-on learning</td>
+<td>No real infrastructure exists under this name in either codebase. Only adjacent concept found: HorseSmart Kids — separate, hypothetical, zero-content, deliberately deferred</td>
+</tr>
+<tr>
+<td>C</td>
+<td><strong>Publishing</strong></td>
+<td>Books/publishing franchises, beginning with WAG Slime Lab</td>
+<td>Named as a real project with "prior investment" in one document; that investment is unitemized anywhere reachable. <strong>Katie is activating this now — see §5 and the reconciliation companion's 30-Day Plan</strong></td>
+</tr>
+<tr>
+<td>D</td>
+<td><strong>Owned Digital / Membership</strong></td>
+<td>Owned experiences, email, digital products, eventual family membership</td>
+<td>Zero membership infrastructure (grep for "membership" across both repos returns zero files). Email/Beehiiv infra is real but near-zero volume</td>
+</tr>
+<tr>
+<td>E</td>
+<td><strong>Commerce / Physical Products</strong></td>
+<td>Books, kits, STEM/slime/experiment products, merchandise, bundles, licensed consumer products</td>
+<td>Zero built commerce infrastructure (no cart, catalog, payment integration in either repo)</td>
+</tr>
+<tr>
+<td>F</td>
+<td><strong>B2B Education / Licensing</strong></td>
+<td>Teachers, schools, libraries, homeschool, educational platforms, institutional licensing</td>
+<td>Research-only (Boclips, ClickView candidates, all terms "Unconfirmed"). Epic! is a real, adjacent, but consumer — not institutional — relationship</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-the-five-operating-engines-to-prioritize-now">3. The Five Operating Engines to Prioritize Now</h2>
+<p>These are execution-priority clusters, not a replacement for the six value engines above — they're how Katie wants the org chart (§9) and the current build focus organized.</p>
+<table>
+<thead>
+<tr>
+<th>Engine</th>
+<th>Mandate</th>
+<th>Activation status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Media + Audience</strong></td>
+<td>WAG Main and WAG Podcast become category-leading shows people return to for the girls, not just the premise. World-class creative intelligence via the permanent three-lens model: <strong>WAG internal truth × world-class creator intelligence × current platform intelligence.</strong> Never optimize WAG by studying only WAG.</td>
+<td>Real, ongoing — most mature engine</td>
+</tr>
+<tr>
+<td><strong>2. Revenue + Sales + Partnerships</strong></td>
+<td><strong>ACTIVATE NOW.</strong> A real sales organization, not just a research agent — inbound and outbound machines, both explicitly capped at recommend/draft/prepare only; nothing external is sent without Katie's approval.</td>
+<td>Real schema + 2 real running functions; <strong>now explicitly prioritized to activate further</strong></td>
+</tr>
+<tr>
+<td><strong>3. Publishing + IP</strong></td>
+<td><strong>ACTIVATE NOW, in parallel with Sales.</strong> WAG Slime Lab becomes Book #1 of a reusable publishing pipeline, not an isolated one-off. Every meaningful successful WAG concept triggers an IP-expansion review: what else can this become?</td>
+<td>Real revenue exists elsewhere in IP (Epic!) but Publishing itself is unbuilt; <strong>Katie is starting this now</strong></td>
+</tr>
+<tr>
+<td><strong>4. Owned Audience + Commerce</strong></td>
+<td>Grow the share of WAG's audience/customer relationship WAG directly controls. Books → QR/link → free WAG experience → email capture → membership test → repeat customer is a hypothesis to prove, not an assumption.</td>
+<td>Real infra (website, Beehiiv, conversion framework) exists; real volume is near zero</td>
+</tr>
+<tr>
+<td><strong>5. WAG Intelligence + Operating System</strong></td>
+<td>Build WAG into a learning company whose institutional memory survives any AI model swap. Build only the infrastructure required to make Engines 1–4 execute materially better — never as an end in itself.</td>
+<td>WAG's most mature layer by its own internal audit — see reconciliation companion §B</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-organizational-architecture-18-capabilities-under-5-directors-cross-cutting-functions">4. Organizational Architecture — 18 Capabilities Under 5 Directors + Cross-Cutting Functions</h2>
+<p>Katie's directive restructures the previously-flat 18-department inventory into a <strong>5-Director hierarchy plus explicitly-preserved cross-cutting functions.</strong> This is a reorganization of the same real capabilities already inventoried (reconciliation companion §A/§B), not a new build.</p>
+<pre><code>CEO — KATIE
+  ↓
+EXECUTIVE AI / CHIEF-OF-STAFF LAYER (priorities, coordination, blockers, decision queue, outcome accountability)
+  ↓
+5 ENGINE/DIVISION DIRECTORS
+  • Media &amp; Audience Director
+  • Revenue &amp; Partnerships Director
+  • Publishing &amp; IP Director
+  • Owned Audience / Commerce Director
+  • Operations / Business Intelligence Director
+  ↓ (each with nested specialist capabilities — analysts, researchers, operators, skills)
+  ↓
+SHARED WAG BRAIN / DATA / EVIDENCE INFRASTRUCTURE (beneath all of it — the substrate every Director and specialist reads/writes)
+
+CROSS-CUTTING FUNCTIONS (must not be lost — do not nest exclusively under one Director):
+  • Finance / Business Intelligence
+  • Rights &amp; Commercial Operations
+  • Legal &amp; Minors Compliance
+  • Opportunity / Innovation Intelligence (includes the permanent IP Expansion Trigger — §7a)
+  • Audience Intelligence
+  • Creator / Platform Intelligence
+  • Research / Evidence Governance
+</code></pre>
+<p><strong>A genuine, surfaced placement ambiguity — Katie's own directive lists both "Audience Intelligence" and "Rights &amp; Commercial Operations" <em>twice</em>: once nested under a Director's potential capability list, once again in the cross-cutting "must not be lost" list.</strong> This is not resolved here; see the reconciliation companion's Duplication/Conflict Report (§C). Two of the 18 previously-inventoried departments — Education/WAG Labs and B2B Education/Institutional Licensing — have <strong>no explicit home</strong> in this 5-Director structure; they most naturally sit near Publishing &amp; IP given the Slime Lab/Learning overlap, but Katie has not assigned them and this Blueprint does not assign them for her.</p>
+<p>Full department-by-department mapping into this structure, with real maturity per department: reconciliation companion §A (Master Company Map).</p>
+<p><strong>Preserve the standing distinction between departments, functions, workflows/skills, agents, and shared infrastructure. Not every box becomes an agent</strong> — see §9 Agent Design Standard.</p>
+<h2 id="4a-brand-architecture-wag-main-wag-podcast-hard-separation-restored-2026-08-15">4a. Brand Architecture — WAG Main / WAG Podcast hard separation (restored 2026-08-15)</h2>
+<p><strong>A real section dropped silently in the v1.0→v1.1 rewrite, restored per Katie's explicit approval.</strong> WAG Main and WAG Podcast <strong>may share</strong>: company infrastructure, people, Revenue/CRM, finance, technical systems, and cross-company intelligence (WAG Brain itself, security, backups). They <strong>must retain separate</strong>: audience models, competitive sets, content history, Greenlight decisions, experiments, performance models, title/thumbnail learnings where they diverge, format intelligence, and recommendations. This is enforced at the data-model level in WAG Brain (brand-scoped tables), not as a prompt-level reminder — Main performance intelligence must never silently become Podcast truth or vice versa.</p>
+<h2 id="4b-wag-main-showproperty-blueprint">4b. WAG Main — Show/Property Blueprint</h2>
+<p><strong>Mission:</strong> real, unscripted teen adventure/investigation entertainment starring Angelina, Annabella, and Scarlett.
+<strong>Audience:</strong> WAG's existing teen audience, personality-forward, adventure-forward — not a cold audience arriving for a topic alone.
+<strong>Show promise:</strong> you're going on the adventure with the girls, not watching a documentary about one.
+<strong>Accountable Director:</strong> Media &amp; Audience Director.
+<strong>Outcome family:</strong> audience growth, watch-time/retention, franchise formation, fandom depth (per the Relationship Ladder).
+<strong>Major intelligence/capability groups:</strong> Greenlight Manager v1, Packaging Intelligence, the Concept &amp; Packaging System (<code>WAG_CONCEPT_PACKAGING_SYSTEM.md</code>), Retention/Format specialists (Main Intelligence Loop).
+<strong>Source-of-truth boundary:</strong> Main-scoped WAG Brain tables only — never merged with Podcast's.
+<strong>Detail pointer:</strong> <code>WAG_MAIN_INTELLIGENCE_LOOP_V1.md</code>, <code>WAG_FORMULA_V1_ROADMAP.md</code>, <code>WAG_MAIN_PROOF_1_SKINWALKER_PREP.md</code>.</p>
+<h2 id="4c-wag-podcast-showproperty-blueprint">4c. WAG Podcast — Show/Property Blueprint</h2>
+<p><strong>Mission:</strong> real teen conversations — questions, topics, answers, discussions, takeaways — hosted, not staged.
+<strong>Audience:</strong> listeners/viewers seeking conversational, opinion-driven teen content, distinct from Main's adventure audience.
+<strong>Show promise:</strong> honest, unscripted answers to the questions teens actually have.
+<strong>Accountable Director:</strong> Media &amp; Audience Director (same Director, separate brand-scoped intelligence per §4a).
+<strong>Outcome family:</strong> subscriber/listener growth, clip performance, sponsor-inventory value, eventual chart/platform presence.
+<strong>Major intelligence/capability groups:</strong> real product layer (clips, distribution, sponsor inventory) — live and ahead of its own 17-function specialist intelligence layer, which is still mostly DESIGNED only.
+<strong>Source-of-truth boundary:</strong> Podcast-scoped WAG Brain tables only.
+<strong>Detail pointer:</strong> <code>WAG_PODCAST_DEPARTMENT_ARCHITECTURE.md</code>, <code>ROADMAP.md</code> (thewagpodcast-website, domain sub-roadmap).</p>
+<h2 id="4d-the-8-cross-cuttingunassigned-capabilities-concise-definitions-added-2026-08-15">4d. The 8 Cross-Cutting/Unassigned Capabilities — concise definitions (added 2026-08-15)</h2>
+<p>Short definitions for the capabilities named in §4 but not yet given their own paragraph — 6 of the 7 cross-cutting functions plus the 2 orphan capabilities noted in §4's placement-ambiguity note (Education/WAG Labs, B2B Education). Each points to where its fuller treatment already lives rather than duplicating it.</p>
+<ol>
+<li><strong>Educational IP / WAG Labs</strong> — Value Engine B (§2). Slime/science/animals/experiments/hands-on-learning IP. Mostly conceptual today; Publishing's Slime Lab work (§7, <code>WAG_SLIME_LAB_PUBLISHING_PLAN.md</code>) is its first real anchor, not a separate build.</li>
+<li><strong>B2B Education / Institutional Licensing</strong> — schools, teachers, libraries, homeschool, institutional platforms. Research-only (Boclips/ClickView candidates, unconfirmed terms). Per the Roadmap's dependency graph, activates once Publishing/Educational IP proves the model at consumer scale, or Katie directs otherwise.</li>
+<li><strong>Operations / Production / Execution</strong> — the real, physical work of making WAG happen: production scheduling, filming logistics, editor assignment/tracking, footage-to-publish pipeline, vendor/contractor coordination. Live example: the Secret Menu editor-assignment → parallel-packaging → publish chain (<code>WAG_ACTIVE_PORTFOLIO.md</code>).</li>
+<li><strong>Legal / Safety / Compliance</strong> — minors compliance, brand-risk screening (§ never-name-brand-risk-creators discipline), trademark/IP clearance gating (the attorney-clearance step in the Publishing/IP workflow, <code>WAG_LAB_FAMILY_IP_PORTFOLIO.md</code>), girls' privacy (location/last-name rules), platform ToS compliance.</li>
+<li><strong>Audience Intelligence</strong> — who WAG's audience actually is and how it behaves, cross-referenced against GA4/GSC/YouTube Analytics/Beehiiv. Real data exists; the interaction-platform data-trust question this depended on is now resolved (<code>PRODUCTION_AUDIT.md</code>, corrected 2026-08-15).</li>
+<li><strong>Creator / Platform Intelligence</strong> — the second and third lenses of the permanent three-lens model (§5): world-class external creator/platform study, Proof 0/Proof 1 discovery work, causality-labeled pattern extraction (LIKELY DRIVER / AMPLIFIER / SCALE INFRASTRUCTURE / DOWNSTREAM / UNKNOWN).</li>
+<li><strong>Opportunity / Innovation / Future</strong> — includes the permanent IP Expansion Trigger (§7a). Watches for new categories/formats/business models worth testing before they're obviously proven, without forcing extensions ahead of evidence.</li>
+<li><strong>Rights / Licensing / Commercial Ops</strong> — contract terms, the rights inventory (§12), licensing deal structuring/execution once Revenue or Publishing produces one, distribution agreements (Kidoodle, Epic, Roku/network).</li>
+</ol>
+<h2 id="5-media-intelligence-standard-engine-1">5. Media Intelligence Standard (Engine 1)</h2>
+<p>Never optimize WAG by studying only WAG. Deep research beats superficial creator summaries. For every creator/show studied (Stokes Twins, Jordan Matter, Sidemen, Royalty Family, MrBeast, GroovyGavin, Sam &amp; Colby, Watcher, Yes Theory, Dude Perfect, GMM, video podcasts, and ongoing discoveries), ask: what caused breakout, what existed before it, what changed, what was downstream rather than causal, what failed, what did they stop doing, what makes people return for the <em>people</em> when premises change, how do they title/thumbnail/hook, how fast do they establish stakes, what story structures repeat, how do they franchise, how often did they publish during real growth periods, do Shorts convert to long-form, how do collaborations and audience migration work, what production/team changes actually preceded growth, what business/IP extensions followed audience proof (not preceded it).</p>
+<p><strong>Causality labeling is mandatory and permanent:</strong> LIKELY DRIVER / AMPLIFIER / SCALE INFRASTRUCTURE / DOWNSTREAM / UNKNOWN. Don't copy surface behavior when the actual mechanism differs — this is the exact discipline that already caught the Goatman/Bigfoot-vs-Hotel causal-claim contradiction and the Haunted Hotel view-count misdiagnosis (never diagnose a topic from view count alone; check distribution/exposure, impressions, traffic source, CTR, packaging, audience, retention, and subject demand first).</p>
+<p>Packaging Intelligence must be evidence-backed against current 2026 platform evidence, not invented character limits or aesthetic opinion. ViewStats-class tooling may be evaluated for competitor title/thumbnail change history specifically because that answers a question current-page web search cannot.</p>
+<p>Media Output loop, permanent: prediction → production → publication → exposure → CTR → traffic/discovery → audience → hook retention → story retention → personality/fandom response → economics → conclusion → learning.</p>
+<p><strong>WAG is not building a Title Agent or Thumbnail Agent that generates options (added 2026-08-15).</strong> It's a continuously learning Concept + Packaging + Retention system. Packaging happens <em>before</em> filming, as part of Greenlighting — not a post-edit marketing task. Canonical workflow: world-class outlier/WAG learning/platform signal → underlying psychology → WAG-native premise → premise strength → curiosity gap → title → thumbnail → <strong>Promise Chain</strong> (title creates question → thumbnail adds new information/tension → opening confirms → story advances → payoff resolves) → hook → escalation/<strong>Future-Payoff Strength</strong> → story architecture → greenlight → film → edit → publish → measure → learn. Surface trigger words (SECRET, MISSING, EVERY, STOLEN) are not strategies — every recommendation traces surface formula → psychological mechanism → premise architecture → WAG-native translation, and may only use a trigger word when truthful to the footage. Full system: <code>WAG_CONCEPT_PACKAGING_SYSTEM.md</code>.</p>
+<h2 id="6-revenue-sales-standard-engine-2">6. Revenue + Sales Standard (Engine 2)</h2>
+<p><strong>Inbound pipeline:</strong> Inbound → Security/Spam Gate → identity verification → company verification → opportunity verification → fit analysis → economics → rights/terms → recommendation → <strong>NEEDS KATIE</strong> → negotiation → contract → fulfillment → invoice → payment → renewal/upsell → learning.</p>
+<p><strong>Outbound pipeline:</strong> Market/category research → target companies/agencies → evidence they work with creators → brand/WAG fit → likely budget capacity → identify current decision-maker → verify employment/contact → personalized WAG angle → opportunity card → <strong>NEEDS KATIE</strong> → approved outreach → follow-up → meeting → proposal → negotiation → contract → campaign → invoice → payment → renewal.</p>
+<p><strong>Permanent distinctions, never to be confused:</strong> company has creator activity ≠ accessible paid opportunity. Invitation-only ≠ sponsorable. Affiliate ≠ sponsorship. Large company ≠ large creator budget. Legitimate brand ≠ legitimate sender. Legitimate sender ≠ good opportunity. Legitimate offer ≠ good deal. Weak offer ≠ automatic decline.</p>
+<p><strong>Spam/security gate is non-negotiable:</strong> every inbound opportunity passes it. Never click an inbound link merely because an email appears legitimate; independently verify sender/domain/company/person/campaign; treat attachments, login requests, payment-detail changes, portal requests, and credential requests with active suspicion. No autonomous external action, ever.</p>
+<p><strong>External send authority:</strong> nothing gets sent externally without Katie's approval — outreach, replies, pricing, proposals, negotiations, contracts, collections, partnership commitments. AI researches, prepares, recommends, drafts, tracks. Katie approves.</p>
+<p><strong>Sales CRM hypothesis (not yet decided):</strong> evaluate HubSpot as the sales-execution system (sequences can automate timed outreach/follow-up, plan/seat-dependent); WAG Brain stays the company intelligence/evidence/cross-company-learning layer. Do not duplicate every CRM field into Supabase. Investigate before purchasing — see reconciliation companion §E (Software Map).</p>
+<p><strong>Outcome metrics, eventual:</strong> qualified pipeline $, qualified opportunities, verified decision-maker contact rate, response rate, meetings, proposals, close rate, average deal value, renewal rate, repeat-partner rate, payment performance, actual collected revenue, inbound vs. outbound contribution. Never optimize for emails sent or companies researched — optimize for money and high-value relationships created.</p>
+<h2 id="7-publishing-ip-standard-engine-3">7. Publishing + IP Standard (Engine 3)</h2>
+<p><strong>Activating now, in parallel with Sales.</strong> Reusable pipeline, not a one-off book: discover → market validate → greenlight → develop → write → edit → design → produce → distribute → launch → market → measure → extend. WAG Slime Lab is Book #1 while the Publishing Director simultaneously develops the potential slate for Books #2–5 (future categories may include science, animals, experiments, adventures, other successful WAG IP).</p>
+<p><strong>Books-as-acquisition hypothesis to prove, not assume:</strong> Book → QR/link → compelling free WAG experience → customer/email capture → additional content/products → membership test → repeat customer.</p>
+<p><strong>IP-expansion review:</strong> Publishing &amp; IP owns most of the actual commercialization workflow once something is heading toward a book, product, or licensed property — see §7a for the trigger itself, which is company-wide, not Publishing-exclusive, because valuable IP can originate anywhere in WAG.</p>
+<h2 id="7a-ip-expansion-trigger-permanent-company-wide-added-2026-08-15-clarified-2026-08-15">7a. IP Expansion Trigger — permanent, company-wide (added 2026-08-15, clarified 2026-08-15)</h2>
+<p><strong>This is not a Publishing-owned mechanism.</strong> Whenever Media, Podcast, Publishing, Learning, Digital, or any other WAG property produces something with meaningful audience, fandom, commercial, educational, character, format, or brand potential, the system asks: <strong>what else can this become?</strong></p>
+<p>Evaluated extensions, not a checklist to force: franchise/series → book → product → licensing → digital experience → membership → curriculum/B2B education → podcast/other media → merchandise → live/experiential → localization/international → other defensible IP.</p>
+<p>This does <strong>not</strong> mean automatically pursuing every extension. The trigger's job: identify the opportunity with real evidence, score/pressure-test strategic fit and economics where possible, recommend <strong>TEST / ADOPT / WATCH / REJECT</strong>, and route high-value opportunities to the appropriate owner — usually Publishing &amp; IP for commercialization, but the <em>detection</em> has to happen wherever the signal actually originates (Media &amp; Audience noticing a breakout format, Podcast noticing a recurring segment with legs, Owned Audience noticing a digital experience converting unusually well).</p>
+<p><strong>Organizational home:</strong> this is the formalized, standing instance of the cross-cutting <strong>Opportunity / Innovation Intelligence</strong> function already listed in §4 — not a new department, and not something that can quietly disappear inside one Director's scope. Every Director is a potential <em>source</em> of a trigger event; Publishing &amp; IP is the most common <em>executor</em> once a trigger becomes a real commercialization decision.</p>
+<p>Real example already in motion: the WAG Lab family naming/IP-portfolio work (<code>WAG_LAB_FAMILY_IP_PORTFOLIO.md</code>) is this trigger firing on Slime Lab's real momentum — evaluated, screened, explicitly not yet decided.</p>
+<h2 id="7b-publishingip-full-vision-expansion-added-2026-08-15-per-katies-explicit-correctionexpansion">7b. Publishing/IP — Full Vision Expansion (added 2026-08-15, per Katie's explicit correction/expansion)</h2>
+<p><strong>Reconciled against §7/§7a — nothing below duplicates them; where they already cover something, this section points to it rather than restating it.</strong> Not authorized to trigger any new build, agent, database, or software — Katie's explicit instruction: "incorporate/reconcile... do not build anything from this yet."</p>
+<p><strong>Two parallel IP tracks, which can intersect:</strong>
+1. <strong>Personality IP</strong> — Angelina, Bella, and Scarlett's real personalities, relationships, humor, adventures, history, and existing audience connection are themselves a major WAG IP asset, not merely promotional talent for other IP. Publishing should exploit this real, existing fandom rather than starting from zero with generic fictional characters.
+2. <strong>Owned Expandable IP</strong> — original WAG characters, worlds, formats, and book franchises (e.g., the Wobbie mechanism/visual-identity work in <code>WAG_PUBLISHING_IP_CREATIVE_BRIEF.md</code>, name not yet cleared — see that doc's correction) that can eventually live and be valued independent of the girls.</p>
+<p><strong>The strategic bridge, stated as Katie's own framing:</strong> the girls can introduce new original characters/worlds to an audience that already trusts them — if fans meet a new character through the girls and attach to it, WAG may eventually own a property with independent demand, decoupled from any one person's continued involvement. This does not mean every book features all three girls, or that every property must originate from them — it means their existing fandom is a real, usable asset, not a constraint. Do not manufacture new characters merely to "have more IP" — only when there's a compelling reason and real evidence of attachment (ties to the IP Expansion Trigger, §7a).</p>
+<p><strong>WAG books must be unmistakably WAG, not generic AI-flavored children's publishing.</strong> WAG's established personality — funny, adventurous, curious, personality-forward, playful, sometimes chaotic, discovery-driven, mystery/question/challenge-oriented, real reactions, genuinely funny — must carry into the writing voice itself, not just the premise. <strong>A WAG Publishing Voice/Story Bible is a real future need</strong>, built from actual WAG material (transcripts, recurring language, real humor, real personality dynamics, successful-video patterns, audience response) — not invented from generic "kid personality" stereotypes. Not built yet; named here so it doesn't disappear.</p>
+<p><strong>The existing video library is publishing raw material, not a fiction-from-scratch exercise.</strong> ~11 years of real WAG adventures, experiments, slime, animals, science, challenges, investigations, discoveries, and funny moments should be systematically mined: real WAG video/adventure → identify a proven concept → book concept → expand what wasn't shown in the video → add activities/challenges/clues/secrets → digital companion → related books/products. Publishing should not be artificially constrained to one format — fiction, nonfiction, activity/experiment books, and hybrids are all legitimate, decided per concept, not by house style mandate.</p>
+<p><strong>Collectibility is an explicit strategic objective, to be researched before designed, not assumed.</strong> The real question: what makes a fan want the <em>next</em> book, not just this one. Legitimate mechanisms to investigate (not requirements to cram into every book): recurring characters, recurring jokes, interconnected adventures, hidden clues/secrets/puzzles/codes, mysteries crossing books, bonus content, achievements/badges, secret recipes/experiments, digital unlocks, book-specific discoveries, callbacks to real WAG videos. <code>WAG_PUBLISHING_LEARNING_LOOP_FORMAT_TEST.md</code> is the first real, bounded instance of this research discipline in action (Book #1's format test), not the whole of it.</p>
+<p><strong>The book does not end on the last page — the flywheel runs both directions.</strong> Forward: WAG video/audience → book → QR/digital experience → secret/bonus content → email/customer relationship → additional discoveries/challenges → next book → membership → products/kits → deeper fandom. Reverse: website/member → discovers book → buys → unlocks something new → returns to website → discovers next WAG property. This is the real reason Publishing is treated as building an IP ecosystem, not a book business — consistent with §7a's IP Expansion Trigger and §8's Relationship Ladder, not a competing concept.</p>
+<p><strong>Membership stays designed-into the long-term flywheel without being built ahead of evidence.</strong> A book's digital activation could eventually unlock recipes/challenges/experiments/videos/badges/missions feeding the standing membership hypothesis (§8) — but per Katie's explicit, repeated instruction, prove book → digital activation → owned customer → engagement → repeat purchase first. Do not build the membership layer ahead of that evidence.</p>
+<p><strong>Publishing is a flywheel, not one book.</strong> WAG Slime Lab is the first major proof, not the entirety of Publishing. Full repeatable system: mine WAG assets + research market/fandom → identify concepts → validate → greenlight → develop → write in authentic WAG voice → design experience → create digital companion → publish/distribute → launch through WAG media → measure → learn → extend winning IP → next book. Every successful property triggers the same IP-expansion review already standing in §7a (sequel/series, digital experience, kit/product, membership vertical, video format, educational licensing, characters, merchandise, other media) — and the reverse direction is equally real: a successful video/format/character should itself be evaluated for whether it becomes Publishing/IP, not only the other way around.</p>
+<p><strong>Publishing Intelligence must be world-class, not WAG-only</strong> — the same three-lens discipline already standing for Media (§5): WAG internal truth × world-class publishing intelligence × current market/customer intelligence. Study what the best children's/teen publishers and entertainment-IP companies actually do to create breakout books, repeat purchases, series completion, character attachment, collectibility, fandom, successful launches, book-to-digital ecosystems, book-to-product expansion, and enduring franchises — understand the mechanisms, don't blindly copy. Not yet built as a standing capability; named here so it isn't lost.</p>
+<p><strong>Publishing's purpose is broader than "make books."</strong> Real outcome statement: create compelling WAG publishing properties that turn WAG's existing audience, personalities, content library, and new ideas into owned IP, customers, recurring demand, and expandable franchises. Works closely with Media &amp; Audience, Owned Audience/Digital Publishing, Commerce/Product, Education/WAG Labs, Revenue &amp; Partnerships (licensing), and Research/Evidence Governance (Analytics/Intelligence) — cross-functional by design, not a walled-off department.</p>
+<h2 id="8-owned-audience-commerce-standard-engine-4">8. Owned Audience + Commerce Standard (Engine 4)</h2>
+<p>YouTube remains a critical strategic asset — this is not an escape-YouTube plan. Grow toward: YouTube/Podcast/Social → Website → Email/Identity → Book Buyer → Repeat Customer → Digital Experience → Products → Membership. The website is not merely a marketing site; it should increasingly become WAG's owned audience/customer layer.</p>
+<p><strong>Commerce buy-vs-build:</strong> do not rebuild commodity ecommerce infrastructure. Evaluate Shopify when real products require commerce (digital products and most subscription/membership implementations are already supported in its ecosystem). Build differentiated WAG experiences around proven commerce infrastructure.</p>
+<p><strong>Membership hypothesis (does not currently outrank Media, Sales, or Publishing):</strong> one broader WAG family membership, not per-category subscriptions. Sell an experience/outcome — premium library, exclusive content, missions/experiments/challenges, printables, progression/badges, book-companion experiences, personalized recommendations, new drops — not "access to videos." Validate one vertical (Slime Lab is the likely first test) before a native app. Start web-first unless evidence says otherwise.</p>
+<p><strong>WAG Relationship Ladder (added 2026-08-15), separate but connected system:</strong> Watch → Binge → Participate → Join → Stay Connected → Future. Real status today: Watch/Binge/Join/Stay-Connected are REAL and LIVE; Participate is the current center of gravity and the thinnest rung relative to the weight it needs to carry; Future is partly real (Slime Lab underway, Speaking &amp; Events live, formal membership deliberately not built until Participate pulls real weight). The real asset isn't the email address — it's the permission; participation leads to email, doesn't replace it. Full system: <code>WAG_RELATIONSHIP_LADDER.md</code>. Media optimization should therefore weigh not only views but whether content deepens fandom, participation, and owned-audience capture.</p>
+<h2 id="8a-digital-publishing-discovery-intelligence-added-2026-08-15">8a. Digital Publishing &amp; Discovery Intelligence (added 2026-08-15)</h2>
+<p><strong>The websites are strategic media assets, not marketing collateral.</strong> They participate directly in the operating thesis: episode/video/podcast → structured content extraction → high-quality web content → SEO+AEO+GEO+discovery → search/AI/referral traffic → owned WAG visitor → related content → email/customer identity → books/products/experiences/membership/partnerships → more WAG engagement.</p>
+<p><strong>Every WAG episode is a potential digital asset — evaluated, not mass-produced.</strong> Where genuinely warranted by real episode/source material, one production can become an episode page, article, explainer, FAQ, related-content links, and structured metadata. <strong>The permanent guardrail: 1 original WAG production = maximum legitimate useful media/IP/discovery value — never 1 video = 10 garbage articles.</strong> This discipline already operates in practice, just not yet under one named capability — see the reconciliation companion for what's real versus missing.</p>
+<p><strong>SEO + AEO + GEO, fundamentals-first.</strong> Optimize for useful original information, clear structure, strong entity relationships, first-party experience, authority, trustworthy sourcing, machine-readable context — not gimmicky AI-search tactics. WAG's real advantage here: original media, real experiences, real places, real experiments, years of first-party content. Use that instead of generic rewritten information.</p>
+<p><strong>Two-way intelligence loop, not just Video → Article.</strong> Eventually: Search/Audience Intelligence → Content Opportunity → Video/Podcast/Article/Book/Product, feeding Media Intelligence, Audience Intelligence, Creator/Platform Intelligence, Publishing/IP, Owned Audience, and Revenue/Partnerships. Real example already true today: a strong slime-content signal should be able to strengthen the case for Slime Lab's book → free experience → learning product path (§7).</p>
+<p><strong>Build topical authority, not disconnected posts.</strong> Content builds WAG-owned topic ecosystems (Adventure/Investigation, Teen/Podcast, WAG Learning) — exact clusters determined by audience fit, content inventory, discovery opportunity, and strategic value, not a need to fill categories.</p>
+<p><strong>Digital Property Map — permanent, per-property purpose:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Primary purpose</th>
+<th>Content types</th>
+<th>Relationship to other properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>wildadventuregirls.com</strong></td>
+<td>Broader WAG entertainment brand — adventures, girls, original content, franchises, stories/behind-the-scenes, discovery into the wider WAG ecosystem</td>
+<td>Story/entertainment articles, investigations, behind-the-scenes, girl profiles, Adventure Map</td>
+<td>Main brand authority (<code>wag_two_site_roles</code>)</td>
+</tr>
+<tr>
+<td><strong>thewagpodcast.com</strong></td>
+<td>The show's own site — questions, topics, answers, discussions, takeaways tied to specific episodes</td>
+<td>Episode pages, topic hubs, FAQ/direct-answer pages, games/segments</td>
+<td>The show's site, not the brand's (<code>wag_two_site_roles</code>); explicitly must not publish a Stories article about a podcast episode/topic (<code>wag_stories_podcast_separation</code>) — cannibalization prevention is already a standing rule, not a new idea</td>
+</tr>
+<tr>
+<td><strong>Future WAG Learning/Labs property</strong></td>
+<td>Educational discovery → books → free experiences → email/customer capture → learning ecosystem → membership/products</td>
+<td>Not yet built</td>
+<td><strong>Do not create a new domain until the brand architecture justifies it</strong> — currently no real content exists to justify one</td>
+</tr>
+</tbody>
+</table>
+<p><strong>No new capability needs to be invented here — largely, the discipline already exists informally</strong> (the standing article-quality bar, source-verification standard, and 10-step editorial workflow memories already encode most of this pipeline) <strong>but it has never been consolidated under one named, owned capability.</strong> See the reconciliation companion for the honest BUILT/CONNECTED/TESTED/OPERATING/LEARNING classification and the real gap this surfaces (no single owner; the CTR-diagnosis loop has never been run as a bounded proof; no content-decay/refresh learning loop exists yet).</p>
+<p><strong>Owner:</strong> sits within the Owned Audience/Commerce Director (§4), as <strong>Digital Publishing &amp; Discovery Intelligence</strong> — not floating between "Website" and "Media." Potential subordinate capabilities, none requiring their own agent yet: SEO Intelligence, AEO/AI Discovery Intelligence, Keyword &amp; Topic Intelligence, Editorial/Article Engine, Episode Repurposing, Content Clustering, Internal Linking, Structured Data/Schema, Technical SEO, Search Console Analytics, Conversion Intelligence, Content Refresh/Decay, Cross-property Cannibalization, Website Experimentation.</p>
+<p><strong>Anti-slop guardrail, permanent:</strong> because AI makes content cheap to produce, it would be easy to create large volumes of mediocre material. Do not. Prefer first-party experience, original footage/photographs/observations, real experiments, real cast experiences, actual episode material over generic rewritten information. Optimize for qualified discovery, audience fit, engagement, owned-audience creation, business value, and IP learning — not raw traffic. Ten thousand visitors who become WAG viewers/customers can be worth more than 500,000 irrelevant ones.</p>
+<h2 id="9-agent-design-standard">9. Agent Design Standard</h2>
+<p>Before creating any new agent, define: (1) job description, (2) business outcome, (3) inputs, (4) authoritative data sources, (5) responsibilities, (6) decision authority, (7) forbidden actions, (8) required outputs, (9) KPIs, (10) escalation rules, (11) memory/state requirements, (12) interaction with parent/peer agents, (13) evidence requirements, (14) learning loop, (15) retirement/merge criteria. Do not create an agent simply because a task exists. Managers/directors own outcomes; specialists perform capabilities; the executive layer coordinates directors. Katie receives decisions, not raw agent chatter.</p>
+<p>This standard supersedes-by-specificity (does not erase) the original 9-role spec and its later refinements — full recovery and gap analysis of that lineage is in the reconciliation companion's Master Company Map, since it directly informs which of the 18 real capabilities already have a working spec versus need one written fresh against this new 15-point standard.</p>
+<h2 id="10-intelligence-must-create-action">10. Intelligence Must Create Action</h2>
+<p>Every department: GOAL → INTELLIGENCE → DECISION → ACTION → OUTCOME → LEARNING. A valid conclusion can be NO ACTION — but research volume is not success. Directors are judged by decisions improved, opportunities created, money created/collected, audience growth, IP value created, execution improved, mistakes prevented, predictions improved — never by searches run, reports written, agents dispatched, or database rows created. This directly extends the real lesson already learned from the two Creator &amp; Platform Intelligence proofs: two real proofs, zero TEST/FILM-grade output yet, by their own honest self-assessment.</p>
+<h2 id="11-finance-cannot-remain-a-blind-spot">11. Finance Cannot Remain a Blind Spot</h2>
+<p>Build a minimal financial-truth capability before any large accounting system: cash collected, receivables, revenue by engine, costs, gross margin, project economics, partner payment performance, recurring revenue, forecast, runway/cash position where appropriate, ROI of major initiatives. Kidoodle's three unconfirmed invoices are the standing proof that "invoice sent" ≠ "money collected" — this is not a hypothetical risk, it is WAG's current real state.</p>
+<h2 id="12-rights-asset-distribution-audit">12. Rights / Asset / Distribution Audit</h2>
+<p>Inventory content libraries, videos, the educational catalog, books, characters, trademarks/IP, domains, social accounts, email lists, licensing agreements (Kidoodle, Epic, Roku/network, others), tracking owner/rights/exclusivity/term/termination/renewal/revenue/audience value/restrictions/strategic value per item. Decision framework per item: KEEP / EXPAND / RENEGOTIATE / RECLAIM / EXIT. Never recommend removal without reviewing the actual contractual rights.</p>
+<p><strong>Katie's stated current understanding, to be verified at the contract level, not assumed:</strong> WAG owns its videos; licensing has generally been non-exclusive. This is recorded here as her stated belief, not yet a verified canonical fact in WAG Brain — see reconciliation companion Katie Decision Queue.</p>
+<h2 id="13-source-of-truth-architecture">13. Source-of-Truth Architecture</h2>
+<p><strong>WAG Company Blueprint = Constitution.</strong> Durable truth: vision, mission, business architecture, brand architecture, audiences, engines, organizational architecture, major IP, strategic principles, decision rules, authority, KPI/outcome families, operating philosophy.</p>
+<p><strong>WAG Brain / Supabase = Operational Memory.</strong> Changing structured truth: initiatives, opportunities, predictions, outcomes, research/evidence, rights, production state, revenue intelligence, approvals, historical decisions, learning. Preserve the ingestion-integrity, provenance, evidence-tier, and correction rules already built — raw deterministic data must never be replaced by LLM paraphrase (this rule exists <em>because</em> it already caught a real bug: Proof 0's WebFetch-based extraction inverted Sierra and Rhia's growth sign). Never silently overwrite historical predictions/outcomes because hindsight changes the interpretation.</p>
+<p><strong>External systems to investigate, not yet adopted:</strong> Supabase/WAG Brain (company truth — owned), HubSpot (possible CRM/sales execution), Shopify (commerce, when needed), ClickUp <em>or</em> the existing <code>initiatives</code> system (evaluate rather than automatically adding ClickUp), Google Drive (documents/contracts/assets), Gmail (communications — two real WAG-owned connectors already exist), YouTube Studio/APIs and other platform-direct sources (performance truth — real, connected), Claude Code (development/integration/automation), Claude + best-fit models (reasoning/research/creative intelligence). <strong>Do not add Airtable</strong> — WAG already has Supabase/WAG Brain; avoid tool sprawl.</p>
+<h2 id="14-software-buy-vs-build-rule">14. Software Buy-vs-Build Rule</h2>
+<p>Before building software: does an established product already solve this commodity problem better? If yes, investigate using/integrating it. Build custom WAG software only when it represents differentiated intelligence, workflow, IP, or competitive advantage. <strong>Don't rebuild:</strong> CRM, checkout, payment processing, generic project management, generic email, generic file storage. <strong>Do build/integrate, differentiated:</strong> WAG intelligence, Greenlight, prediction/outcome learning, creator intelligence, opportunity intelligence, WAG-specific IP translation, company evidence/memory, cross-engine decision intelligence.</p>
+<h2 id="15-the-10m-strategic-model">15. The $10M+ Strategic Model</h2>
+<p>The destination is a $10M+ diversified-revenue company, not a channel with side hustles. <strong>Do not fabricate quotas</strong> (e.g., "Sponsorship $3M, Publishing $2M, Products $1.5M") until evidence supports the allocation. Build a real model per engine using current revenue, addressable opportunity, margins, growth, capacity, investment required, time to revenue, probability, dependencies, strategic value — then CURRENT → 12-MONTH → 3-YEAR → $10M+ PATH. Let evidence determine the mix; this has not been built yet — see reconciliation companion §F (Revenue Architecture) for exactly what evidence exists today and what's missing to build it honestly.</p>
+<h2 id="16-items-that-must-not-disappear">16. Items That Must Not Disappear</h2>
+<p>Kidoodle payment/collections state · Roku/network contract review · Epic relationship/licensing · WAG Slime Lab · Publishing pipeline · membership hypothesis · educational/B2B opportunity · rights/chain-of-title · Finance truth layer · Podcast benchmark/growth work · Podcast chart/discovery mechanics · Podcast Wednesday-posting target · Main creative-learning loop · Audience Intelligence · Creator/Platform Intelligence · Packaging Intelligence · Revenue inbound/outbound · agency/contact intelligence · spam/security guard · Website CTR diagnosis/learning loop · ViewStats evaluation · YouTube/API competitor watchlist concept · WAG OS certification/reliability work · MFA/security gaps · wagmediapartners.com decision/strategy · Media Playbook · profile/age-data accuracy · Legal &amp; Minors Compliance · localization/dubbing opportunities · physical products · schools/teachers/libraries/homeschool · owned audience/customer capture · membership MVP.</p>
+<p><strong>"Not now" means parked with a named trigger, never forgotten.</strong> Full parked/trigger table with actual reactivation conditions: reconciliation companion §J.</p>
+<h2 id="16a-ceo-decision-principles-restored-2026-08-15-reconstructed-not-recovered-verbatim">16a. CEO Decision Principles (restored 2026-08-15 — reconstructed, not recovered verbatim)</h2>
+<p><strong>A real section dropped silently in the v1.0→v1.1 rewrite, approved for restoration by Katie but never actually re-added until now.</strong> The original v1.0 text was never committed to git and could not be recovered verbatim — this is a faithful reconstruction from Katie's repeated, explicit statements across this session, not a verbatim recovery. Flagging that distinction rather than presenting it as recovered original text.</p>
+<ul>
+<li><strong>Researchable questions get researched first.</strong> If existing truth, evidence, or policy can answer a question, it should be answered before it ever reaches Katie — not brought to her as an open question.</li>
+<li><strong>Architectural reconciliation is Claude's work.</strong> Comparing documents, resolving duplication, applying already-approved decisions to new material — only genuine strategic conflicts (two previously-approved decisions that cannot both be true) escalate to Katie. Everything else gets reconciled and reported, not queued as a decision.</li>
+<li><strong>Operational status surfaces through the system, not as a queue item.</strong> Whether an editor is assigned, a check has been run, a doc is stale — these are facts to report, not decisions to request.</li>
+<li><strong>Managers/directors eventually own goals and report in one shape:</strong> Goal → current state → actions → results → was the goal met → why → next action. This is the target reporting contract as the org chart (§4) actually gets built out, not yet fully real today.</li>
+<li><strong>Katie sees decisions, exceptions, priorities, and results — not dozens of agent reports.</strong> The executive layer's job is synthesis, not pass-through.</li>
+<li><strong>The operative mechanism is the 6-question CEO-load-reduction filter</strong> (<code>WAG_BUILD_PROTOCOL.md</code> §19b): can existing truth answer it → can the responsible Director/Manager decide within their authority → can it safely wait → does it genuinely require CEO judgment, money, legal, external communication, major strategy, or irreversibility. Only the last of those should routinely reach Katie.</li>
+<li><strong>Nothing external ever sends without Katie's explicit approval</strong> — this is stated per-engine (§6 Revenue, and Publishing's attorney-clearance/Katie-approval gate in §7a) but is a company-wide principle, not limited to Revenue: outreach, replies, pricing, proposals, negotiations, contracts, collections, partnership commitments, filings, purchases.</li>
+</ul>
+<h2 id="17-permanent-executive-reporting-standard">17. Permanent Executive Reporting Standard</h2>
+<p>The executive layer should eventually answer every week: what did WAG ship? What grew? What made money? What money was actually <em>collected</em>? What IP increased in value? What did we learn? What predictions were right/wrong? What is blocked? What opportunities are decaying? What requires Katie? What are the five highest-leverage actions now? If the system cannot answer these, it is documenting the company rather than operating it.</p>
+<h2 id="18-final-operating-principle">18. Final Operating Principle</h2>
+<p>We are not building an impressive AI org chart. We are building an exceptional company. Every layer must ultimately contribute to one or more of: audience, fandom, revenue, owned customers, valuable IP, execution, learning, risk reduction. Research without decisions is insufficient. Architecture without execution is insufficient. Activity without outcomes is insufficient. Automation without controls is dangerous. Growth without learning is fragile.</p>
+<p><strong>On continuity, stated directly because it matters:</strong> this is not a pivot away from what's already been built. It is the missing umbrella over it. Greenlight, the evidence system, ingestion integrity, Revenue tables, <code>initiatives</code>, prediction/outcome architecture, WAG Brain, creator intelligence, packaging intelligence, website intelligence, the CEO/Chief-of-Staff concept, managers, specialist agents, the department hierarchy — all of it can remain, because it already earns its place in this architecture. What this Blueprint fixes is the danger of finishing one department, moving to the next, and gradually losing the original company design.</p>
+<hr />
+<p><em>This document intentionally does not contain a fabricated $10M revenue allocation, a finished org chart with every box filled, or an authorized build list. Those require either real evidence this pass didn't find, or Katie's direct decision. See the reconciliation companion for the full current-state audit (A–L) this Blueprint was built from, including every contradiction found, the real 30-day execution plan, and the decision queue.</em></p>
+
+<div id="footerContent">WAG Company Blueprint &mdash; v1.1 &mdash; DRAFT — AWAITING KATIE REVIEW &mdash; Page <pdf:pagenumber/> of <pdf:pagecount/></div>
+
+</body>
+</html>
