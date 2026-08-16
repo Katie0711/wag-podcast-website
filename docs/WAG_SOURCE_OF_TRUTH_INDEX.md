@@ -1,7 +1,7 @@
 # WAG Source-of-Truth Index
 
 **LAST VERIFIED:** 2026-08-15
-**VERSION:** v1.1 — refreshed to reflect this session's reconciliation (Roadmap/Current State consolidated, Decision Log renamed, Acceptance Tests extracted) and to make the authority hierarchy explicit, per Katie's explicit request.
+**VERSION:** v1.2 — refreshed for Blueprint v1.1 approval and the `wag-company-os` migration (Master Company Map + Parked/Trigger List extracted as living docs; company-level canonical files migrating to the standalone `wag-company-os` repository).
 **OWNER:** Katie Swans
 **PURPOSE:** One page, one job — "where does the authoritative truth for X actually live?" Prevents the opposite problem of too many source-of-truth documents with nobody knowing which one wins.
 
@@ -11,7 +11,7 @@
 
 **Two different kinds of document exist in this system, and they do not carry equal authority:**
 
-1. **Living constitutional/control documents** — actively maintained, always represent current truth, get updated in place as reality changes. These are the only documents that govern decisions: `WAG_COMPANY_BLUEPRINT.md`, `WAG_MASTER_ROADMAP.md`, `WAG_CURRENT_STATE.md`, `WAG_ACTIVE_PORTFOLIO.md`, `WAG_DECISION_LOG.md`, `WAG_ACCEPTANCE_TESTS.md`, `WAG_ASSET_SYSTEM_REGISTRY.md`, `WAG_BUILD_PROTOCOL.md`, `WAG_EXECUTIVE_SNAPSHOT.md`, this index.
+1. **Living constitutional/control documents** — actively maintained, always represent current truth, get updated in place as reality changes. These are the only documents that govern decisions: `WAG_COMPANY_BLUEPRINT.md`, `WAG_MASTER_ROADMAP.md`, `WAG_CURRENT_STATE.md`, `WAG_ACTIVE_PORTFOLIO.md`, `WAG_DECISION_LOG.md`, `WAG_ACCEPTANCE_TESTS.md`, `WAG_ASSET_SYSTEM_REGISTRY.md`, `WAG_BUILD_PROTOCOL.md`, `WAG_EXECUTIVE_SNAPSHOT.md`, `WAG_MASTER_COMPANY_MAP.md`, `WAG_PARKED_TRIGGER_LIST.md`, this index.
 2. **Dated audit/reconciliation/integrity artifacts** — a snapshot of findings at a point in time, never updated after the fact, superseded by the living documents they fed into. These are supporting evidence and history, not equal-authority sources: `WAG_COMPANY_BLUEPRINT_RECONCILIATION_2026-08-15.md`, `WAG_CONTENT_INTELLIGENCE_AUDIT_2026-08-15.md`, `WAG_AUTONOMY_GAP_TEST.md` (re-run periodically, but each run is a dated snapshot, not a living document), and the archived superseded roadmap/status docs. **Company-os target location once the repo exists:** `company-os/10_audits/`, distinct from the living-document folders (`01_blueprint/` through `09_snapshot/`).
 
 If a dated audit and a living document ever disagree, **the living document wins** — the audit either already fed its findings into the living document (and is now historical record only) or the living document has moved on since the audit ran.
@@ -26,6 +26,8 @@ If a dated audit and a living document ever disagree, **the living document wins
 | Current maturity of every capability | `WAG_CURRENT_STATE.md` | **Consolidated 2026-08-15** — canonical, evidence-cited per row |
 | "What's going on right now" snapshot | `WAG_EXECUTIVE_SNAPSHOT.md` | Regenerated from real sources, not hand-maintained |
 | Agent/manager/organizational architecture | `WAG_COMPANY_BLUEPRINT.md` §4/§4d/§9/§16a | Individual agent specs not yet centrally registered — see `WAG_ASSET_SYSTEM_REGISTRY.md` |
+| Capability-to-Director org placement (durable, not status) | `WAG_MASTER_COMPANY_MAP.md` | **Extracted 2026-08-15** from the dated reconciliation companion, now living/canonical |
+| Parked items and their reactivation triggers | `WAG_PARKED_TRIGGER_LIST.md` | **Extracted 2026-08-15** from the dated reconciliation companion, now living/canonical |
 | Every major asset/system's purpose, owner, KPIs, DoD | `WAG_ASSET_SYSTEM_REGISTRY.md` | First draft, not exhaustive |
 | Anti-drift preflight mechanism | `CLAUDE.md` (repo root) | **Built 2026-08-15** — auto-loads every session; correctly BUILT-not-yet-TESTED against a fresh session by its own §64 standard |
 | Production state (what's being filmed/published) | `initiatives` table, WAG Brain | Real, TESTED, thin coverage (2 real Main rows, 0 Podcast rows) |

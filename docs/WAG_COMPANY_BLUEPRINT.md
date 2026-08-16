@@ -1,13 +1,12 @@
 # WAG Company Blueprint
 
 **LAST VERIFIED:** 2026-08-15
-**VERSION:** v1.1 — rewritten same-day to incorporate Katie's "WAG Company Blueprint + Operating System — Master Directive." **DRAFT — awaiting Katie's line-by-line approval. Nothing here is authorized to drive migrations, role deletions, department collapses, new agent launches, or new vendor purchases (HubSpot/Shopify/ClickUp) until she signs off.**
+**VERSION:** v1.1 — **APPROVED by Katie 2026-08-15**, following a factual-corrections + architecture-conflicts review pass. Authorized to drive migration into the standalone `wag-company-os` repository, and to govern future role/department/agent/vendor decisions per §16a. Next required review: quarterly, or immediately upon any proposed department collapse, role deletion, business-engine change, or new vendor purchase.
 **OWNER:** Katie Swans (CEO) — sole approval authority over this document and any change to it.
-**SUPERSEDES:** Nothing existing — sits *above* and cross-references (does not delete or overrule) `WAG_MASTER_OPERATING_SYSTEM_DIRECTIVE.md`, `WAG_MASTER_ORGANIZATION_CONTINUITY_CHECK.md`, `WAG_MASTER_ORGANIZATION_ROADMAP_V3.md`, `WAG_MASTER_ROADMAP_DECISION_REVIEW.md`, `WAG_AGENT_ARCHITECTURE.md`, `WAG_OS_ARCHITECTURE_PROPOSAL.md`, `WAG_OS_PHASE_0_BUILD_PROPOSAL.md`. Where any of those disagree with this document, that is a **surfaced contradiction** in the companion reconciliation report, not a silent override.
+**SUPERSEDES:** Reorganizes, does not delete, the prior org/roadmap documents it grew out of — `WAG_MASTER_OPERATING_SYSTEM_DIRECTIVE.md`, `WAG_MASTER_ORGANIZATION_CONTINUITY_CHECK.md`, `WAG_MASTER_ORGANIZATION_ROADMAP_V3.md`, `WAG_MASTER_ROADMAP_DECISION_REVIEW.md`, `WAG_AGENT_ARCHITECTURE.md`, `WAG_OS_ARCHITECTURE_PROPOSAL.md`, `WAG_OS_PHASE_0_BUILD_PROPOSAL.md`, `WAG_OS_ROADMAP.md`. Four of these now carry `SUPERSEDED BY` headers pointing back to this Blueprint and `WAG_MASTER_ROADMAP.md`; the rest are archived historical record in `wag-company-os/11_superseded/`.
 **CURRENT COMPANY PHASE:** Foundation-building with real infrastructure already OPERATING in places (WAG Brain's evidence pipeline, the Freshness Reviewer cron job, Kidoodle's AR/Collections case). Katie's own framing, adopted verbatim: **"Complete architecture. Narrow execution."** This is not a Phase 1 reset.
-**NEXT REQUIRED REVIEW:** Immediately, by Katie, line-by-line. Then quarterly, or immediately upon any proposed department collapse, role deletion, business-engine change, or new vendor purchase.
 **LINKS:** WAG Brain (Supabase project `wag-brain`, id `qccfbbgaszciqxfryehs`) is the live source of truth for every fast-changing fact this document references — see §8 below. This Blueprint does not duplicate live numbers; it points to where they live.
-**COMPANION DOCUMENT:** `WAG_COMPANY_BLUEPRINT_RECONCILIATION_2026-08-15.md` — the full A–L executive package (Master Company Map, Current Maturity Map, Duplication/Conflict Report, Source-of-Truth Map, Software Map, Revenue Architecture, 30-Day Execution Plan, This Week, Katie Decision Queue, Parked/Trigger List, Risks/Pushback, What Claude Needs From Katie) this Blueprint was built from. Read them together.
+**BACKGROUND/HISTORICAL:** `WAG_COMPANY_BLUEPRINT_RECONCILIATION_2026-08-15.md` — the dated A–L audit pass (Master Company Map, Current Maturity Map, Duplication/Conflict Report, Source-of-Truth Map, Software Map, Revenue Architecture, 30-Day Execution Plan, Decision Queue, Parked/Trigger List, Risks/Pushback) this Blueprint was originally built from. Per `WAG_SOURCE_OF_TRUTH_INDEX.md`'s Authority Hierarchy, this is a **dated snapshot, not a co-equal living companion** — its still-live content (Master Company Map, Parked/Trigger List) has been extracted into `WAG_MASTER_COMPANY_MAP.md` and `WAG_PARKED_TRIGGER_LIST.md`, which are the current authoritative sources going forward.
 
 ---
 
@@ -62,28 +61,28 @@ CEO — KATIE
 EXECUTIVE AI / CHIEF-OF-STAFF LAYER (priorities, coordination, blockers, decision queue, outcome accountability)
   ↓
 5 ENGINE/DIVISION DIRECTORS
-  • Media & Audience Director
+  • Media & Audience Director (accountable home for Audience Intelligence)
   • Revenue & Partnerships Director
-  • Publishing & IP Director
+  • Publishing & IP Director (accountable home for Rights & Commercial Operations, Education/WAG Labs, B2B Education)
   • Owned Audience / Commerce Director
   • Operations / Business Intelligence Director
   ↓ (each with nested specialist capabilities — analysts, researchers, operators, skills)
   ↓
 SHARED WAG BRAIN / DATA / EVIDENCE INFRASTRUCTURE (beneath all of it — the substrate every Director and specialist reads/writes)
 
-CROSS-CUTTING FUNCTIONS (must not be lost — do not nest exclusively under one Director):
+CROSS-CUTTING FUNCTIONS (company-wide mandate — serve every Director/engine; each also has one accountable Director for ownership/prioritization only, not exclusivity):
   • Finance / Business Intelligence
-  • Rights & Commercial Operations
+  • Rights & Commercial Operations — accountable home: Publishing & IP Director
   • Legal & Minors Compliance
   • Opportunity / Innovation Intelligence (includes the permanent IP Expansion Trigger — §7a)
-  • Audience Intelligence
+  • Audience Intelligence — accountable home: Media & Audience Director
   • Creator / Platform Intelligence
   • Research / Evidence Governance
 ```
 
-**A genuine, surfaced placement ambiguity — Katie's own directive lists both "Audience Intelligence" and "Rights & Commercial Operations" *twice*: once nested under a Director's potential capability list, once again in the cross-cutting "must not be lost" list.** This is not resolved here; see the reconciliation companion's Duplication/Conflict Report (§C). Two of the 18 previously-inventoried departments — Education/WAG Labs and B2B Education/Institutional Licensing — have **no explicit home** in this 5-Director structure; they most naturally sit near Publishing & IP given the Slime Lab/Learning overlap, but Katie has not assigned them and this Blueprint does not assign them for her.
+**Resolved 2026-08-15, per Katie's approval:** Audience Intelligence and Rights & Commercial Operations remain cross-cutting, company-wide functions — giving each an accountable Director (above) is for ownership and prioritization only; it does not silo the function or narrow its mandate to serve only that Director. **Education/WAG Labs and B2B Education/Institutional Licensing formally sit under the Publishing & IP Director** (matches what §4d already implied narratively — now formal in the org chart).
 
-Full department-by-department mapping into this structure, with real maturity per department: reconciliation companion §A (Master Company Map).
+Full department-by-department mapping into this structure, with accountable Director and real maturity per department: `WAG_MASTER_COMPANY_MAP.md` (org placement, living) and `WAG_CURRENT_STATE.md` (maturity, living).
 
 **Preserve the standing distinction between departments, functions, workflows/skills, agents, and shared infrastructure. Not every box becomes an agent** — see §9 Agent Design Standard.
 
@@ -117,14 +116,14 @@ Full department-by-department mapping into this structure, with real maturity pe
 
 Short definitions for the capabilities named in §4 but not yet given their own paragraph — 6 of the 7 cross-cutting functions plus the 2 orphan capabilities noted in §4's placement-ambiguity note (Education/WAG Labs, B2B Education). Each points to where its fuller treatment already lives rather than duplicating it.
 
-1. **Educational IP / WAG Labs** — Value Engine B (§2). Slime/science/animals/experiments/hands-on-learning IP. Mostly conceptual today; Publishing's Slime Lab work (§7, `WAG_SLIME_LAB_PUBLISHING_PLAN.md`) is its first real anchor, not a separate build.
-2. **B2B Education / Institutional Licensing** — schools, teachers, libraries, homeschool, institutional platforms. Research-only (Boclips/ClickView candidates, unconfirmed terms). Per the Roadmap's dependency graph, activates once Publishing/Educational IP proves the model at consumer scale, or Katie directs otherwise.
+1. **Educational IP / WAG Labs** — Value Engine B (§2). **Accountable home: Publishing & IP Director** (formalized 2026-08-15). Slime/science/animals/experiments/hands-on-learning IP. Mostly conceptual today; Publishing's Slime Lab work (§7, `WAG_SLIME_LAB_PUBLISHING_PLAN.md`) is its first real anchor, not a separate build.
+2. **B2B Education / Institutional Licensing** — **Accountable home: Publishing & IP Director** (formalized 2026-08-15). Schools, teachers, libraries, homeschool, institutional platforms. Research-only (Boclips/ClickView candidates, unconfirmed terms). Per the Roadmap's dependency graph, activates once Publishing/Educational IP proves the model at consumer scale, or Katie directs otherwise.
 3. **Operations / Production / Execution** — the real, physical work of making WAG happen: production scheduling, filming logistics, editor assignment/tracking, footage-to-publish pipeline, vendor/contractor coordination. Live example: the Secret Menu editor-assignment → parallel-packaging → publish chain (`WAG_ACTIVE_PORTFOLIO.md`).
 4. **Legal / Safety / Compliance** — minors compliance, brand-risk screening (§ never-name-brand-risk-creators discipline), trademark/IP clearance gating (the attorney-clearance step in the Publishing/IP workflow, `WAG_LAB_FAMILY_IP_PORTFOLIO.md`), girls' privacy (location/last-name rules), platform ToS compliance.
-5. **Audience Intelligence** — who WAG's audience actually is and how it behaves, cross-referenced against GA4/GSC/YouTube Analytics/Beehiiv. Real data exists; the interaction-platform data-trust question this depended on is now resolved (`PRODUCTION_AUDIT.md`, corrected 2026-08-15).
+5. **Audience Intelligence** — **Accountable home: Media & Audience Director** (formalized 2026-08-15) — cross-cutting mandate unchanged, serves every Director/engine that touches audience data. Who WAG's audience actually is and how it behaves, cross-referenced against GA4/GSC/YouTube Analytics/Beehiiv. Real data exists; the interaction-platform data-trust question this depended on is now resolved (`PRODUCTION_AUDIT.md`, corrected 2026-08-15).
 6. **Creator / Platform Intelligence** — the second and third lenses of the permanent three-lens model (§5): world-class external creator/platform study, Proof 0/Proof 1 discovery work, causality-labeled pattern extraction (LIKELY DRIVER / AMPLIFIER / SCALE INFRASTRUCTURE / DOWNSTREAM / UNKNOWN).
 7. **Opportunity / Innovation / Future** — includes the permanent IP Expansion Trigger (§7a). Watches for new categories/formats/business models worth testing before they're obviously proven, without forcing extensions ahead of evidence.
-8. **Rights / Licensing / Commercial Ops** — contract terms, the rights inventory (§12), licensing deal structuring/execution once Revenue or Publishing produces one, distribution agreements (Kidoodle, Epic, Roku/network).
+8. **Rights / Licensing / Commercial Ops** — **Accountable home: Publishing & IP Director** (formalized 2026-08-15) — cross-cutting mandate unchanged, serves every Director/engine with rights/contract exposure (Revenue's licensing deals, Media's platform agreements). Contract terms, the rights inventory (§12), licensing deal structuring/execution once Revenue or Publishing produces one, distribution agreements (Kidoodle, Epic, Roku/network).
 
 ## 5. Media Intelligence Standard (Engine 1)
 
@@ -240,7 +239,7 @@ YouTube remains a critical strategic asset — this is not an escape-YouTube pla
 
 Before creating any new agent, define: (1) job description, (2) business outcome, (3) inputs, (4) authoritative data sources, (5) responsibilities, (6) decision authority, (7) forbidden actions, (8) required outputs, (9) KPIs, (10) escalation rules, (11) memory/state requirements, (12) interaction with parent/peer agents, (13) evidence requirements, (14) learning loop, (15) retirement/merge criteria. Do not create an agent simply because a task exists. Managers/directors own outcomes; specialists perform capabilities; the executive layer coordinates directors. Katie receives decisions, not raw agent chatter.
 
-This standard supersedes-by-specificity (does not erase) the original 9-role spec and its later refinements — full recovery and gap analysis of that lineage is in the reconciliation companion's Master Company Map, since it directly informs which of the 18 real capabilities already have a working spec versus need one written fresh against this new 15-point standard.
+This standard supersedes-by-specificity (does not erase) the original 9-role spec and its later refinements — full recovery and gap analysis of that lineage is in `WAG_MASTER_COMPANY_MAP.md`, since it directly informs which of the 18 real capabilities already have a working spec versus need one written fresh against this new 15-point standard.
 
 ## 10. Intelligence Must Create Action
 
@@ -248,7 +247,7 @@ Every department: GOAL → INTELLIGENCE → DECISION → ACTION → OUTCOME → 
 
 ## 11. Finance Cannot Remain a Blind Spot
 
-Build a minimal financial-truth capability before any large accounting system: cash collected, receivables, revenue by engine, costs, gross margin, project economics, partner payment performance, recurring revenue, forecast, runway/cash position where appropriate, ROI of major initiatives. Kidoodle's three unconfirmed invoices are the standing proof that "invoice sent" ≠ "money collected" — this is not a hypothetical risk, it is WAG's current real state.
+Build a minimal financial-truth capability before any large accounting system: cash collected, receivables, revenue by engine, costs, gross margin, project economics, partner payment performance, recurring revenue, forecast, runway/cash position where appropriate, ROI of major initiatives. Kidoodle's invoices — confirmed unpaid despite repeated follow-up (`WAG_DECISION_LOG.md`, 2026-08-15) — are the standing proof that "invoice sent" ≠ "money collected" — this is not a hypothetical risk, it is WAG's current real state.
 
 ## 12. Rights / Asset / Distribution Audit
 
@@ -276,7 +275,7 @@ The destination is a $10M+ diversified-revenue company, not a channel with side 
 
 Kidoodle payment/collections state · Roku/network contract review · Epic relationship/licensing · WAG Slime Lab · Publishing pipeline · membership hypothesis · educational/B2B opportunity · rights/chain-of-title · Finance truth layer · Podcast benchmark/growth work · Podcast chart/discovery mechanics · Podcast Wednesday-posting target · Main creative-learning loop · Audience Intelligence · Creator/Platform Intelligence · Packaging Intelligence · Revenue inbound/outbound · agency/contact intelligence · spam/security guard · Website CTR diagnosis/learning loop · ViewStats evaluation · YouTube/API competitor watchlist concept · WAG OS certification/reliability work · MFA/security gaps · wagmediapartners.com decision/strategy · Media Playbook · profile/age-data accuracy · Legal & Minors Compliance · localization/dubbing opportunities · physical products · schools/teachers/libraries/homeschool · owned audience/customer capture · membership MVP.
 
-**"Not now" means parked with a named trigger, never forgotten.** Full parked/trigger table with actual reactivation conditions: reconciliation companion §J.
+**"Not now" means parked with a named trigger, never forgotten.** Full parked/trigger table with actual reactivation conditions: `WAG_PARKED_TRIGGER_LIST.md` (living document).
 
 ## 16a. CEO Decision Principles (restored 2026-08-15 — reconstructed, not recovered verbatim)
 
@@ -302,4 +301,4 @@ We are not building an impressive AI org chart. We are building an exceptional c
 
 ---
 
-*This document intentionally does not contain a fabricated $10M revenue allocation, a finished org chart with every box filled, or an authorized build list. Those require either real evidence this pass didn't find, or Katie's direct decision. See the reconciliation companion for the full current-state audit (A–L) this Blueprint was built from, including every contradiction found, the real 30-day execution plan, and the decision queue.*
+*This document intentionally does not contain a fabricated $10M revenue allocation, a finished org chart with every box filled, or an authorized build list. Those require either real evidence this pass didn't find, or Katie's direct decision. For current-state detail: `WAG_MASTER_COMPANY_MAP.md` (org placement), `WAG_CURRENT_STATE.md` (maturity), `WAG_ACTIVE_PORTFOLIO.md` (real 30-day execution), `WAG_DECISION_LOG.md` (decision history). `WAG_COMPANY_BLUEPRINT_RECONCILIATION_2026-08-15.md` remains available as the dated audit this Blueprint was originally built from.*

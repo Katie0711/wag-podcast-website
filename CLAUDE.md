@@ -2,18 +2,26 @@
 
 This file loads automatically at the start of every Claude Code session in this repository. That auto-load is the entire anti-drift mechanism — no new software, no orchestration platform, just this file doing the one thing Katie asked for: making it unavoidable that meaningful WAG architecture/build work starts from real company context, not from scratch or from this conversation's memory alone.
 
-## Before any architecture decision, new capability, new agent, or structural change
+## The company-level control files moved (2026-08-15)
 
-Read, in this order, from `docs/`:
+The 10 canonical company-control documents (Blueprint, Master Roadmap, Current State, Active Portfolio, Decision Log, Acceptance Tests, Asset/System Registry, Build Protocol, Executive Snapshot, Source-of-Truth Index) plus the Master Company Map and Parked/Trigger List now live in the standalone private repo **`Katie0711/wag-company-os`**, not in this repo's `docs/` folder. This repo (`wag-podcast-website`) keeps only its own product/domain documentation (`ROADMAP.md`, department architecture docs, SEO/research work, etc.) — real, useful, but not company-level.
 
-1. **`WAG_COMPANY_BLUEPRINT.md`** — the constitution. What company are we building. Check before anything that touches business architecture, org structure, or strategic principles.
-2. **`WAG_MASTER_ROADMAP.md`** — the complete destination architecture (all 18 capabilities, all 6 engines) plus the 5 currently-active engines and real dependencies. Check where the task belongs before assuming it's new.
-3. **`WAG_CURRENT_STATE.md`** — evidence-cited §64 status per capability. Check what already exists before building it again.
-4. **`WAG_DECISION_LOG.md`** — the *why* behind prior strategic calls. Check what's already been decided before re-deciding it.
-5. **`WAG_ACCEPTANCE_TESTS.md`** — the real Definition of Done per active engine. A capability existing is not the same as it operating — check the actual end-to-end loop, not just whether the docs/schema/agents exist.
-6. **`WAG_ACTIVE_PORTFOLIO.md`** — the 3–5(-7) real items currently consuming execution capacity. Check this before proposing new work.
+**Before any architecture decision, new capability, new agent, or structural change, read `wag-company-os` first, in this order:**
 
-`WAG_OPERATING_SYSTEM_MAP.md` indexes everything else and is the fastest way to find a more specific doc once the six above are read.
+1. **`01_blueprint/WAG_COMPANY_BLUEPRINT.md`** — the constitution. What company are we building. Check before anything that touches business architecture, org structure, or strategic principles.
+2. **`02_roadmap/WAG_MASTER_ROADMAP.md`** — the complete destination architecture (all 18 capabilities, all 6 engines) plus the 5 currently-active engines and real dependencies. Check where the task belongs before assuming it's new.
+3. **`03_current_state/WAG_CURRENT_STATE.md`** — evidence-cited §64 status per capability. Check what already exists before building it again.
+4. **`05_decisions/WAG_DECISION_LOG.md`** — the *why* behind prior strategic calls. Check what's already been decided before re-deciding it.
+5. **`06_acceptance_tests/WAG_ACCEPTANCE_TESTS.md`** — the real Definition of Done per active engine. A capability existing is not the same as it operating — check the actual end-to-end loop, not just whether the docs/schema/agents exist.
+6. **`04_active_portfolio/WAG_ACTIVE_PORTFOLIO.md`** — the 3–5(-7) real items currently consuming execution capacity. Check this before proposing new work.
+
+**If `wag-company-os` is not already cloned locally in this session,** clone it as a sibling directory before reading:
+
+```
+git clone https://github.com/Katie0711/wag-company-os.git ../wag-company-os
+```
+
+`WAG_OPERATING_SYSTEM_MAP.md` (this repo, `docs/`) indexes the *product-level* WAG OS docs that stay here — packaging intelligence, department architecture, research — and is the fastest way to find a more specific doc once the six company-level files above are read.
 
 ## The standing rules these six files encode
 

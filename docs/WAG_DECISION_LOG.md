@@ -6,6 +6,16 @@ Decisions that affect the company's future, not tasks. Each entry: the decision,
 
 ---
 
+### HubSpot pilot approved in principle — not a purchase/adoption decision (2026-08-15)
+
+**Decision:** Katie approved evaluating/piloting HubSpot as a possible sales-execution system "in principle." This is not a purchase, account creation, or adoption decision — it authorizes investigation (per `WAG_COMPANY_BLUEPRINT.md` §6/§14's buy-vs-build rule) to continue toward a real recommendation, not a vendor commitment.
+
+**Why it matters:** without this entry, the earlier chat-only approval would have been invisible to any future session, and the Blueprint's "not yet decided" language on the Sales CRM hypothesis (§6) could be misread as contradicting something Katie already said. It doesn't — a pilot-in-principle and a decided/purchased system are different things, and the Blueprint's language stays accurate.
+
+**What it doesn't do:** authorize creating a HubSpot account, entering payment details, or duplicating CRM fields into Supabase. WAG Brain remains the company intelligence/evidence layer regardless of what the CRM evaluation concludes.
+
+---
+
 ### Kidoodle — confirmed UNPAID, real collections/escalation problem (2026-08-15)
 
 **Decision/fact:** Kidoodle has NOT paid. Katie confirms she has sent repeated follow-up emails and Kidoodle has ignored all of them. This is Katie-confirmed truth, not an inference from invoice state alone — do not manufacture a contractual "overdue by X days" status unless invoice/contract evidence establishes an actual due date/payment term.
