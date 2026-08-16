@@ -8,6 +8,8 @@
 
 **Explicitly not a rebuild.** These stay as separate, purpose-built docs. This page just makes the connections between them visible.
 
+**Moved 2026-08-15:** the company-level control documents in the table below (`WAG_COMPANY_BLUEPRINT.md`, `WAG_MASTER_ROADMAP.md`, `WAG_CURRENT_STATE.md`, `WAG_ACCEPTANCE_TESTS.md`, `WAG_ACTIVE_PORTFOLIO.md`, `WAG_AUTONOMY_GAP_TEST.md`, `WAG_CONTENT_INTELLIGENCE_AUDIT_2026-08-15.md`, plus `WAG_DECISION_LOG.md`, `WAG_ASSET_SYSTEM_REGISTRY.md`, `WAG_BUILD_PROTOCOL.md`, `WAG_EXECUTIVE_SNAPSHOT.md`, `WAG_SOURCE_OF_TRUTH_INDEX.md`, `WAG_MASTER_COMPANY_MAP.md`, `WAG_PARKED_TRIGGER_LIST.md`) now live in the standalone `wag-company-os` repository, not in this repo's `docs/`. Filenames below are unchanged — see `CLAUDE.md` (repo root) for the current location and clone instructions. This page (and everything else in this table) stays here — it indexes WAG-*product*-level operating docs, not company-level ones.
+
 ---
 
 ## The living documents, and what each one owns
