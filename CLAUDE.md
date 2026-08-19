@@ -23,6 +23,8 @@ git clone https://github.com/Katie0711/wag-company-os.git ../wag-company-os
 
 `WAG_OPERATING_SYSTEM_MAP.md` (this repo, `docs/`) indexes the *product-level* WAG OS docs that stay here — packaging intelligence, department architecture, research — and is the fastest way to find a more specific doc once the six company-level files above are read.
 
+**Before any website/deploy/SEO/technical change specifically**, also read, in order: `wag-company-os/07_asset_registry/WAG_WEB_STANDARD.md` (Global WAG Web Standard — governs every WAG-owned website) then `docs/WAG_PODCAST_SITE_STANDARD.md` (this repo — this site's own specification). This repo is the dedicated authority for WAG Podcast specifically — not a general WAG site; see the Global Standard §7 before changing anything that touches both `thewagpodcast-website` and `wildadventuregirls-website`'s shared patterns.
+
 ## The standing rules these six files encode
 
 - **Capability existence ≠ operating maturity.** The real test is DETECT → RESEARCH → UNDERSTAND → RECOMMEND → DECIDE → EXECUTE → MEASURE → LEARN → CHANGE THE NEXT BET actually closing, not a well-populated research library.
