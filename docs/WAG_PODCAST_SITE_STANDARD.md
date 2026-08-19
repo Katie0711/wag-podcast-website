@@ -65,6 +65,14 @@ Not directly audited this pass beyond confirming the site's deploy pipeline (Net
 
 Episode consumption (video via YouTube embed, audio via Spotify/Apple) · podcast sponsor inquiry (`/sponsor/`) · interaction-platform participation (Verdict vote, Match quiz, Favorite Segment poll, Questions Featured submission) · email capture where present.
 
+## Editorial / brand voice (real, verification-pass addition, 2026-08-19)
+
+- **Voice:** conversational, direct-address, structured around real debate/disagreement between the three hosts ("WAG verdict:" callouts) — more analytical/structured than the main site's narrative recap voice for the *same* real episode (see Global Standard §7's Dating Red Flags example: same facts, deliberately different treatment).
+- **Vocabulary:** "the hosts," "the episode," "WAG verdict," host names used individually and often (Angelina/Scarlett/Annabella), never "the kids." Direct Q&A framing ("Is X a red flag?") is this site's signature structure, distinct from the main site's prose-recap structure.
+- **Claims boundaries:** never states an opinion as universal fact — every "verdict" is explicitly the hosts' real, recorded opinion, not asserted as general advice. Same minors-privacy boundaries as the main site (no exact locations, no last names without approval).
+- **CTA style:** episode-native ("Listen on Spotify," "Watch the full episode," "Cast your Verdict vote") — tied to actual consumption/participation, not generic newsletter-style CTAs.
+- **What doesn't belong here:** general WAG-brand content unrelated to the podcast (belongs on wildadventuregirls.com); a Stories-style article about a podcast episode (that's what this site's own deep-dive collection is for — never publish the same treatment on both domains).
+
 ## Known lessons/failures (real, dated)
 
 - **2026-08-19: static `llms.txt` was already stale** relative to real episode/article content — fixed, see above. This is the second site to hit a variant of "hand-maintained file goes stale" (the first was the main site's own original `llms.txt`, already fixed before this pass) — worth treating as a recurring class, not two unrelated incidents.
