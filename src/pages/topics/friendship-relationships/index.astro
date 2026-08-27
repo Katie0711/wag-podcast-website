@@ -1,0 +1,240 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import EqBars from "../../../components/EqBars.astro";
+import Breadcrumb from "../../../components/Breadcrumb.astro";
+import { insiderHref } from "../../../lib/insiderLink";
+
+// Real hub for the `friendship-relationships` tag -- the single largest
+// topic group across the whole episodes collection (6 real episodes),
+// and one of the 5 hub topics content.config.ts already names as
+// sanctioned. Built 2026-08-27 per the organic-growth roadmap: this was
+// the clearest real gap found (a working sub-hub already existed for
+// Guys Answer Questions specifically, but nothing tied the broader tag
+// together). Every episode listed here is real, already published, and
+// tagged `friendship-relationships` in its own frontmatter -- confirmed
+// directly, not assumed. Same pattern as topics/growing-up/index.astro.
+const episodes = [
+  {
+    title: "Dating Red Flags: Would You Still Date Him If He Did These Things?",
+    videoId: "mCfeIZst5qQ",
+    url: "/episodes/dating-red-flags-would-you-still-date-him/",
+    blurb: "Girl best friends, jealousy, Instagram likes, location sharing, mama's boys — the real debate.",
+  },
+  {
+    title: "Why Teen Relationships Break Up (Real Breakup Stories)",
+    videoId: "6mOxDSuTTm0",
+    url: "/episodes/why-teen-relationships-break-up/",
+    blurb: "Real breakup stories, the phone red flag that means it's over, and what actually helps after.",
+  },
+  {
+    title: "Guys Answer Questions: What Guys Never Say Out Loud",
+    videoId: "7ajsKON59TA",
+    url: "/episodes/guys-answer-questions-what-guys-never-say-out-loud/",
+    blurb: "A real guy answers the questions girls usually never get a straight answer to.",
+  },
+  {
+    title: "Our Most Awkward First Kiss Stories",
+    videoId: "prR_u0sWmJE",
+    url: "/episodes/our-most-awkward-first-kiss-stories/",
+    blurb: "Hot takes, dream scenarios, and the real, awkward stories behind them.",
+  },
+  {
+    title: "The Weirdest Prom Ever",
+    videoId: "FOES2xwMxxw",
+    url: "/episodes/prom-night-disaster-story/",
+    blurb: "A real prom night story, told the way it actually happened — nothing like the plan.",
+  },
+  {
+    title: "The Time My Ex Stalked Me",
+    videoId: "3XpllLzZ9fs",
+    url: "/episodes/ex-stalked-me-story/",
+    blurb: "The stuff most teen shows skip — a real story about an ex who wouldn't stop showing up.",
+  },
+];
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Friendship & Relationships — WAG Podcast",
+  url: "https://thewagpodcast.com/topics/friendship-relationships/",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: episodes.map((ep, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: ep.title,
+      url: ep.url,
+    })),
+  },
+};
+
+const faqs = [
+  {
+    q: "What kind of episodes are in Friendship & Relationships?",
+    a: "Real WAG Podcast episodes about dating, breakups, first kisses, red flags, and guys answering the questions girls actually want asked — every episode here is real and already published, not a summary.",
+  },
+  {
+    q: "Is this the girls' real opinions, or a script?",
+    a: "Real, unscripted conversations from Angelina, Scarlett, and Annabella — and for the Guys Answer Questions episodes, a real guy answering on camera.",
+  },
+  {
+    q: "How often are new episodes added to this hub?",
+    a: "WAG Podcast releases a new episode every week, and this hub is updated whenever a new one fits the friendship/relationships theme — not every weekly episode does.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Friendship & Relationships — WAG Podcast"
+  description="Real WAG Podcast episodes about dating, breakups, red flags, first kisses, and guys answering the questions girls actually want asked."
+  ogImage="/images/studio/wag-studio-89.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="topic-hero">
+    <div class="hero-photo">
+      <picture>
+        <source srcset="/images/studio/wag-studio-89.webp" type="image/webp" />
+        <img src="/images/studio/wag-studio-89.jpg" alt="A WAG Podcast host in the studio's lounge chair" fetchpriority="high" />
+      </picture>
+      <div class="hero-scrim"></div>
+    </div>
+    <div class="container hero-inner">
+      <p class="eyebrow"><EqBars size="sm" /> Topic Hub</p>
+      <h1>Dating, breakups, and <span class="text-accent">real relationship talk</span>.</h1>
+      <p class="lede">Red flags, first kisses, breakups, and guys answering the questions girls actually want asked — the real conversations WAG Podcast keeps coming back to.</p>
+    </div>
+  </section>
+
+  <section class="topic-intro">
+    <div class="container" data-reveal>
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Friendship & Relationships", href: "/topics/friendship-relationships/" }]} />
+      <p>Six real WAG Podcast episodes about the stuff that actually comes up between friends, crushes, and relationships — not generic advice, real stories and real opinions. Click through to watch the full episode.</p>
+    </div>
+  </section>
+
+  <section class="episodes">
+    <div class="container" data-reveal="stagger">
+      <div class="episodes-grid">
+        {episodes.map((ep) => (
+          <a class="episode-card" href={ep.url}>
+            <div class="episode-thumb">
+              <img src={`https://img.youtube.com/vi/${ep.videoId}/mqdefault.jpg`} alt={ep.title} loading="lazy" />
+            </div>
+            <div class="episode-body">
+              <h2>{ep.title}</h2>
+              <p>{ep.blurb}</p>
+              <span class="episode-link">Watch the episode →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-faq">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> Questions</p>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item">
+            <h2>{f.q}</h2>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-cta">
+    <div class="container">
+      <p>Want the party-game side of the show? <a href="/games/">See all WAG Podcast games →</a></p>
+    </div>
+  </section>
+
+  <section class="join">
+    <div class="container register-light join-inner" data-reveal>
+      <h2>Never miss a new episode.</h2>
+      <p>Join WAG Insider for new-episode alerts and behind-the-scenes extras — the same free list the main WAG site uses, one signup for everything WAG.</p>
+      <a class="btn btn-primary" href={insiderHref("topics-friendship-relationships")}>Join WAG Insider →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .topic-hero{ position:relative; padding: 0 0 32px; }
+  .hero-photo{ position:relative; width:100%; aspect-ratio: 2.6/1; overflow:hidden; margin-bottom:40px; }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; object-position: center 25%; display:block; }
+  .hero-scrim{ position:absolute; inset:0; background: linear-gradient(0deg, rgba(10,10,15,.8) 0%, transparent 50%); }
+  .hero-inner{ max-width:68ch; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); }
+  .topic-hero h1{ font-size: clamp(2rem, 4.2vw, 3.1rem); max-width:22ch; }
+  .text-accent{
+    background: linear-gradient(90deg, var(--wag-pink) 0%, var(--wag-green) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lede{ font-size:1.1rem; max-width:62ch; }
+
+  .topic-intro{ padding: 0 0 40px; }
+  .topic-intro p{ font-size:1.05rem; max-width:68ch; }
+
+  .episodes{ padding: 0 0 24px; }
+  .episodes-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; }
+  .episode-card{
+    display:block; border-radius: var(--radius-lg); overflow:hidden; border:1px solid var(--line);
+    background: var(--bg-alt); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .episode-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(255,22,200,.16); border-color: var(--wag-pink); }
+  .episode-thumb{ aspect-ratio: 16/9; overflow:hidden; }
+  .episode-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .episode-body{ padding:18px 20px 22px; }
+  .episode-body h2{
+    font-family: var(--font-body); font-weight:700; text-transform:none; letter-spacing:0;
+    font-size:1.05rem; margin-bottom:.5em; line-height:1.35;
+  }
+  .episode-body p{ font-size:.9rem; color: var(--ink-soft); margin-bottom:1em; }
+  .episode-link{ font-weight:600; font-size:.86rem; color: var(--wag-green); }
+
+  .topic-faq{ padding: 8px 0 24px; border-top:1px solid var(--line); padding-top:40px; }
+  .topic-faq .eyebrow{ margin-bottom:16px; }
+  .faq-list{ display:flex; flex-direction:column; }
+  .faq-item{ padding:20px 0; border-bottom:1px solid var(--line); max-width:70ch; }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item h2{ font-size:1.08rem; margin-bottom:.5em; }
+  .faq-item p{ font-size:.96rem; color: var(--ink-soft); margin:0; }
+
+  .topic-cta{ padding: 24px 0 8px; border-top:1px solid var(--line); padding-top:32px; }
+  .topic-cta p{ font-size:1rem; margin:0; }
+  .topic-cta a{ color: var(--wag-green); font-weight:600; text-decoration:underline; }
+
+  .join{ padding: 40px 0 72px; }
+  .join-inner{
+    padding:44px 40px; border-radius: var(--radius-lg); text-align:center;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    position:relative;
+    background:
+      linear-gradient(var(--bg), var(--bg)) padding-box,
+      linear-gradient(120deg, var(--wag-pink), var(--wag-green)) border-box;
+    border: 2px solid transparent;
+  }
+  .join-inner h2{ font-size: clamp(1.4rem, 2.8vw, 2rem); margin:0; }
+  .join-inner p{ max-width:52ch; margin:0; }
+
+  @media (max-width: 900px){
+    .episodes-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px){
+    .episodes-grid{ grid-template-columns: 1fr; }
+  }
+</style>
