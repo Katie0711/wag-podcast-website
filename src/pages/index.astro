@@ -88,6 +88,37 @@ const EXPLORE_SHELVES = [
 ];
 const exploreHero = EXPLORE_CATS.find((c) => c.key === "guys")!;
 
+// Real, verbatim Apple Podcasts listener reviews -- verified live against
+// podcasts.apple.com/us/podcast/wag-podcast/id1856707489 (2026-08-27, 5.0/5
+// from 16 ratings; these are the only 4 written reviews that exist on the
+// page). Never paraphrase these -- if a review needs trimming for length,
+// use an ellipsis on the real words, never a rewrite (Nellie's below is
+// trimmed this way; the other three are shown in full). Per Katie's
+// explicit ask, this is real first-party audience evidence, not marketing
+// copy -- exact wording matters.
+const LISTENER_REVIEWS = [
+  {
+    quote: "This podcast is so good! I'm 13 and I listen to this while I'm doing homework. This podcast is so funny and I recommend to any teen girl.",
+    reviewer: "Auds:)",
+    tag: "Teen listener",
+  },
+  {
+    quote: "Omg, if you love just random stuff, you will listen have episode after episode. Honestly, I love when they're talking about something and then somehow they change the topic to something completely different. It makes me laugh all the time. bottom line, AMAZING",
+    reviewer: "FUNBUNCUTIE",
+    tag: "Binge-worthy",
+  },
+  {
+    quote: "...PLEASE POST I NEED THIS NEW EPISODE TO COME OUT...",
+    reviewer: "Nellie Johnston",
+    tag: "“Love this show!”",
+  },
+  {
+    quote: "My girls absolutely love listening to Angelina, Annabella and Scarlett. They are so fun and funny and my girls can listen for hours!",
+    reviewer: "Ktpru",
+    tag: "Parent-approved",
+  },
+];
+
 // Real ItemList schema for the Explore section -- every entry is a real,
 // live page on this site, in the same order as the section renders.
 const exploreOrder = [exploreHero.key, ...EXPLORE_SHELVES.flatMap((s) => s.items)];
@@ -127,6 +158,10 @@ const exploreListSchema = {
         <a class="btn btn-accent" href="/watch/">Watch an Episode →</a>
         <a class="btn btn-outline" href="/listen/">Listen →</a>
       </div>
+      <a class="hero-rating" href="https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489" target="_blank" rel="noopener">
+        <span class="hero-rating-stars" aria-hidden="true">★★★★★</span>
+        <span>5.0 out of 5 — 16 Ratings on Apple Podcasts</span>
+      </a>
     </div>
   </section>
 
@@ -179,6 +214,26 @@ const exploreListSchema = {
         ))}
       </div>
       <a class="hosts-link" href="/hosts/">Meet the hosts →</a>
+    </div>
+  </section>
+
+  <!-- Listeners Love WAG -->
+  <section class="listener-love">
+    <div class="container" data-reveal="stagger">
+      <p class="eyebrow"><EqBars size="sm" /> Listeners Love WAG</p>
+      <h2>Real reviews from Apple Podcasts — unedited.</h2>
+      <div class="review-grid">
+        {LISTENER_REVIEWS.map((r) => (
+          <div class="review-card">
+            <span class="review-tag">{r.tag}</span>
+            <p class="review-quote">&ldquo;{r.quote}&rdquo;</p>
+            <p class="review-attr">— {r.reviewer}, Apple Podcasts listener review</p>
+          </div>
+        ))}
+      </div>
+      <a class="review-cta" href="https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489" target="_blank" rel="noopener">
+        Read all reviews on Apple Podcasts →
+      </a>
     </div>
   </section>
 
@@ -337,6 +392,31 @@ const exploreListSchema = {
   .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
   .btn-outline{ border-color: var(--ink); }
   .btn-outline:hover{ background: var(--ink); color: var(--bg); }
+
+  .hero-rating{
+    display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+    font-size:.88rem; color: var(--ink-soft); font-weight:600;
+  }
+  .hero-rating:hover{ color: var(--ink); }
+  .hero-rating-stars{ color: var(--wag-green); letter-spacing:1px; font-size:.95rem; }
+
+  .listener-love{ padding: 8px 0 64px; border-top:1px solid var(--line); }
+  .listener-love h2{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); max-width:26ch; margin: .3em 0 .9em; }
+  .review-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:18px; margin-bottom:24px; }
+  .review-card{
+    padding:22px 22px 20px; border-radius: var(--radius); border:1px solid var(--line); background: var(--bg-alt);
+    display:flex; flex-direction:column; gap:12px; transition: border-color .2s ease, transform .2s ease;
+  }
+  .review-card:hover{ border-color: var(--wag-pink); transform: translateY(-2px); }
+  .review-tag{
+    align-self:flex-start; font-family: var(--font-display); text-transform:uppercase; letter-spacing:.04em;
+    font-size:.72rem; font-weight:700; color: var(--wag-pink); background: rgba(255,22,200,.1);
+    padding:.3em .7em; border-radius: 100px;
+  }
+  .review-quote{ font-size:.98rem; line-height:1.5; color: var(--ink); margin:0; flex:1; }
+  .review-attr{ font-size:.82rem; color: var(--ink-muted); margin:0; }
+  .review-cta{ font-weight:600; color: var(--wag-green); }
+  .review-cta:hover{ text-decoration: underline; }
 
   .who-for{ padding: 40px 0 56px; }
   .who-for-text{ font-size:1.25rem; max-width:52ch; color: var(--ink-soft); font-weight:500; }

@@ -45,6 +45,16 @@ const podcastSchema = {
     "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb",
     "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489",
   ],
+  // Real, verified live against Apple Podcasts (2026-08-27) -- 5.0/5 from
+  // 16 ratings. This must be re-verified before ever being changed, never
+  // bumped without checking the real current number on the Apple page.
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    ratingCount: "16",
+    bestRating: "5",
+    worstRating: "1",
+  },
   publisher: {
     "@type": "Organization",
     "@id": "https://wildadventuregirls.com/#organization",
