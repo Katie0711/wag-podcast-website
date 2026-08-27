@@ -45,16 +45,16 @@ const podcastSchema = {
     "https://open.spotify.com/show/3tl7szlcJ5eFDqS7cbw6Kb",
     "https://podcasts.apple.com/us/podcast/wag-podcast/id1856707489",
   ],
-  // Real, verified live against Apple Podcasts (2026-08-27) -- 5.0/5 from
-  // 16 ratings. This must be re-verified before ever being changed, never
-  // bumped without checking the real current number on the Apple page.
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    ratingCount: "16",
-    bestRating: "5",
-    worstRating: "1",
-  },
+  // REMOVED 2026-08-27 (Katie's correction, verified against Google Search
+  // Central docs): an aggregateRating here was wrong on two independent
+  // grounds, not just an Apple-branding question -- PodcastSeries is not
+  // among Google's eligible types for Review/AggregateRating rich results
+  // at all, and separately Google's guidelines explicitly say "don't
+  // aggregate reviews or ratings from other websites" (this would have
+  // been WAG's own schema restating Apple's number, not a rating WAG
+  // itself collected). The visible testimonials section is unaffected --
+  // that's real page content, not structured data, and isn't subject to
+  // either restriction.
   publisher: {
     "@type": "Organization",
     "@id": "https://wildadventuregirls.com/#organization",
