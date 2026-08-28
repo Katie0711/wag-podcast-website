@@ -1,0 +1,33 @@
+name: Web Standard quality checks
+
+# Mirrors wildadventuregirls-website's workflow of the same name.
+# web-standard-check.mjs and check-broken-links.mjs both already
+# existed on this site but were never wired into anything -- this
+# closes that gap, same as the main site.
+on:
+  schedule:
+    - cron: "0 13 * * *" # once daily, 13:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  web-standard-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Run web-standard-check.mjs against production
+        run: node scripts/web-standard-check.mjs
+
+  broken-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Check every real sitemap URL resolves with 200
+        run: node scripts/check-broken-links.mjs
