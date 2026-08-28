@@ -202,6 +202,39 @@ const podcastSchema = {
       }
       trackPageView();
       document.addEventListener("astro:page-load", trackPageView);
+
+      // Real, privacy-conscious conversion measurement, site-wide.
+      // Mirrors wildadventuregirls-website's BaseLayout.astro. Excludes
+      // [data-platform-cta] (already tracked as platform_follow_click
+      // on /listen/) and [data-wn-track] (already tracked as
+      // next_action_click by WhatsNext.astro) so a click there fires
+      // exactly one event, not two.
+      const OUTBOUND_PLATFORMS: [RegExp, string][] = [
+        [/(^|\.)youtube\.com$|^youtu\.be$/, "youtube"],
+        [/(^|\.)spotify\.com$/, "spotify"],
+        [/(^|\.)podcasts\.apple\.com$/, "apple_podcasts"],
+        [/(^|\.)instagram\.com$/, "instagram"],
+        [/(^|\.)tiktok\.com$/, "tiktok"],
+      ];
+      document.addEventListener("click", (e) => {
+        const link = (e.target as HTMLElement)?.closest?.("a[href]") as HTMLAnchorElement | null;
+        if (!link) return;
+        if (link.closest("[data-platform-cta], [data-wn-track]")) return;
+        let url: URL;
+        try {
+          url = new URL(link.href, location.href);
+        } catch {
+          return;
+        }
+        if (url.hostname === location.hostname) return;
+        const platform = OUTBOUND_PLATFORMS.find(([re]) => re.test(url.hostname))?.[1];
+        if (!platform || typeof (window as any).gtag !== "function") return;
+        (window as any).gtag("event", "outbound_click", {
+          platform,
+          destination_url: link.href,
+          source_page: location.pathname,
+        });
+      });
     </script>
   </body>
 </html>
