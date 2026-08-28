@@ -47,9 +47,15 @@ const videoSchema = {
   "@type": "VideoObject",
   name: "Teens Answer Mental Health Questions...",
   description: "WAG sat down with a group of teens to get unfiltered answers about burnout, school stress, social media's impact, and what actually helps when things feel heavy.",
-  uploadDate: "2026-07-17T00:00:00.000Z",
+  // Real date, matching the same real episode's mirror article
+  // (wildadventuregirls-website/src/content/podcast-articles/teen-mental-health-real-talk.md
+  // publishDate) -- was previously an unsourced hardcoded literal that
+  // didn't match.
+  uploadDate: "2026-07-27T00:00:00.000Z",
   embedUrl: `https://www.youtube.com/embed/${videoId}`,
-  thumbnailUrl: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+  // hqdefault.jpg, not maxresdefault.jpg -- YouTube always generates
+  // hqdefault; maxresdefault isn't guaranteed to exist for every upload.
+  thumbnailUrl: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
 };
 ---
 
