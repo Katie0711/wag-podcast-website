@@ -1,0 +1,23 @@
+name: Ping IndexNow on push
+
+# Same pattern as wildadventuregirls-website's workflow of the same name.
+# Regular content changes deploy via Netlify's own GitHub integration
+# already -- this just notifies Bing/Yandex/etc. right after, instead
+# of waiting for their own crawl schedule to notice.
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ping-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for the Netlify deploy to actually go live
+        run: sleep 90
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Ping IndexNow with current sitemap URLs
+        run: node scripts/indexnow-ping.mjs
