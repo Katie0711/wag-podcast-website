@@ -146,3 +146,7 @@ Not that the loop is finished — that it can take a real, already-logged idea, 
 ## Next, per Katie's sequencing
 
 Adapt this same evaluation architecture to WAG Podcast once this loop is judged useful — with its own GM/specialists and Podcast-specific evidence (per `WAG_PODCAST_DEPARTMENT_ARCHITECTURE.md`), not copied WAG Main logic. Then the next highest-ROI build decision — Revenue & Partnerships vs. Executive Chief-of-Staff vs. WAG Podcast intelligence vs. Reporting API ingestion — compared on real business impact, dependencies, and effort, not ease of coding.
+
+## Flagged, not actioned — 2026-09-10
+
+A competitive comparison pass (LOL Podcast, see `WAG_LOL_PODCAST_COLLABORATION_CARD.md` §0A) surfaced a real, unfavorable gap worth this loop's attention on its own, separately from any Podcast-side work: **Main WAG's recent long-form uploads are showing roughly 1,300–22,000 views on a 1.2M-subscriber channel**, against a same-scale comparison (LOL Podcast's parent channel, 3.47M subscribers) doing 300K–2.8M on comparable recent uploads. This is a real, current, Main-WAG-specific weakness — not a Podcast problem, and not something to solve by routing more Main traffic toward WAG Podcast (that would launch a cross-promotion test from an already-weakened base, per Katie's explicit instruction not to treat Main-channel promotion as the fix). **Flagged for its own future strategy discussion, not analyzed or actioned here.**

@@ -2,7 +2,17 @@
 
 **Status: HOLD FOR REVIEW. Research and a drafted, unsent message only — no contact has been made, nothing has been sent or published.**
 
-**Date:** 2026-08-16
+**Date:** 2026-08-16 (original), updated 2026-09-10 with a real, deeper investigation — §0A below
+
+## 0A. UPDATE 2026-09-10 — LOL Podcast's spin-off launch, and the structural lesson it carries
+
+A separate, deep competitive-intelligence pass (triggered by a live event, not routine research) investigated LOL Podcast's attempt to launch a spin-off channel, "Last Laugh Podcast," fronted by three younger creators (two of them prior LOL Podcast guests: Yolanda, "the 67 Kid"/Maverick Trevillian, plus Harper Phillips — **note: a different Harper from Harper Zilmer, LOL Podcast's own cast member named in §1 below, do not conflate them**). Full findings, evidence, and source URLs live in that pass's own report (not duplicated here in full) — this section carries only what's directly relevant to WAG's own collaboration/packaging strategy, tightened per Katie's explicit review:
+
+- **The channel was terminated by YouTube six days after launch, having reached 85,100 subscribers. The cause is UNKNOWN and must stay UNKNOWN — no stated reason exists anywhere (no appeal post, no creator statement, no press), and this card will not speculate about why.**
+- **LOL Podcast does not own or produce Last Laugh** — real evidence: it's absent from LOL's own "Sub To Our Other Channels" shelf, they didn't use their own dual-attribution Collaborations feature for it (they use that routinely with real guests), no community post, no shared business infrastructure. This was cross-promotion of independent young creators, not a franchise build.
+- **The real growth mechanism, and the one insight worth carrying into WAG's own strategy:** the spin-off's audience came overwhelmingly from its cast members *appearing inside LOL Podcast's own content* for weeks before launch (guest Yolanda gained roughly 250K subscribers, +7,390%, from that participation) — not from LOL's single dedicated promo Short pointing at the new channel (which converted at roughly 1/6th the rate). **Audience transfer happens through participation, not promotion.** This reframes what WAG should actually be testing: not "how do we get Main WAG to promote WAG Podcast harder," but how WAG uses real outside guests, recurring collaborators, and serialized relationships so a personality earns audience investment *while appearing in WAG's own content*, the same way Yolanda did on LOL's. See `WAG_COLLABORATION_MAP.md` (new, 2026-09-10) for how this applies to WAG's own real candidate list, with a first-appearance-through-audience-transfer structure per candidate.
+- **What this update does NOT change:** the §3 concept below (an in-person, Dallas-based joint Verdict taping anchored on Harper Zilmer) still stands as the one committed concept — nothing here supersedes it. The Last Laugh episode is additional evidence about *how* a collaboration converts audience once it happens, not a reason to change who or what WAG is proposing to LOL Podcast itself.
+- **A caution the corrected finding carries with it:** don't read "launch a spin-off channel" as the takeaway — the spin-off's 85,100 subscribers evaporated with no owned surface to land on (no site, no email list, no entity) the moment YouTube acted. WAG's own owned-audience assets (trademark, two sites, Beehiiv list, membership) are the reason a WAG-side audience-transfer bet is safer than what Last Laugh attempted, not a reason to imitate its channel-spinoff structure.
 
 ## 0. Continuity note — this is not a fresh start
 
