@@ -20,10 +20,14 @@ const topics = [
   "Comedy",
 ];
 
+// `alt` kept in step with /hosts/, which carries the same three photos --
+// both pages previously rendered `alt={h.name}`, i.e. a bare first name
+// describing a portrait. Relationships match the fact already published
+// on this site's FAQ; nothing added beyond it.
 const hosts = [
-  { name: "Annabella", photo: "/images/annabella-thumb.jpg", photoWebp: "/images/annabella-thumb.webp" },
-  { name: "Scarlett", photo: "/images/scarlett-thumb.jpg", photoWebp: "/images/scarlett-thumb.webp" },
-  { name: "Angelina", photo: "/images/angelina-thumb.jpg", photoWebp: "/images/angelina-thumb.webp" },
+  { name: "Annabella", photo: "/images/annabella-thumb.jpg", photoWebp: "/images/annabella-thumb.webp", alt: "Annabella, a WAG Podcast host and Angelina's sister" },
+  { name: "Scarlett", photo: "/images/scarlett-thumb.jpg", photoWebp: "/images/scarlett-thumb.webp", alt: "Scarlett, a WAG Podcast host and Angelina and Annabella's cousin" },
+  { name: "Angelina", photo: "/images/angelina-thumb.jpg", photoWebp: "/images/angelina-thumb.webp", alt: "Angelina, a WAG Podcast host and Annabella's sister" },
 ];
 
 const pageSchema = {
@@ -78,7 +82,7 @@ const pageSchema = {
     <div class="container">
       <picture>
         <source srcset="/images/studio/wag-studio-283.webp" type="image/webp" />
-        <img src="/images/studio/wag-studio-283.jpg" alt="A WAG Podcast host on the studio couch" loading="lazy" />
+        <img src="/images/studio/wag-studio-283.jpg" alt="A WAG Podcast host on the studio's pink couch with a retro pink telephone, against the set's checkerboard wall" loading="lazy" />
       </picture>
     </div>
   </section>
@@ -102,7 +106,7 @@ const pageSchema = {
           <a class="host-card" href="/hosts/">
             <picture>
               <source srcset={h.photoWebp} type="image/webp" />
-              <img src={h.photo} alt={h.name} loading="lazy" />
+              <img src={h.photo} alt={h.alt} loading="lazy" />
             </picture>
             <span>{h.name}</span>
           </a>

@@ -140,7 +140,18 @@ const whatsNextItems = [
       <div class="episode-header">
         <p class="eyebrow"><EqBars size="sm" /> WAG Podcast Story</p>
         <h1>{entry.data.title}</h1>
-        <p class="episode-meta">{dateFmt.format(entry.data.publishDate)} &middot; {hostLabel}</p>
+        {/*
+          The host byline used to be plain text. /hosts/ had no contextual
+          inbound link from anywhere in the episode archive -- only the
+          sitewide header/footer nav plus Home, About and Match -- even
+          though every episode page names its hosts right here and the
+          episode archive is this site's largest page group. Linking the
+          real hosts of this episode to the real page about them is an
+          accurate relationship, not an invented one.
+        */}
+        <p class="episode-meta">
+          {dateFmt.format(entry.data.publishDate)} &middot; <a class="episode-meta-hosts" href="/hosts/">{hostLabel}</a>
+        </p>
         <div class="episode-platforms">
           <PlatformBar
             spotifyUrl={entry.data.destinations?.spotify}
@@ -210,6 +221,8 @@ const whatsNextItems = [
   .eyebrow{ display:inline-flex; align-items:center; gap:10px; color: var(--wag-green); font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em; font-size:.78rem; font-weight:700; margin-bottom:.6em; }
   .episode-header h1{ font-size: clamp(1.9rem, 3.8vw, 2.7rem); margin: 0 0 .4em; max-width:22ch; }
   .episode-meta{ color: var(--ink-muted); font-size:.95rem; margin:0 0 18px; }
+  .episode-meta-hosts{ color: var(--ink-soft); font-weight:600; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:2px; }
+  .episode-meta-hosts:hover{ color: var(--wag-green); }
   .episode-platforms{ margin-top: 4px; }
 
   .episode-video{ padding: 0 0 40px; }

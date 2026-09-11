@@ -76,7 +76,14 @@ const socialLinks = [
       <div class="contact-photo">
         <picture>
           <source srcset="/images/studio/wag-studio-191.webp" type="image/webp" />
-          <img src="/images/studio/wag-studio-191.jpg" alt="A WAG Podcast host on the studio set" loading="eager" fetchpriority="high" />
+          {/*
+            Alt was "A WAG Podcast host on the studio set" -- singular, and
+            the photo actually shows all three hosts mid-conversation, so it
+            was inaccurate as well as generic. Describes the real scene now,
+            without naming which host is which (not reliably identifiable
+            from the frame, and guessing would be a fabricated detail).
+          */}
+          <img src="/images/studio/wag-studio-191.jpg" alt="All three WAG Podcast hosts mid-conversation on the show's set, around the pink couch and Shure mics under the neon WAG Podcast sign" loading="eager" fetchpriority="high" />
         </picture>
         <div class="contact-photo-badge">We read every message.</div>
       </div>

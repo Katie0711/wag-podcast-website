@@ -6,45 +6,80 @@ import { insiderHref } from "../../lib/insiderLink";
 // Podcast-specific: their on-show roles and dynamic, not a rewrite of
 // their full WAG bios (those stay authoritative at
 // wildadventuregirls.com/girls/[name] -- linked below, not duplicated).
+//
+// `relation` states the real family relationship per host. This page
+// previously only said "real sisters and a cousin" without ever saying
+// WHICH, even though the specific fact was already published on this
+// site's own FAQ ("Angelina and Annabella are sisters, and Scarlett is
+// their cousin") -- so the page that exists to answer "who hosts WAG
+// Podcast" was the one page that left the most-asked follow-up
+// unanswered. Nothing here goes beyond that already-published fact.
+//
+// `alt` is real descriptive alt text per photo, replacing a bare
+// `alt={h.name}` (a first name alone describes nothing and matches
+// neither the pattern used by this site's other images nor WAG's
+// first-names-only privacy rule needing any more than this).
 const hosts = [
   {
     name: "Annabella",
     role: "The Wild Card",
+    relation: "Angelina's sister",
     photo: "/images/annabella-thumb.jpg",
     photoWebp: "/images/annabella-thumb.webp",
+    alt: "Annabella, a WAG Podcast host and Angelina's sister",
     bio: "Her reactions are the moments that get clipped and turned into memes. Annabella's the one who says the thing everyone's thinking before anyone else does.",
     profileUrl: "https://wildadventuregirls.com/girls/annabella/",
   },
   {
     name: "Scarlett",
     role: "The Quick-Witted Instigator",
+    relation: "Angelina and Annabella's cousin",
     photo: "/images/scarlett-thumb.jpg",
     photoWebp: "/images/scarlett-thumb.webp",
+    alt: "Scarlett, a WAG Podcast host and Angelina and Annabella's cousin",
     bio: "Her one-liners become the soundbites everyone quotes. Scarlett's the one who asks the question that actually gets an honest answer.",
     profileUrl: "https://wildadventuregirls.com/girls/scarlett/",
   },
   {
     name: "Angelina",
     role: "The Voice of Reason",
+    relation: "Annabella's sister",
     photo: "/images/angelina-thumb.jpg",
     photoWebp: "/images/angelina-thumb.webp",
+    alt: "Angelina, a WAG Podcast host and Annabella's sister",
     bio: "She's the one who keeps the conversation actually going somewhere. Angelina makes every episode relatable instead of chaotic for its own sake.",
     profileUrl: "https://wildadventuregirls.com/girls/angelina/",
   },
 ];
 
+// "Are the Wild Adventure girls sisters?" is a real, live People-also-ask
+// question on Google for this brand, so the specific relationship is
+// worth modelling as actual structured data rather than prose alone.
+// schema.org Person has a real `sibling` property (there is no `cousin`
+// equivalent, so Scarlett's relationship stays in prose/description only
+// -- inventing a property for it would be worse than omitting it).
+// Nothing here goes beyond what this site's FAQ already publishes, and
+// it stays first-names-only with no ages or locations.
 const pageSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Hosts — WAG Podcast",
-  description: "Meet the three hosts of WAG Podcast: Angelina, Scarlett, and Annabella — real sisters and a cousin, not a cast.",
+  description: "Meet the three hosts of WAG Podcast: Angelina and Annabella are sisters, and Scarlett is their cousin — a real family, not a cast.",
   url: "https://thewagpodcast.com/hosts/",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: hosts.map((h, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      item: { "@type": "Person", name: h.name, description: h.role, url: h.profileUrl },
+      item: {
+        "@type": "Person",
+        "@id": h.profileUrl,
+        name: h.name,
+        description: `${h.role} on WAG Podcast — ${h.relation}.`,
+        url: h.profileUrl,
+        ...(h.name === "Angelina" ? { sibling: { "@id": "https://wildadventuregirls.com/girls/annabella/" } } : {}),
+        ...(h.name === "Annabella" ? { sibling: { "@id": "https://wildadventuregirls.com/girls/angelina/" } } : {}),
+      },
     })),
   },
 };
@@ -52,7 +87,7 @@ const pageSchema = {
 
 <BaseLayout
   title="Hosts — WAG Podcast"
-  description="Meet the three hosts of WAG Podcast: Angelina, Scarlett, and Annabella — real sisters and a cousin, not a cast."
+  description="Meet the three hosts of WAG Podcast: Angelina and Annabella are sisters, and Scarlett is their cousin — a real family, not a cast assembled for a show."
   ogImage="/images/studio/wag-studio-137.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
@@ -67,7 +102,7 @@ const pageSchema = {
     <div class="container hero-inner">
       <p class="eyebrow"><EqBars size="sm" /> Hosts</p>
       <h1>Three <span class="text-accent">personalities</span>. Zero filter.</h1>
-      <p class="lede">Angelina, Scarlett, and Annabella — real sisters and a cousin, so the dynamic on screen is a real family relationship, not a cast assembled for a show.</p>
+      <p class="lede">Angelina and Annabella are sisters, and Scarlett is their cousin — so the dynamic on screen is a real family relationship, not a cast assembled for a show.</p>
     </div>
   </section>
 
@@ -77,11 +112,12 @@ const pageSchema = {
         <div class="host-row">
           <picture>
             <source srcset={h.photoWebp} type="image/webp" />
-            <img src={h.photo} alt={h.name} loading="lazy" />
+            <img src={h.photo} alt={h.alt} loading="lazy" />
           </picture>
           <div class="host-row-body">
             <span class="host-role">{h.role}</span>
             <h2>{h.name}</h2>
+            <p class="host-relation">{h.relation}</p>
             <p>{h.bio}</p>
             <a class="host-profile-link" href={h.profileUrl}>Full profile on Wild Adventure Girls →</a>
           </div>
@@ -132,8 +168,12 @@ const pageSchema = {
     font-family: var(--font-display); text-transform:uppercase; letter-spacing:.05em;
     font-size:.78rem; font-weight:700; color: var(--wag-green);
   }
-  .host-row h2{ font-size:1.8rem; margin:.15em 0 .4em; }
+  .host-row h2{ font-size:1.8rem; margin:.15em 0 .25em; }
   .host-row p{ font-size:1rem; max-width:56ch; margin-bottom:.8em; }
+  .host-relation{
+    font-size:.92rem; color: var(--ink-soft); font-weight:600;
+    margin-bottom:.6em !important;
+  }
   .host-profile-link{ color: var(--wag-pink); font-weight:600; font-size:.92rem; }
 
   .hosts-cta{ padding: 8px 0 32px; border-top:1px solid var(--line); padding-top:32px; }
