@@ -6,8 +6,7 @@
 // a real platform link); this component doesn't invent content, it just
 // gives real content a consistent home at the bottom of every page.
 import ShareSheet from "./ShareSheet.astro";
-import { CTA } from "../lib/ctaCopy";
-import { insiderHref } from "../lib/insiderLink";
+import { insiderHref, insiderCtaLabel } from "../lib/insiderLink";
 
 interface NextItem {
   icon: string;
@@ -40,7 +39,7 @@ const { items, shareUrl, shareTitle, insiderPage } = Astro.props;
         </div>
         <a class="wn-item wn-subscribe" data-wn-track data-wn-label="Subscribe" href={insiderHref(insiderPage)}>
           <span class="wn-icon">📬</span>
-          <span class="wn-label">{CTA.subscribe}</span>
+          <span class="wn-label">{insiderCtaLabel(insiderPage)}</span>
         </a>
       </div>
     </div>
