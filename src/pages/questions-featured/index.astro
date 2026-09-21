@@ -155,10 +155,6 @@ const faqSchema = {
         submitBtn.disabled = true;
         statusEl.textContent = "Submitting...";
 
-        if (typeof (window as any).gtag === "function") {
-          (window as any).gtag("event", "question_submitted", { submit_key: submitKey });
-        }
-
         try {
           const res = await fetch("/api/question-submit", {
             method: "POST",
@@ -166,6 +162,11 @@ const faqSchema = {
             body: JSON.stringify({ question, name: nameInput.value.trim() }),
           });
           if (res.ok) {
+            // GA4 conversion, moved 2026-09-21: gated on the real write
+            // succeeding instead of firing on click (see VoteWidget/PollWidget).
+            if (typeof (window as any).gtag === "function") {
+              (window as any).gtag("event", "question_submitted", { submit_key: submitKey });
+            }
             localStorage.setItem(storageKey, "1");
             statusEl.textContent = "Question submitted — thanks!";
             showSubmitted();

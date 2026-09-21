@@ -89,10 +89,6 @@ const initialTotal = options.reduce((sum, o) => sum + (initialCounts[o.key] ?? 0
           const choice = btn.dataset.pollChoice!;
           buttonsEl.querySelectorAll("button").forEach((b) => (b.disabled = true));
 
-          if (typeof (window as any).gtag === "function") {
-            (window as any).gtag("event", "poll_vote_cast", { poll_key: pollKey, choice });
-          }
-
           try {
             const res = await fetch("/api/poll-vote", {
               method: "POST",
@@ -100,6 +96,11 @@ const initialTotal = options.reduce((sum, o) => sum + (initialCounts[o.key] ?? 0
               body: JSON.stringify({ pollKey, choice, validChoices }),
             });
             if (res.ok) {
+              // GA4 conversion, moved 2026-09-21: gated on the real write
+              // succeeding instead of firing on click (see VoteWidget).
+              if (typeof (window as any).gtag === "function") {
+                (window as any).gtag("event", "poll_vote_cast", { poll_key: pollKey, choice });
+              }
               const data = await res.json();
               renderResults(data);
               localStorage.setItem(storageKey, choice);

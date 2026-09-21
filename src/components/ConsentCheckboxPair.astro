@@ -151,6 +151,12 @@ const {
             body: JSON.stringify({ email, transactional, marketing, voteKey, itemKey: voteKey, transactionalTag, choiceKey }),
           });
           if (res.ok) {
+            // GA4 conversion, added 2026-09-21: the real, confirmed
+            // Insider signup -- gated on the Beehiiv subscribe API call
+            // actually succeeding, not on clicking Save.
+            if (typeof (window as any).gtag === "function") {
+              (window as any).gtag("event", "insider_joined", { item_key: voteKey, marketing: marketing });
+            }
             statusEl.textContent = "You're set — we'll be in touch.";
             emailInput.disabled = true;
             transactionalBox.disabled = true;

@@ -86,10 +86,6 @@ const initialYesPct = initialTotal > 0 ? Math.round((initialYes / initialTotal) 
           const choice = btn.dataset.voteChoice as "yes" | "no";
           buttonsEl.querySelectorAll("button").forEach((b) => (b.disabled = true));
 
-          if (typeof (window as any).gtag === "function") {
-            (window as any).gtag("event", "verdict_vote_cast", { verdict_key: voteKey, choice });
-          }
-
           try {
             const res = await fetch("/api/verdict-vote", {
               method: "POST",
@@ -97,6 +93,12 @@ const initialYesPct = initialTotal > 0 ? Math.round((initialYes / initialTotal) 
               body: JSON.stringify({ voteKey, choice }),
             });
             if (res.ok) {
+              // GA4 conversion, moved 2026-09-21: this used to fire on click,
+              // before the vote was actually recorded -- counted attempts,
+              // not confirmed votes. Now gated on the real write succeeding.
+              if (typeof (window as any).gtag === "function") {
+                (window as any).gtag("event", "verdict_vote_cast", { verdict_key: voteKey, choice });
+              }
               const data = await res.json();
               renderResults(data.yes, data.no);
               localStorage.setItem(storageKey, choice);

@@ -428,6 +428,23 @@ const faqSchema = {
   }
   fillReferringPage();
   document.addEventListener("astro:page-load", fillReferringPage);
+
+  // GA4 conversion, added 2026-09-21 -- see wildadventuregirls-website's
+  // sponsor form for the full reasoning (native form, validated 'submit'
+  // as the honest confirmed-success proxy).
+  function wireSponsorFormTracking() {
+    var form = document.querySelector<HTMLFormElement>('form[name="wagpodcast-sponsor-inquiry"]');
+    if (!form || form.dataset.gaWired) return;
+    form.dataset.gaWired = "true";
+    form.addEventListener("submit", function () {
+      if (!form.checkValidity()) return;
+      if (typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "sponsor_inquiry_submitted", { site: "podcast" });
+      }
+    });
+  }
+  wireSponsorFormTracking();
+  document.addEventListener("astro:page-load", wireSponsorFormTracking);
 </script>
 
 <style>

@@ -149,4 +149,22 @@ const socialLinks = [
   }
   fillReferringPage();
   document.addEventListener("astro:page-load", fillReferringPage);
+
+  // GA4 conversion, added 2026-09-21 -- see wildadventuregirls-website's
+  // contact page for the full reasoning: native Netlify form with no JS
+  // interception, so a validated 'submit' event is the honest proxy for
+  // "confirmed success" available here.
+  function wireContactFormTracking() {
+    var form = document.querySelector<HTMLFormElement>('form[name="wagpodcast-contact"]');
+    if (!form || form.dataset.gaWired) return;
+    form.dataset.gaWired = "true";
+    form.addEventListener("submit", function () {
+      if (!form.checkValidity()) return;
+      if (typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "contact_form_submitted", { site: "podcast" });
+      }
+    });
+  }
+  wireContactFormTracking();
+  document.addEventListener("astro:page-load", wireContactFormTracking);
 </script>
